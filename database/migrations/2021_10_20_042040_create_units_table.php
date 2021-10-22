@@ -22,7 +22,7 @@ class CreateUnitsTable extends Migration
             $table->string('unit_description');
             $table->string('unit_completeness');
             $table->double('unit_cost');
-            $table->double('total_cost');
+            $table->double('total_cost')->nullable();
             $table->timestamps();
         });
     }

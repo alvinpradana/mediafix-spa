@@ -23,12 +23,12 @@ class PartnersController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'partner_name' => 'required',
-            'phone_number' => 'required',
-            'partner_email' => 'required|email',
-            'start_join' => 'required',
-            'partner_company' => 'required',
-            'partner_address' => 'required',
+            'partner_name' => ['required'],
+            'phone_number' => ['required'],
+            'partner_email' => ['required', 'email'],
+            'start_join' => ['required', 'date'],
+            'partner_company' => ['required'],
+            'partner_address' => ['required'],
         ]);
 
         $partner = $request->all();
@@ -46,12 +46,12 @@ class PartnersController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'partner_name' => 'required',
-            'phone_number' => 'required',
-            'partner_email' => 'required|email',
-            'start_join' => 'required',
-            'partner_company' => 'required',
-            'partner_address' => 'required',
+            'partner_name' => ['required'],
+            'phone_number' => ['required'],
+            'partner_email' => ['required', 'email'],
+            'start_join' => ['required', 'date'],
+            'partner_company' => ['required'],
+            'partner_address' => ['required'],
         ]);
 
         $partner = $request->all();

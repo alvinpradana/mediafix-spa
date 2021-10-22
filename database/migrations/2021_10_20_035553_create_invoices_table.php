@@ -23,11 +23,11 @@ class CreateInvoicesTable extends Migration
             $table->integer('guarantee')->nullable();
             $table->string('order_status');
             $table->string('payment_status');
-            $table->double('subtotal');
+            $table->double('subtotal')->nullable();
             $table->double('discount')->nullable();
-            $table->double('total_payment');
+            $table->double('total_payment')->nullable();
             $table->double('down_payment')->nullable();
-            $table->double('dependents');
+            $table->double('dependents')->nullable();
             $table->text('notes')->nullable();
             $table->timestamps();
         });

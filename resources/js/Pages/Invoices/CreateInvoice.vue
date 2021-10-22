@@ -10,47 +10,56 @@
                         <div class="form-group col-sm-2">
                             <label for="invoice_code">Invoice Code</label>
                             <input type="text" v-model="form.invoice_code" id="invoice_code" class="form-control" placeholder="Invoice code">
+                            <small class="text-danger" v-if="errors.invoice_code">{{ errors.invoice_code[0] }}</small>
                         </div>
                         <div class="form-group col-sm-2">
                             <label for="customer_name">Customer Name</label>
                             <input type="name" id="customer_name" v-model="form.customer_name" class="form-control" placeholder="Enter name">
+                            <small class="text-danger" v-if="errors.customer_name">{{ errors.customer_name[0] }}</small>
                         </div>
                         <div class="form-group col-sm-2">
                             <label for="customer_phone">Phone Number</label>
                             <input type="text" id="customer_phone" v-model="form.customer_phone" class="form-control" placeholder="Enter phone number">
+                            <small class="text-danger" v-if="errors.customer_phone">{{ errors.customer_phone[0] }}</small>
                         </div>
                         <div class="form-group col-sm-2">
                             <label for="date_in">Date In</label>
-                                <input type="text" v-model="form.date_in" id="date_in" class="form-control" placeholder="Enter date in" onfocus="(this.type='date')" onblur="if(this.value==''){this.type='text'}">
-                            </div>
+                            <input type="text" v-model="form.date_in" id="date_in" class="form-control" placeholder="Enter date in" onfocus="(this.type='date')" onblur="if(this.value==''){this.type='text'}">
+                            <small class="text-danger" v-if="errors.date_in">{{ errors.date_in[0] }}</small>
+                        </div>
                         <div class="form-group col-sm-2">
                             <label for="date_taken">Date Taken</label>
-                                <input type="text" v-model="form.date_taken" id="date_taken" class="form-control" placeholder="Enter date taken" onfocus="(this.type='date')" onblur="if(this.value==''){this.type='text'}">
+                            <input type="text" v-model="form.date_taken" id="date_taken" class="form-control" placeholder="Enter date taken" onfocus="(this.type='date')" onblur="if(this.value==''){this.type='text'}">
+                            <small class="text-danger" v-if="errors.date_taken">{{ errors.date_taken[0] }}</small>
                         </div>
                         <div class="form-group col-sm-2">
                             <label for="guarantee">Guarantee</label>
                             <div class="input-group">
-                                <input type="text" id="guarantee" v-model="form.guarantee" class="form-control" placeholder="Long warranty">
+                                <input type="number" id="guarantee" v-model="form.guarantee" class="form-control" placeholder="Long warranty">
+                                <small class="text-danger" v-if="errors.guarantee">{{ errors.guarantee[0] }}</small>
                                 <div class="input-group-append">
                                     <span class="input-group-text">Days</span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <table class="table table-responsive table-bordered table-hover mt-2">
-                        <tr>
-                            <th class="text-center" width="10%">Qty</th>
+                    <table class="table table-responsive table-bordered mt-2">
+                        <tr class="text-center">
+                            <th width="10%">Qty</th>
                             <th width="15%">Unit</th>
                             <th width="15%">Unit Name</th>
                             <th width="20%">Description</th>
                             <th width="15%">Completeness</th>
                             <th width="10%">Cost</th>
-                            <th class="text-center" width="15%">Total</th>
+                            <th width="15%">Total</th>
                             <th width="2%">Delete</th>
                         </tr>
                         <tr v-for="(unit, index) in form.units" :key="unit.id">
                             <td>
                                 <input type="number" v-model="unit.unit_quantity" class="form-control">
+                                <small class="text-danger" v-if="errors['units.'+ index +'.unit_quantity']">
+                                    {{ errors['units.'+ index +'.unit_quantity'][0] }}
+                                </small>
                             </td>
                             <td>
                                 <select v-model="unit.unit_type" class="text-white form-control">
@@ -62,12 +71,21 @@
                             </td>
                             <td>
                                 <input type="text" v-model="unit.unit_name" class="form-control">
+                                <small class="text-danger" v-if="errors['units.'+ index +'.unit_name']">
+                                    {{ errors['units.'+ index +'.unit_name'][0] }}
+                                </small>
                             </td>			
                             <td>
                                 <input type="text" v-model="unit.unit_description" class="form-control">
+                                <small class="text-danger" v-if="errors['units.'+ index +'.unit_description']">
+                                    {{ errors['units.'+ index +'.unit_description'][0] }}
+                                </small>
                             </td>
                             <td>
                                 <input type="text" v-model="unit.unit_completeness" class="form-control">
+                                <small class="text-danger" v-if="errors['units.'+ index +'.unit_completeness']">
+                                    {{ errors['units.'+ index +'.unit_completeness'][0] }}
+                                </small>
                             </td>
                             <td>
                                 <input type="number" v-model="unit.unit_cost" class="form-control">
@@ -96,6 +114,7 @@
                                             <option value="Fixed"> Fixed </option>
                                             <option value="Cancel"> Cancel </option>
                                         </select>
+                                        <small class="text-danger" v-if="errors.order_status">{{ errors.order_status[0] }}</small>
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-6 pr-4">
@@ -109,12 +128,14 @@
                                             <option value="Unpaid"> Unpaid </option>
                                             <option value="Cancel"> Cancel </option>
                                         </select>
+                                        <small class="text-danger" v-if="errors.payment_status">{{ errors.payment_status[0] }}</small>
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-12 pr-4">
                                     <div class="form-group row">
                                         <label for="notes" class="col-form-label">Notes :</label>
-                                        <textarea class="form-control txt" rows="6" v-model="form.notes" id="notes" placeholder="Notes of invoice order!"></textarea>
+                                        <textarea class="form-control txt" rows="6" v-model="form.notes" id="notes" placeholder="Notes of this invoice!"></textarea>
+                                        <small class="text-danger" v-if="errors.notes">{{ errors.notes[0] }}</small>
                                     </div>
                                 </div>
                             </div>
@@ -132,6 +153,7 @@
                                             <td>
                                                 <div class="input-group">
                                                     <input type="number" v-model="form.discount" class="form-control" placeholder="Discount">
+                                                    <small class="text-danger" v-if="errors.discount">{{ errors.discount[0] }}</small>
                                                     <div class="input-group-append">
                                                         <span class="input-group-text">%</span>
                                                     </div>
@@ -150,6 +172,7 @@
                                                         <span class="input-group-text">Rp</span>
                                                     </div>
                                                     <input type="number" v-model="form.down_payment" class="form-control" placeholder="Amount Paid / DP">
+                                                    <small class="text-danger" v-if="errors.down_payment">{{ errors.down_payment[0] }}</small>
                                                 </div>
                                             </td>
                                         </tr>
@@ -192,27 +215,22 @@ export default {
         const form = reactive({
             invoice_code: this.invoice_code,
             customer_name: null,
-            phone_number: null,
+            customer_phone: null,
             date_in: null,
             date_taken: null,
             guarantee: null,
             order_status: null,
             payment_status: null,
-            subtotal: this.subtotal,
             discount: null,
-            total_payment: this.total_payment,
             down_payment: null,
-            dependents: this.dependents,
             notes: null,
             units: [{
-                invoice_id: null,
                 unit_quantity: 1,
                 unit_type: null,
                 unit_name: null,
                 unit_description: null,
                 unit_completeness: null,
                 unit_cost: null,
-                total_cost: this.total_cost,
             }],
         })
         function submit () {

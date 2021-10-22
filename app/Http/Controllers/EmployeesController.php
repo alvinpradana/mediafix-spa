@@ -24,11 +24,11 @@ class EmployeesController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'employee_name' => 'required',
-            'phone_number' => 'required',
-            'employee_email' => 'required|email',
-            'employee_division' => 'required',
-            'employee_address' => 'required',
+            'employee_name' => ['required'],
+            'phone_number' => ['required'],
+            'employee_email' => ['required', 'email'],
+            'employee_division' => ['required'],
+            'employee_address' => ['required'],
         ]);
 
         $employee = $request->all();
@@ -46,11 +46,11 @@ class EmployeesController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'employee_name' => 'required',
-            'phone_number' => 'required',
-            'employee_email' => 'required|email',
-            'employee_division' => 'required',
-            'employee_address' => 'required',
+            'employee_name' => ['required'],
+            'phone_number' => ['required'],
+            'employee_email' => ['required', 'email'],
+            'employee_division' => ['required'],
+            'employee_address' => ['required'],
         ]);
 
         $employee = $request->all();
