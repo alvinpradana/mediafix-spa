@@ -1,11 +1,11 @@
 <template>
     <Layout>
-        <Head title="Create Invoice" />
+        <Head title="Edit Invoice" />
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Create New Invoice</h4>
+                <h4 class="card-title">Edit this Invoice</h4>
                 <div class="dropdown-divider my-4"></div>
-                <form @submit.prevent="submit" autocomplete="off">
+                <form @submit.prevent="update" autocomplete="off">
                     <div class="row">
                         <div class="form-group col-sm-2">
                             <label for="invoice_code">Invoice Code</label>
@@ -215,37 +215,36 @@ export default {
         Head,
         Layout,
     },
-    data () {
+    data (props) {
         const form = reactive({
-            invoice_code: this.invoice_code,
-            customer_name: null,
-            customer_phone: null,
-            date_in: null,
-            date_taken: null,
-            guarantee: null,
-            order_status: null,
-            payment_status: null,
-            discount: null,
-            down_payment: null,
-            notes: null,
+            invoice_code: props.invoice.invoice_code,
+            customer_name: props.invoice.customer_name,
+            customer_phone: props.invoice.customer_phone,
+            date_in: props.invoice.date_in,
+            date_taken: props.invoice.date_taken,
+            guarantee: props.invoice.guarantee,
+            order_status: props.invoice.order_status,
+            payment_status: props.invoice.payment_status,
+            discount: props.invoice.discount,
+            down_payment: props.invoice.down_payment,
+            notes: props.invoice.notes,
             units: [{
-                unit_quantity: 1,
-                unit_type: null,
-                unit_name: null,
-                unit_description: null,
-                unit_completeness: null,
-                unit_cost: null,
+                unit_quantity: props.invoice.units.unit_quantity,
+                unit_type: props.invoice.units.unit_type,
+                unit_name: props.invoice.units.unit_name,
+                unit_description: props.invoice.units.unit_description,
+                unit_completeness: props.invoice.units.unit_completeness,
+                unit_cost: props.invoice.units.unit_cost,
             }],
         })
-        function submit () {
-            Inertia.post('/invoices', form)
+        function update () {
+            Inertia.put(`/invoice/${invoice.id}`, form)
         }
-        return { form, submit }
+        return { form, update }
     },
     props: {
+        invoice: Object,
         errors: Object,
-        invoice_code: Object,
-        units_empty: Object,
     },
     computed: {
         total_cost () {

@@ -11,8 +11,11 @@ Route::get('/', [PagesController::class, 'home']);
 Route::get('/reports', [PagesController::class, 'reports']);
 
 // Invoices route
-Route::get('/create-new-invoice', [InvoicesController::class, 'create'])->name('invoices.index');
+Route::get('/invoices', [InvoicesController::class, 'index'])->name('invoices.index');
+Route::get('/create-new-invoice', [InvoicesController::class, 'create']);
 Route::post('/invoices', [InvoicesController::class, 'store']);
+Route::get('/invoice/{id}/edit', [InvoicesController::class, 'edit']);
+Route::delete('/invoice/{id}/delete', [InvoicesController::class, 'destroy']);
 
 // Partners route
 Route::get('/partners', [PartnersController::class, 'index'])->name('partners.index');

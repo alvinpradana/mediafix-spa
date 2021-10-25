@@ -12,7 +12,12 @@ class InvoicesController extends Controller
 {
     public function index()
     {
-        return Inertia::render('Invoices/CreateInvoice');
+        $invoices = Invoice::with('units')
+            ->orderBy('created_at', 'desc')
+            ->limit(5)
+            ->get();
+
+        return Inertia::render('Invoices/Index', compact('invoices'));
     }
 
     public function create()
@@ -35,7 +40,7 @@ class InvoicesController extends Controller
             'customer_name' => ['required'],
             'customer_phone' => ['required', 'max:15'],
             'date_in' => ['required', 'date'],
-            'date_taken' => ['nullable', 'date'],   
+            'date_taken' => ['nullable', 'date'],
             'guarantee' => ['nullable'],
             'order_status' => ['required'],
             'payment_status' => ['required'],
@@ -59,6 +64,9 @@ class InvoicesController extends Controller
             return response()->json([
                 'units_empty' => ['One or more item is required!.']
             ], 422);
+
+            // return Redirect::back()->with('error', 'One or more item is required!');
+
         }
 
         $data = $request->except('units');
@@ -81,6 +89,25 @@ class InvoicesController extends Controller
 
         $invoice->units()->saveMany($units);
 
-        return Redirect::back()->with('message', 'Invoice created successfully');
+        return Redirect::route('invoices.index')->with('message', 'Invoice created successfully');
+    }
+
+    public function edit($id)
+    {
+        $invoice = Invoice::with('units')->findOrFail($id);
+
+        // return response()->json([
+        //     'invoice' => $invoice,
+        // ]);
+
+        return Inertia::render('Invoices/EditInvoice', compact('invoice'));
+    }
+
+    public function destroy($id)
+    {
+        $invoice = Invoice::findOrFail($id);
+        $invoice->delete();
+
+        return Redirect::back()->with('message', 'Invoice deleted successfully');
     }
 }

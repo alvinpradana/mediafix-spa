@@ -3,7 +3,7 @@
         <Head title="Homepage" />
         <div class="row">
             <div class="col-sm-4 grid-margin">
-                <Link href="/employees" as="div" class="card" style="cursor: pointer">
+                <Link href="/invoices" as="div" class="card" style="cursor: pointer">
                     <div class="card-body">
                         <h5>ORDER</h5>
                         <div class="row">

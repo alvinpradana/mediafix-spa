@@ -9,13 +9,13 @@
                 <ul class="navbar-nav w-100">
                     <li class="nav-item w-100">
                         <form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search">
-                            <input type="text" class="form-control" placeholder="Search order"/>
+                            <input type="text" class="form-control" placeholder="Search"/>
                         </form>
                     </li>
                 </ul>
                 <ul class="navbar-nav navbar-nav-right">
                     <li class="nav-item dropdown">
-                        <Link :href="`/create-new-invoice`" class="nav-link btn btn-success create-new-button" aria-expanded="false" >
+                        <Link href="/create-new-invoice" class="nav-link btn btn-success create-new-button" aria-expanded="false" >
                             + Add New Invoice
                         </Link>
                     </li>
@@ -76,9 +76,7 @@ export default {
     },
 
     methods: {
-        closeMenu() {
-            $('#navbar-collapse').collapse('hide');
-        }
-    }
+        
+    },
 };
 </script>
