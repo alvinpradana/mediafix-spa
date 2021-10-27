@@ -38,7 +38,7 @@ class InvoicesController extends Controller
         $request->validate([
             'invoice_code' => ['required'],
             'customer_name' => ['required'],
-            'customer_phone' => ['required', 'max:15'],
+            'customer_phone' => ['required', 'max:20'],
             'date_in' => ['required', 'date'],
             'date_taken' => ['nullable', 'date'],
             'guarantee' => ['nullable'],
@@ -98,9 +98,66 @@ class InvoicesController extends Controller
 
         // return response()->json([
         //     'invoice' => $invoice,
+        //     'units' => $units
         // ]);
 
         return Inertia::render('Invoices/EditInvoice', compact('invoice'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'invoice_code' => ['required'],
+            'customer_name' => ['required'],
+            'customer_phone' => ['required', 'max:20'],
+            'date_in' => ['required', 'date'],
+            'date_taken' => ['nullable', 'date'],
+            'guarantee' => ['nullable'],
+            'order_status' => ['required'],
+            'payment_status' => ['required'],
+            'discount' => ['nullable'],
+            'down_payment' => ['nullable'],
+            'notes' => ['nullable'],
+            'units.*.unit_quantity' => ['required', 'integer', 'min:1'],
+            'units.*.unit_type' => ['required'],
+            'units.*.unit_name' => ['required'],
+            'units.*.unit_description' => ['required'],
+            'units.*.unit_completeness' => ['required'],
+            'units.*.unit_cost' => ['nullable', 'numeric'],
+        ]);
+
+        $invoice = Invoice::findOrFail($id);
+
+        $units = collect($request->units)->transform(function($unit) {
+            $unit['total_cost'] = $unit['unit_quantity'] * $unit['unit_cost'];
+            return new Unit($unit);
+        });
+
+        if ($units->isEmpty()) {
+            return response()->json([
+                'units_empty' => ['One or more item is required!.']
+            ], 422);
+        }
+
+        $data = $request->except('units');
+        $data['subtotal'] = $units->sum('total_cost');
+
+        $discAmount = $data['subtotal'] * ($data['discount'] / 100);
+        $data['total_payment'] = $data['subtotal'] - $discAmount;
+        $data['dependents'] = $data['total_payment'] - $data['down_payment'];
+
+        $invoice->update($data);
+
+        Unit::where('invoice_id', $invoice->id)->delete();
+
+        $invoice->units()->saveMany($units);
+
+        // return response()->json([
+        //     'updated' => true,
+        //     'id' => $invoice->id,
+        // ]);
+
+        return Redirect::route('invoices.index')->with('message', 'Invoice updated successfully');
     }
 
     public function destroy($id)

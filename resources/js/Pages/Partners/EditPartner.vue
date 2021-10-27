@@ -72,7 +72,7 @@ export default {
         })
 
         function update() {
-            Inertia.put(`/partner/${props.partner.id}`, form)
+            Inertia.put(`/partner/`+ props.partner.id, form)
         }
 
         return { form, update }

@@ -34,10 +34,10 @@
                                 <td>{{ partner.partner_company }}</td>
                                 <td>{{ partner.partner_address }}</td>
                                 <td>
-                                    <Link :href="`/partner/${partner.id}/edit`"  type="button" class="btn btn-outline-primary mr-1">
+                                    <Link :href="`/partner/`+ partner.id +`/edit`"  type="button" class="btn btn-outline-primary mr-1">
                                         <span class="icon-sm mdi mdi-pencil"></span>
                                     </Link>
-                                    <button type="button" @click.prevent="destroy(`${partner.id}`)" class="btn btn-outline-danger mr-1">
+                                    <button type="button" @click.prevent="destroy(partner.id)" class="btn btn-outline-danger mr-1">
                                         <span class="icon-sm mdi mdi-delete"></span>
                                     </button>
                                 </td>

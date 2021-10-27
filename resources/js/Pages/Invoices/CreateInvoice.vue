@@ -54,7 +54,7 @@
                             <th width="15%">Total</th>
                             <th width="2%">Delete</th>
                         </tr>
-                        <tr v-for="(unit, index) in form.units" :key="unit.id">
+                        <tr v-for="(unit, index) in form.units" :key="index">
                             <td>
                                 <input type="number" v-model="unit.unit_quantity" class="form-control">
                                 <small class="text-danger" v-if="errors['units.'+ index +'.unit_quantity']">

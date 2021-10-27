@@ -15,6 +15,7 @@ Route::get('/invoices', [InvoicesController::class, 'index'])->name('invoices.in
 Route::get('/create-new-invoice', [InvoicesController::class, 'create']);
 Route::post('/invoices', [InvoicesController::class, 'store']);
 Route::get('/invoice/{id}/edit', [InvoicesController::class, 'edit']);
+Route::put('/invoice/{id}', [InvoicesController::class, 'update']);
 Route::delete('/invoice/{id}/delete', [InvoicesController::class, 'destroy']);
 
 // Partners route

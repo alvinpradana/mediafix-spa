@@ -89,6 +89,9 @@
                             </td>
                             <td>
                                 <input type="number" v-model="unit.unit_cost" class="form-control">
+                                <small class="text-danger" v-if="errors['units.'+ index +'.unit_cost']">
+                                    {{ errors['units.'+ index +'.unit_cost'][0] }}
+                                </small>
                             </td>
                             <td class="text-center text-success">
                                 <div><strong>Rp. {{ total_cost[index] }}</strong></div>
@@ -216,7 +219,7 @@ export default {
         Layout,
     },
     data (props) {
-        const form = reactive({
+        const form = reactive ({
             invoice_code: props.invoice.invoice_code,
             customer_name: props.invoice.customer_name,
             customer_phone: props.invoice.customer_phone,
@@ -228,17 +231,10 @@ export default {
             discount: props.invoice.discount,
             down_payment: props.invoice.down_payment,
             notes: props.invoice.notes,
-            units: [{
-                unit_quantity: props.invoice.units.unit_quantity,
-                unit_type: props.invoice.units.unit_type,
-                unit_name: props.invoice.units.unit_name,
-                unit_description: props.invoice.units.unit_description,
-                unit_completeness: props.invoice.units.unit_completeness,
-                unit_cost: props.invoice.units.unit_cost,
-            }],
+            units: props.invoice.units,
         })
         function update () {
-            Inertia.put(`/invoice/${invoice.id}`, form)
+            Inertia.put(`/invoice/`+ props.invoice.id, form)
         }
         return { form, update }
     },

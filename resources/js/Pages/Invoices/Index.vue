@@ -45,10 +45,10 @@
                                     <div v-else class="badge badge-outline-danger">{{ invoice.payment_status }}</div>
                                 </td>
                                 <td class="text-center">
-                                    <Link :href="`/invoice/${invoice.id}/edit`" type="button" class="btn btn-outline-primary showInvoice mr-1">
+                                    <Link :href="`/invoice/`+ invoice.id +`/edit`" type="button" class="btn btn-outline-primary showInvoice mr-1">
                                         <span class="icon-sm mdi mdi-eye"></span>
                                     </Link>
-                                    <button type="button" @click.prevent="destroy(`${invoice.id}`)" class="btn btn-outline-danger">
+                                    <button type="button" @click.prevent="destroy(invoice.id)" class="btn btn-outline-danger">
                                         <span class="icon-sm mdi mdi-delete"></span>
                                     </button>
                                 </td>
