@@ -34,7 +34,7 @@ class EmployeesController extends Controller
         $employee = $request->all();
         Employee::create($employee);
 
-        return Redirect::route('employees.index')->with('message', 'Employee added successfully');
+        return Redirect::route('employees.index')->with('alert_success', 'Employee added successfully');
     }
 
     public function edit($id)
@@ -56,7 +56,7 @@ class EmployeesController extends Controller
         $employee = $request->all();
         Employee::where('id', $id)->update($employee);
 
-        return Redirect::route('employees.index')->with('message', 'Employee updated successfully');
+        return Redirect::route('employees.index')->with('alert_success', 'Employee updated successfully');
     }
 
     public function destroy($id)
@@ -64,6 +64,6 @@ class EmployeesController extends Controller
         $employee = Employee::findOrFail($id);
         $employee->delete();
 
-        return Redirect::back()->with('message', 'Employee deleted successfully');
+        return Redirect::back()->with('alert_success', 'Employee deleted successfully');
     }
 }

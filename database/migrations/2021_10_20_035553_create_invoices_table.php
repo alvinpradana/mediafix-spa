@@ -17,7 +17,7 @@ class CreateInvoicesTable extends Migration
             $table->id();
             $table->string('invoice_code')->unique();
             $table->string('customer_name', 191);
-            $table->string('customer_phone', 16);
+            $table->string('customer_phone', 50);
             $table->date('date_in');
             $table->date('date_taken')->nullable();
             $table->integer('guarantee')->nullable();

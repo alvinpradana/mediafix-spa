@@ -18,6 +18,11 @@
                         </tr>
                         </thead>
                         <tbody>
+                            <tr v-if="invoices.length === 0">
+                                <td colspan="7" class="text-center pt-4">
+                                    No data available in our record !
+                                </td>
+                            </tr>
                             <tr v-for="invoice in invoices" :key="invoice.id">
                                 <td>
                                     <i class="icon-sm mdi mdi mdi-account-circle text-success"></i>

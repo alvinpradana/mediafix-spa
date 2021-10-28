@@ -70,20 +70,16 @@ export default {
             partner_company: props.partner.partner_company,
             partner_address: props.partner.partner_address,
         })
-
         function update() {
             Inertia.put(`/partner/`+ props.partner.id, form)
         }
-
         return { form, update }
     },
-
     components: {
         Layout,
         Head,
         Link,
     },
-
     props: {
         partner: Object,
         errors: Object,

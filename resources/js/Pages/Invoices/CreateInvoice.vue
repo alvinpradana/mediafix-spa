@@ -54,7 +54,7 @@
                             <th width="15%">Total</th>
                             <th width="2%">Delete</th>
                         </tr>
-                        <tr v-for="(unit, index) in form.units" :key="index">
+                        <tr v-for="(unit, index) in form.units" :key="unit.id">
                             <td>
                                 <input type="number" v-model="unit.unit_quantity" class="form-control">
                                 <small class="text-danger" v-if="errors['units.'+ index +'.unit_quantity']">
@@ -98,10 +98,9 @@
                             </td>
                         </tr>
                     </table>
-                    <!-- <div v-if="errors.units_empty">
-                        <p class="alert alert-danger">{{errors.units_empty[0]}}</p>
-                        <hr>
-                    </div> -->
+                    <div v-if="$page.props.flash.alert_error" class="alert alert-danger my-2">
+                        {{ $page.props.flash.alert_error }}
+                    </div>
                     <div class="col-sm-12 col-md-2 mt-2 p-0">
                         <button type="button" @click="addRow()" class="btn btn-lg btn-block btn-outline-success"> Add Item </button>
                     </div>

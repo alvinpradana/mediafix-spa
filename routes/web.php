@@ -4,6 +4,7 @@ use App\Http\Controllers\EmployeesController;
 use App\Http\Controllers\InvoicesController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\PartnersController;
+use App\Http\Controllers\SparepartsController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -33,3 +34,10 @@ Route::post('/employees', [EmployeesController::class, 'store']);
 Route::get('/employee/{id}/edit', [EmployeesController::class, 'edit']);
 Route::put('/employee/{id}', [EmployeesController::class, 'update']);
 Route::delete('/employee/{id}/delete', [EmployeesController::class, 'destroy']);
+
+// Sparepart Route
+Route::get('/sparepart', [SparepartsController::class, 'index'])->name('spareparts.index');
+Route::post('/sparepart', [SparepartsController::class, 'store']);
+Route::get('/sparepart/{id}/edit', [SparepartsController::class, 'edit']);
+Route::put('/sparepart/{id}', [SparepartsController::class, 'update']);
+Route::delete('/sparepart/{id}/delete', [SparepartsController::class, 'destroy']);

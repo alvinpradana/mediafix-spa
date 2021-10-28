@@ -101,10 +101,9 @@
                             </td>
                         </tr>
                     </table>
-                    <!-- <div v-if="errors.units_empty">
-                        <p class="alert alert-danger">{{errors.units_empty[0]}}</p>
-                        <hr>
-                    </div> -->
+                    <div v-if="$page.props.flash.alert_error" class="alert alert-danger my-2">
+                        {{ $page.props.flash.alert_error }}
+                    </div>
                     <div class="col-sm-12 col-md-2 mt-2 p-0">
                         <button type="button" @click="addRow()" class="btn btn-lg btn-block btn-outline-success"> Add Item </button>
                     </div>

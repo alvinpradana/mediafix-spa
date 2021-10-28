@@ -34,7 +34,7 @@ class PartnersController extends Controller
         $partner = $request->all();
         Partner::create($partner);
         
-        return Redirect::route('partners.index')->with('message', 'Partner added successfully');
+        return Redirect::route('partners.index')->with('alert_success', 'Partner added successfully');
     }
 
     public function edit($id)
@@ -57,7 +57,7 @@ class PartnersController extends Controller
         $partner = $request->all();
         Partner::where('id', $id)->update($partner);
 
-        return Redirect::route('partners.index')->with('message', 'Partner updated successfully');
+        return Redirect::route('partners.index')->with('alert_success', 'Partner updated successfully');
     }
 
     public function destroy($id)
@@ -65,6 +65,6 @@ class PartnersController extends Controller
         $partner = Partner::findOrFail($id);
         $partner->delete();
         
-        return Redirect::back()->with('message', 'Partner deleted successfully');
+        return Redirect::back()->with('alert_success', 'Partner deleted successfully');
     }
 }

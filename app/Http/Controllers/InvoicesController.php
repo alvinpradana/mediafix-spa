@@ -61,12 +61,7 @@ class InvoicesController extends Controller
         });
 
         if ($units->isEmpty()) {
-            return response()->json([
-                'units_empty' => ['One or more item is required!.']
-            ], 422);
-
-            // return Redirect::back()->with('error', 'One or more item is required!');
-
+            return Redirect::back()->with('alert_error', 'One or more unit is required!');
         }
 
         $data = $request->except('units');
@@ -89,18 +84,12 @@ class InvoicesController extends Controller
 
         $invoice->units()->saveMany($units);
 
-        return Redirect::route('invoices.index')->with('message', 'Invoice created successfully');
+        return Redirect::route('invoices.index')->with('alert_success', 'Invoice created successfully');
     }
 
     public function edit($id)
     {
         $invoice = Invoice::with('units')->findOrFail($id);
-
-        // return response()->json([
-        //     'invoice' => $invoice,
-        //     'units' => $units
-        // ]);
-
         return Inertia::render('Invoices/EditInvoice', compact('invoice'));
     }
 
@@ -134,9 +123,7 @@ class InvoicesController extends Controller
         });
 
         if ($units->isEmpty()) {
-            return response()->json([
-                'units_empty' => ['One or more item is required!.']
-            ], 422);
+            return Redirect::back()->with('alert_error', 'One or more unit is required!');
         }
 
         $data = $request->except('units');
@@ -152,12 +139,7 @@ class InvoicesController extends Controller
 
         $invoice->units()->saveMany($units);
 
-        // return response()->json([
-        //     'updated' => true,
-        //     'id' => $invoice->id,
-        // ]);
-
-        return Redirect::route('invoices.index')->with('message', 'Invoice updated successfully');
+        return Redirect::route('invoices.index')->with('alert_success', 'Invoice updated successfully');
     }
 
     public function destroy($id)
@@ -165,6 +147,6 @@ class InvoicesController extends Controller
         $invoice = Invoice::findOrFail($id);
         $invoice->delete();
 
-        return Redirect::back()->with('message', 'Invoice deleted successfully');
+        return Redirect::back()->with('alert_success', 'Invoice deleted successfully');
     }
 }

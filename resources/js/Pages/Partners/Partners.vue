@@ -34,10 +34,10 @@
                                 <td>{{ partner.partner_company }}</td>
                                 <td>{{ partner.partner_address }}</td>
                                 <td>
-                                    <Link :href="`/partner/`+ partner.id +`/edit`"  type="button" class="btn btn-outline-primary mr-1">
+                                    <Link :href="`/partner/`+ partner.id +`/edit`" type="button" class="btn btn-outline-primary mr-1">
                                         <span class="icon-sm mdi mdi-pencil"></span>
                                     </Link>
-                                    <button type="button" @click.prevent="destroy(partner.id)" class="btn btn-outline-danger mr-1">
+                                    <button type="button" @click.prevent="destroy(partner.id)" class="btn btn-outline-danger">
                                         <span class="icon-sm mdi mdi-delete"></span>
                                     </button>
                                 </td>
@@ -49,12 +49,12 @@
                 <div class="col-md-6 mx-auto">
                     <div class="row mt-4">
                         <div class="col-md-6">
-                            <Link as="button" href="/create-partner" type="button" class="btn btn-lg btn-block btn-outline-success mt-2">
+                            <Link as="button" href="/create-partner" type="button" class="btn btn-lg btn-block btn-outline-success mb-2">
                                 <i class="mdi mdi-library-plus"></i> Add Partner
                             </Link>
                         </div>
                         <div class="col-md-6">
-                            <button type="button" class="btn btn-lg btn-block btn-outline-primary mt-2">
+                            <button type="button" class="btn btn-lg btn-block btn-outline-primary">
                                 <i class="mdi mdi-cloud-download"></i> Export Data
                             </button>
                         </div>
