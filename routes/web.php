@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EmployeesController;
+use App\Http\Controllers\EquipmentsController;
 use App\Http\Controllers\InvoicesController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\PartnersController;
@@ -41,3 +42,10 @@ Route::post('/sparepart', [SparepartsController::class, 'store']);
 Route::get('/sparepart/{id}/edit', [SparepartsController::class, 'edit']);
 Route::put('/sparepart/{id}', [SparepartsController::class, 'update']);
 Route::delete('/sparepart/{id}/delete', [SparepartsController::class, 'destroy']);
+
+// Equipment Route
+Route::get('/equipment', [EquipmentsController::class, 'index'])->name('equipments.index');
+Route::post('/equipment', [EquipmentsController::class, 'store']);
+Route::get('/equipment/{id}/edit', [EquipmentsController::class, 'edit']);
+Route::put('/equipment/{id}', [EquipmentsController::class, 'update']);
+Route::delete('/equipment/{id}/delete', [EquipmentsController::class, 'destroy']);

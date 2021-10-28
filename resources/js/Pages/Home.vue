@@ -47,7 +47,7 @@
                 </Link>
             </div>
             <div class="col-sm-4 grid-margin">
-                <Link href="/employees" as="div" class="card" style="cursor: pointer">
+                <Link href="/equipment" as="div" class="card" style="cursor: pointer">
                     <div class="card-body">
                         <h5>EQUIPMENT</h5>
                         <div class="row">
