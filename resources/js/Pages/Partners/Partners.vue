@@ -3,7 +3,7 @@
         <Head title="Partners" />
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Company Partners</h4>
+                <h4 class="card-title">Data Partners</h4>
                 <div class="table-responsive">
                     <table class="table">
                         <thead>
@@ -46,18 +46,16 @@
                     </table>
                     <div class="dropdown-divider"></div>
                 </div>
-                <div class="col-md-6 mx-auto">
-                    <div class="row mt-4">
-                        <div class="col-md-6">
-                            <Link as="button" href="/create-partner" type="button" class="btn btn-lg btn-block btn-outline-success mb-2">
-                                <i class="mdi mdi-library-plus"></i> Add Partner
-                            </Link>
-                        </div>
-                        <div class="col-md-6">
-                            <button type="button" class="btn btn-lg btn-block btn-outline-primary">
-                                <i class="mdi mdi-cloud-download"></i> Export Data
-                            </button>
-                        </div>
+                <div class="row mt-4">
+                    <div class="col-md-3">
+                        <Link as="button" href="/create-partner" type="button" class="btn btn-lg btn-block btn-outline-success mb-2">
+                             Add Partner
+                        </Link>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="button" class="btn btn-lg btn-block btn-outline-primary">
+                             Download Excel
+                        </button>
                     </div>
                 </div>
             </div>

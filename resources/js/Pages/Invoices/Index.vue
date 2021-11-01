@@ -8,8 +8,8 @@
                     <table class="table">
                         <thead>
                         <tr>
-                            <th> Customer Name </th>
                             <th> Invoice Code </th>
+                            <th> Customer Name </th>
                             <th> Order Cost </th>
                             <th class="text-center"> Unit </th>
                             <th class="text-center"> Description </th>
@@ -24,11 +24,8 @@
                                 </td>
                             </tr>
                             <tr v-for="invoice in invoices" :key="invoice.id">
-                                <td>
-                                    <i class="icon-sm mdi mdi mdi-account-circle text-success"></i>
-                                <span class="pl-2"> {{ invoice.customer_name }} </span>
-                                </td>
                                 <td> {{ invoice.invoice_code }} </td>
+                                <td> {{ invoice.customer_name }} </td>
                                 <td> Rp. {{ invoice.total_payment }} </td>
                                 <td>
                                     <ul v-for="unit in invoice.units" :key="unit.id">
@@ -83,7 +80,7 @@ export default {
     setup() {
         function destroy (id) {
             if (confirm('Are you sure you want to delete this invoice?')) {
-                Inertia.delete(`/invoice/${id}/delete`)
+                Inertia.delete(`/invoice/`+ id +`/delete`)
             }
         }
         return {

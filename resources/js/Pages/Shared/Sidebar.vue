@@ -24,6 +24,22 @@
                 </Link>
             </li>
             <li class="nav-item menu-items">
+                <Link class="nav-link" href="/sparepart">
+                    <span class="menu-icon">
+                        <i class="mdi mdi-monitor-multiple"></i>
+                    </span>
+                    <span class="menu-title">Sparepart</span>
+                </Link>
+            </li>
+            <li class="nav-item menu-items">
+                <Link class="nav-link" href="/equipment">
+                    <span class="menu-icon">
+                        <i class="mdi mdi-wallet-travel"></i>
+                    </span>
+                    <span class="menu-title">Equipment</span>
+                </Link>
+            </li>
+            <li class="nav-item menu-items">
                 <Link class="nav-link" href="/partners">
                     <span class="menu-icon">
                         <i class="mdi mdi-account-star"></i>
@@ -39,14 +55,14 @@
                     <span class="menu-title">Employees</span>
                 </Link>
             </li>
-            <li class="nav-item menu-items">
-                <Link class="nav-link" href="/reports">
+            <!-- <li class="nav-item menu-items">
+                <Link class="nav-link" href="/administration">
                     <span class="menu-icon">
-                        <i class="mdi mdi mdi-file-multiple"></i>
+                        <i class="mdi mdi-file-multiple"></i>
                     </span>
-                    <span class="menu-title">Reports</span>
+                    <span class="menu-title">Administration</span>
                 </Link>
-            </li>
+            </li> -->
         </ul>
     </nav>
 </template>

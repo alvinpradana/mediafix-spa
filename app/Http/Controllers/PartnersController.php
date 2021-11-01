@@ -11,7 +11,9 @@ class PartnersController extends Controller
 {
     public function index()
     {
-        $partners = Partner::orderBy('id', 'desc')->limit(5)->get();
+        $partners = Partner::latest()
+            ->limit(8)
+            ->get();
         return Inertia::render('Partners/Partners', compact('partners'));
     }
 

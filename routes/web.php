@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CashOutController;
 use App\Http\Controllers\EmployeesController;
 use App\Http\Controllers\EquipmentsController;
 use App\Http\Controllers\InvoicesController;
@@ -10,7 +11,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [PagesController::class, 'home']);
-Route::get('/reports', [PagesController::class, 'reports']);
+Route::get('/administration', [PagesController::class, 'administration']);
 
 // Invoices route
 Route::get('/invoices', [InvoicesController::class, 'index'])->name('invoices.index');
@@ -49,3 +50,10 @@ Route::post('/equipment', [EquipmentsController::class, 'store']);
 Route::get('/equipment/{id}/edit', [EquipmentsController::class, 'edit']);
 Route::put('/equipment/{id}', [EquipmentsController::class, 'update']);
 Route::delete('/equipment/{id}/delete', [EquipmentsController::class, 'destroy']);
+
+// Cash In Route
+Route::get('/cash-out', [CashOutController::class, 'index'])->name('cash-out.index');
+Route::post('/cash-out', [CashOutController::class, 'store']);
+Route::get('/cash-out/{id}/edit', [CashOutController::class, 'edit']);
+Route::put('/cash-out/{id}', [CashOutController::class, 'update']);
+Route::delete('/cash-out/{id}/delete', [CashOutController::class, 'destroy']);

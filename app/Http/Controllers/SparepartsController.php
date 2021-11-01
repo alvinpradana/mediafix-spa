@@ -11,8 +11,12 @@ class SparepartsController extends Controller
 {
     public function index()
     {
-        $spareparts = Sparepart::orderBy('id', 'desc')->limit(6)->get(); 
-        return Inertia::render('Spareparts/Index', compact('spareparts'));
+        $count = Sparepart::sum('sparepart_quantity');
+
+        $spareparts = Sparepart::latest()
+            ->limit(6)
+            ->get(); 
+        return Inertia::render('Spareparts/Index', compact('spareparts', 'count'));
     }
 
     public function store(Request $request)

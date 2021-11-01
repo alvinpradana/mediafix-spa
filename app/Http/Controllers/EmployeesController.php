@@ -12,7 +12,9 @@ class EmployeesController extends Controller
 {
     public function index()
     {
-        $employees = Employee::orderBy('id', 'desc')->limit(5)->get();
+        $employees = Employee::latest()
+            ->limit(8)
+            ->get();
         return Inertia::render('Employees/Employees', compact('employees'));
     }
 

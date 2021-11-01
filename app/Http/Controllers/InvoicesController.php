@@ -13,7 +13,7 @@ class InvoicesController extends Controller
     public function index()
     {
         $invoices = Invoice::with('units')
-            ->orderBy('created_at', 'desc')
+            ->latest()
             ->limit(5)
             ->get();
 
@@ -28,7 +28,7 @@ class InvoicesController extends Controller
         } else {
             $code = $code + 1;
         }
-        $invoice_code = 'MF-' . (str_pad($code, 4, '0', STR_PAD_LEFT));
+        $invoice_code = 'INV/' . date('Ymd/') . 'MF/' . (str_pad($code, 3, '0', STR_PAD_LEFT));
 
         return Inertia::render('Invoices/CreateInvoice', compact('invoice_code'));
     }
@@ -77,13 +77,13 @@ class InvoicesController extends Controller
         } else {
             $code = $code + 1;
         }
-        $invoice_code = 'MF-' . (str_pad($code, 4, '0', STR_PAD_LEFT));
+
+        $invoice_code = 'INV/' . date('Ymd/') . 'MF/' . (str_pad($code, 3, '0', STR_PAD_LEFT));
         $data['invoice_code'] = $invoice_code;
 
         $invoice = Invoice::create($data);
 
         $invoice->units()->saveMany($units);
-
         return Redirect::route('invoices.index')->with('alert_success', 'Invoice created successfully');
     }
 

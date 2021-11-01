@@ -3,7 +3,7 @@
     <Head title="Create Partner" />
         <div class="card">
             <div class="card-body">
-            <h4 class="card-title">Create New Partner</h4>
+            <h4 class="card-title">Add New Partner</h4>
             <div class="dropdown-divider my-4"></div>
                 <form @submit.prevent="submit" autocomplete="off">
                     <div class="row">

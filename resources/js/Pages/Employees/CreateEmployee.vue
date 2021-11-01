@@ -3,7 +3,7 @@
     <Head title="Create Employee" />
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Create New Employee</h4>
+                <h4 class="card-title">Add New Employee</h4>
                 <div class="dropdown-divider my-4"></div>
                 <form @submit.prevent="submit" autocomplete="off">
                     <div class="row">
@@ -64,20 +64,16 @@ export default {
             employee_division: null,
             employee_address: null,
         })
-
         function submit() {
             Inertia.post('/employees', form)
         }
-
         return { form, submit }
     },
-
     components: {
         Layout,
         Head,
         Link,
     },
-
     props: {
         errors: Object,
     },

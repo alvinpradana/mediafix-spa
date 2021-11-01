@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Equipment;
+use App\Models\Invoice;
+use App\Models\Sparepart;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
 
@@ -9,11 +12,19 @@ class PagesController extends Controller
 {
     public function home()
     {
-        return Inertia::render('Home');
+        $invoices = Invoice::with('units')
+            ->latest()
+            ->limit(5)
+            ->get();
+            
+        $sparepart = Sparepart::count();
+        $equipment = Equipment::count();
+
+        return Inertia::render('Home', compact('invoices', 'sparepart', 'equipment'));
     }
 
-    public function reports()
+    public function administration()
     {
-        return Inertia::render('Reports/Reports');
+        return Inertia::render('Administration/Administration');
     }
 }

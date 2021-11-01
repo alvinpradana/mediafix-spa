@@ -11,8 +11,11 @@ class EquipmentsController extends Controller
 {
     public function index()
     {
-        $equipments = Equipment::orderBy('id', 'desc')->limit(6)->get();
-        return Inertia::render('Equipments/Index', compact('equipments'));
+        $count = Equipment::sum('equipment_quantity');
+        $equipments = Equipment::latest()
+            ->limit(6)
+            ->get();
+        return Inertia::render('Equipments/Index', compact('equipments', 'count'));
     }
 
     public function store(Request $request)

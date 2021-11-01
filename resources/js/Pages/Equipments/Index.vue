@@ -41,11 +41,15 @@
                             </table>
                             <div class="dropdown-divider"></div>
                         </div>
-                        <div class="col-md-6 mx-auto">
-                            <div class="row mt-4">
+                        <div class="row">
+                            <div class="col-md-3 col-sm-12 mt-3">
                                 <button type="button" class="btn btn-lg btn-block btn-outline-primary">
-                                    <i class="mdi mdi-cloud-download"></i> 
-                                    Export Data
+                                    Export
+                                </button>
+                            </div>
+                            <div class="col-md-3 col-sm-12 mt-3">
+                                <button type="button" class="btn btn-lg btn-block btn-outline-warning">
+                                    Import
                                 </button>
                             </div>
                         </div>
@@ -53,6 +57,15 @@
                 </div>
             </div>
             <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <h4 class="card-title">Stock</h4>
+                            <h4 class="card-title">{{ count }} <small class="text-sm text-success">item</small></h4>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                    </div>
+                </div>
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">{{ editMode ? 'Edit Equipment' : 'Add Equipment' }}</h4>
@@ -78,7 +91,7 @@
                             </div>
                             <div class="form-group mb-4">
                                 <label for="equipment_condition">Condition</label>
-                                <textarea rows="4" v-model="form.equipment_condition" class="form-control" id="equipment_condition" placeholder="Enter condition"></textarea>
+                                <textarea rows="4" v-model="form.equipment_condition" class="form-control" id="equipment_condition" placeholder="Equipment condition"></textarea>
                                 <small class="text-danger" v-if="errors.equipment_condition">{{ errors.equipment_condition[0] }}</small>
                             </div>
                             <div class="dropdown-divider"></div>
@@ -135,18 +148,24 @@ export default {
     },
     methods: {
         store(data) {
-            Inertia.post('/equipment', data)
-            this.reset()
-            this.editMode = false
+            Inertia.post('/equipment', data, {
+                onSuccess: () => this.reset()
+            }, {
+                onError: () => this.editMode = true
+            })
+            this.clearErrors()
         },
         edit (data) {
             this.form = Object.assign({}, data)
             this.editMode = true
         },
         update (data) {
-            Inertia.put(`/equipment/`+ data.id, data)
-            this.reset()
-            this.editMode = false
+            Inertia.put(`/equipment/`+ data.id, data, {
+                onSuccess: () => this.reset()
+            }, {
+                onError: () => this.editMode = true
+            })
+            this.clearErrors()
         },
         reset () {
             this.form = {
@@ -160,6 +179,7 @@ export default {
     },
     props: {
         equipments: Object,
+        count: Object,
         errors: Object,
     },
 };
