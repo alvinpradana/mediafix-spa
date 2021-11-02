@@ -23,8 +23,8 @@ class PagesController extends Controller
         return Inertia::render('Home', compact('invoices', 'sparepart', 'equipment'));
     }
 
-    public function administration()
+    public function report()
     {
-        return Inertia::render('Administration/Administration');
+        return Inertia::render('Report/Index');
     }
 }

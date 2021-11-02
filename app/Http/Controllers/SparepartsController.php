@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\SparepartsExport;
+use App\Imports\SparepartsImport;
 use App\Models\Sparepart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
+use Maatwebsite\Excel\Facades\Excel;
 
 class SparepartsController extends Controller
 {
@@ -58,5 +61,20 @@ class SparepartsController extends Controller
     {
         Sparepart::findOrFail($id)->delete();
         return Redirect::back();
+    }
+
+    public function import(Request $request)
+    {
+        $request->validate([
+            'file' => ['required', 'mimes:csv,xlx,xlsx', 'max:2048']
+        ]);
+
+        Excel::import(new SparepartsImport, request()->file('file'));
+        return Redirect::back();
+    }
+
+    public function export()
+    {
+        return Excel::download(new SparepartsExport, 'Sparepart-' . date('Y-m-d') . '.xlsx');
     }
 }

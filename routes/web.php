@@ -9,9 +9,8 @@ use App\Http\Controllers\PartnersController;
 use App\Http\Controllers\SparepartsController;
 use Illuminate\Support\Facades\Route;
 
-
 Route::get('/', [PagesController::class, 'home']);
-Route::get('/administration', [PagesController::class, 'administration']);
+Route::get('/report', [PagesController::class, 'report']);
 
 // Invoices route
 Route::get('/invoices', [InvoicesController::class, 'index'])->name('invoices.index');
@@ -43,6 +42,9 @@ Route::post('/sparepart', [SparepartsController::class, 'store']);
 Route::get('/sparepart/{id}/edit', [SparepartsController::class, 'edit']);
 Route::put('/sparepart/{id}', [SparepartsController::class, 'update']);
 Route::delete('/sparepart/{id}/delete', [SparepartsController::class, 'destroy']);
+
+Route::post('/import', [SparepartsController::class, 'import'])->name('sparepart.import');
+Route::get('/export', [SparepartsController::class, 'export'])->name('sparepart.export');
 
 // Equipment Route
 Route::get('/equipment', [EquipmentsController::class, 'index'])->name('equipments.index');

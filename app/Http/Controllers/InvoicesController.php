@@ -14,7 +14,7 @@ class InvoicesController extends Controller
     {
         $invoices = Invoice::with('units')
             ->latest()
-            ->limit(5)
+            ->limit(8)
             ->get();
 
         return Inertia::render('Invoices/Index', compact('invoices'));

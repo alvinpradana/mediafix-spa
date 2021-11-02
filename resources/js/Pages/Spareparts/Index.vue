@@ -5,7 +5,39 @@
             <div class="col-md-8 mb-4">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">List Sparepart</h4>
+                        <div class="row mb-2">
+                            <div class="col-sm-5 col-md-9">
+                                <h4>List Sparepart</h4>
+                            </div>
+                            <div class="col-sm-5 col-md-3 text-lg-right">
+                                <div class="dropdown mx-auto">
+                                    <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuOutlineButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Category </button>
+                                    <div class="dropdown-menu">
+                                        <div class="col">
+                                            <div class="form-check form-check-primary">
+                                                <label class="form-check-label">
+                                                <input type="checkbox" class="form-check-input" value="Camera">Camera</label>
+                                            </div>
+                                            <div class="dropdown-divider"></div>
+                                            <div class="form-check form-check-primary">
+                                                <label class="form-check-label">
+                                                <input type="checkbox" class="form-check-input" value="Phone">Phone</label>
+                                            </div>
+                                            <div class="dropdown-divider"></div>
+                                            <div class="form-check form-check-primary">
+                                                <label class="form-check-label">
+                                                <input type="checkbox" class="form-check-input" value="Laptop-PC">Laptop-PC</label>
+                                            </div>
+                                            <div class="dropdown-divider"></div>
+                                            <div class="form-check form-check-primary">
+                                                <label class="form-check-label">
+                                                <input type="checkbox" class="form-check-input" value="Other">Other</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="table-responsive">
                             <table class="table">
                                 <thead>
@@ -27,7 +59,7 @@
                                         <td>{{ sparepart.sparepart_type }}</td>
                                         <td>{{ sparepart.sparepart_name }}</td>
                                         <td>{{ sparepart.sparepart_quantity }}</td>
-                                        <td>{{ sparepart.sparepart_price }}</td>
+                                        <td>Rp. {{ sparepart.sparepart_price }}</td>
                                         <td class="text-center">
                                             <button type="button" @click.prevent="edit(sparepart)" class="btn btn-outline-primary mr-1">
                                                 <span class="icon-sm mdi mdi-pencil"></span>
@@ -43,12 +75,12 @@
                         </div>
                         <div class="row">
                             <div class="col-md-3 col-sm-12 mt-3">
-                                <button type="button" class="btn btn-lg btn-block btn-outline-primary">
+                                <a href="/export" type="button" class="btn btn-lg btn-block btn-outline-primary">
                                     Export
-                                </button>
+                                </a>
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">
-                                <button type="button" class="btn btn-lg btn-block btn-outline-warning">
+                                <button @click.prevent="showImportFile()" type="button" class="btn btn-lg btn-block btn-outline-warning">
                                     Import
                                 </button>
                             </div>
@@ -57,13 +89,37 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card mb-4">
+                <div v-show="!showImport" class="card mb-4">
                     <div class="card-body">
                         <div class="d-flex justify-content-between">
                             <h4 class="card-title">Stock</h4>
                             <h4 class="card-title">{{ count }} <small class="text-sm text-success">item</small></h4>
                         </div>
                         <div class="dropdown-divider"></div>
+                    </div>
+                </div>
+                <div class="card mb-4" v-show="showImport">
+                    <div class="card-body">
+                        <form @submit.prevent="upload" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <input type="file" @input="formFile.file = $event.target.files[0]" class="file-upload-default">
+                                <div class="input-group col-xs-12">
+                                    <input type="text" class="form-control file-upload-info" disabled placeholder="Upload File">
+                                    <span class="input-group-append">
+                                        <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
+                                    </span>
+                                </div>
+                                <small class="text-danger" v-if="errors.file">{{ errors.file[0] }}</small>
+                            </div>
+                            <div class="row justify-content-between mt-3">
+                                <div class="col-md-6">
+                                    <button type="submit" class="btn btn-lg btn-block btn-outline-success mb-2">Submit</button>
+                                </div>
+                                <div class="col-md-6">
+                                    <button @click.prevent="cancelImport()" class="btn btn-lg btn-block btn-outline-danger">Cancel</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
                 <div class="card">
@@ -118,7 +174,7 @@
 
 <script>
 import Layout from "../Shared/Layout";
-import { Link, Head } from "@inertiajs/inertia-vue3";
+import { Link, Head, useForm } from "@inertiajs/inertia-vue3";
 import { Inertia } from '@inertiajs/inertia';
 
 export default {
@@ -129,23 +185,32 @@ export default {
     },
     data () {
         return {
+            showImport: false,
             editMode: false,
             form: {
                 sparepart_type: null,
                 sparepart_name: null,
                 sparepart_quantity: null,
                 sparepart_price: null,
-            },
+            }
         }
     },
     setup () {
+        const formFile = useForm({
+            file: null,
+        })
+        function upload() {
+            formFile.post('/import')
+        }
         function destroy(id) {
             if(confirm('Are you sure you want to delete this sparepart?')) {
                 Inertia.delete(`/sparepart/`+ id +`/delete`)
             }
         }
         return {
-            destroy
+            destroy,
+            formFile,
+            upload
         }
     },
     methods: {
@@ -155,7 +220,6 @@ export default {
             }, {
                 onError: () => this.editMode = true
             })
-            this.clearErrors()
         },
         edit (data) {
             this.form = Object.assign({}, data)
@@ -167,7 +231,12 @@ export default {
             }, {
                 onError: () => this.editMode = true
             })
-            this.clearErrors()
+        },
+        showImportFile () {
+            this.showImport = true
+        },
+        cancelImport () {
+            this.showImport = false
         },
         reset () {
             this.form = {

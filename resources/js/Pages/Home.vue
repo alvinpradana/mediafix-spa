@@ -2,17 +2,13 @@
     <Layout>
         <Head title="Homepage" />
         <div class="row">
-            <!-- <Invoice /> -->
             <div class="col-sm-4 grid-margin">
                 <Link href="/invoices" as="div" class="card" style="cursor: pointer">
                     <div class="card-body">
-                        <!-- <h5>INVOICES</h5> -->
                         <div class="row">
                             <div class="col-8 col-sm-12 col-xl-8 my-auto">
                                 <div class="d-flex d-sm-block d-md-flex align-items-center">
-                                    <!-- <h2 class="mb-0">{{ invoices.length }}</h2> -->
                                     <h2 class="mb-0">Invoices</h2>
-                                    <!-- <p class="text-success ml-2 mb-0 font-weight-medium">Invoices</p> -->
                                 </div>
                                 <h6 class="text-muted font-weight-normal">
                                     Manage invoices order
@@ -25,17 +21,13 @@
                     </div>
                 </Link>
             </div>
-            <!-- <Sparepart /> -->
             <div class="col-sm-4 grid-margin">
                 <Link href="/cash-out" as="div" class="card" style="cursor: pointer">
                     <div class="card-body">
-                        <!-- <h5>CASH OUT</h5> -->
                         <div class="row">
                             <div class="col-8 col-sm-12 col-xl-8 my-auto">
                                 <div class="d-flex d-sm-block d-md-flex align-items-center">
-                                    <!-- <h2 class="mb-0">{{ sparepart }}</h2> -->
                                     <h2 class="mb-0">Cash Out</h2>
-                                    <!-- <p class="text-danger ml-2 mb-0 font-weight-medium">Stock</p> -->
                                 </div>
                                 <h6 class="text-muted font-weight-normal">
                                     Manage company cash out
@@ -48,17 +40,13 @@
                     </div>
                 </Link>
             </div>
-            <!-- <Equipment /> -->
             <div class="col-sm-4 grid-margin">
-                <Link href="/equipment" as="div" class="card" style="cursor: pointer">
+                <Link href="/report" as="div" class="card" style="cursor: pointer">
                     <div class="card-body">
-                        <!-- <h5>REPORT</h5> -->
                         <div class="row">
                             <div class="col-8 col-sm-12 col-xl-8 my-auto">
                                 <div class="d-flex d-sm-block d-md-flex align-items-center">
-                                    <!-- <h2 class="mb-0">{{ equipment }}</h2> -->
                                     <h2 class="mb-0">Report</h2>
-                                    <!-- <p class="text-primary ml-2 mb-0 font-weight-medium">Stock</p> -->
                                 </div>
                                 <h6 class="text-muted font-weight-normal">
                                     Manage company report
@@ -121,9 +109,6 @@
                                     <Link :href="`/invoice/`+ invoice.id +`/edit`" type="button" class="btn btn-outline-primary">
                                         <span class="icon-sm mdi mdi-eye"></span>
                                     </Link>
-                                    <!-- <button type="button" @click.prevent="" class="btn btn-outline-primary">
-                                        <span class="icon-sm mdi mdi-printer"></span>
-                                    </button> -->
                                 </td>
                             </tr>
                         </tbody>
