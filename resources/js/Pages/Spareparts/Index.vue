@@ -199,7 +199,7 @@ export default {
         const formFile = useForm({
             file: null,
         })
-        function upload() {
+        function upload () {
             formFile.post('/import')
         }
         function destroy(id) {

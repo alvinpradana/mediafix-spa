@@ -53,6 +53,9 @@ Route::get('/equipment/{id}/edit', [EquipmentsController::class, 'edit']);
 Route::put('/equipment/{id}', [EquipmentsController::class, 'update']);
 Route::delete('/equipment/{id}/delete', [EquipmentsController::class, 'destroy']);
 
+Route::post('/equipment-import', [EquipmentsController::class, 'import'])->name('equipment.import');
+Route::get('/equipment-export', [EquipmentsController::class, 'export'])->name('equipment.export');
+
 // Cash In Route
 Route::get('/cash-out', [CashOutController::class, 'index'])->name('cash-out.index');
 Route::post('/cash-out', [CashOutController::class, 'store']);

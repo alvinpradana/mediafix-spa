@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\EquipmentsExport;
+use App\Imports\EquipmentsImport;
 use App\Models\Equipment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
+use Maatwebsite\Excel\Facades\Excel;
 
 class EquipmentsController extends Controller
 {
@@ -57,5 +60,20 @@ class EquipmentsController extends Controller
     {
         Equipment::findOrFail($id)->delete();
         return Redirect::back();
+    }
+
+    public function import(Request $request)
+    {
+        $request->validate([
+            'file' => ['required', 'mimes:csv,xlx,xlsx', 'max:2048']
+        ]);
+
+        Excel::import(new EquipmentsImport, request()->file('file'));
+        return Redirect::back();
+    }
+
+    public function export()
+    {
+        return Excel::download(new EquipmentsExport, 'Equipment-'. date('Y-m-d') .'.xlsx');
     }
 }
