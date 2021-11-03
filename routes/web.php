@@ -60,9 +60,12 @@ Route::delete('/equipment/{id}/delete', [EquipmentsController::class, 'destroy']
 Route::post('/equipment-import', [EquipmentsController::class, 'import'])->name('equipment.import');
 Route::get('/equipment-export', [EquipmentsController::class, 'export'])->name('equipment.export');
 
-// Cash In Route
+// Cash Out Route
 Route::get('/cash-out', [CashOutController::class, 'index'])->name('cash-out.index');
 Route::post('/cash-out', [CashOutController::class, 'store']);
 Route::get('/cash-out/{id}/edit', [CashOutController::class, 'edit']);
 Route::put('/cash-out/{id}', [CashOutController::class, 'update']);
 Route::delete('/cash-out/{id}/delete', [CashOutController::class, 'destroy']);
+
+Route::post('/cash-out-import', [CashOutController::class, 'import']);
+Route::get('/cash-out-export', [CashOutController::class, 'export']);

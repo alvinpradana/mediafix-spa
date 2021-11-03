@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\CashOutExport;
+use App\Imports\CashOutImport;
 use App\Models\CashOut;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
+use Maatwebsite\Excel\Facades\Excel;
 
 class CashOutController extends Controller
 {
@@ -60,5 +63,20 @@ class CashOutController extends Controller
     {
         CashOut::findOrFail($id)->delete();
         return Redirect::back();
+    }
+
+    public function import(Request $request)
+    {
+        $request->validate([
+            'file' => ['required', 'mimes:csv,xls,xlsx', 'max:2048']
+        ]);
+
+        Excel::import(new CashOutImport, request()->file('file'));
+        return Redirect::back();
+    }
+
+    public function export()
+    {
+        return Excel::download(new CashOutExport, 'Cash-Out-'. date('Y-m-d') .'.xlsx');
     }
 }
