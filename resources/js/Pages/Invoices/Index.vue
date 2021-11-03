@@ -57,6 +57,14 @@
                             </tr>
                         </tbody>
                     </table>
+                    <div class="dropdown-divider"></div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-3">
+                        <a href="/invoices-export" type="button" class="btn btn-lg btn-block btn-outline-primary">
+                             Download Excel
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

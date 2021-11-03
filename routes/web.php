@@ -20,6 +20,8 @@ Route::get('/invoice/{id}/edit', [InvoicesController::class, 'edit']);
 Route::put('/invoice/{id}', [InvoicesController::class, 'update']);
 Route::delete('/invoice/{id}/delete', [InvoicesController::class, 'destroy']);
 
+Route::get('/invoices-export', [InvoicesController::class, 'export']);
+
 // Partners route
 Route::get('/partners', [PartnersController::class, 'index'])->name('partners.index');
 Route::get('/create-partner', [PartnersController::class, 'create']);

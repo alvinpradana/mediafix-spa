@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\InvoicesExport;
 use App\Models\Invoice;
 use App\Models\Unit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
+use Maatwebsite\Excel\Facades\Excel;
 
 class InvoicesController extends Controller
 {
@@ -148,5 +150,10 @@ class InvoicesController extends Controller
         $invoice->delete();
 
         return Redirect::back()->with('alert_success', 'Invoice deleted successfully');
+    }
+
+    public function export()
+    {
+        return Excel::download(new InvoicesExport, 'Invoice-'. date('Y-m-d') .'.xlsx');
     }
 }
