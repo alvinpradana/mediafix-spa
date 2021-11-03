@@ -3,7 +3,7 @@
         <Head title="Partners" />
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Data Partners</h4>
+                <h4 class="card-title">List Partners</h4>
                 <div class="table-responsive">
                     <table class="table">
                         <thead>
