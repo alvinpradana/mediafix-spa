@@ -14,11 +14,7 @@ class InvoicesController extends Controller
 {
     public function index()
     {
-        $invoices = Invoice::with('units')
-            ->latest()
-            ->limit(8)
-            ->get();
-
+        $invoices = Invoice::with('units')->latest()->paginate(6);
         return Inertia::render('Invoices/Index', compact('invoices'));
     }
 

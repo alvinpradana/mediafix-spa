@@ -22,7 +22,7 @@
                                     No data available in our record !
                                 </td>
                             </tr>
-                            <tr v-for="employee in employees" :key="employee.id">
+                            <tr v-for="employee in employees.data" :key="employee.id">
                                 <td>
                                     <i class="icon-sm mdi mdi-account-circle text-success"></i>
                                     <span class="pl-2">{{ employee.employee_name }}</span>
@@ -51,9 +51,14 @@
                         </Link>
                     </div>
                     <div class="col-md-3">
-                        <a href="/employees-export" type="button" class="btn btn-lg btn-block btn-outline-primary">
+                        <a href="/employees-export" type="button" class="btn btn-lg btn-block btn-outline-primary mb-2">
                             Download Excel
                         </a>
+                    </div>
+                    <div class="col-md-6 px-4">
+                        <div class="row float-right px-2">
+                            <pagination class="" :links="employees.links" />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -65,12 +70,14 @@
 import Layout from "../Shared/Layout";
 import { Head, Link } from "@inertiajs/inertia-vue3";
 import { Inertia } from '@inertiajs/inertia';
+import Pagination from "../Shared/Pagination"
 
 export default {
     components: {
         Link,
         Head,
         Layout,
+        Pagination,
     },
     props: {
         employees: Object,

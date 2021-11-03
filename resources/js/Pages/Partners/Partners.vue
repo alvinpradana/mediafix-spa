@@ -23,7 +23,7 @@
                                     No data available in our record !
                                 </td>
                             </tr>
-                            <tr v-for="partner in partners" :key="partner.id">
+                            <tr v-for="partner in partners.data" :key="partner.id">
                                 <td>
                                     <i class="icon-sm mdi mdi-account-circle text-success"></i>
                                     <span class="pl-2">{{ partner.partner_name }}</span>
@@ -46,16 +46,21 @@
                     </table>
                     <div class="dropdown-divider"></div>
                 </div>
-                <div class="row mt-4">
+                <div class="row justify-content-between mt-4">
                     <div class="col-md-3">
                         <Link as="button" href="/create-partner" type="button" class="btn btn-lg btn-block btn-outline-success mb-2">
                              Add Partner
                         </Link>
                     </div>
                     <div class="col-md-3">
-                        <a href="/partners-export" type="button" class="btn btn-lg btn-block btn-outline-primary">
+                        <a href="/partners-export" type="button" class="btn btn-lg btn-block btn-outline-primary mb-2">
                              Download Excel
                         </a>
+                    </div>
+                    <div class="col-md-6 px-4">
+                        <div class="row float-right px-2">
+                            <pagination class="" :links="partners.links" />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -67,12 +72,14 @@
 import Layout from "../Shared/Layout";
 import { Link, Head } from "@inertiajs/inertia-vue3";
 import { Inertia } from '@inertiajs/inertia';
+import Pagination from "../Shared/Pagination"
 
 export default {
     components: {
         Link,
         Head,
         Layout,
+        Pagination,
     },
     props: {
         partners: Object,

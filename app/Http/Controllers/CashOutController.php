@@ -14,7 +14,7 @@ class CashOutController extends Controller
 {
     public function index()
     {
-        $cash_out = CashOut::latest()->limit(6)->get();
+        $cash_out = CashOut::latest()->paginate(6);
 
         $month = date('m');
         $year = date('Y');

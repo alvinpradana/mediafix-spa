@@ -14,9 +14,7 @@ class EmployeesController extends Controller
 {
     public function index()
     {
-        $employees = Employee::latest()
-            ->limit(8)
-            ->get();
+        $employees = Employee::latest()->paginate(6);
         return Inertia::render('Employees/Employees', compact('employees'));
     }
 

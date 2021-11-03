@@ -13,9 +13,7 @@ class PartnersController extends Controller
 {
     public function index()
     {
-        $partners = Partner::latest()
-            ->limit(8)
-            ->get();
+        $partners = Partner::latest()->paginate(6);
         return Inertia::render('Partners/Partners', compact('partners'));
     }
 

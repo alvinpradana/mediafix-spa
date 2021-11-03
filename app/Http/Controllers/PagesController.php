@@ -12,10 +12,7 @@ class PagesController extends Controller
 {
     public function home()
     {
-        $invoices = Invoice::with('units')
-            ->latest()
-            ->limit(5)
-            ->get();
+        $invoices = Invoice::with('units')->latest()->paginate(5);
             
         $sparepart = Sparepart::count();
         $equipment = Equipment::count();

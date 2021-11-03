@@ -23,7 +23,7 @@
                                     No data available in our record !
                                 </td>
                             </tr>
-                            <tr v-for="invoice in invoices" :key="invoice.id">
+                            <tr v-for="invoice in invoices.data" :key="invoice.id">
                                 <td> {{ invoice.invoice_code }} </td>
                                 <td> {{ invoice.customer_name }} </td>
                                 <td> Rp. {{ invoice.total_payment }} </td>
@@ -65,6 +65,11 @@
                              Download Excel
                         </a>
                     </div>
+                    <div class="col-md-9 px-4">
+                        <div class="row float-right px-2">
+                            <pagination class="" :links="invoices.links" />
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -75,12 +80,14 @@
 import Layout from "../Shared/Layout";
 import { Link, Head } from "@inertiajs/inertia-vue3";
 import { Inertia } from '@inertiajs/inertia';
+import Pagination from "../Shared/Pagination"
 
 export default {
     components: {
         Link,
         Head,
         Layout,
+        Pagination,
     },
     props: {
         invoices: Object

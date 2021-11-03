@@ -15,10 +15,8 @@ class SparepartsController extends Controller
     public function index()
     {
         $count = Sparepart::sum('sparepart_quantity');
-
-        $spareparts = Sparepart::latest()
-            ->limit(6)
-            ->get(); 
+        $spareparts = Sparepart::latest()->paginate(6);
+        
         return Inertia::render('Spareparts/Index', compact('spareparts', 'count'));
     }
 

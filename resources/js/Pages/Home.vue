@@ -82,7 +82,7 @@
                                     No data available in our record !
                                 </td>
                             </tr>
-                            <tr v-for="invoice in invoices" :key="invoice.id">
+                            <tr v-for="invoice in invoices.data" :key="invoice.id">
                                 <td> {{ invoice.invoice_code }} </td>
                                 <td> {{ invoice.customer_name }} </td>
                                 <td> Rp. {{ invoice.total_payment }} </td>
@@ -113,6 +113,10 @@
                             </tr>
                         </tbody>
                     </table>
+                    <div class="dropdown-divider"></div>
+                </div>
+                <div class="row justify-content-center">
+                    <pagination class="mt-3" :links="invoices.links" />
                 </div>
             </div>
         </div>
@@ -122,12 +126,14 @@
 <script>
 import { Head, Link } from "@inertiajs/inertia-vue3";
 import Layout from "./Shared/Layout";
+import Pagination from "./Shared/Pagination"
 
 export default {
     components: {
         Link,
         Head,
         Layout,
+        Pagination,
     },
     props: {
         invoices: Object,

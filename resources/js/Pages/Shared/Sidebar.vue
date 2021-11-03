@@ -15,15 +15,15 @@
             <li class="nav-item nav-category">
                 <span class="nav-link">Navigations</span>
             </li>
-            <li class="nav-item menu-items">
-                <Link class="nav-link" href="/">
+            <li class="nav-item menu-items" :class="{ 'active': $page.url === '/' }">
+                <Link href="/" class="nav-link">
                     <span class="menu-icon">
                         <i class="mdi mdi-speedometer"></i>
                     </span>
                     <span class="menu-title">Dashboard</span>
                 </Link>
             </li>
-            <li class="nav-item menu-items">
+            <li class="nav-item menu-items" :class="{ 'active': $page.url === '/sparepart' }">
                 <Link class="nav-link" href="/sparepart">
                     <span class="menu-icon">
                         <i class="mdi mdi-monitor-multiple"></i>
@@ -31,7 +31,7 @@
                     <span class="menu-title">Sparepart</span>
                 </Link>
             </li>
-            <li class="nav-item menu-items">
+            <li class="nav-item menu-items" :class="{ 'active': $page.url === '/equipment' }">
                 <Link class="nav-link" href="/equipment">
                     <span class="menu-icon">
                         <i class="mdi mdi-wallet-travel"></i>
@@ -39,7 +39,7 @@
                     <span class="menu-title">Equipment</span>
                 </Link>
             </li>
-            <li class="nav-item menu-items">
+            <li class="nav-item menu-items" :class="{ 'active': $page.url === '/partners' }">
                 <Link class="nav-link" href="/partners">
                     <span class="menu-icon">
                         <i class="mdi mdi-account-star"></i>
@@ -47,7 +47,7 @@
                     <span class="menu-title">Partners</span>
                 </Link>
             </li>
-            <li class="nav-item menu-items">
+            <li class="nav-item menu-items" :class="{ 'active': $page.url === '/employees' }">
                 <Link class="nav-link" :href="`/employees`">
                     <span class="menu-icon">
                         <i class="mdi mdi-worker"></i>
@@ -55,14 +55,6 @@
                     <span class="menu-title">Employees</span>
                 </Link>
             </li>
-            <!-- <li class="nav-item menu-items">
-                <Link class="nav-link" href="/administration">
-                    <span class="menu-icon">
-                        <i class="mdi mdi-file-multiple"></i>
-                    </span>
-                    <span class="menu-title">Administration</span>
-                </Link>
-            </li> -->
         </ul>
     </nav>
 </template>
