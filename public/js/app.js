@@ -20998,7 +20998,7 @@ __webpack_require__.r(__webpack_exports__);
     });
 
     function upload() {
-      formFile.post('/import');
+      formFile.post('/sparepart-import');
     }
 
     function destroy(id) {
@@ -25021,7 +25021,8 @@ var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNo
 
 var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "col-md-3"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  href: "/partners-export",
   type: "button",
   "class": "btn btn-lg btn-block btn-outline-primary"
 }, " Download Excel ")], -1
@@ -25645,7 +25646,7 @@ var _hoisted_20 = {
 var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "col-md-3 col-sm-12 mt-3"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-  href: "/export",
+  href: "/sparepart-export",
   type: "button",
   "class": "btn btn-lg btn-block btn-outline-primary"
 }, " Export ")], -1

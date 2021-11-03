@@ -28,6 +28,8 @@ Route::get('/partner/{id}/edit', [PartnersController::class, 'edit']);
 Route::put('/partner/{id}', [PartnersController::class, 'update']);
 Route::delete('/partner/{id}/delete', [PartnersController::class, 'destroy']);
 
+Route::get('/partners-export', [PartnersController::class, 'export']);
+
 // Employees route
 Route::get('/employees', [EmployeesController::class, 'index'])->name('employees.index');
 Route::get('/create-employee', [EmployeesController::class, 'create']);
@@ -43,8 +45,8 @@ Route::get('/sparepart/{id}/edit', [SparepartsController::class, 'edit']);
 Route::put('/sparepart/{id}', [SparepartsController::class, 'update']);
 Route::delete('/sparepart/{id}/delete', [SparepartsController::class, 'destroy']);
 
-Route::post('/import', [SparepartsController::class, 'import'])->name('sparepart.import');
-Route::get('/export', [SparepartsController::class, 'export'])->name('sparepart.export');
+Route::post('/sparepart-import', [SparepartsController::class, 'import'])->name('sparepart.import');
+Route::get('/sparepart-export', [SparepartsController::class, 'export'])->name('sparepart.export');
 
 // Equipment Route
 Route::get('/equipment', [EquipmentsController::class, 'index'])->name('equipments.index');

@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\PartnersExport;
 use App\Models\Partner;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
+use Maatwebsite\Excel\Facades\Excel;
 
 class PartnersController extends Controller
 {
@@ -68,5 +70,10 @@ class PartnersController extends Controller
         $partner->delete();
         
         return Redirect::back()->with('alert_success', 'Partner deleted successfully');
+    }
+
+    public function export()
+    {
+        return Excel::download(new PartnersExport, 'Partner-'. date('Y-m-d') .'.xlsx');
     }
 }

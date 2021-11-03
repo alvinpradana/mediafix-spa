@@ -75,7 +75,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-3 col-sm-12 mt-3">
-                                <a href="/export" type="button" class="btn btn-lg btn-block btn-outline-primary">
+                                <a href="/sparepart-export" type="button" class="btn btn-lg btn-block btn-outline-primary">
                                     Export
                                 </a>
                             </div>
@@ -200,7 +200,7 @@ export default {
             file: null,
         })
         function upload () {
-            formFile.post('/import')
+            formFile.post('/sparepart-import')
         }
         function destroy(id) {
             if(confirm('Are you sure you want to delete this sparepart?')) {
