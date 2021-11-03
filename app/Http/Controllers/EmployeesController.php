@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\EmployeesExport;
 use App\Models\Employee;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Redis;
 use Inertia\Inertia;
+use Maatwebsite\Excel\Facades\Excel;
 
 class EmployeesController extends Controller
 {
@@ -67,5 +69,10 @@ class EmployeesController extends Controller
         $employee->delete();
 
         return Redirect::back()->with('alert_success', 'Employee deleted successfully');
+    }
+
+    public function export()
+    {
+        return Excel::download(new EmployeesExport, 'Employee-'. date('Y-m-d') .'.xlsx');
     }
 }

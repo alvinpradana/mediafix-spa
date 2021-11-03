@@ -38,6 +38,8 @@ Route::get('/employee/{id}/edit', [EmployeesController::class, 'edit']);
 Route::put('/employee/{id}', [EmployeesController::class, 'update']);
 Route::delete('/employee/{id}/delete', [EmployeesController::class, 'destroy']);
 
+Route::get('/employees-export', [EmployeesController::class, 'export']);
+
 // Sparepart Route
 Route::get('/sparepart', [SparepartsController::class, 'index'])->name('spareparts.index');
 Route::post('/sparepart', [SparepartsController::class, 'store']);

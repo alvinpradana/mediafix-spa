@@ -51,9 +51,9 @@
                         </Link>
                     </div>
                     <div class="col-md-3">
-                        <button type="button" class="btn btn-lg btn-block btn-outline-primary">
+                        <a href="/employees-export" type="button" class="btn btn-lg btn-block btn-outline-primary">
                             Download Excel
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>
