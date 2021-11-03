@@ -40,12 +40,12 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr v-if="equipments.length === 0">
+                                    <tr v-if="equipments.data.length === 0">
                                         <td colspan="5" class="text-center py-4">
                                             No data available in our record !
                                         </td>
                                     </tr>
-                                    <tr v-for="equipment in equipments" :key="equipment.id">
+                                    <tr v-for="equipment in equipments.data" :key="equipment.id">
                                         <td>{{ equipment.equipment_type }}</td>
                                         <td>{{ equipment.equipment_name }}</td>
                                         <td>{{ equipment.equipment_quantity }}</td>
@@ -63,17 +63,8 @@
                             </table>
                             <div class="dropdown-divider"></div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-3 col-sm-12 mt-3">
-                                <a href="/equipment-export" type="button" class="btn btn-lg btn-block btn-outline-primary">
-                                    Export
-                                </a>
-                            </div>
-                            <div class="col-md-3 col-sm-12 mt-3">
-                                <button @click.prevent="showImportFile()" type="button" class="btn btn-lg btn-block btn-outline-warning">
-                                    Import
-                                </button>
-                            </div>
+                        <div class="row justify-content-center px-4">
+                            <pagination class="mt-3" :links="equipments.links" />
                         </div>
                     </div>
                 </div>
@@ -86,21 +77,35 @@
                             <h4 class="card-title">{{ count }} <small class="text-sm text-success">item</small></h4>
                         </div>
                         <div class="dropdown-divider"></div>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-12 mt-3">
+                                <a href="/equipment-export" type="button" class="btn btn-lg btn-block btn-outline-primary">
+                                    Export
+                                </a>
+                            </div>
+                            <div class="col-md-6 col-sm-12 mt-3">
+                                <button @click.prevent="showImportFile()" type="button" class="btn btn-lg btn-block btn-outline-warning">
+                                    Import
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="card mb-4" v-show="showImport">
                     <div class="card-body">
                         <form @submit.prevent="upload" enctype="multipart/form-data">
+                            <!-- <input type="file" @input="formFile.file = $event.target.files[0]" class="form-control file-upload-default"> -->
                             <div class="form-group">
                                 <input type="file" @input="formFile.file = $event.target.files[0]" class="file-upload-default">
                                 <div class="input-group col-xs-12">
-                                    <input type="text" class="form-control file-upload-info" disabled placeholder="Upload File">
+                                    <input type="text" class="form-control file-upload-info" disabled placeholder="No file choosen">
                                     <span class="input-group-append">
-                                        <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
+                                        <button class="file-upload-browse btn btn-primary" type="button">Choose</button>
                                     </span>
                                 </div>
                                 <small class="text-danger" v-if="errors.file">{{ errors.file[0] }}</small>
                             </div>
+                            <!-- <small class="text-danger" v-if="errors.file">{{ errors.file[0] }}</small> -->
                             <div class="row justify-content-between mt-3">
                                 <div class="col-md-6">
                                     <button type="submit" class="btn btn-lg btn-block btn-outline-success mb-2">Submit</button>
@@ -164,12 +169,14 @@
 import Layout from "../Shared/Layout";
 import { Link, Head, useForm } from "@inertiajs/inertia-vue3";
 import { Inertia } from '@inertiajs/inertia';
+import Pagination from "../Shared/Pagination"
 
 export default {
     components: {
         Link,
         Head,
         Layout,
+        Pagination,
     },
     data () {
         return {
@@ -241,6 +248,6 @@ export default {
         equipments: Object,
         count: Object,
         errors: Object,
-    },
+    }
 };
 </script>
