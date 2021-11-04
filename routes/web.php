@@ -10,7 +10,7 @@ use App\Http\Controllers\SparepartsController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PagesController::class, 'home']);
-Route::get('/report', [PagesController::class, 'report']);
+Route::get('/users', [PagesController::class, 'users']);
 
 // Invoices route
 Route::get('/invoices', [InvoicesController::class, 'index'])->name('invoices.index');
@@ -20,6 +20,7 @@ Route::get('/invoice/{id}/edit', [InvoicesController::class, 'edit']);
 Route::put('/invoice/{id}', [InvoicesController::class, 'update']);
 Route::delete('/invoice/{id}/delete', [InvoicesController::class, 'destroy']);
 Route::get('/show-invoice/{id}', [InvoicesController::class, 'show']);
+Route::get('/invoice-print/{id}', [InvoicesController::class, 'print']);
 
 Route::get('/invoices-export', [InvoicesController::class, 'export']);
 

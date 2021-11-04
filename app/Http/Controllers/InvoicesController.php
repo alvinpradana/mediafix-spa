@@ -24,6 +24,12 @@ class InvoicesController extends Controller
         return Inertia::render('Invoices/ShowInvoice', compact('invoice'));
     }
 
+    public function print($id)
+    {
+        $invoices = Invoice::with('units')->findOrFail($id);
+        return view('print', compact('invoices'));
+    }
+
     public function create()
     {
         $code = Invoice::orderBy('id', 'desc')->pluck('id')->first();

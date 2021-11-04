@@ -50,9 +50,9 @@
                                     <Link :href="`/show-invoice/`+ invoice.id" type="button" class="btn btn-outline-primary showInvoice mr-1">
                                         <span class="icon-sm mdi mdi-eye"></span>
                                     </Link>
-                                    <button type="button" class="btn btn-outline-warning">
+                                    <Link as="button" type="button" @click="setTarget(invoice.id)" class="btn btn-outline-success">
                                         <span class="icon-sm mdi mdi-printer"></span>
-                                    </button>
+                                    </Link>
                                 </td>
                             </tr>
                         </tbody>
@@ -90,6 +90,11 @@ export default {
     },
     props: {
         invoices: Object
+    },
+    methods: {
+        setTarget (id) {
+            window.open("/invoice-print/"+ id, "_blank")
+        }
     }
 };
 </script>

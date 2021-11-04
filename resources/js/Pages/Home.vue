@@ -41,15 +41,15 @@
                 </Link>
             </div>
             <div class="col-sm-4 grid-margin">
-                <Link href="/report" as="div" class="card" style="cursor: pointer">
+                <Link href="/users" as="div" class="card" style="cursor: pointer">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-8 col-sm-12 col-xl-8 my-auto">
                                 <div class="d-flex d-sm-block d-md-flex align-items-center">
-                                    <h2 class="mb-0">Report</h2>
+                                    <h2 class="mb-0">Users</h2>
                                 </div>
                                 <h6 class="text-muted font-weight-normal">
-                                    Manage company report
+                                    Manage company users admin
                                 </h6>
                             </div>
                             <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
