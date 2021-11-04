@@ -19,6 +19,7 @@ Route::post('/invoices', [InvoicesController::class, 'store']);
 Route::get('/invoice/{id}/edit', [InvoicesController::class, 'edit']);
 Route::put('/invoice/{id}', [InvoicesController::class, 'update']);
 Route::delete('/invoice/{id}/delete', [InvoicesController::class, 'destroy']);
+Route::get('/show-invoice/{id}', [InvoicesController::class, 'show']);
 
 Route::get('/invoices-export', [InvoicesController::class, 'export']);
 

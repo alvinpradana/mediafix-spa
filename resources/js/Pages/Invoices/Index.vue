@@ -47,11 +47,11 @@
                                     <div v-else class="badge badge-outline-danger">{{ invoice.payment_status }}</div>
                                 </td>
                                 <td class="text-center">
-                                    <Link :href="`/invoice/`+ invoice.id +`/edit`" type="button" class="btn btn-outline-primary showInvoice mr-1">
+                                    <Link :href="`/show-invoice/`+ invoice.id" type="button" class="btn btn-outline-primary showInvoice mr-1">
                                         <span class="icon-sm mdi mdi-eye"></span>
                                     </Link>
-                                    <button type="button" @click.prevent="destroy(invoice.id)" class="btn btn-outline-danger">
-                                        <span class="icon-sm mdi mdi-delete"></span>
+                                    <button type="button" class="btn btn-outline-warning">
+                                        <span class="icon-sm mdi mdi-printer"></span>
                                     </button>
                                 </td>
                             </tr>
@@ -61,7 +61,7 @@
                 </div>
                 <div class="row mt-2">
                     <div class="col-md-3">
-                        <a href="/invoices-export" type="button" class="btn btn-lg btn-block btn-outline-primary">
+                        <a href="/invoices-export" type="button" class="btn btn-lg btn-block btn-outline-primary mb-2">
                              Download Excel
                         </a>
                     </div>
@@ -79,7 +79,6 @@
 <script>
 import Layout from "../Shared/Layout";
 import { Link, Head } from "@inertiajs/inertia-vue3";
-import { Inertia } from '@inertiajs/inertia';
 import Pagination from "../Shared/Pagination"
 
 export default {
@@ -91,16 +90,6 @@ export default {
     },
     props: {
         invoices: Object
-    },
-    setup() {
-        function destroy (id) {
-            if (confirm('Are you sure you want to delete this invoice?')) {
-                Inertia.delete(`/invoice/`+ id +`/delete`)
-            }
-        }
-        return {
-            destroy
-        }
     }
 };
 </script>

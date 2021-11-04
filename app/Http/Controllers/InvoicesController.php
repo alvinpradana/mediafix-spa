@@ -18,6 +18,12 @@ class InvoicesController extends Controller
         return Inertia::render('Invoices/Index', compact('invoices'));
     }
 
+    public function show($id)
+    {
+        $invoice = Invoice::with('units')->findOrFail($id);
+        return Inertia::render('Invoices/ShowInvoice', compact('invoice'));
+    }
+
     public function create()
     {
         $code = Invoice::orderBy('id', 'desc')->pluck('id')->first();
@@ -145,7 +151,7 @@ class InvoicesController extends Controller
         $invoice = Invoice::findOrFail($id);
         $invoice->delete();
 
-        return Redirect::back()->with('alert_success', 'Invoice deleted successfully');
+        return Redirect::route('invoices.index')->with('alert_success', 'Invoice deleted successfully');
     }
 
     public function export()

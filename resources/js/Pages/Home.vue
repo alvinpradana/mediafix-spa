@@ -106,7 +106,7 @@
                                     <div v-else class="badge badge-outline-danger">{{ invoice.payment_status }}</div>
                                 </td>
                                 <td class="text-center">
-                                    <Link :href="`/invoice/`+ invoice.id +`/edit`" type="button" class="btn btn-outline-primary">
+                                    <Link :href="`/show-invoice/`+ invoice.id" type="button" class="btn btn-outline-primary">
                                         <span class="icon-sm mdi mdi-eye"></span>
                                     </Link>
                                 </td>
