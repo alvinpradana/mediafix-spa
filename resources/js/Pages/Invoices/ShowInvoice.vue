@@ -10,23 +10,23 @@
                 <div class="dropdown-divider mb-4"></div>
                 <div class="row">
                     <div class="form-group col-sm-3">
-                        <label>Customer Name</label>
+                        <label>Nama Customer</label>
                         <div class="mr-1 mb-1 px-4 py-2 text-sm border rounded" v-html="invoice.customer_name" />
                     </div>
                     <div class="form-group col-sm-3">
-                        <label>Customer Phone</label>
+                        <label>Telepon / WA</label>
                         <div class="mr-1 mb-1 px-4 py-2 text-sm border rounded" v-html="invoice.customer_phone" />
                     </div>
                     <div class="form-group col-sm-2">
-                        <label>Date In</label>
+                        <label>Tanggal Masuk</label>
                         <div class="mr-1 mb-1 px-4 py-2 text-sm border rounded" v-html="invoice.date_in" />
                     </div>
                     <div class="form-group col-sm-2">
-                        <label>Date Taken</label>
+                        <label>Pengambilan</label>
                         <div class="mr-1 mb-1 px-4 py-2 text-sm border rounded" v-html="invoice.date_taken" />
                     </div>
                     <div class="form-group col-sm-2">
-                        <label>Guarantee</label>
+                        <label>Garansi</label>
                         <div class="mr-1 mb-1 px-4 py-2 text-sm border rounded" v-html="invoice.guarantee" />
                     </div>
                 </div>
@@ -34,10 +34,10 @@
                     <tr class="text-center">
                         <th width="10%">Qty</th>
                         <th width="15%">Unit</th>
-                        <th width="15%">Unit Name</th>
-                        <th width="20%">Description</th>
-                        <th width="25%">Completeness</th>
-                        <th width="10%">Cost</th>
+                        <th width="15%">Tipe</th>
+                        <th width="20%">Keterangan</th>
+                        <th width="25%">Kelengkapan</th>
+                        <th width="10%">Biaya</th>
                         <th width="20%">Total</th>
                     </tr>
                     <tr v-for="unit in invoice.units" :key="unit.id" class="text-secondary">
@@ -56,15 +56,15 @@
                     <div class="col-md-8">
                         <div class="row">
                             <div class="form-group col-md-6 px-1">
-                                <label>Order Status</label>
+                                <label>Status Order</label>
                                 <div class="mr-1 mb-1 px-4 py-2 text-sm border rounded" v-html="invoice.order_status" />
                             </div>
                             <div class="form-group col-md-6 px-1">
-                                <label>Payment Status</label>
+                                <label>Status Pembayaran</label>
                                 <div class="mr-1 mb-1 px-4 py-2 text-sm border rounded" v-html="invoice.payment_status" />
                             </div>
                             <div class="form-group col-md-12 px-1">
-                                <label>Notes</label>
+                                <label>Catatan</label>
                                 <div class="mr-1 mb-1 px-4 py-2 text-sm border rounded">
                                     {{ invoice.notes }}
                                 </div>
@@ -91,13 +91,13 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-sm-4 col-form-label">Down Pay</label>
+                            <label class="col-sm-4 col-form-label">Uang Muka</label>
                             <div class="col-sm-8">
                                 <div class="mr-1 mb-1 px-4 py-2 text-sm border rounded" v-html="invoice.down_payment" />
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-sm-4 col-form-label">Dependents</label>
+                            <label class="col-sm-4 col-form-label">Sisa Bayar</label>
                             <div class="col-sm-8">
                                 <div class="mr-1 mb-1 px-4 py-2 text-sm border rounded" v-html="invoice.dependents" />
                             </div>

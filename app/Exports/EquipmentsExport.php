@@ -14,10 +14,10 @@ class EquipmentsExport implements FromCollection, WithHeadings
     public function headings(): array
     {
         return [
-            'TYPE',
-            'NAME',
-            'QUANTITY',
-            'CONDITION',
+            'TIPE',
+            'NAMA',
+            'JUMLAH',
+            'KONDISI',
         ];
     }
     public function collection()

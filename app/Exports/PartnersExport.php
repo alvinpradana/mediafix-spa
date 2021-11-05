@@ -14,12 +14,12 @@ class PartnersExport implements FromCollection, WithHeadings
     public function headings(): array
     {
         return [
-            'NAME',
-            'PHONE NUMBER',
+            'NAMA',
+            'TELEPON/WA',
             'EMAIL',
-            'DATE JOIN',
-            'COMPANY',
-            'ADDRESS',
+            'TANGGAL BERGABUNG',
+            'PERUSAHAAN',
+            'ALAMAT',
         ];
     }
     public function collection()

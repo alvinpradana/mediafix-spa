@@ -94,18 +94,14 @@
                 <div class="card mb-4" v-show="showImport">
                     <div class="card-body">
                         <form @submit.prevent="upload" enctype="multipart/form-data">
-                            <!-- <input type="file" @input="formFile.file = $event.target.files[0]" class="form-control file-upload-default"> -->
-                            <div class="form-group">
-                                <input type="file" @input="formFile.file = $event.target.files[0]" class="file-upload-default">
-                                <div class="input-group col-xs-12">
-                                    <input type="text" class="form-control file-upload-info" disabled placeholder="No file choosen">
-                                    <span class="input-group-append">
-                                        <button class="file-upload-browse btn btn-primary" type="button">Choose</button>
-                                    </span>
+                            <div class="form-group row">
+                                <div class="col-sm-12">
+                                    <div class="mb-1 px-2 py-2 text-sm border rounded">
+                                        <input type="file" @input="formFile.file = $event.target.files[0]">
+                                    </div>
+                                    <small class="text-danger" v-if="errors.file">{{ errors.file[0] }}</small>
                                 </div>
-                                <small class="text-danger" v-if="errors.file">{{ errors.file[0] }}</small>
                             </div>
-                            <!-- <small class="text-danger" v-if="errors.file">{{ errors.file[0] }}</small> -->
                             <div class="row justify-content-between mt-3">
                                 <div class="col-md-6">
                                     <button type="submit" class="btn btn-lg btn-block btn-outline-success mb-2">Submit</button>
@@ -167,7 +163,7 @@
 
 <script>
 import Layout from "../Shared/Layout";
-import { Link, Head, useForm } from "@inertiajs/inertia-vue3";
+import { Link, Head } from "@inertiajs/inertia-vue3";
 import { Inertia } from '@inertiajs/inertia';
 import Pagination from "../Shared/Pagination"
 
@@ -188,27 +184,27 @@ export default {
                 equipment_quantity: null,
                 equipment_condition: null,
             },
+            formFile: {
+                file: null
+            }
         }
     },
     setup () {
-        const formFile = useForm({
-            file: null,
-        })
-        function upload () {
-            formFile.post('/equipment-import')
-        }
         function destroy(id) {
             if(confirm('Are you sure you want to delete this equipment?')) {
                 Inertia.delete(`/equipment/`+ id +`/delete`)
             }
         }
         return {
-            destroy,
-            formFile,
-            upload
+            destroy
         }
     },
     methods: {
+        upload () {
+            Inertia.post('/equipment-import', this.formFile, {
+                onSuccess: () => this.reset()
+            })
+        },
         store(data) {
             Inertia.post('/equipment', data, {
                 onSuccess: () => this.reset()
@@ -233,6 +229,9 @@ export default {
         },
         cancelImport () {
             this.showImport = false
+            this.formFile = {
+                file: null
+            }
         },
         reset () {
             this.form = {
@@ -241,6 +240,10 @@ export default {
                 equipment_quantity: null,
                 equipment_condition: null,
             }
+            this.formFile = {
+                file: null
+            }
+            this.showImport = false
             this.editMode = false
         }
     },

@@ -3,42 +3,40 @@
         <Head title="Edit Invoice" />
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Edit this Invoice</h4>
-                <div class="dropdown-divider my-4"></div>
+                <div class="d-flex justify-content-between">
+                    <h4 class="card-title">Edit Invoice</h4>
+                    <h4 class="card-title">{{ form.invoice_code }}</h4>
+                </div>
+                <div class="dropdown-divider mb-4"></div>
                 <form @submit.prevent="update" autocomplete="off">
                     <div class="row">
-                        <div class="form-group col-sm-2">
-                            <label for="invoice_code">Invoice Code</label>
-                            <input type="text" v-model="form.invoice_code" id="invoice_code" class="form-control" placeholder="Invoice code">
-                            <small class="text-danger" v-if="errors.invoice_code">{{ errors.invoice_code[0] }}</small>
-                        </div>
-                        <div class="form-group col-sm-2">
-                            <label for="customer_name">Customer Name</label>
+                        <div class="form-group col-sm-3">
+                            <label for="customer_name">Nama Customer</label>
                             <input type="name" id="customer_name" v-model="form.customer_name" class="form-control" placeholder="Enter name">
                             <small class="text-danger" v-if="errors.customer_name">{{ errors.customer_name[0] }}</small>
                         </div>
-                        <div class="form-group col-sm-2">
-                            <label for="customer_phone">Phone Number</label>
+                        <div class="form-group col-sm-3">
+                            <label for="customer_phone">Telepon / WA</label>
                             <input type="text" id="customer_phone" v-model="form.customer_phone" class="form-control" placeholder="Enter phone number">
                             <small class="text-danger" v-if="errors.customer_phone">{{ errors.customer_phone[0] }}</small>
                         </div>
                         <div class="form-group col-sm-2">
-                            <label for="date_in">Date In</label>
+                            <label for="date_in">Tanggal</label>
                             <input type="text" v-model="form.date_in" id="date_in" class="form-control" placeholder="Enter date in" onfocus="(this.type='date')" onblur="if(this.value==''){this.type='text'}">
                             <small class="text-danger" v-if="errors.date_in">{{ errors.date_in[0] }}</small>
                         </div>
                         <div class="form-group col-sm-2">
-                            <label for="date_taken">Date Taken</label>
+                            <label for="date_taken">Pengambilan</label>
                             <input type="text" v-model="form.date_taken" id="date_taken" class="form-control" placeholder="Enter date taken" onfocus="(this.type='date')" onblur="if(this.value==''){this.type='text'}">
                             <small class="text-danger" v-if="errors.date_taken">{{ errors.date_taken[0] }}</small>
                         </div>
                         <div class="form-group col-sm-2">
-                            <label for="guarantee">Guarantee</label>
+                            <label for="guarantee">Garansi</label>
                             <div class="input-group">
                                 <input type="number" id="guarantee" v-model="form.guarantee" class="form-control" placeholder="Long warranty">
                                 <small class="text-danger" v-if="errors.guarantee">{{ errors.guarantee[0] }}</small>
                                 <div class="input-group-append">
-                                    <span class="input-group-text">Days</span>
+                                    <span class="input-group-text">Hari</span>
                                 </div>
                             </div>
                         </div>
@@ -47,10 +45,10 @@
                         <tr class="text-center">
                             <th width="10%">Qty</th>
                             <th width="15%">Unit</th>
-                            <th width="15%">Unit Name</th>
-                            <th width="20%">Description</th>
-                            <th width="15%">Completeness</th>
-                            <th width="10%">Cost</th>
+                            <th width="15%">Tipe</th>
+                            <th width="20%">Keterangan</th>
+                            <th width="15%">Kelengkapan</th>
+                            <th width="10%">Biaya</th>
                             <th width="15%">Total</th>
                             <th width="2%">Delete</th>
                         </tr>
@@ -65,8 +63,8 @@
                                 <select v-model="unit.unit_type" class="text-white form-control">
                                     <option value="Camera">Camera</option>
                                     <option value="Phone">Phone</option>
-                                    <option value="Laptop-PC">Laptop-PC</option>
-                                    <option value="Other">Other</option>
+                                    <option value="Laptop/PC">Laptop/PC</option>
+                                    <option value="Device">Lainnya</option>
                                 </select>
                             </td>
                             <td>
@@ -112,35 +110,35 @@
                             <div class="row mt-4">
                                 <div class="col-sm-12 col-md-6 pr-4">
                                     <div class="row">
-                                        <p>Order Status :</p>
+                                        <p>Status Order</p>
                                     </div>
                                     <div class="row mb-4">
-                                        <select v-model="form.order_status" class="form-control text-white"> Select One
-                                            <option value="Process"> Process </option>
-                                            <option value="Fixed"> Fixed </option>
-                                            <option value="Cancel"> Cancel </option>
+                                        <select v-model="form.order_status" class="form-control text-white">
+                                            <option value="Proses">Proses</option>
+                                            <option value="Selesai">Selesai</option>
+                                            <option value="Batal">Batal</option>
                                         </select>
                                         <small class="text-danger" v-if="errors.order_status">{{ errors.order_status[0] }}</small>
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-6 pr-4">
                                     <div class="row">
-                                        <p>Payment Status :</p>
+                                        <p>Status Pembayaran</p>
                                     </div>
                                     <div class="row mb-4">
-                                        <select v-model="form.payment_status" class="form-control text-white"> Select One
-                                            <option value="Paid"> Paid </option>
-                                            <option value="Down Payment"> Down Payment </option>
-                                            <option value="Unpaid"> Unpaid </option>
-                                            <option value="Cancel"> Cancel </option>
+                                        <select v-model="form.payment_status" class="form-control text-white">
+                                            <option value="Lunas">Lunas</option>
+                                            <option value="Uang Muka">Uang Muka</option>
+                                            <option value="Belum Bayar">Belum Bayar</option>
+                                            <option value="Batal">Batal</option>
                                         </select>
                                         <small class="text-danger" v-if="errors.payment_status">{{ errors.payment_status[0] }}</small>
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-12 pr-4">
                                     <div class="form-group row">
-                                        <label for="notes" class="col-form-label">Notes :</label>
-                                        <textarea class="form-control txt" rows="6" v-model="form.notes" id="notes" placeholder="Notes of this invoice!"></textarea>
+                                        <label for="notes" class="col-form-label">Catatan</label>
+                                        <textarea class="form-control txt" rows="6" v-model="form.notes" id="notes" placeholder="Catatan nota!"></textarea>
                                         <small class="text-danger" v-if="errors.notes">{{ errors.notes[0] }}</small>
                                     </div>
                                 </div>
@@ -171,19 +169,19 @@
                                             <td class="text-success"><strong>Rp. {{ total_payment }}</strong></td>
                                         </tr>
                                         <tr>
-                                            <td>Amount Paid</td>
+                                            <td>Uang Muka</td>
                                             <td>
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text">Rp</span>
                                                     </div>
-                                                    <input type="number" v-model="form.down_payment" class="form-control" placeholder="Amount Paid / DP">
+                                                    <input type="number" v-model="form.down_payment" class="form-control" placeholder="Jumlah bayar">
                                                     <small class="text-danger" v-if="errors.down_payment">{{ errors.down_payment[0] }}</small>
                                                 </div>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>Dependents</td>
+                                            <td>Sisa Bayar</td>
                                             <td class="text-danger"><strong>Rp. {{ dependents }}</strong></td>
                                         </tr>
                                     </table>
@@ -192,11 +190,17 @@
                         </div>
                     </div>
                     <div class="dropdown-divider mt-4"></div>
-                    <div class="row justify-content-center mt-3">
-                        <div class="col-md-6">
+                    <div class="row mt-3">
+                        <div class="col-md-3">
                             <button type="submit" class="btn btn-lg btn-block btn-outline-success mb-2">
                                 <i class="mdi mdi-print"></i>
-                                Print Invoice
+                                Save Invoice
+                            </button>
+                        </div>
+                        <div class="col-md-3">
+                            <button type="submit" class="btn btn-lg btn-block btn-outline-warning mb-2">
+                                <i class="mdi mdi-print"></i>
+                                Save & Send
                             </button>
                         </div>
                     </div>

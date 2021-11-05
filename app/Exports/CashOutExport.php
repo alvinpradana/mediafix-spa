@@ -14,9 +14,9 @@ class CashOutExport implements FromCollection, WithHeadings
     public function headings(): array
     {
         return [
-            'DATE',
-            'DESCRIPTION',
-            'AMOUNT',
+            'TANGGAL',
+            'KETERANGAN',
+            'JUMLAH',
         ];
     }
     public function collection()

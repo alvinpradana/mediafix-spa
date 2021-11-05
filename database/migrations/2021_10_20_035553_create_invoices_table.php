@@ -16,13 +16,13 @@ class CreateInvoicesTable extends Migration
         Schema::create('invoices', function (Blueprint $table) {
             $table->id();
             $table->string('invoice_code')->unique();
-            $table->string('customer_name', 191);
-            $table->string('customer_phone', 50);
-            $table->date('date_in');
+            $table->string('customer_name', 191)->nullable();
+            $table->string('customer_phone', 50)->nullable();
+            $table->date('date_in')->nullable();
             $table->date('date_taken')->nullable();
             $table->integer('guarantee')->nullable();
-            $table->string('order_status');
-            $table->string('payment_status');
+            $table->string('order_status')->nullable();
+            $table->string('payment_status')->nullable();
             $table->double('subtotal')->nullable();
             $table->double('discount')->nullable();
             $table->double('total_payment')->nullable();

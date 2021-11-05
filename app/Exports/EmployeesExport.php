@@ -14,11 +14,11 @@ class EmployeesExport implements FromCollection, WithHeadings
     public function headings(): array
     {
         return [
-            'NAME',
-            'PHONE NUMBER',
+            'NAMA',
+            'TELEPON/WA',
             'EMAIL',
-            'DIVISION',
-            'ADDRESS',
+            'DIVISI',
+            'ALAMAT',
         ];
     }
     public function collection()

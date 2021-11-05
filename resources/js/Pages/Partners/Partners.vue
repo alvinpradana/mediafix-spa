@@ -18,7 +18,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-if="partners.length === 0">
+                            <tr v-if="partners.data.length === 0">
                                 <td colspan="7" class="text-center py-4">
                                     No data available in our record !
                                 </td>
@@ -46,13 +46,13 @@
                     </table>
                     <div class="dropdown-divider"></div>
                 </div>
-                <div class="row justify-content-between mt-4">
+                <div class="row mt-2">
                     <div class="col-md-3">
                         <Link as="button" href="/create-partner" type="button" class="btn btn-lg btn-block btn-outline-success mb-2">
                              Add Partner
                         </Link>
                     </div>
-                    <div class="col-md-3">
+                    <div v-show="partners.data.length > 0" class="col-md-3">
                         <a href="/partners-export" type="button" class="btn btn-lg btn-block btn-outline-primary mb-2">
                              Download Excel
                         </a>

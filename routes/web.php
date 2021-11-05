@@ -13,7 +13,7 @@ Route::get('/', [PagesController::class, 'home']);
 Route::get('/users', [PagesController::class, 'users']);
 
 // Invoices route
-Route::get('/invoices', [InvoicesController::class, 'index'])->name('invoices.index');
+Route::get('/dashboard/invoices', [InvoicesController::class, 'index'])->name('invoices.index');
 Route::get('/create-new-invoice', [InvoicesController::class, 'create']);
 Route::post('/invoices', [InvoicesController::class, 'store']);
 Route::get('/invoice/{id}/edit', [InvoicesController::class, 'edit']);
@@ -65,11 +65,11 @@ Route::post('/equipment-import', [EquipmentsController::class, 'import'])->name(
 Route::get('/equipment-export', [EquipmentsController::class, 'export'])->name('equipment.export');
 
 // Cash Out Route
-Route::get('/cash-out', [CashOutController::class, 'index'])->name('cash-out.index');
-Route::post('/cash-out', [CashOutController::class, 'store']);
-Route::get('/cash-out/{id}/edit', [CashOutController::class, 'edit']);
-Route::put('/cash-out/{id}', [CashOutController::class, 'update']);
-Route::delete('/cash-out/{id}/delete', [CashOutController::class, 'destroy']);
+Route::get('/dashboard/cash-out', [CashOutController::class, 'index'])->name('cash-out.index');
+Route::post('/dashboard/cash-out', [CashOutController::class, 'store']);
+Route::get('/dashboard/cash-out/{id}/edit', [CashOutController::class, 'edit']);
+Route::put('/dashboard/cash-out/{id}', [CashOutController::class, 'update']);
+Route::delete('/dashboard/cash-out/{id}/delete', [CashOutController::class, 'destroy']);
 
-Route::post('/cash-out-import', [CashOutController::class, 'import']);
-Route::get('/cash-out-export', [CashOutController::class, 'export']);
+Route::post('/dashboard/cash-out-import', [CashOutController::class, 'import']);
+Route::get('/dashboard/cash-out-export', [CashOutController::class, 'export']);

@@ -107,25 +107,25 @@
                 </div>
             </div>
             <div class="col-md-3 mt-2">
-                <div class="form-group row">
+                <div class="form-group row mb-1">
                     <strong class="col-sm-5 col-form-label">Subtotal</strong>
                     <div class="col-sm-7">
                         <div class="mr-1 mb-1 px-4 py-2 text-sm border border-success rounded">Rp. {{ $invoices->subtotal }}</div>
                     </div>
                 </div>
-                <div class="form-group row">
+                <div class="form-group row mb-1">
                     <strong class="col-sm-5 col-form-label">Discount</strong>
                     <div class="col-sm-7">
                         <div class="mr-1 mb-1 px-4 py-2 text-sm border border-success rounded">{{ $invoices->discount }} %</div>
                     </div>
                 </div>
-                <div class="form-group row">
+                <div class="form-group row mb-1">
                     <strong class="col-sm-5 col-form-label">Total</strong>
                     <div class="col-sm-7">
                         <div class="mr-1 mb-1 px-4 py-2 text-sm border border-success rounded">Rp. {{ $invoices->total_payment }}</div>
                     </div>
                 </div>
-                <div class="form-group row">
+                <div class="form-group row mb-1">
                     <strong class="col-sm-5 col-form-label">DP / Bayar</strong>
                     <div class="col-sm-7">
                         <div class="mr-1 mb-1 px-4 py-2 text-sm border border-success rounded">Rp. {{ $invoices->down_payment }}</div>

@@ -15,12 +15,12 @@ class CreatePartnersTable extends Migration
     {
         Schema::create('partners', function (Blueprint $table) {
             $table->id();
-            $table->string('partner_name', 191);
-            $table->string('phone_number', 32);
-            $table->string('partner_email', 225);
-            $table->date('start_join');
-            $table->string('partner_company', 225);
-            $table->text('partner_address');
+            $table->string('partner_name', 191)->nullable();
+            $table->string('phone_number', 32)->nullable();
+            $table->string('partner_email', 225)->nullable();
+            $table->date('start_join')->nullable();
+            $table->string('partner_company', 225)->nullable();
+            $table->text('partner_address')->nullable();
             $table->timestamps();
         });
     }

@@ -3,7 +3,7 @@
         <Head title="Homepage" />
         <div class="row">
             <div class="col-sm-4 grid-margin">
-                <Link href="/invoices" as="div" class="card" style="cursor: pointer">
+                <Link href="/dashboard/invoices" as="div" class="card" style="cursor: pointer">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-8 col-sm-12 col-xl-8 my-auto">
@@ -22,7 +22,7 @@
                 </Link>
             </div>
             <div class="col-sm-4 grid-margin">
-                <Link href="/cash-out" as="div" class="card" style="cursor: pointer">
+                <Link href="/dashboard/cash-out" as="div" class="card" style="cursor: pointer">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-8 col-sm-12 col-xl-8 my-auto">
@@ -67,17 +67,17 @@
                     <table class="table">
                         <thead>
                         <tr>
-                            <th> Invoice Code </th>
-                            <th> Customer Name </th>
-                            <th> Order Cost </th>
+                            <th> Nomor Nota </th>
+                            <th> Nama Customer  </th>
+                            <th> Biaya </th>
                             <th class="text-center"> Unit </th>
-                            <th class="text-center"> Description </th>
-                            <th> Order Status </th>
+                            <th class="text-center"> Keterangan </th>
+                            <th> Status Order </th>
                             <th class="text-center"> Action </th>
                         </tr>
                         </thead>
                         <tbody>
-                            <tr v-if="invoices.length === 0">
+                            <tr v-if="invoices.data.length === 0">
                                 <td colspan="7" class="text-center pt-4">
                                     No data available in our record !
                                 </td>
@@ -97,12 +97,12 @@
                                     </ul>    
                                 </td> 
                                 <td>
-                                    <div v-if="invoice.order_status == 'Process'" class="badge badge-outline-warning mr-1">{{ invoice.order_status }}</div>
-                                    <div v-else-if="invoice.order_status == 'Fixed'" class="badge badge-outline-success mr-1">{{ invoice.order_status }}</div>
+                                    <div v-if="invoice.order_status == 'Proses'" class="badge badge-outline-warning mr-1">{{ invoice.order_status }}</div>
+                                    <div v-else-if="invoice.order_status == 'Selesai'" class="badge badge-outline-success mr-1">{{ invoice.order_status }}</div>
                                     <div v-else class="badge badge-outline-danger mr-1">{{ invoice.order_status }}</div>
-                                    <div v-if="invoice.payment_status == 'Paid'" class="badge badge-outline-success">{{ invoice.payment_status }}</div>
-                                    <div v-else-if="invoice.payment_status == 'Down Payment'" class="badge badge-outline-primary">{{ invoice.payment_status }}</div>
-                                    <div v-else-if="invoice.payment_status == 'Unpaid'" class="badge badge-outline-warning">{{ invoice.payment_status }}</div>
+                                    <div v-if="invoice.payment_status == 'Lunas'" class="badge badge-outline-success">{{ invoice.payment_status }}</div>
+                                    <div v-else-if="invoice.payment_status == 'Uang Muka'" class="badge badge-outline-primary">{{ invoice.payment_status }}</div>
+                                    <div v-else-if="invoice.payment_status == 'Belum Bayar'" class="badge badge-outline-warning">{{ invoice.payment_status }}</div>
                                     <div v-else class="badge badge-outline-danger">{{ invoice.payment_status }}</div>
                                 </td>
                                 <td class="text-center">

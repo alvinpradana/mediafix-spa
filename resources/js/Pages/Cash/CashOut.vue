@@ -17,7 +17,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr v-if="cash_out.length === 0">
+                                    <tr v-if="cash_out.data.length === 0">
                                         <td colspan="7" class="text-center py-4">
                                             No data available in our record !
                                         </td>
@@ -55,7 +55,7 @@
                         <div class="dropdown-divider"></div>
                         <div class="row">
                             <div class="col-md-6 col-sm-12 mt-3">
-                                <a href="/cash-out-export" type="button" class="btn btn-lg btn-block btn-outline-primary">
+                                <a href="/dashboard/cash-out-export" type="button" class="btn btn-lg btn-block btn-outline-primary">
                                     Export
                                 </a>
                             </div>
@@ -70,15 +70,13 @@
                 <div class="card mb-4" v-show="showImport">
                     <div class="card-body">
                         <form @submit.prevent="upload" enctype="multipart/form-data">
-                            <div class="form-group">
-                                <input type="file" @input="formFile.file = $event.target.files[0]" class="file-upload-default">
-                                <div class="input-group col-xs-12">
-                                    <input type="text" class="form-control file-upload-info" disabled placeholder="No file choosen">
-                                    <span class="input-group-append">
-                                        <button class="file-upload-browse btn btn-primary" type="button">Choose</button>
-                                    </span>
+                            <div class="form-group row">
+                                <div class="col-sm-12">
+                                    <div class="mb-1 px-2 py-2 text-sm border rounded">
+                                        <input type="file" @input="formFile.file = $event.target.files[0] ?? '' ">
+                                    </div>
+                                    <small class="text-danger" v-if="errors.file">{{ errors.file[0] }}</small>
                                 </div>
-                                <small class="text-danger" v-if="errors.file">{{ errors.file[0] }}</small>
                             </div>
                             <div class="row justify-content-between mt-3">
                                 <div class="col-md-6">
@@ -133,7 +131,6 @@
 
 <script>
 import Layout from "../Shared/Layout";
-import { Link, Head, useForm } from "@inertiajs/inertia-vue3";
 import { Inertia } from '@inertiajs/inertia';
 import Pagination from "../Shared/Pagination"
 
@@ -153,29 +150,29 @@ export default {
                 cash_date: null,
                 cash_amount: null,
             },
+            formFile: {
+                file: null
+            }
         }
     },
     setup () {
-        const formFile = useForm({
-            file: null,
-        })
-        function upload () {
-            formFile.post('/cash-out-import')
-        }
         function destroy(id) {
             if(confirm('Are you sure you want to delete this cash?')) {
-                Inertia.delete(`/cash-out/`+ id +`/delete`)
+                Inertia.delete(`/dashboard/cash-out/`+ id +`/delete`)
             }
         }
         return {
-            destroy,
-            formFile,
-            upload
+            destroy
         }
     },
     methods: {
+        upload () {
+            Inertia.post('/dashboard/cash-out-import', this.formFile, {
+                onSuccess: () => this.reset()
+            })
+        },
         store(data) {
-            Inertia.post('/cash-out', data, {
+            Inertia.post('/dashboard/cash-out', data, {
                 onSuccess: () => this.reset()
             }, {
                 onError: () => this.editMode = true
@@ -187,7 +184,7 @@ export default {
             this.editMode = true
         },
         update (data) {
-            Inertia.put(`/cash-out/`+ data.id, data, {
+            Inertia.put(`/dashboard/cash-out/`+ data.id, data, {
                 onSuccess: () => this.reset()
             }, {
                 onError: () => this.editMode = true
@@ -199,6 +196,9 @@ export default {
         },
         cancelImport () {
             this.showImport = false
+            this.formFile = {
+                file: null
+            }
         },
         reset () {
             this.form = {
@@ -206,6 +206,10 @@ export default {
                 cash_date: null,
                 cash_amount: null,
             }
+            this.formFile = {
+                file: null
+            }
+            this.showImport = false
             this.editMode = false
         }
     },

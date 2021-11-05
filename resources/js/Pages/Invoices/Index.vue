@@ -8,17 +8,17 @@
                     <table class="table">
                         <thead>
                         <tr>
-                            <th> Invoice Code </th>
-                            <th> Customer Name </th>
-                            <th> Order Cost </th>
+                            <th> Nomor Nota </th>
+                            <th> Nama Customer </th>
+                            <th> Biaya </th>
                             <th class="text-center"> Unit </th>
-                            <th class="text-center"> Description </th>
-                            <th> Order Status </th>
+                            <th class="text-center"> Keterangan </th>
+                            <th> Status Order </th>
                             <th class="text-center"> Action </th>
                         </tr>
                         </thead>
                         <tbody>
-                            <tr v-if="invoices.length === 0">
+                            <tr v-if="invoices.data.length === 0">
                                 <td colspan="7" class="text-center pt-4">
                                     No data available in our record !
                                 </td>
@@ -38,12 +38,12 @@
                                     </ul>    
                                 </td> 
                                 <td>
-                                    <div v-if="invoice.order_status == 'Process'" class="badge badge-outline-warning mr-1">{{ invoice.order_status }}</div>
-                                    <div v-else-if="invoice.order_status == 'Fixed'" class="badge badge-outline-success mr-1">{{ invoice.order_status }}</div>
+                                    <div v-if="invoice.order_status == 'Proses'" class="badge badge-outline-warning mr-1">{{ invoice.order_status }}</div>
+                                    <div v-else-if="invoice.order_status == 'Selesai'" class="badge badge-outline-success mr-1">{{ invoice.order_status }}</div>
                                     <div v-else class="badge badge-outline-danger mr-1">{{ invoice.order_status }}</div>
-                                    <div v-if="invoice.payment_status == 'Paid'" class="badge badge-outline-success">{{ invoice.payment_status }}</div>
-                                    <div v-else-if="invoice.payment_status == 'Down Payment'" class="badge badge-outline-primary">{{ invoice.payment_status }}</div>
-                                    <div v-else-if="invoice.payment_status == 'Unpaid'" class="badge badge-outline-warning">{{ invoice.payment_status }}</div>
+                                    <div v-if="invoice.payment_status == 'Lunas'" class="badge badge-outline-success">{{ invoice.payment_status }}</div>
+                                    <div v-else-if="invoice.payment_status == 'Uang Muka'" class="badge badge-outline-primary">{{ invoice.payment_status }}</div>
+                                    <div v-else-if="invoice.payment_status == 'Belum Bayar'" class="badge badge-outline-warning">{{ invoice.payment_status }}</div>
                                     <div v-else class="badge badge-outline-danger">{{ invoice.payment_status }}</div>
                                 </td>
                                 <td class="text-center">
@@ -59,7 +59,7 @@
                     </table>
                     <div class="dropdown-divider"></div>
                 </div>
-                <div class="row mt-2">
+                <div v-show="invoices.data.length > 0" class="row mt-2">
                     <div class="col-md-3">
                         <a href="/invoices-export" type="button" class="btn btn-lg btn-block btn-outline-primary mb-2">
                              Download Excel

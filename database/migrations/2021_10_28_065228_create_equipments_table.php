@@ -15,10 +15,10 @@ class CreateEquipmentsTable extends Migration
     {
         Schema::create('equipments', function (Blueprint $table) {
             $table->id();
-            $table->string('equipment_type');
-            $table->string('equipment_name');
-            $table->double('equipment_quantity');
-            $table->text('equipment_condition');
+            $table->string('equipment_type')->nullable();
+            $table->string('equipment_name')->nullable();
+            $table->double('equipment_quantity')->nullable();
+            $table->text('equipment_condition')->nullable();
             $table->timestamps();
         });
     }

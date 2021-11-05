@@ -15,9 +15,9 @@ class CreateCashOutsTable extends Migration
     {
         Schema::create('cash_outs', function (Blueprint $table) {
             $table->id();
-            $table->text('cash_description');
-            $table->date('cash_date');
-            $table->double('cash_amount');
+            $table->text('cash_description')->nullable();
+            $table->date('cash_date')->nullable();
+            $table->double('cash_amount')->nullable();
             $table->timestamps();
         });
     }
