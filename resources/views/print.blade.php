@@ -37,34 +37,34 @@
                 <div class="mr-1 mb-1 px-3 py-2 border border-success rounded">{{ $invoices->invoice_code }}</div>
             </div>
             <div class="form-group col-md-2">
-                <strong>Customer Name</strong>
+                <strong>Nama Customer</strong>
                 <div class="mr-1 mb-1 px-3 py-2 border border-success rounded">{{ $invoices->customer_name }}</div>
             </div>
             <div class="form-group col-md-2">
-                <strong>Customer Phone</strong>
+                <strong>Telepon / WA</strong>
                 <div class="mr-1 mb-1 px-3 py-2 border border-success rounded">{{ $invoices->customer_phone }}</div>
             </div>
             <div class="form-group col-md-2">
-                <strong>Date In</strong>
+                <strong>Tanggal</strong>
                 <div class="mr-1 mb-1 px-3 py-2 border border-success rounded">{{ $invoices->date_in }}</div>
             </div>
             <div class="form-group col-md-2">
-                <strong>Date Taken</strong>
+                <strong>Pengambilan</strong>
                 <div class="mr-1 mb-1 px-3 py-2 border border-success rounded">{{ $invoices->date_taken }}</div>
             </div>
             <div class="form-group col-md-2">
-                <strong>Guarantee</strong>
-                <div class="mr-1 mb-1 px-3 py-2 border border-success rounded">{{ $invoices->guarantee }}</div>
+                <strong>Garansi</strong>
+                <div class="mr-1 mb-1 px-3 py-2 border border-success rounded">{{ $invoices->guarantee }} Hari</div>
             </div>
         </div>
         <table class="table table-bordered border-success rounded text-success my-3">
             <tr class="text-center">
                 <th width="5%">Qty</th>
                 <th width="15%">Unit</th>
-                <th width="15%">Unit Name</th>
-                <th width="20%">Description</th>
-                <th width="25%">Completeness</th>
-                <th width="10%">Cost</th>
+                <th width="15%">Tipe</th>
+                <th width="20%">Keterangan</th>
+                <th width="25%">Kelengkapan</th>
+                <th width="10%">Biaya</th>
                 <th width="20%">Total</th>
             </tr>
             @foreach($invoices->units as $unit)
@@ -83,19 +83,20 @@
             <div class="col-md-8">
                 <div class="row">
                     <div class="form-group col-md-6">
-                        <strong>Order Status</strong>
+                        <strong>Status Order</strong>
                         <div class="mr-1 mb-1 px-4 py-2 text-sm border border-success rounded">{{ $invoices->order_status }}</div>
                     </div>
                     <div class="form-group col-md-6">
-                        <strong>Payment Status</strong>
+                        <strong>Status Pembayaran</strong>
                         <div class="mr-1 mb-1 px-4 py-2 text-sm border border-success rounded">{{ $invoices->payment_status }}</div>
                     </div>
                     <div class="form-group col-md-12 mt-2">
-                        <strong>Notes</strong>
+                        {{-- <strong><u>Perhatian</u></strong> --}}
                         <div class="mr-1 mb-1 px-2 pt-3 pb-1 text-sm border border-success rounded">
                             <ol>
-                                <small>
-                                    <li>Unit barang yang sudah dibeli tidak dapat ditukar/dikembalikan</li>
+                                <small class="fw-bolder">
+                                    <u>Perhatian :</u>
+                                    <li>Unit barang yang sudah dibeli tidak dapat ditukar / dikembalikan</li>
                                     <li>Tidak bertanggung jawab atas kerusakan / kehilangan barang setelah 2 bulan terhitung sejak tanggal direparasi</li>
                                     <li>Sebelum ada pelunasan barang <i>repair</i> tidak dapat diambil</li>
                                     <li>Tidak bertanggung jawab apabila terjadi <i>force majeur</i> (Bencana alam, kebakaran, pencurian, huru-hara, dll)</li>
@@ -107,47 +108,47 @@
             </div>
             <div class="col-md-3 mt-2">
                 <div class="form-group row">
-                    <strong class="col-sm-4 col-form-label">Subtotal</strong>
-                    <div class="col-sm-8">
+                    <strong class="col-sm-5 col-form-label">Subtotal</strong>
+                    <div class="col-sm-7">
                         <div class="mr-1 mb-1 px-4 py-2 text-sm border border-success rounded">Rp. {{ $invoices->subtotal }}</div>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <strong class="col-sm-4 col-form-label">Discount</strong>
-                    <div class="col-sm-8">
+                    <strong class="col-sm-5 col-form-label">Discount</strong>
+                    <div class="col-sm-7">
                         <div class="mr-1 mb-1 px-4 py-2 text-sm border border-success rounded">{{ $invoices->discount }} %</div>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <strong class="col-sm-4 col-form-label">Total</strong>
-                    <div class="col-sm-8">
+                    <strong class="col-sm-5 col-form-label">Total</strong>
+                    <div class="col-sm-7">
                         <div class="mr-1 mb-1 px-4 py-2 text-sm border border-success rounded">Rp. {{ $invoices->total_payment }}</div>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <strong class="col-sm-4 col-form-label">Down Pay</strong>
-                    <div class="col-sm-8">
+                    <strong class="col-sm-5 col-form-label">DP / Bayar</strong>
+                    <div class="col-sm-7">
                         <div class="mr-1 mb-1 px-4 py-2 text-sm border border-success rounded">Rp. {{ $invoices->down_payment }}</div>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <strong class="col-sm-4 col-form-label">Dependents</strong>
-                    <div class="col-sm-8">
+                    <strong class="col-sm-5 col-form-label">Sisa Bayar</strong>
+                    <div class="col-sm-7">
                         <div class="mr-1 mb-1 px-4 py-2 text-sm border border-success rounded">Rp. {{ $invoices->dependents }}</div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row mt-3">
-            <div class="col-md-6 text-center"><strong>Customer</strong></div>
-            <div class="col-md-6 text-center"><strong>Hormat Kami,</strong></div>
+        <div class="row justify-content-between mt-4">
+            <div class="col-md-5 text-center"><strong>Customer</strong></div>
+            <div class="col-md-5 text-center"><strong>Hormat Kami,</strong></div>
         </div>
-        <div class="row mt-4">
-            <div class="col-md-6 text-center mt-3"><strong>(..........................)</strong></div>
-            <div class="col-md-6 text-center mt-3"><strong>(..........................)</strong></div>
+        <div class="row justify-content-between mt-4">
+            <div class="col-md-5 text-center mt-3"><strong>( ............................. )</strong></div>
+            <div class="col-md-5 text-center mt-3"><strong>( ............................. )</strong></div>
         </div>
-        <div class="row justify-content-center mt-4 mb-4">
-            <div class="col-md-1">
+        <div class="row my-4">
+            <div class="col-md-12 text-center">
                 <span class="badge rounded-pill bg-success"><i>"Gadget Spesialist"</i></span>
             </div>
         </div>
