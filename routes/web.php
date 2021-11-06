@@ -9,11 +9,12 @@ use App\Http\Controllers\PartnersController;
 use App\Http\Controllers\SparepartsController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [HomeController::class, 'HomeController']);
+Route::get('/', [HomeController::class, 'home']);
 Route::get('users', [HomeController::class, 'users']);
 
 // Invoices
 Route::resource('invoice', InvoicesController::class);
+Route::put('invoice-taken/{id}', [InvoicesController::class, 'mark'])->name('invoice.taken');
 Route::get('invoice-print/{id}', [InvoicesController::class, 'print'])->name('invoice.print');
 Route::get('invoices-export', [InvoicesController::class, 'export'])->name('invoices.export');
 

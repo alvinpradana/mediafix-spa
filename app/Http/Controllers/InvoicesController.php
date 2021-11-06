@@ -160,6 +160,16 @@ class InvoicesController extends Controller
         return Redirect::route('invoice.index')->with('alert_success', 'Invoice deleted successfully');
     }
 
+    public function mark(Request $request, $id)
+    {
+        $request->validate([
+            'mark' => ['required']
+        ]);
+
+        Invoice::where('id', $id)->update($request->only('mark'));
+        return Redirect::route('invoice.index');
+    }
+
     public function export()
     {
         return Excel::download(new InvoicesExport, 'Invoice-'. date('Y-m-d') .'.xlsx');

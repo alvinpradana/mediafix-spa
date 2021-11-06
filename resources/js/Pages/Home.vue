@@ -83,7 +83,10 @@
                                 </td>
                             </tr>
                             <tr v-for="invoice in invoices.data" :key="invoice.id">
-                                <td> {{ invoice.invoice_code }} </td>
+                                <td>
+                                    {{ invoice.invoice_code }}
+                                    <span v-show="invoice.mark === 1" class="text-success mdi mdi-checkbox-marked-circle-outline ml-1"></span>
+                                </td>
                                 <td> {{ invoice.customer_name }} </td>
                                 <td> Rp. {{ invoice.total_payment }} </td>
                                 <td>

@@ -4,7 +4,13 @@
         <div class="card">
             <div class="card-body text-secondary">
                 <div class="d-flex justify-content-between">
-                    <h4 class="card-title text-secondary">Invoice</h4>
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <h4 class="card-title text-secondary mr-2">Invoice</h4>
+                            <small v-show="invoice.mark === 1" class="text-success mdi mdi-record"></small>
+                            <small v-show="invoice.mark === 1" class="text-success"><strong>taken</strong></small>
+                        </div>
+                    </div>
                     <h4>{{ invoice.invoice_code }}</h4>
                 </div>
                 <div class="dropdown-divider mb-4"></div>
@@ -120,8 +126,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <button type="button" class="btn btn-lg btn-block btn-outline-warning mb-2">
+                    <div v-show="invoice.mark === 0" class="col-md-3">
+                        <button type="button" @click.prevent="mark(form)" class="btn btn-lg btn-block btn-outline-warning mb-2">
                             Mark as taken
                         </button>
                     </div>
@@ -142,6 +148,13 @@ export default {
         Layout,
         Link
     },
+    data () {
+        return {
+            form: {
+                mark: 1
+            }
+        }
+    },
     props: {
         invoice: Object,
         errors: Object,
@@ -154,6 +167,13 @@ export default {
         }
         return {
             destroy
+        }
+    },
+    methods: {
+        mark (data) {
+            if (confirm('Anda yakin unit servis telah diambil?')) {
+                Inertia.put(route('invoice.taken', {id: this.invoice.id}), data)
+            }
         }
     }
 };

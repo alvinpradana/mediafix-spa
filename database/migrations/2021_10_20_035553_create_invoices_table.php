@@ -29,6 +29,7 @@ class CreateInvoicesTable extends Migration
             $table->double('down_payment')->nullable();
             $table->double('dependents')->nullable();
             $table->text('notes')->nullable();
+            $table->boolean('mark')->default(false);
             $table->timestamps();
         });
     }
