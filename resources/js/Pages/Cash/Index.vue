@@ -55,7 +55,7 @@
                         <div class="dropdown-divider"></div>
                         <div class="row">
                             <div class="col-md-6 col-sm-12 mt-3">
-                                <a href="/dashboard/cash-out-export" type="button" class="btn btn-lg btn-block btn-outline-primary">
+                                <a :href="route('cash.export')" type="button" class="btn btn-lg btn-block btn-outline-primary">
                                     Export
                                 </a>
                             </div>
@@ -131,6 +131,7 @@
 
 <script>
 import Layout from "../Shared/Layout";
+import { Link, Head } from "@inertiajs/inertia-vue3";
 import { Inertia } from '@inertiajs/inertia';
 import Pagination from "../Shared/Pagination"
 
@@ -158,7 +159,7 @@ export default {
     setup () {
         function destroy(id) {
             if(confirm('Are you sure you want to delete this cash?')) {
-                Inertia.delete(`/dashboard/cash-out/`+ id +`/delete`)
+                Inertia.delete(route('cash.destroy', {cash: id}))
             }
         }
         return {
@@ -167,29 +168,27 @@ export default {
     },
     methods: {
         upload () {
-            Inertia.post('/dashboard/cash-out-import', this.formFile, {
+            Inertia.post(route('cash.import'), this.formFile, {
                 onSuccess: () => this.reset()
             })
         },
         store(data) {
-            Inertia.post('/dashboard/cash-out', data, {
+            Inertia.post(route('cash.store'), data, {
                 onSuccess: () => this.reset()
             }, {
                 onError: () => this.editMode = true
             })
-            this.clearErrors()
         },
         edit (data) {
             this.form = Object.assign({}, data)
             this.editMode = true
         },
         update (data) {
-            Inertia.put(`/dashboard/cash-out/`+ data.id, data, {
+            Inertia.put(route('cash.update', {cash: data.id}), data, {
                 onSuccess: () => this.reset()
             }, {
                 onError: () => this.editMode = true
             })
-            this.clearErrors()
         },
         showImportFile () {
             this.showImport = true

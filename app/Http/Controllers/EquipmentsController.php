@@ -29,13 +29,13 @@ class EquipmentsController extends Controller
             'equipment_condition' => ['required'],
         ]);
         Equipment::create($request->all());
-        return Redirect::route('equipments.index');
+        return Redirect::back();
     }
 
     public function edit($id)
     {
         $equipment = Equipment::find('id');
-        return Inertia::render(route('equipments.index'), compact('equipment'));
+        return Inertia::render('Equipments/Index', compact('equipment'));
     }
 
     public function update(Request $request, $id)

@@ -32,7 +32,7 @@
                                 <td>{{ employee.employee_division }}</td>
                                 <td>{{ employee.employee_address }}</td>
                                 <td>
-                                    <Link :href="`/employee/${employee.id}/edit`" type="button"  class="btn btn-outline-primary mr-1">
+                                    <Link :href="route('employees.edit', {employee: employee.id}, 'edit')" type="button"  class="btn btn-outline-primary mr-1">
                                         <span class="icon-sm mdi mdi-pencil"></span>
                                     </Link>
                                     <button type="button" @click.prevent="destroy(`${employee.id}`)" class="btn btn-outline-danger mr-1">
@@ -46,12 +46,12 @@
                 </div>
                 <div class="row mt-2">
                     <div class="col-md-3">
-                        <Link as="button" href="/create-employee" type="button" class="btn btn-lg btn-block btn-outline-success mb-2" data-bs-toggle="modal" data-bs-target="#AddEmployee">
+                        <Link as="button" :href="route('employees.create')" type="button" class="btn btn-lg btn-block btn-outline-success mb-2" data-bs-toggle="modal" data-bs-target="#AddEmployee">
                             Add Employee
                         </Link>
                     </div>
                     <div v-show="employees.data.length > 0" class="col-md-3">
-                        <a href="/employees-export" type="button" class="btn btn-lg btn-block btn-outline-primary mb-2">
+                        <a :href="route('employee.export')" type="button" class="btn btn-lg btn-block btn-outline-primary mb-2">
                             Download Excel
                         </a>
                     </div>
@@ -85,7 +85,7 @@ export default {
     setup() {
         function destroy(id) {
             if (confirm('Are you sure you want to delete this employee?')) {
-                Inertia.delete(`/employee/${id}/delete`)
+                Inertia.delete(route('employees.destroy', {employee: id}))
             }
         }
         return {

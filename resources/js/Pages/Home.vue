@@ -3,7 +3,7 @@
         <Head title="Homepage" />
         <div class="row">
             <div class="col-sm-4 grid-margin">
-                <Link href="/dashboard/invoices" as="div" class="card" style="cursor: pointer">
+                <Link :href="route('invoice.index')" as="div" class="card" style="cursor: pointer">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-8 col-sm-12 col-xl-8 my-auto">
@@ -22,7 +22,7 @@
                 </Link>
             </div>
             <div class="col-sm-4 grid-margin">
-                <Link href="/dashboard/cash-out" as="div" class="card" style="cursor: pointer">
+                <Link :href="route('cash.index')" as="div" class="card" style="cursor: pointer">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-8 col-sm-12 col-xl-8 my-auto">
@@ -106,7 +106,7 @@
                                     <div v-else class="badge badge-outline-danger">{{ invoice.payment_status }}</div>
                                 </td>
                                 <td class="text-center">
-                                    <Link :href="`/show-invoice/`+ invoice.id" type="button" class="btn btn-outline-primary">
+                                    <Link :href="route('invoice.show', {invoice: invoice.id})" type="button" class="btn btn-outline-primary">
                                         <span class="icon-sm mdi mdi-eye"></span>
                                     </Link>
                                 </td>

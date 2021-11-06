@@ -71,7 +71,7 @@ export default {
             partner_address: null,
         })
         function submit() {
-            Inertia.post('/partners', form)
+            Inertia.post(route('partners.store'), form)
         }
         return { form, submit }
     },

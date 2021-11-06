@@ -14,7 +14,7 @@
                 </ul>
                 <ul class="navbar-nav navbar-nav-right">
                     <li class="nav-item dropdown">
-                        <Link href="/create-new-invoice" class="nav-link btn btn-success create-new-button" aria-expanded="false" >
+                        <Link :href="route('invoice.create')" class="nav-link btn btn-success create-new-button" aria-expanded="false" >
                             + Add New Invoice
                         </Link>
                     </li>
@@ -72,10 +72,6 @@ import { Link } from "@inertiajs/inertia-vue3";
 export default {
     components: {
         Link,
-    },
-
-    methods: {
-        
-    },
+    }
 };
 </script>

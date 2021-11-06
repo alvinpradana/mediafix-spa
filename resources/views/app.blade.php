@@ -12,6 +12,7 @@
     <script src="{{ mix('/js/app.js') }}" defer></script>
 </head>
     <body>
+        @routes
         @inertia
     </body>
     {{-- <script src="{{ asset('admin/assets/js/bootstrap.bundle.min.js') }}"></script>

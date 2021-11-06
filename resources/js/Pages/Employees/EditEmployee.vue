@@ -66,7 +66,7 @@ export default {
         })
 
         function update() {
-            Inertia.put(`/employee/${props.employee.id}`, form)
+            Inertia.put(route('employees.update', {employee: props.employee.id}), form)
         }
 
         return { form, update }

@@ -65,7 +65,7 @@ export default {
             employee_address: null,
         })
         function submit() {
-            Inertia.post('/employees', form)
+            Inertia.post(route('employees.store'), form)
         }
         return { form, submit }
     },

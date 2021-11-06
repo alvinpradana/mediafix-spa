@@ -241,7 +241,7 @@ export default {
             }],
         })
         function submit () {
-            Inertia.post('/invoices', form)
+            Inertia.post(route('invoice.store'), form)
         }
         return { form, submit }
     },

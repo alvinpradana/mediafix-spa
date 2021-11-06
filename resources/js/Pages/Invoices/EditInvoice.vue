@@ -237,7 +237,7 @@ export default {
             units: props.invoice.units,
         })
         function update () {
-            Inertia.put(`/invoice/`+ props.invoice.id, form)
+            Inertia.put(route('invoice.update', {invoice: props.invoice.id}), form)
         }
         return { form, update }
     },

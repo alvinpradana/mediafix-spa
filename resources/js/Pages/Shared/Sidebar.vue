@@ -24,7 +24,7 @@
                 </Link>
             </li>
             <li class="nav-item menu-items" :class="{ 'active': $page.url === '/sparepart' }">
-                <Link class="nav-link" href="/sparepart">
+                <Link :href="route('sparepart.index')" class="nav-link">
                     <span class="menu-icon">
                         <i class="mdi mdi-monitor-multiple"></i>
                     </span>
@@ -32,7 +32,7 @@
                 </Link>
             </li>
             <li class="nav-item menu-items" :class="{ 'active': $page.url === '/equipment' }">
-                <Link class="nav-link" href="/equipment">
+                <Link :href="route('equipment.index')" class="nav-link">
                     <span class="menu-icon">
                         <i class="mdi mdi-wallet-travel"></i>
                     </span>
@@ -40,7 +40,7 @@
                 </Link>
             </li>
             <li class="nav-item menu-items" :class="{ 'active': $page.url === '/partners' }">
-                <Link class="nav-link" href="/partners">
+                <Link :href="route('partners.index')" class="nav-link">
                     <span class="menu-icon">
                         <i class="mdi mdi-account-star"></i>
                     </span>
@@ -48,7 +48,7 @@
                 </Link>
             </li>
             <li class="nav-item menu-items" :class="{ 'active': $page.url === '/employees' }">
-                <Link class="nav-link" :href="`/employees`">
+                <Link :href="route('employees.index')" class="nav-link">
                     <span class="menu-icon">
                         <i class="mdi mdi-worker"></i>
                     </span>

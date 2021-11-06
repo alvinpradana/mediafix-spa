@@ -47,7 +47,7 @@
                                     <div v-else class="badge badge-outline-danger">{{ invoice.payment_status }}</div>
                                 </td>
                                 <td class="text-center">
-                                    <Link :href="`/show-invoice/`+ invoice.id" type="button" class="btn btn-outline-primary showInvoice mr-1">
+                                    <Link :href="route('invoice.show', {invoice: invoice.id})" type="button" class="btn btn-outline-primary showInvoice mr-1">
                                         <span class="icon-sm mdi mdi-eye"></span>
                                     </Link>
                                     <Link as="button" type="button" @click="setTarget(invoice.id)" class="btn btn-outline-success">
@@ -61,7 +61,7 @@
                 </div>
                 <div v-show="invoices.data.length > 0" class="row mt-2">
                     <div class="col-md-3">
-                        <a href="/invoices-export" type="button" class="btn btn-lg btn-block btn-outline-primary mb-2">
+                        <a :href="route('invoices.export')" type="button" class="btn btn-lg btn-block btn-outline-primary mb-2">
                              Download Excel
                         </a>
                     </div>
@@ -93,7 +93,7 @@ export default {
     },
     methods: {
         setTarget (id) {
-            window.open("/invoice-print/"+ id, "_blank")
+            window.open(route('invoice.print', {id: id}, "_blank"))
         }
     }
 };

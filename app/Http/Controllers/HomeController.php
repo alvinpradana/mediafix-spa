@@ -8,7 +8,7 @@ use App\Models\Sparepart;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
 
-class PagesController extends Controller
+class HomeController extends Controller
 {
     public function home()
     {

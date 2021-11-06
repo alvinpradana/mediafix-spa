@@ -6,7 +6,6 @@ use App\Exports\EmployeesExport;
 use App\Models\Employee;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Redis;
 use Inertia\Inertia;
 use Maatwebsite\Excel\Facades\Excel;
 

@@ -34,7 +34,7 @@
                                 <td>{{ partner.partner_company }}</td>
                                 <td>{{ partner.partner_address }}</td>
                                 <td>
-                                    <Link :href="`/partner/`+ partner.id +`/edit`" type="button" class="btn btn-outline-primary mr-1">
+                                    <Link :href="route('partners.edit', {partner: partner.id})" type="button" class="btn btn-outline-primary mr-1">
                                         <span class="icon-sm mdi mdi-pencil"></span>
                                     </Link>
                                     <button type="button" @click.prevent="destroy(partner.id)" class="btn btn-outline-danger">
@@ -48,12 +48,12 @@
                 </div>
                 <div class="row mt-2">
                     <div class="col-md-3">
-                        <Link as="button" href="/create-partner" type="button" class="btn btn-lg btn-block btn-outline-success mb-2">
+                        <Link as="button" :href="route('partners.create')" type="button" class="btn btn-lg btn-block btn-outline-success mb-2">
                              Add Partner
                         </Link>
                     </div>
                     <div v-show="partners.data.length > 0" class="col-md-3">
-                        <a href="/partners-export" type="button" class="btn btn-lg btn-block btn-outline-primary mb-2">
+                        <a :href="route('partners.export')" type="button" class="btn btn-lg btn-block btn-outline-primary mb-2">
                              Download Excel
                         </a>
                     </div>
@@ -87,7 +87,7 @@ export default {
     setup() {
         function destroy(id) {
             if (confirm('Are you sure you want to delete this partner?')) {
-                Inertia.delete(`/partner/${id}/delete`)
+                Inertia.delete(route('partners.destroy', {partner: id}))
             }
         }
         return {

@@ -10,24 +10,24 @@
                 <div class="dropdown-divider mb-4"></div>
                 <div class="row">
                     <div class="form-group col-sm-3">
-                        <label>Nama Customer</label>
-                        <div class="mr-1 mb-1 px-4 py-2 text-sm border rounded" v-html="invoice.customer_name" />
+                        <label class="text-muted"><strong>Nama Customer</strong></label>
+                        <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded" v-html="invoice.customer_name" />
                     </div>
                     <div class="form-group col-sm-3">
-                        <label>Telepon / WA</label>
-                        <div class="mr-1 mb-1 px-4 py-2 text-sm border rounded" v-html="invoice.customer_phone" />
+                        <label class="text-muted"><strong>Telepon / WA</strong></label>
+                        <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded" v-html="invoice.customer_phone" />
                     </div>
                     <div class="form-group col-sm-2">
-                        <label>Tanggal Masuk</label>
-                        <div class="mr-1 mb-1 px-4 py-2 text-sm border rounded" v-html="invoice.date_in" />
+                        <label class="text-muted"><strong>Tanggal Masuk</strong></label>
+                        <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded" v-html="invoice.date_in" />
                     </div>
                     <div class="form-group col-sm-2">
-                        <label>Pengambilan</label>
-                        <div class="mr-1 mb-1 px-4 py-2 text-sm border rounded" v-html="invoice.date_taken" />
+                        <label class="text-muted"><strong>Pengambilan</strong></label>
+                        <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded" v-html="invoice.date_taken" />
                     </div>
                     <div class="form-group col-sm-2">
-                        <label>Garansi</label>
-                        <div class="mr-1 mb-1 px-4 py-2 text-sm border rounded" v-html="invoice.guarantee" />
+                        <label class="text-muted"><strong>Garansi</strong></label>
+                        <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded" v-html="invoice.guarantee" />
                     </div>
                 </div>
                 <table class="table table-responsive table-bordered rounded text-center my-2">
@@ -56,16 +56,16 @@
                     <div class="col-md-8">
                         <div class="row">
                             <div class="form-group col-md-6 px-1">
-                                <label>Status Order</label>
-                                <div class="mr-1 mb-1 px-4 py-2 text-sm border rounded" v-html="invoice.order_status" />
+                                <label class="text-muted"><strong>Status Order</strong></label>
+                                <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded" v-html="invoice.order_status" />
                             </div>
                             <div class="form-group col-md-6 px-1">
-                                <label>Status Pembayaran</label>
-                                <div class="mr-1 mb-1 px-4 py-2 text-sm border rounded" v-html="invoice.payment_status" />
+                                <label class="text-muted"><strong>Status Pembayaran</strong></label>
+                                <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded" v-html="invoice.payment_status" />
                             </div>
                             <div class="form-group col-md-12 px-1">
-                                <label>Catatan</label>
-                                <div class="mr-1 mb-1 px-4 py-2 text-sm border rounded">
+                                <label class="text-muted"><strong>Catatan</strong></label>
+                                <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded">
                                     {{ invoice.notes }}
                                 </div>
                             </div>
@@ -73,47 +73,56 @@
                     </div>
                     <div class="col-md-3">
                         <div class="form-group row">
-                            <label class="col-sm-4 col-form-label">Subtotal</label>
+                            <label class="col-sm-4 col-form-label text-muted"><strong>Subtotal</strong></label>
                             <div class="col-sm-8">
-                                <div class="mr-1 mb-1 px-4 py-2 text-sm border rounded" v-html="invoice.subtotal" />
+                                <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded" v-html="invoice.subtotal" />
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-sm-4 col-form-label">Discount</label>
+                            <label class="col-sm-4 col-form-label text-muted"><strong>Discount</strong></label>
                             <div class="col-sm-8">
-                                <div class="mr-1 mb-1 px-4 py-2 text-sm border rounded" v-html="invoice.discount" />
+                                <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded" v-html="invoice.discount" />
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-sm-4 col-form-label">Total</label>
+                            <label class="col-sm-4 col-form-label text-muted"><strong>Total</strong></label>
                             <div class="col-sm-8">
-                                <div class="mr-1 mb-1 px-4 py-2 text-sm border rounded" v-html="invoice.total_payment" />
+                                <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded" v-html="invoice.total_payment" />
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-sm-4 col-form-label">Uang Muka</label>
+                            <label class="col-sm-4 col-form-label text-muted"><strong>Uang Muka</strong></label>
                             <div class="col-sm-8">
-                                <div class="mr-1 mb-1 px-4 py-2 text-sm border rounded" v-html="invoice.down_payment" />
+                                <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded" v-html="invoice.down_payment" />
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-sm-4 col-form-label">Sisa Bayar</label>
+                            <label class="col-sm-4 col-form-label text-muted"><strong>Sisa Bayar</strong></label>
                             <div class="col-sm-8">
-                                <div class="mr-1 mb-1 px-4 py-2 text-sm border rounded" v-html="invoice.dependents" />
+                                <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded" v-html="invoice.dependents" />
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="dropdown-divider mt-3"></div>
-                <div class="row mt-3">
-                    <div class="col-md-2">
-                        <Link :href="`/invoice/`+ invoice.id +`/edit`" type="button" class="btn btn-lg btn-block btn-outline-primary mb-2">
-                            Edit
-                        </Link>
+                <div class="row justify-content-between mt-3">
+                    <div class="col-md-4">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <Link :href="route('invoice.edit', {invoice: invoice.id}, 'edit')" type="button" class="btn btn-lg btn-block btn-outline-primary mb-2">
+                                    Edit
+                                </Link>
+                            </div>
+                            <div class="col-md-6">
+                                <button type="button" @click.prevent="destroy(invoice.id)" class="btn btn-lg btn-block btn-outline-danger mb-2">
+                                    Delete
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-2">
-                        <button type="button" @click.prevent="destroy(invoice.id)" class="btn btn-lg btn-block btn-outline-danger mb-2">
-                            Delete
+                    <div class="col-md-3">
+                        <button type="button" class="btn btn-lg btn-block btn-outline-warning mb-2">
+                            Mark as taken
                         </button>
                     </div>
                 </div>
@@ -140,7 +149,7 @@ export default {
     setup() {
         function destroy (id) {
             if (confirm('Are you sure you want to delete this invoice?')) {
-                Inertia.delete(`/invoice/`+ id +`/delete`)
+                Inertia.delete(route('invoice.destroy', {invoice: id}))
             }
         }
         return {

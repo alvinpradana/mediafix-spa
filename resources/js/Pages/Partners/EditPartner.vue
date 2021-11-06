@@ -71,7 +71,7 @@ export default {
             partner_address: props.partner.partner_address,
         })
         function update() {
-            Inertia.put(`/partner/`+ props.partner.id, form)
+            Inertia.put(route('partners.update', {partner: props.partner.id}), form)
         }
         return { form, update }
     },

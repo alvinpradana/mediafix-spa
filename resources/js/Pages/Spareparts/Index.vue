@@ -89,7 +89,7 @@
                         <div class="dropdown-divider"></div>
                         <div class="row">
                             <div class="col-md-6 col-sm-12 mt-3">
-                                <a href="/sparepart-export" type="button" class="btn btn-lg btn-block btn-outline-primary">
+                                <a :href="route('sparepart.export')" type="button" class="btn btn-lg btn-block btn-outline-primary">
                                     Export
                                 </a>
                             </div>
@@ -175,6 +175,7 @@
 
 <script>
 import Layout from "../Shared/Layout";
+import { Link, Head } from "@inertiajs/inertia-vue3";
 import { Inertia } from '@inertiajs/inertia';
 import Pagination from "../Shared/Pagination"
 
@@ -203,7 +204,7 @@ export default {
     setup () {
         function destroy(id) {
             if(confirm('Are you sure you want to delete this sparepart?')) {
-                Inertia.delete(`/sparepart/`+ id +`/delete`)
+                Inertia.delete(route('sparepart.destroy', {sparepart: id}))
             }
         }
         return {
@@ -212,12 +213,12 @@ export default {
     },
     methods: {
         upload () {
-            Inertia.post('/sparepart-import', this.formFile, {
+            Inertia.post(route('sparepart.import'), this.formFile, {
                 onSuccess: () => this.reset()
             })
         },
         store(data) {
-            Inertia.post('/sparepart', data, {
+            Inertia.post(route('sparepart.store'), data, {
                 onSuccess: () => this.reset()
             }, {
                 onError: () => this.editMode = true
@@ -228,7 +229,7 @@ export default {
             this.editMode = true
         },
         update (data) {
-            Inertia.put(`/sparepart/`+ data.id, data, {
+            Inertia.put(route('sparepart.update', {sparepart: data.id}), data, {
                 onSuccess: () => this.reset()
             }, {
                 onError: () => this.editMode = true

@@ -23,7 +23,7 @@ class CashOutController extends Controller
             ->whereMonth('cash_date', $month)
             ->sum('cash_amount');
 
-        return Inertia::render('Cash/CashOut', compact('cash_out', 'total_amount'));
+        return Inertia::render('Cash/Index', compact('cash_out', 'total_amount'));
     }
 
     public function store(Request $request)

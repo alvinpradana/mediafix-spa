@@ -3,6 +3,8 @@ require("./bootstrap");
 import { createApp, h } from "vue";
 import { createInertiaApp, Link } from "@inertiajs/inertia-vue3";
 import { InertiaProgress } from "@inertiajs/progress";
+import route from "ziggy-js";
+import { Ziggy } from './ziggy';
 
 createInertiaApp({
     title: title => `${title} - Media Fix`,
@@ -11,6 +13,8 @@ createInertiaApp({
         createApp({ render: () => h(App, props) })
             .component('inertia-link', Link)
             .use(plugin)
+            .mixin({ methods: { route } })
+            .use(Ziggy)
             .mount(el);
     },
 });
