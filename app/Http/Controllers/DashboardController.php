@@ -2,14 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Equipment;
-use App\Models\Invoice;
-use App\Models\Sparepart;
 use Inertia\Inertia;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use App\Models\Invoice;
+use App\Models\Equipment;
+use App\Models\Sparepart;
 
-class HomeController extends Controller
+class DashboardController extends Controller
 {
     public function dashboard()
     {
@@ -18,7 +16,7 @@ class HomeController extends Controller
         $sparepart = Sparepart::count();
         $equipment = Equipment::count();
 
-        return Inertia::render('Home', compact('invoices', 'sparepart', 'equipment'));
+        return Inertia::render('Dashboard/Dashboard', compact('invoices', 'sparepart', 'equipment'));
     }
 
     public function users()

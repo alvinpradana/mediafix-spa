@@ -22,7 +22,7 @@
                         <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
                             <div class="navbar-profile">
                                 <i class="mdi mdi-account-circle"></i>
-                                <p class="mb-0 d-none d-sm-block navbar-profile-name">
+                                <p v-if="$page.props.auth.user" class="mb-0 d-none d-sm-block navbar-profile-name">
                                     {{ $page.props.auth.user.name }}
                                 </p>
                                 <i class="mdi mdi-menu-down d-none d-sm-block ml-2"></i>
@@ -72,6 +72,6 @@ import { Link } from "@inertiajs/inertia-vue3";
 export default {
     components: {
         Link,
-    },
+    }
 };
 </script>

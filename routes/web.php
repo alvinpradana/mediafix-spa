@@ -3,55 +3,62 @@
 use App\Http\Controllers\CashOutController;
 use App\Http\Controllers\EmployeesController;
 use App\Http\Controllers\EquipmentsController;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\InvoicesController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\PartnersController;
 use App\Http\Controllers\SparepartsController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
+Route::middleware('guest')->group( function () {
+    // Login
+    Route::get('login', [LoginController::class, 'index'])->name('login');
+    Route::post('login', [LoginController::class, 'store'])->name('login');
+});
 
-// Users
-Route::resource('users', UsersController::class);
+Route::middleware('auth')->group( function () {
+    // Dashboard
+    Route::get('dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 
-// Login
-Route::get('login', [LoginController::class, 'index'])->name('users.login');
-Route::post('login', [LoginController::class, 'store'])->name('users.login');
+    // Users
+    Route::resource('users', UsersController::class);
 
+    // Logout
+    Route::delete('logout', LogoutController::class)->name('logout');
 
+    // Invoices
+    Route::resource('invoice', InvoicesController::class);
 
-// Invoices
-Route::resource('invoice', InvoicesController::class);
+    Route::put('invoice-taken/{id}', [InvoicesController::class, 'mark'])->name('invoice.taken');
+    Route::get('invoice-print/{id}', [InvoicesController::class, 'print'])->name('invoice.print');
+    Route::get('invoices-export', [InvoicesController::class, 'export'])->name('invoices.export');
 
-Route::put('invoice-taken/{id}', [InvoicesController::class, 'mark'])->name('invoice.taken');
-Route::get('invoice-print/{id}', [InvoicesController::class, 'print'])->name('invoice.print');
-Route::get('invoices-export', [InvoicesController::class, 'export'])->name('invoices.export');
+    // Partners
+    Route::resource('partners', PartnersController::class);
+    Route::get('partners-export', [PartnersController::class, 'export'])->name('partners.export');
 
-// Partners
-Route::resource('partners', PartnersController::class);
-Route::get('partners-export', [PartnersController::class, 'export'])->name('partners.export');
+    // Employees
+    Route::resource('employees', EmployeesController::class);
 
-// Employees
-Route::resource('employees', EmployeesController::class);
+    Route::get('employees-export', [EmployeesController::class, 'export'])->name('employee.export');
 
-Route::get('employees-export', [EmployeesController::class, 'export'])->name('employee.export');
+    // Sparepart
+    Route::resource('sparepart', SparepartsController::class);
 
-// Sparepart
-Route::resource('sparepart', SparepartsController::class);
+    Route::post('sparepart-import', [SparepartsController::class, 'import'])->name('sparepart.import');
+    Route::get('sparepart-export', [SparepartsController::class, 'export'])->name('sparepart.export');
 
-Route::post('sparepart-import', [SparepartsController::class, 'import'])->name('sparepart.import');
-Route::get('sparepart-export', [SparepartsController::class, 'export'])->name('sparepart.export');
+    // Equipment
+    Route::resource('equipment', EquipmentsController::class);
 
-// Equipment
-Route::resource('equipment', EquipmentsController::class);
+    Route::post('equipment-import', [EquipmentsController::class, 'import'])->name('equipment.import');
+    Route::get('equipment-export', [EquipmentsController::class, 'export'])->name('equipment.export');
 
-Route::post('equipment-import', [EquipmentsController::class, 'import'])->name('equipment.import');
-Route::get('equipment-export', [EquipmentsController::class, 'export'])->name('equipment.export');
+    // Cash
+    Route::resource('cash', CashOutController::class);
 
-// Cash
-Route::resource('cash', CashOutController::class);
-
-Route::post('cash-out-import', [CashOutController::class, 'import'])->name('cash.import');
-Route::get('cash-out-export', [CashOutController::class, 'export'])->name('cash.export');
+    Route::post('cash-out-import', [CashOutController::class, 'import'])->name('cash.import');
+    Route::get('cash-out-export', [CashOutController::class, 'export'])->name('cash.export');
+});

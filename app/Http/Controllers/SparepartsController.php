@@ -29,7 +29,7 @@ class SparepartsController extends Controller
             'sparepart_price' => ['nullable', 'numeric'],
         ]);
         Sparepart::create($request->all());
-        return Redirect::route('spareparts.index');
+        return Redirect::back();
     }
 
     public function edit($id)
