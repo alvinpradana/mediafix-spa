@@ -2,12 +2,12 @@
     <!-- Sidebar -->
     <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-            <Link class="sidebar-brand brand-logo" href="/">
+            <Link :href="route('dashboard')" class="sidebar-brand brand-logo">
                 <b class="text-white" style="font-family: Arial, Helvetica, sans-serif">
                     MEDIAFIX
                 </b>
             </Link>
-            <Link class="sidebar-brand brand-logo-mini" href="/">
+            <Link :href="route('dashboard')" class="sidebar-brand brand-logo-mini">
                 <b class="text-white" style="font-family: Arial, Helvetica, sans-serif">M</b>
             </Link>
         </div>
@@ -15,8 +15,8 @@
             <li class="nav-item nav-category">
                 <span class="nav-link">Navigations</span>
             </li>
-            <li class="nav-item menu-items" :class="{ 'active': $page.url === '/' }">
-                <Link href="/" class="nav-link">
+            <li class="nav-item menu-items" :class="{ 'active': $page.url === '/dashboard' }">
+                <Link :href="route('dashboard')" class="nav-link">
                     <span class="menu-icon">
                         <i class="mdi mdi-speedometer"></i>
                     </span>

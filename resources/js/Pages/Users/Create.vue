@@ -39,7 +39,7 @@
                             </div>
                             <div class="form-group col mb-4">
                                 <label for="phone">Phone</label>
-                                <input v-model="form.phone" type="number" id="phone" class="form-control" :class="{'is-invalid': errors.phone}" placeholder="Enter phone number">
+                                <input v-model="form.phone" type="text" id="phone" class="form-control" :class="{'is-invalid': errors.phone}" placeholder="Enter phone number">
                                 <small class="invalid-feedback" v-if="errors.phone">{{ errors.phone[0] }}</small>
                             </div>
                             <div class="form-group col mb-4">

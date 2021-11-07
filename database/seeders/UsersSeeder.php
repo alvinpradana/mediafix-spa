@@ -18,8 +18,8 @@ class UsersSeeder extends Seeder
             [
                 'name' => 'Alvin Novian',
                 'username' => 'alvin123',
-                'email' => 'alvin@admin.com',
-                'password' => bcrypt('admin123'),
+                'email' => 'alvin@email.com',
+                'password' => 'password',
                 'phone' => '081328944121',
                 'workshop' => 'Yogyakarta',
                 'email_verified_at' => now(),

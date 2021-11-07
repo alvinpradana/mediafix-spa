@@ -23,7 +23,7 @@
                             <div class="navbar-profile">
                                 <i class="mdi mdi-account-circle"></i>
                                 <p class="mb-0 d-none d-sm-block navbar-profile-name">
-                                    Alvin Novian Perdana
+                                    {{ $page.props.auth.user.name }}
                                 </p>
                                 <i class="mdi mdi-menu-down d-none d-sm-block ml-2"></i>
                             </div>
@@ -43,7 +43,7 @@
                                     </p>
                                 </div>
                             </a>
-                            <a class="dropdown-item preview-item">
+                            <Link :href="route('logout')" method="delete" class="dropdown-item preview-item">
                                 <div class="preview-thumbnail">
                                     <div class="preview-icon bg-dark rounded-circle">
                                         <i class="mdi mdi-logout text-danger"></i>
@@ -54,7 +54,7 @@
                                         Log out
                                     </p>
                                 </div>
-                            </a>
+                            </Link>
                         </div>
                     </li>
                 </ul>
@@ -72,6 +72,6 @@ import { Link } from "@inertiajs/inertia-vue3";
 export default {
     components: {
         Link,
-    }
+    },
 };
 </script>

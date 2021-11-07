@@ -141,7 +141,7 @@ export default {
     props: {
         invoices: Object,
         sparepart: Object,
-        equipment: Object
+        equipment: Object,
     },
 };
 </script>
