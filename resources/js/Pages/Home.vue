@@ -41,7 +41,7 @@
                 </Link>
             </div>
             <div class="col-sm-4 grid-margin">
-                <Link href="/users" as="div" class="card" style="cursor: pointer">
+                <Link :href="route('users.index')" as="div" class="card" style="cursor: pointer">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-8 col-sm-12 col-xl-8 my-auto">

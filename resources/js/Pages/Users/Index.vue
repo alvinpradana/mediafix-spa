@@ -1,33 +1,41 @@
 <template>
     <Layout>
-        <Head title="Administration" />
-        <div class="row">
-            <div class="col-md-4 grid-margin stretch-card">
-                <div class="card">
-                    <div class="card-body">
-                        <h4 class="card-title">Transaction History</h4>
-                        <canvas id="transaction-history" class="transaction-chart"></canvas>
-                        <div class="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
-                            <div class="text-md-center text-xl-left">
-                                <h6 class="mb-1">Transfer to Paypal</h6>
-                                <p class="text-muted mb-0">
-                                    07 Jan 2019, 09:12AM
-                                </p>
-                            </div>
-                            <div class="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
-                                <h6 class="font-weight-bold mb-0">$236</h6>
-                            </div>
-                        </div>
-                        <div class="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
-                            <div class="text-md-center text-xl-left">
-                                <h6 class="mb-1">Tranfer to Stripe</h6>
-                                <p class="text-muted mb-0">
-                                    07 Jan 2019, 09:12AM
-                                </p>
-                            </div>
-                            <div class="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
-                                <h6 class="font-weight-bold mb-0">$593</h6>
-                            </div>
+        <Head title="Users Admin" />
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">List Users</h4>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Workshop</th>
+                                <th>Added</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="user in users.data" :key="user.id">
+                                <td>{{ user.name }}</td>
+                                <td>{{ user.email }}</td>
+                                <td>+62{{ user.phone }}</td>
+                                <td>{{ user.workshop }}</td>
+                                <td>{{ moment(user.created_at).format("LL") }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="dropdown-divider"></div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-3">
+                        <Link as="button" :href="route('users.create')" type="button" class="btn btn-lg btn-block btn-outline-success mb-2" data-bs-toggle="modal" data-bs-target="#AddEmployee">
+                            Add User
+                        </Link>
+                    </div>
+                    <div class="col-md-9 px-4">
+                        <div class="row float-right px-2">
+                            <pagination class="" :links="users.links" />
                         </div>
                     </div>
                 </div>
@@ -39,15 +47,24 @@
 <script>
 import Layout from "../Shared/Layout";
 import { Head, Link } from "@inertiajs/inertia-vue3";
+import Pagination from "../Shared/Pagination"
+import moment from "moment";
 
 export default {
     components: {
         Head,
         Link,
         Layout,
+        Pagination,
     },
     props: {
-        user: Object,
+        users: Object,
+        date: Object
     },
+    data () {
+        return {
+            moment: moment
+        }
+    }
 };
 </script>

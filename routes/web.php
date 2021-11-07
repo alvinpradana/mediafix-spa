@@ -7,10 +7,13 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InvoicesController;
 use App\Http\Controllers\PartnersController;
 use App\Http\Controllers\SparepartsController;
+use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'home']);
-Route::get('users', [HomeController::class, 'users']);
+
+// Users
+Route::resource('users', UsersController::class);
 
 // Invoices
 Route::resource('invoice', InvoicesController::class);
