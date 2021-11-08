@@ -6,7 +6,7 @@
         </header>
         <article class="main-panel">
             <div class="content-wrapper">
-                <div v-if="$page.props.flash.alert_success" class="alert alert-success">
+                <div v-if="$page.props.flash.alert_success" class="alert alert-success" role="alert">
                     {{ $page.props.flash.alert_success }}
                 </div>
                 <slot />

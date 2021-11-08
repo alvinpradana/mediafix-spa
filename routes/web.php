@@ -24,6 +24,7 @@ Route::middleware('auth')->group( function () {
 
     // Users
     Route::resource('users', UsersController::class);
+    Route::put('users', [UsersController::class, 'password'])->name('password.update');
 
     // Auth
     Route::get('profile', [UsersController::class, 'profile'])->name('user.profile');

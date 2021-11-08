@@ -6,7 +6,9 @@ use App\Http\Requests\RegistrationRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Validation\ValidationException;
 use Inertia\Inertia;
 
 class UsersController extends Controller
@@ -52,5 +54,29 @@ class UsersController extends Controller
 
         User::where('id', $id)->update($attributes);
         return Redirect::route('user.profile')->with('alert_success', 'Your profile has been updated');
+    }
+
+    public function destroy($id)
+    {
+        User::findOrFail($id)->delete();
+        return Redirect::route('login')->with('alert_success', 'Your account was deleted');
+    }
+
+    public function password(Request $request)
+    {
+        $request->validate([
+            'current_password' => ['required'],
+            'password' => ['required', 'string', 'min:6', 'confirmed'],
+            'password_confirmation' => ['required', 'same:password', 'min:6'],
+        ]);
+
+        if (Hash::check($request->current_password, auth()->user()->password)) {
+            auth()->user()->update($request->only('password'));
+
+            return back()->with('alert_success', 'Your password has been updated');
+        }
+        throw ValidationException::withMessages([
+            'current_password' => 'Your current password does not match.'
+        ]);
     }
 }

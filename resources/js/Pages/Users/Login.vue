@@ -7,7 +7,11 @@
                     <div class="content-wrapper full-page-wrapper d-flex align-items-center">
                         <div class="card col-md-4 mx-auto">
                             <div class="card-body px-4 py-5">
-                                <h3 class="card-title text-left mb-3">Login</h3>
+                                <div v-if="$page.props.flash.alert_success" class="alert alert-success" role="alert">
+                                    {{ $page.props.flash.alert_success }}
+                                </div>
+                                <h3 class="card-title text-left">Login</h3>
+                                <div class="dropdown-divider my-3"></div>
                                 <form @submit.prevent="store">
                                     <div class="form-group">
                                         <label>Username or email *</label>
@@ -26,6 +30,7 @@
                                         </div>
                                         <a href="#" class="text-small text-primary"><u>Forgot password</u></a>
                                     </div>
+                                    <div class="dropdown-divider my-3"></div>
                                     <div class="text-center">
                                         <button type="submit" class="btn btn-lg btn-block btn-outline-success">Login</button>
                                     </div>

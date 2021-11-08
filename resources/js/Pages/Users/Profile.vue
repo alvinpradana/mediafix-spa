@@ -2,7 +2,7 @@
     <Layout>
     <Head title="User Profile" />
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-8 mb-4">
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">Profile Information</h4>
@@ -39,16 +39,47 @@
                                         <Link :href="route('users.edit', {user: user.id})" as="button" class="btn btn-lg btn-block btn-outline-primary">Edit</Link>
                                     </div>
                                     <div class="col-md-6 mb-2">
-                                        <button type="submit" class="btn btn-lg btn-block btn-outline-danger">Delete</button>
+                                        <button type="button" @click.prevent="destroy(user.id)" class="btn btn-lg btn-block btn-outline-danger">Delete</button>
                                     </div>
                                 </div>
                             </div>
-                            <a href="#" type="submit" class="text-primary mx-3"><u>Change Password</u></a>
+                            <a type="button" @click.prevent="edit(user)" class="text-primary mx-3"><u>Change Password</u></a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Update Password</h4>
+                        <div class="dropdown-divider"></div>
+                        <form @submit.prevent="update" autocomplete="off">
+                            <div class="form-group mt-4">
+                                <label for="current_password">Current Password</label>
+                                <input v-model="form.current_password" type="password" id="current_password" class="form-control" :class="{'is-invalid': errors.current_password}" placeholder="Current password">
+                                <small class="invalid-feedback" v-if="errors.current_password">{{ errors.current_password[0] }}</small>
+                            </div>
+                            <div class="form-group mt-4">
+                                <label for="password">New Password</label>
+                                <input v-model="form.password" type="password" id="password" class="form-control" :class="{'is-invalid': errors.password}" placeholder="New Password">
+                                <small class="invalid-feedback" v-if="errors.password">{{ errors.password[0] }}</small>
+                            </div>  
+                            <div class="form-group mt-4">
+                                <label for="password_confirmation">Confirm Password</label>
+                                <input v-model="form.password_confirmation" type="password" id="password_confirmation" name="password_confirmation" class="form-control" :class="{'is-invalid': errors.password_confirmation}" placeholder="Confirm password">
+                                <small class="invalid-feedback" v-if="errors.password_confirmation">{{ errors.password_confirmation[0] }}</small>
+                            </div>
+                            <div class="dropdown-divider my-4"></div>
+                            <div class="row">
+                                <div class="col mb-2">
+                                    <button type="submit" class="btn btn-lg btn-block btn-outline-success">Save</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="col-md-4">
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">User Activity</h4>
@@ -73,16 +104,41 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </Layout>
 </template>
 
 <script>
 import Layout from "../Shared/Layout";
-import { Head, Link } from "@inertiajs/inertia-vue3";
+import { Head, Link, useForm } from "@inertiajs/inertia-vue3";
+import { Inertia } from '@inertiajs/inertia';
+import { reactive } from '@vue/reactivity';
 
 export default {
+    data () {
+        return {
+            form: {
+                current_password: null,
+                password: null,
+            }
+        }
+    },
+    methods: {
+        update (){
+            Inertia.put(route('password.update'), this.form, {
+                onSuccess: () => this.reset()
+            }, {
+                onError: () => this.reset()
+            })
+        },
+        reset () {
+            this.form = {
+                current_password: null,
+                password: null,
+            }
+        }
+    },
     components: {
         Layout,
         Head,
@@ -91,6 +147,16 @@ export default {
     props: {
         user: Object,
         errors: Object,
+    },
+    setup () {
+        function destroy (id) {
+            if (confirm('Are you sure you want to delete your account?')) {
+                Inertia.delete(route('users.destroy', {user: id}))
+            }
+        }
+        return {
+            destroy
+        }
     }
 };
 </script>
