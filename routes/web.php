@@ -25,6 +25,9 @@ Route::middleware('auth')->group( function () {
     // Users
     Route::resource('users', UsersController::class);
 
+    // Auth
+    Route::get('profile', [UsersController::class, 'profile'])->name('user.profile');
+
     // Logout
     Route::delete('logout', LogoutController::class)->name('logout');
 

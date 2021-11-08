@@ -31,7 +31,7 @@
                         <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="profileDropdown">
                             <h6 class="p-3 mb-0">Profile</h6>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item preview-item">
+                            <Link :href="route('user.profile')" class="dropdown-item preview-item">
                                 <div class="preview-thumbnail">
                                     <div class="preview-icon bg-dark rounded-circle">
                                         <i class="mdi mdi-settings text-success"></i>
@@ -42,8 +42,8 @@
                                         Settings
                                     </p>
                                 </div>
-                            </a>
-                            <Link :href="route('logout')" method="delete" class="dropdown-item preview-item">
+                            </Link>
+                            <Link :href="route('logout')" as="button" method="delete" class="dropdown-item preview-item">
                                 <div class="preview-thumbnail">
                                     <div class="preview-icon bg-dark rounded-circle">
                                         <i class="mdi mdi-logout text-danger"></i>
