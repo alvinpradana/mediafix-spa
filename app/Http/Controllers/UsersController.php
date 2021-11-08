@@ -32,13 +32,13 @@ class UsersController extends Controller
 
     public function profile(Request $request)
     {
-        $user = Auth::user();
+        $user = auth()->user();
         return Inertia::render('Users/Profile', compact('user'));
     }
 
     public function edit($id)
     {
-        $user = Auth::user();
+        $user = auth()->user();
         return Inertia::render('Users/Edit', compact('user'));
     }
 
@@ -52,13 +52,13 @@ class UsersController extends Controller
             'workshop' => ['required', 'string', 'min:3'],
         ]);
 
-        User::where('id', $id)->update($attributes);
+        auth()->user()->update($attributes);
         return Redirect::route('user.profile')->with('alert_success', 'Your profile has been updated');
     }
 
-    public function destroy($id)
+    public function destroy()
     {
-        User::findOrFail($id)->delete();
+        auth()->user()->delete();
         return Redirect::route('login')->with('alert_success', 'Your account was deleted');
     }
 

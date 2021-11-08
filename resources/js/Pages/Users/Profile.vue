@@ -43,12 +43,12 @@
                                     </div>
                                 </div>
                             </div>
-                            <a type="button" @click.prevent="edit(user)" class="text-primary mx-3"><u>Change Password</u></a>
+                            <a type="button" @click.prevent="changePassword()" class="text-primary mx-3"><u>Change Password</u></a>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div v-show="showPassword" class="col-md-4">
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">Update Password</h4>
@@ -71,15 +71,18 @@
                             </div>
                             <div class="dropdown-divider my-4"></div>
                             <div class="row">
-                                <div class="col mb-2">
+                                <div class="col-md-6 mb-2">
                                     <button type="submit" class="btn btn-lg btn-block btn-outline-success">Save</button>
+                                </div>
+                                <div class="col-md-6 mb-2">
+                                    <button @click.prevent="cancelPassword()" type="button" class="btn btn-lg btn-block btn-outline-danger">Cancel</button>
                                 </div>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
-            <!-- <div class="col-md-4">
+            <div v-show="!showPassword" class="col-md-4">
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">User Activity</h4>
@@ -104,20 +107,20 @@
                         </div>
                     </div>
                 </div>
-            </div> -->
+            </div>
         </div>
     </Layout>
 </template>
 
 <script>
 import Layout from "../Shared/Layout";
-import { Head, Link, useForm } from "@inertiajs/inertia-vue3";
+import { Link, Head } from "@inertiajs/inertia-vue3";
 import { Inertia } from '@inertiajs/inertia';
-import { reactive } from '@vue/reactivity';
 
 export default {
     data () {
         return {
+            showPassword: false,
             form: {
                 current_password: null,
                 password: null,
@@ -137,6 +140,12 @@ export default {
                 current_password: null,
                 password: null,
             }
+        },
+        changePassword () {
+            this.showPassword = true
+        },
+        cancelPassword () {
+            this.showPassword = false
         }
     },
     components: {
