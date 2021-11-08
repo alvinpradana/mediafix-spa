@@ -97,9 +97,9 @@
                             <div class="form-group row">
                                 <div class="col-sm-12">
                                     <div class="mb-1 px-2 py-2 text-sm border rounded">
-                                        <input type="file" @input="formFile.file = $event.target.files[0]">
+                                        <input type="file" @input="formFile.file = $event.target.files[0]" class="form-control" :class="{'is-invalid': errors.file}">
+                                        <small class="invalid-feedback" v-if="errors.file">{{ errors.file[0] }}</small>
                                     </div>
-                                    <small class="text-danger" v-if="errors.file">{{ errors.file[0] }}</small>
                                 </div>
                             </div>
                             <div class="row justify-content-between mt-3">
@@ -120,26 +120,26 @@
                         <form autocomplete="off">
                             <div class="form-group mb-4">
                                 <label for="equipment_type">Equipment Type</label>
-                                <select v-model="form.equipment_type" id="equipment_type" class="form-control text-white">
+                                <select v-model="form.equipment_type" id="equipment_type" class="form-control text-white" :class="{'is-invalid': errors.equipment_type}">
                                     <option value="Office"> Office </option>
                                     <option value="Service"> Service </option>
                                 </select>
-                                <small class="text-danger" v-if="errors.equipment_type">{{ errors.equipment_type[0] }}</small>
+                                <small class="invalid-feedback" v-if="errors.equipment_type">{{ errors.equipment_type[0] }}</small>
                             </div>
                             <div class="form-group mb-4">
                                 <label for="equipment_name">Equipment Name</label>
-                                <input type="text" v-model="form.equipment_name" class="form-control" id="equipment_name" placeholder="Enter name">
-                                <small class="text-danger" v-if="errors.equipment_name">{{ errors.equipment_name[0] }}</small>
+                                <input type="text" v-model="form.equipment_name" class="form-control" id="equipment_name" :class="{'is-invalid': errors.equipment_name}" placeholder="Enter name">
+                                <small class="invalid-feedback" v-if="errors.equipment_name">{{ errors.equipment_name[0] }}</small>
                             </div>
                             <div class="form-group mb-4">
                                 <label for="equipment_quantity">Stock</label>
-                                <input type="number" v-model="form.equipment_quantity" class="form-control" id="equipment_quantity" placeholder="Enter stock">
-                                <small class="text-danger" v-if="errors.equipment_quantity">{{ errors.equipment_quantity[0] }}</small>
+                                <input type="number" v-model="form.equipment_quantity" class="form-control" id="equipment_quantity" :class="{'is-invalid': errors.equipment_quantity}" placeholder="Enter stock">
+                                <small class="invalid-feedback" v-if="errors.equipment_quantity">{{ errors.equipment_quantity[0] }}</small>
                             </div>
                             <div class="form-group mb-4">
                                 <label for="equipment_condition">Condition</label>
-                                <textarea rows="4" v-model="form.equipment_condition" class="form-control" id="equipment_condition" placeholder="Equipment condition"></textarea>
-                                <small class="text-danger" v-if="errors.equipment_condition">{{ errors.equipment_condition[0] }}</small>
+                                <textarea rows="4" v-model="form.equipment_condition" class="form-control" id="equipment_condition" :class="{'is-invalid': errors.equipment_condition}" placeholder="Equipment condition"></textarea>
+                                <small class="invalid-feedback" v-if="errors.equipment_condition">{{ errors.equipment_condition[0] }}</small>
                             </div>
                             <div class="dropdown-divider"></div>
                             <div class="row">

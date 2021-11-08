@@ -10,30 +10,30 @@
                         <div class="col-md-6">
                             <div class="form-group col mb-4">
                                 <label for="employee_name">Name</label>
-                                <input v-model="form.employee_name" type="name" id="employee_name" class="form-control" placeholder="Enter name">
-                                <small class="text-danger" v-if="errors.employee_name">{{ errors.employee_name[0] }}</small>
+                                <input v-model="form.employee_name" type="name" id="employee_name" class="form-control" :class="{'is-invalid': errors.employee_name}" placeholder="Enter name">
+                                <small class="invalid-feedback" v-if="errors.employee_name">{{ errors.employee_name[0] }}</small>
                             </div>
                             <div class="form-group col mb-4">
                                 <label for="phone_number">Phone</label>
-                                <input v-model="form.phone_number" type="text" id="phone_number" class="form-control" placeholder="Enter phone number">
-                                <small class="text-danger" v-if="errors.phone_number">{{ errors.phone_number[0] }}</small>
+                                <input v-model="form.phone_number" type="text" id="phone_number" class="form-control" :class="{'is-invalid': errors.phone_number}" placeholder="Enter phone number">
+                                <small class="invalid-feedback" v-if="errors.phone_number">{{ errors.phone_number[0] }}</small>
                             </div>
                             <div class="form-group col mb-4">
                                 <label for="employee_email">Email</label>
-                                <input v-model="form.employee_email" type="email" id="employee_email" class="form-control" placeholder="Enter email">
-                                <small class="text-danger" v-if="errors.employee_email">{{ errors.employee_email[0] }}</small>
+                                <input v-model="form.employee_email" type="email" id="employee_email" class="form-control" :class="{'is-invalid': errors.employee_email}" placeholder="Enter email">
+                                <small class="invalid-feedback" v-if="errors.employee_email">{{ errors.employee_email[0] }}</small>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group col mb-4">
                                 <label for="employee_division">Division</label>
-                                <input v-model="form.employee_division" type="text" id="employee_division" class="form-control" placeholder="Enter employee division">
-                                <small class="text-danger" v-if="errors.employee_division">{{ errors.employee_division[0] }}</small>
+                                <input v-model="form.employee_division" type="text" id="employee_division" class="form-control" :class="{'is-invalid': errors.employee_division}" placeholder="Enter employee division">
+                                <small class="invalid-feedback" v-if="errors.employee_division">{{ errors.employee_division[0] }}</small>
                             </div>
                             <div class="form-group col mb-4">
                                 <label for="employee_address">Address</label>
-                                <textarea v-model="form.employee_address" type="address" id="employee_address" class="form-control" placeholder="Enter address" rows="7"></textarea>
-                                <small class="text-danger" v-if="errors.employee_address">{{ errors.employee_address[0] }}</small>
+                                <textarea v-model="form.employee_address" type="address" id="employee_address" class="form-control" :class="{'is-invalid': errors.employee_address}" placeholder="Enter address" rows="7"></textarea>
+                                <small class="invalid-feedback" v-if="errors.employee_address">{{ errors.employee_address[0] }}</small>
                             </div>
                         </div>
                     </div>

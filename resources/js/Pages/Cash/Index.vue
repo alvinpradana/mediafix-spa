@@ -73,9 +73,9 @@
                             <div class="form-group row">
                                 <div class="col-sm-12">
                                     <div class="mb-1 px-2 py-2 text-sm border rounded">
-                                        <input type="file" @input="formFile.file = $event.target.files[0] ?? '' ">
+                                        <input type="file" @input="formFile.file = $event.target.files[0]" class="form-control" :class="{'is-invalid': errors.file}">
+                                        <small class="invalid-feedback" v-if="errors.file">{{ errors.file[0] }}</small>
                                     </div>
-                                    <small class="text-danger" v-if="errors.file">{{ errors.file[0] }}</small>
                                 </div>
                             </div>
                             <div class="row justify-content-between mt-3">
@@ -96,18 +96,18 @@
                         <form autocomplete="off">
                             <div class="form-group mb-4">
                                 <label for="cash_description">Description</label>
-                                <textarea rows="4" v-model="form.cash_description" class="form-control" id="cash_description" placeholder="Cash description"></textarea>
-                                <small class="text-danger" v-if="errors.cash_description">{{ errors.cash_description[0] }}</small>
+                                <textarea rows="4" v-model="form.cash_description" class="form-control" :class="{'is-invalid': errors.cash_description}" id="cash_description" placeholder="Cash description"></textarea>
+                                <small class="invalid-feedback" v-if="errors.cash_description">{{ errors.cash_description[0] }}</small>
                             </div>
                             <div class="form-group mb-4">
                                 <label for="cash_date">Date</label>
-                                <input type="text" v-model="form.cash_date" class="form-control" id="cash_date" placeholder="Cash date" onfocus="(this.type='date')" onblur="if(this.value==''){this.type='text'}">
-                                <small class="text-danger" v-if="errors.cash_date">{{ errors.cash_date[0] }}</small>
+                                <input type="text" v-model="form.cash_date" class="form-control" :class="{'is-invalid': errors.cash_date}" id="cash_date" placeholder="Cash date" onfocus="(this.type='date')" onblur="if(this.value==''){this.type='text'}">
+                                <small class="invalid-feedback" v-if="errors.cash_date">{{ errors.cash_date[0] }}</small>
                             </div>
                             <div class="form-group mb-4">
                                 <label for="cash_amount">Amount</label>
-                                <input type="number" v-model="form.cash_amount" class="form-control" id="cash_amount" placeholder="Cash amount">
-                                <small class="text-danger" v-if="errors.cash_amount">{{ errors.cash_amount[0] }}</small>
+                                <input type="number" v-model="form.cash_amount" class="form-control" :class="{'is-invalid': errors.cash_amount}" id="cash_amount" placeholder="Cash amount">
+                                <small class="invalid-feedback" v-if="errors.cash_amount">{{ errors.cash_amount[0] }}</small>
                             </div>
                             <div class="dropdown-divider"></div>
                             <div class="row">

@@ -12,29 +12,29 @@
                     <div class="row">
                         <div class="form-group col-sm-3">
                             <label for="customer_name">Nama Customer</label>
-                            <input type="name" id="customer_name" v-model="form.customer_name" class="form-control" placeholder="Enter name">
-                            <small class="text-danger" v-if="errors.customer_name">{{ errors.customer_name[0] }}</small>
+                            <input type="name" id="customer_name" v-model="form.customer_name" class="form-control" :class="{'is-invalid': errors.customer_name}" placeholder="Enter name">
+                            <small class="invalid-feedback" v-if="errors.customer_name">{{ errors.customer_name[0] }}</small>
                         </div>
                         <div class="form-group col-sm-3">
                             <label for="customer_phone">Telepon / WA</label>
-                            <input type="text" id="customer_phone" v-model="form.customer_phone" class="form-control" placeholder="Enter phone number">
-                            <small class="text-danger" v-if="errors.customer_phone">{{ errors.customer_phone[0] }}</small>
+                            <input type="text" id="customer_phone" v-model="form.customer_phone" class="form-control" :class="{'is-invalid': errors.customer_phone}" placeholder="Enter phone number">
+                            <small class="invalid-feedback" v-if="errors.customer_phone">{{ errors.customer_phone[0] }}</small>
                         </div>
                         <div class="form-group col-sm-2">
                             <label for="date_in">Tanggal Masuk</label>
-                            <input type="text" v-model="form.date_in" id="date_in" class="form-control" placeholder="Enter date in" onfocus="(this.type='date')" onblur="if(this.value==''){this.type='text'}">
-                            <small class="text-danger" v-if="errors.date_in">{{ errors.date_in[0] }}</small>
+                            <input type="text" v-model="form.date_in" id="date_in" class="form-control" :class="{'is-invalid': errors.date_in}" placeholder="Enter date in" onfocus="(this.type='date')" onblur="if(this.value==''){this.type='text'}">
+                            <small class="invalid-feedback" v-if="errors.date_in">{{ errors.date_in[0] }}</small>
                         </div>
                         <div class="form-group col-sm-2">
                             <label for="date_taken">Pengambilan</label>
-                            <input type="text" v-model="form.date_taken" id="date_taken" class="form-control" placeholder="Enter date taken" onfocus="(this.type='date')" onblur="if(this.value==''){this.type='text'}">
-                            <small class="text-danger" v-if="errors.date_taken">{{ errors.date_taken[0] }}</small>
+                            <input type="text" v-model="form.date_taken" id="date_taken" class="form-control" :class="{'is-invalid': errors.date_taken}" placeholder="Enter date taken" onfocus="(this.type='date')" onblur="if(this.value==''){this.type='text'}">
+                            <small class="invalid-feedback" v-if="errors.date_taken">{{ errors.date_taken[0] }}</small>
                         </div>
                         <div class="form-group col-sm-2">
                             <label for="guarantee">Garansi</label>
                             <div class="input-group">
-                                <input type="number" id="guarantee" v-model="form.guarantee" class="form-control" placeholder="Long warranty">
-                                <small class="text-danger" v-if="errors.guarantee">{{ errors.guarantee[0] }}</small>
+                                <input type="number" id="guarantee" v-model="form.guarantee" class="form-control" :class="{'is-invalid': errors.guarantee}" placeholder="Long warranty">
+                                <small class="invalid-feedback" v-if="errors.guarantee">{{ errors.guarantee[0] }}</small>
                                 <div class="input-group-append">
                                     <span class="input-group-text">Hari</span>
                                 </div>
@@ -54,13 +54,13 @@
                         </tr>
                         <tr v-for="(unit, index) in form.units" :key="unit.id">
                             <td>
-                                <input type="number" v-model="unit.unit_quantity" class="form-control">
-                                <small class="text-danger" v-if="errors['units.'+ index +'.unit_quantity']">
+                                <input type="number" v-model="unit.unit_quantity" class="form-control" :class="{'is-invalid': errors.unit_quantity}">
+                                <small class="invalid-feedback" v-if="errors['units.'+ index +'.unit_quantity']">
                                     {{ errors['units.'+ index +'.unit_quantity'][0] }}
                                 </small>
                             </td>
                             <td>
-                                <select v-model="unit.unit_type" class="text-white form-control">
+                                <select v-model="unit.unit_type" class="text-white form-control" :class="{'is-invalid': errors.unit_type}">
                                     <option value="Camera">Camera</option>
                                     <option value="Phone">Phone</option>
                                     <option value="Laptop/PC">Laptop/PC</option>
@@ -68,25 +68,25 @@
                                 </select>
                             </td>
                             <td>
-                                <input type="text" v-model="unit.unit_name" class="form-control">
-                                <small class="text-danger" v-if="errors['units.'+ index +'.unit_name']">
+                                <input type="text" v-model="unit.unit_name" class="form-control" :class="{'is-invalid': errors.unit_name}">
+                                <small class="invalid-feedback" v-if="errors['units.'+ index +'.unit_name']">
                                     {{ errors['units.'+ index +'.unit_name'][0] }}
                                 </small>
                             </td>			
                             <td>
-                                <input type="text" v-model="unit.unit_description" class="form-control">
-                                <small class="text-danger" v-if="errors['units.'+ index +'.unit_description']">
+                                <input type="text" v-model="unit.unit_description" class="form-control" :class="{'is-invalid': errors.unit_description}">
+                                <small class="invalid-feedback" v-if="errors['units.'+ index +'.unit_description']">
                                     {{ errors['units.'+ index +'.unit_description'][0] }}
                                 </small>
                             </td>
                             <td>
-                                <input type="text" v-model="unit.unit_completeness" class="form-control">
-                                <small class="text-danger" v-if="errors['units.'+ index +'.unit_completeness']">
+                                <input type="text" v-model="unit.unit_completeness" class="form-control" :class="{'is-invalid': errors.unit_completeness}">
+                                <small class="invalid-feedback" v-if="errors['units.'+ index +'.unit_completeness']">
                                     {{ errors['units.'+ index +'.unit_completeness'][0] }}
                                 </small>
                             </td>
                             <td>
-                                <input type="number" v-model="unit.unit_cost" class="form-control">
+                                <input type="number" v-model="unit.unit_cost" class="form-control" :class="{'is-invalid': errors.unit_cost}">
                             </td>
                             <td class="text-center text-success">
                                 <div><strong>Rp. {{ total_cost[index] }}</strong></div>
@@ -96,7 +96,7 @@
                             </td>
                         </tr>
                     </table>
-                    <div v-if="$page.props.flash.alert_error" class="alert alert-danger my-2">
+                    <div v-if="$page.props.flash.alert_error" class="alert alert-danger my-2" role="alert">
                         {{ $page.props.flash.alert_error }}
                     </div>
                     <div class="col-sm-12 col-md-2 mt-2 p-0">
@@ -110,12 +110,12 @@
                                         <p>Status Order</p>
                                     </div>
                                     <div class="row mb-4">
-                                        <select v-model="form.order_status" class="form-control text-white">
+                                        <select v-model="form.order_status" class="form-control text-white" :class="{'is-invalid': errors.order_status}">
                                             <option value="Proses">Proses</option>
                                             <option value="Selesai">Selesai</option>
                                             <option value="Batal">Batal</option>
                                         </select>
-                                        <small class="text-danger" v-if="errors.order_status">{{ errors.order_status[0] }}</small>
+                                        <small class="invalid-feedback" v-if="errors.order_status">{{ errors.order_status[0] }}</small>
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-6 pr-4">
@@ -123,20 +123,20 @@
                                         <p>Status Pembayaran</p>
                                     </div>
                                     <div class="row mb-4">
-                                        <select v-model="form.payment_status" class="form-control text-white">
+                                        <select v-model="form.payment_status" class="form-control text-white" :class="{'is-invalid': errors.payment_status}">
                                             <option value="Lunas">Lunas</option>
                                             <option value="Uang Muka">Uang Muka</option>
                                             <option value="Belum Bayar">Belum Bayar</option>
                                             <option value="Batal">Batal</option>
                                         </select>
-                                        <small class="text-danger" v-if="errors.payment_status">{{ errors.payment_status[0] }}</small>
+                                        <small class="invalid-feedback" v-if="errors.payment_status">{{ errors.payment_status[0] }}</small>
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-12 pr-4">
                                     <div class="form-group row">
                                         <label for="notes" class="col-form-label">Catatan</label>
-                                        <textarea class="form-control txt" rows="6" v-model="form.notes" id="notes" placeholder="Catatan nota!"></textarea>
-                                        <small class="text-danger" v-if="errors.notes">{{ errors.notes[0] }}</small>
+                                        <textarea class="form-control txt" :class="{'is-invalid': errors.notes}" rows="6" v-model="form.notes" id="notes" placeholder="Catatan nota!"></textarea>
+                                        <small class="invalid-feedback" v-if="errors.notes">{{ errors.notes[0] }}</small>
                                     </div>
                                 </div>
                             </div>
@@ -153,8 +153,8 @@
                                             <td>Discount</td>
                                             <td>
                                                 <div class="input-group">
-                                                    <input type="number" v-model="form.discount" class="form-control" placeholder="Discount">
-                                                    <small class="text-danger" v-if="errors.discount">{{ errors.discount[0] }}</small>
+                                                    <input type="number" v-model="form.discount" class="form-control" :class="{'is-invalid': errors.discount}" placeholder="Discount">
+                                                    <small class="invalid-feedback" v-if="errors.discount">{{ errors.discount[0] }}</small>
                                                     <div class="input-group-append">
                                                         <span class="input-group-text">%</span>
                                                     </div>
@@ -172,14 +172,14 @@
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text">Rp</span>
                                                     </div>
-                                                    <input type="number" v-model="form.down_payment" class="form-control" placeholder="Jumlah bayar">
-                                                    <small class="text-danger" v-if="errors.down_payment">{{ errors.down_payment[0] }}</small>
+                                                    <input type="number" v-model="form.down_payment" class="form-control" :class="{'is-invalid': errors.down_payment}" placeholder="Jumlah bayar">
+                                                    <small class="invalid-feedback" v-if="errors.down_payment">{{ errors.down_payment[0] }}</small>
                                                 </div>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>Sisa Bayar</td>
-                                            <td class="text-danger"><strong>Rp. {{ dependents }}</strong></td>
+                                            <td class="invalid-"><strong>Rp. {{ dependents }}</strong></td>
                                         </tr>
                                     </table>
                                 </div>

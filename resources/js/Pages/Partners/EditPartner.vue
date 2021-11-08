@@ -9,36 +9,36 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group col mb-4">
-                                <label for="partnerName">Partner Name</label>
-                                <input v-model="form.partner_name" type="name" class="form-control" id="partnerName" placeholder="Enter name">
-                                <small class="text-danger" v-if="errors.partner_name">{{ errors.partner_name[0] }}</small>
+                                <label for="partner_name">Partner Name</label>
+                                <input v-model="form.partner_name" type="name" class="form-control" id="partner_name" :class="{'is-invalid': errors.partner_name}" placeholder="Enter name">
+                                <small class="invalid-feedback" v-if="errors.partner_name">{{ errors.partner_name[0] }}</small>
                             </div>
                             <div class="form-group col mb-4">
-                                <label for="phoneNumber">Phone</label>
-                                <input v-model="form.phone_number" type="text" class="form-control" id="phoneNumber" placeholder="Enter phone number">
-                                <small class="text-danger" v-if="errors.phone_number">{{ errors.phone_number[0] }}</small>
+                                <label for="phone_number">Phone</label>
+                                <input v-model="form.phone_number" type="text" class="form-control" id="phone_number" :class="{'is-invalid': errors.phone_number}" placeholder="Enter phone number">
+                                <small class="invalid-feedback" v-if="errors.phone_number">{{ errors.phone_number[0] }}</small>
                             </div>
                             <div class="form-group col mb-4">
-                                <label for="partnerEmail">Partner Email</label>
-                                <input v-model="form.partner_email" type="email" class="form-control" id="partnerEmail" placeholder="Enter email">
-                                <small class="text-danger" v-if="errors.partner_email">{{ errors.partner_email[0] }}</small>
+                                <label for="partner_email">Partner Email</label>
+                                <input v-model="form.partner_email" type="email" class="form-control" id="partner_email" :class="{'is-invalid': errors.partner_email}" placeholder="Enter email">
+                                <small class="invalid-feedback" v-if="errors.partner_email">{{ errors.partner_email[0] }}</small>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group col mb-4">
-                                <label for="startJoin">Start Date</label>
-                                <input v-model="form.start_join" type="date" class="form-control" id="startJoin">
-                                <small class="text-danger" v-if="errors.start_join">{{ errors.start_join[0] }}</small>
+                                <label for="start_join">Start Date</label>
+                                <input v-model="form.start_join" type="date" class="form-control" id="start_join" :class="{'is-invalid': errors.start_join}">
+                                <small class="invalid-feedback" v-if="errors.start_join">{{ errors.start_join[0] }}</small>
                             </div>
                             <div class="form-group col mb-4">
-                                <label for="partnerCompany">Partner Company</label>
-                                <input v-model="form.partner_company" type="text" class="form-control" id="partnerCompany" placeholder="Enter company">
-                                <small class="text-danger" v-if="errors.partner_company">{{ errors.partner_company[0] }}</small>
+                                <label for="partner_company">Partner Company</label>
+                                <input v-model="form.partner_company" type="text" class="form-control" id="partner_company" :class="{'is-invalid': errors.partner_company}" placeholder="Enter company">
+                                <small class="invalid-feedback" v-if="errors.partner_company">{{ errors.partner_company[0] }}</small>
                             </div>
                             <div class="form-group col mb-4">
-                                <label for="partnerAddress">Partner Address</label>
-                                <input v-model="form.partner_address" type="address" class="form-control" id="partnerAddress" placeholder="Enter address">
-                                <small class="text-danger" v-if="errors.partner_address">{{ errors.partner_address[0] }}</small>
+                                <label for="partner_address">Partner Address</label>
+                                <input v-model="form.partner_address" type="address" class="form-control" id="partner_address" :class="{'is-invalid': errors.partner_address}" placeholder="Enter address">
+                                <small class="invalid-feedback" v-if="errors.partner_address">{{ errors.partner_address[0] }}</small>
                             </div>
                         </div>
                     </div>

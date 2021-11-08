@@ -107,9 +107,9 @@
                             <div class="form-group row">
                                 <div class="col-sm-12">
                                     <div class="mb-1 px-2 py-2 text-sm border rounded">
-                                        <input type="file" @input="formFile.file = $event.target.files[0]">
+                                        <input type="file" @input="formFile.file = $event.target.files[0]" class="form-control" :class="{'is-invalid': errors.file}">
+                                        <small class="invalid-feedback" v-if="errors.file">{{ errors.file[0] }}</small>
                                     </div>
-                                    <small class="text-danger" v-if="errors.file">{{ errors.file[0] }}</small>
                                 </div>
                             </div>
                             <div class="row justify-content-between mt-3">
@@ -130,28 +130,28 @@
                         <form autocomplete="off">
                             <div class="form-group mb-4">
                                 <label for="sparepart_type">Sparepart Type</label>
-                                <select v-model="form.sparepart_type" id="sparepart_type" class="form-control text-white">
+                                <select v-model="form.sparepart_type" id="sparepart_type" class="form-control text-white" :class="{'is-invalid': errors.sparepart_type}">
                                     <option value="Camera"> Camera </option>
                                     <option value="Phone"> Phone </option>
                                     <option value="Laptop-PC"> Laptop-PC </option>
                                     <option value="Other"> Other </option>
                                 </select>
-                                <small class="text-danger" v-if="errors.sparepart_type">{{ errors.sparepart_type[0] }}</small>
+                                <small class="invalid-feedback" v-if="errors.sparepart_type">{{ errors.sparepart_type[0] }}</small>
                             </div>
                             <div class="form-group mb-4">
                                 <label for="sparepart_name">Sparepart Name</label>
-                                <input type="text" v-model="form.sparepart_name" class="form-control" id="sparepart_name" placeholder="Enter name">
-                                <small class="text-danger" v-if="errors.sparepart_name">{{ errors.sparepart_name[0] }}</small>
+                                <input type="text" v-model="form.sparepart_name" class="form-control" id="sparepart_name" :class="{'is-invalid': errors.sparepart_name}" placeholder="Enter name">
+                                <small class="invalid-feedback" v-if="errors.sparepart_name">{{ errors.sparepart_name[0] }}</small>
                             </div>
                             <div class="form-group mb-4">
                                 <label for="sparepart_quantity">Stock</label>
-                                <input type="number" v-model="form.sparepart_quantity" class="form-control" id="sparepart_quantity" placeholder="Enter stock">
-                                <small class="text-danger" v-if="errors.sparepart_quantity">{{ errors.sparepart_quantity[0] }}</small>
+                                <input type="number" v-model="form.sparepart_quantity" class="form-control" id="sparepart_quantity" :class="{'is-invalid': errors.sparepart_quantity}" placeholder="Enter stock">
+                                <small class="invalid-feedback" v-if="errors.sparepart_quantity">{{ errors.sparepart_quantity[0] }}</small>
                             </div>
                             <div class="form-group mb-4">
                                 <label for="sparepart_price">Price Per Item</label>
-                                <input type="number" v-model="form.sparepart_price" class="form-control" id="sparepart_price" placeholder="Enter price">
-                                <small class="text-danger" v-if="errors.sparepart_price">{{ errors.sparepart_price[0] }}</small>
+                                <input type="number" v-model="form.sparepart_price" class="form-control" id="sparepart_price" :class="{'is-invalid': errors.sparepart_price}" placeholder="Enter price">
+                                <small class="invalid-feedback" v-if="errors.sparepart_price">{{ errors.sparepart_price[0] }}</small>
                             </div>
                             <div class="dropdown-divider"></div>
                             <div class="row">

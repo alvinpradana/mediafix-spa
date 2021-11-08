@@ -21569,7 +21569,7 @@ var _hoisted_36 = {
 };
 var _hoisted_37 = {
   key: 0,
-  "class": "text-danger"
+  "class": "invalid-feedback"
 };
 var _hoisted_38 = {
   "class": "row justify-content-between mt-3"
@@ -21618,7 +21618,7 @@ var _hoisted_47 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 
 var _hoisted_48 = {
   key: 0,
-  "class": "text-danger"
+  "class": "invalid-feedback"
 };
 var _hoisted_49 = {
   "class": "form-group mb-4"
@@ -21632,7 +21632,7 @@ var _hoisted_50 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 
 var _hoisted_51 = {
   key: 0,
-  "class": "text-danger"
+  "class": "invalid-feedback"
 };
 var _hoisted_52 = {
   "class": "form-group mb-4"
@@ -21646,7 +21646,7 @@ var _hoisted_53 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 
 var _hoisted_54 = {
   key: 0,
-  "class": "text-danger"
+  "class": "invalid-feedback"
 };
 
 var _hoisted_55 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
@@ -21735,15 +21735,16 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_34, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_35, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_36, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
         type: "file",
         onInput: _cache[1] || (_cache[1] = function ($event) {
-          var _$event$target$files$;
-
-          return $data.formFile.file = (_$event$target$files$ = $event.target.files[0]) !== null && _$event$target$files$ !== void 0 ? _$event$target$files$ : '';
-        })
-      }, null, 32
-      /* HYDRATE_EVENTS */
-      )]), $props.errors.file ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("small", _hoisted_37, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.errors.file[0]), 1
+          return $data.formFile.file = $event.target.files[0];
+        }),
+        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["form-control", {
+          'is-invalid': $props.errors.file
+        }])
+      }, null, 34
+      /* CLASS, HYDRATE_EVENTS */
+      ), $props.errors.file ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("small", _hoisted_37, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.errors.file[0]), 1
       /* TEXT */
-      )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_38, [_hoisted_39, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_40, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+      )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_38, [_hoisted_39, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_40, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
         onClick: _cache[2] || (_cache[2] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function ($event) {
           return $options.cancelImport();
         }, ["prevent"])),
@@ -21759,11 +21760,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
           return $data.form.cash_description = $event;
         }),
-        "class": "form-control",
+        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["form-control", {
+          'is-invalid': $props.errors.cash_description
+        }]),
         id: "cash_description",
         placeholder: "Cash description"
-      }, null, 512
-      /* NEED_PATCH */
+      }, null, 2
+      /* CLASS */
       ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.cash_description]]), $props.errors.cash_description ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("small", _hoisted_48, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.errors.cash_description[0]), 1
       /* TEXT */
       )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_49, [_hoisted_50, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
@@ -21771,13 +21774,15 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         "onUpdate:modelValue": _cache[5] || (_cache[5] = function ($event) {
           return $data.form.cash_date = $event;
         }),
-        "class": "form-control",
+        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["form-control", {
+          'is-invalid': $props.errors.cash_date
+        }]),
         id: "cash_date",
         placeholder: "Cash date",
         onfocus: "(this.type='date')",
         onblur: "if(this.value==''){this.type='text'}"
-      }, null, 512
-      /* NEED_PATCH */
+      }, null, 2
+      /* CLASS */
       ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.cash_date]]), $props.errors.cash_date ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("small", _hoisted_51, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.errors.cash_date[0]), 1
       /* TEXT */
       )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_52, [_hoisted_53, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
@@ -21785,11 +21790,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         "onUpdate:modelValue": _cache[6] || (_cache[6] = function ($event) {
           return $data.form.cash_amount = $event;
         }),
-        "class": "form-control",
+        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["form-control", {
+          'is-invalid': $props.errors.cash_amount
+        }]),
         id: "cash_amount",
         placeholder: "Cash amount"
-      }, null, 512
-      /* NEED_PATCH */
+      }, null, 2
+      /* CLASS */
       ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.cash_amount]]), $props.errors.cash_amount ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("small", _hoisted_54, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.errors.cash_amount[0]), 1
       /* TEXT */
       )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), _hoisted_55, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_56, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_57, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
@@ -22191,7 +22198,7 @@ var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 
 var _hoisted_9 = {
   key: 0,
-  "class": "text-danger"
+  "class": "invalid-feedback"
 };
 var _hoisted_10 = {
   "class": "form-group col mb-4"
@@ -22205,7 +22212,7 @@ var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 
 var _hoisted_12 = {
   key: 0,
-  "class": "text-danger"
+  "class": "invalid-feedback"
 };
 var _hoisted_13 = {
   "class": "form-group col mb-4"
@@ -22219,7 +22226,7 @@ var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 
 var _hoisted_15 = {
   key: 0,
-  "class": "text-danger"
+  "class": "invalid-feedback"
 };
 var _hoisted_16 = {
   "class": "col-md-6"
@@ -22236,7 +22243,7 @@ var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 
 var _hoisted_19 = {
   key: 0,
-  "class": "text-danger"
+  "class": "invalid-feedback"
 };
 var _hoisted_20 = {
   "class": "form-group col mb-4"
@@ -22250,7 +22257,7 @@ var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 
 var _hoisted_22 = {
   key: 0,
-  "class": "text-danger"
+  "class": "invalid-feedback"
 };
 
 var _hoisted_23 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
@@ -22290,10 +22297,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         }),
         type: "name",
         id: "employee_name",
-        "class": "form-control",
+        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["form-control", {
+          'is-invalid': $props.errors.employee_name
+        }]),
         placeholder: "Enter name"
-      }, null, 512
-      /* NEED_PATCH */
+      }, null, 2
+      /* CLASS */
       ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.employee_name]]), $props.errors.employee_name ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("small", _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.errors.employee_name[0]), 1
       /* TEXT */
       )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [_hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
@@ -22302,10 +22311,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         }),
         type: "text",
         id: "phone_number",
-        "class": "form-control",
+        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["form-control", {
+          'is-invalid': $props.errors.phone_number
+        }]),
         placeholder: "Enter phone number"
-      }, null, 512
-      /* NEED_PATCH */
+      }, null, 2
+      /* CLASS */
       ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.phone_number]]), $props.errors.phone_number ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("small", _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.errors.phone_number[0]), 1
       /* TEXT */
       )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [_hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
@@ -22314,10 +22325,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         }),
         type: "email",
         id: "employee_email",
-        "class": "form-control",
+        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["form-control", {
+          'is-invalid': $props.errors.employee_email
+        }]),
         placeholder: "Enter email"
-      }, null, 512
-      /* NEED_PATCH */
+      }, null, 2
+      /* CLASS */
       ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.employee_email]]), $props.errors.employee_email ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("small", _hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.errors.employee_email[0]), 1
       /* TEXT */
       )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [_hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
@@ -22326,10 +22339,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         }),
         type: "text",
         id: "employee_division",
-        "class": "form-control",
+        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["form-control", {
+          'is-invalid': $props.errors.employee_division
+        }]),
         placeholder: "Enter employee division"
-      }, null, 512
-      /* NEED_PATCH */
+      }, null, 2
+      /* CLASS */
       ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.employee_division]]), $props.errors.employee_division ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("small", _hoisted_19, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.errors.employee_division[0]), 1
       /* TEXT */
       )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [_hoisted_21, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("textarea", {
@@ -22338,11 +22353,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         }),
         type: "address",
         id: "employee_address",
-        "class": "form-control",
+        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["form-control", {
+          'is-invalid': $props.errors.employee_address
+        }]),
         placeholder: "Enter address",
         rows: "7"
-      }, null, 512
-      /* NEED_PATCH */
+      }, null, 2
+      /* CLASS */
       ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.employee_address]]), $props.errors.employee_address ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("small", _hoisted_22, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.errors.employee_address[0]), 1
       /* TEXT */
       )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])]), _hoisted_23, _hoisted_24], 32
@@ -22407,7 +22424,7 @@ var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 
 var _hoisted_9 = {
   key: 0,
-  "class": "text-danger"
+  "class": "invalid-feedback"
 };
 var _hoisted_10 = {
   "class": "form-group col mb-4"
@@ -22421,7 +22438,7 @@ var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 
 var _hoisted_12 = {
   key: 0,
-  "class": "text-danger"
+  "class": "invalid-feedback"
 };
 var _hoisted_13 = {
   "class": "form-group col mb-4"
@@ -22435,7 +22452,7 @@ var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 
 var _hoisted_15 = {
   key: 0,
-  "class": "text-danger"
+  "class": "invalid-feedback"
 };
 var _hoisted_16 = {
   "class": "col-md-6"
@@ -22452,7 +22469,7 @@ var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 
 var _hoisted_19 = {
   key: 0,
-  "class": "text-danger"
+  "class": "invalid-feedback"
 };
 var _hoisted_20 = {
   "class": "form-group col mb-4"
@@ -22466,7 +22483,7 @@ var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 
 var _hoisted_22 = {
   key: 0,
-  "class": "text-danger"
+  "class": "invalid-feedback"
 };
 
 var _hoisted_23 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
@@ -22505,10 +22522,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           return $data.form.employee_name = $event;
         }),
         type: "name",
-        "class": "form-control",
+        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["form-control", {
+          'is-invalid': $props.errors.employee_name
+        }]),
         placeholder: "Enter name"
-      }, null, 512
-      /* NEED_PATCH */
+      }, null, 2
+      /* CLASS */
       ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.employee_name]]), $props.errors.employee_name ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("small", _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.errors.employee_name[0]), 1
       /* TEXT */
       )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [_hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
@@ -22516,10 +22535,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           return $data.form.phone_number = $event;
         }),
         type: "text",
-        "class": "form-control",
+        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["form-control", {
+          'is-invalid': $props.errors.phone_number
+        }]),
         placeholder: "Enter phone number"
-      }, null, 512
-      /* NEED_PATCH */
+      }, null, 2
+      /* CLASS */
       ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.phone_number]]), $props.errors.phone_number ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("small", _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.errors.phone_number[0]), 1
       /* TEXT */
       )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [_hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
@@ -22527,10 +22548,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           return $data.form.employee_email = $event;
         }),
         type: "email",
-        "class": "form-control",
+        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["form-control", {
+          'is-invalid': $props.errors.employee_email
+        }]),
         placeholder: "Enter email"
-      }, null, 512
-      /* NEED_PATCH */
+      }, null, 2
+      /* CLASS */
       ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.employee_email]]), $props.errors.employee_email ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("small", _hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.errors.employee_email[0]), 1
       /* TEXT */
       )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [_hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
@@ -22538,10 +22561,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           return $data.form.employee_division = $event;
         }),
         type: "text",
-        "class": "form-control",
+        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["form-control", {
+          'is-invalid': $props.errors.employee_division
+        }]),
         placeholder: "Enter employee division"
-      }, null, 512
-      /* NEED_PATCH */
+      }, null, 2
+      /* CLASS */
       ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.employee_division]]), $props.errors.employee_division ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("small", _hoisted_19, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.errors.employee_division[0]), 1
       /* TEXT */
       )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [_hoisted_21, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("textarea", {
@@ -22549,11 +22574,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           return $data.form.employee_address = $event;
         }),
         type: "address",
-        "class": "form-control",
+        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["form-control", {
+          'is-invalid': $props.errors.employee_address
+        }]),
         placeholder: "Enter address",
         rows: "7"
-      }, null, 512
-      /* NEED_PATCH */
+      }, null, 2
+      /* CLASS */
       ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.employee_address]]), $props.errors.employee_address ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("small", _hoisted_22, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.errors.employee_address[0]), 1
       /* TEXT */
       )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])]), _hoisted_23, _hoisted_24], 32
@@ -22945,7 +22972,7 @@ var _hoisted_37 = {
 };
 var _hoisted_38 = {
   key: 0,
-  "class": "text-danger"
+  "class": "invalid-feedback"
 };
 var _hoisted_39 = {
   "class": "row justify-content-between mt-3"
@@ -23007,7 +23034,7 @@ var _hoisted_50 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 var _hoisted_51 = [_hoisted_49, _hoisted_50];
 var _hoisted_52 = {
   key: 0,
-  "class": "text-danger"
+  "class": "invalid-feedback"
 };
 var _hoisted_53 = {
   "class": "form-group mb-4"
@@ -23021,7 +23048,7 @@ var _hoisted_54 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 
 var _hoisted_55 = {
   key: 0,
-  "class": "text-danger"
+  "class": "invalid-feedback"
 };
 var _hoisted_56 = {
   "class": "form-group mb-4"
@@ -23035,7 +23062,7 @@ var _hoisted_57 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 
 var _hoisted_58 = {
   key: 0,
-  "class": "text-danger"
+  "class": "invalid-feedback"
 };
 var _hoisted_59 = {
   "class": "form-group mb-4"
@@ -23049,7 +23076,7 @@ var _hoisted_60 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 
 var _hoisted_61 = {
   key: 0,
-  "class": "text-danger"
+  "class": "invalid-feedback"
 };
 
 var _hoisted_62 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
@@ -23141,12 +23168,15 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         type: "file",
         onInput: _cache[1] || (_cache[1] = function ($event) {
           return $data.formFile.file = $event.target.files[0];
-        })
-      }, null, 32
-      /* HYDRATE_EVENTS */
-      )]), $props.errors.file ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("small", _hoisted_38, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.errors.file[0]), 1
+        }),
+        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["form-control", {
+          'is-invalid': $props.errors.file
+        }])
+      }, null, 34
+      /* CLASS, HYDRATE_EVENTS */
+      ), $props.errors.file ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("small", _hoisted_38, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.errors.file[0]), 1
       /* TEXT */
-      )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_39, [_hoisted_40, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_41, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+      )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_39, [_hoisted_40, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_41, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
         onClick: _cache[2] || (_cache[2] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function ($event) {
           return $options.cancelImport();
         }, ["prevent"])),
@@ -23162,9 +23192,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           return $data.form.equipment_type = $event;
         }),
         id: "equipment_type",
-        "class": "form-control text-white"
-      }, _hoisted_51, 512
-      /* NEED_PATCH */
+        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["form-control text-white", {
+          'is-invalid': $props.errors.equipment_type
+        }])
+      }, _hoisted_51, 2
+      /* CLASS */
       ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $data.form.equipment_type]]), $props.errors.equipment_type ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("small", _hoisted_52, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.errors.equipment_type[0]), 1
       /* TEXT */
       )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_53, [_hoisted_54, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
@@ -23172,11 +23204,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         "onUpdate:modelValue": _cache[5] || (_cache[5] = function ($event) {
           return $data.form.equipment_name = $event;
         }),
-        "class": "form-control",
+        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["form-control", {
+          'is-invalid': $props.errors.equipment_name
+        }]),
         id: "equipment_name",
         placeholder: "Enter name"
-      }, null, 512
-      /* NEED_PATCH */
+      }, null, 2
+      /* CLASS */
       ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.equipment_name]]), $props.errors.equipment_name ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("small", _hoisted_55, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.errors.equipment_name[0]), 1
       /* TEXT */
       )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_56, [_hoisted_57, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
@@ -23184,11 +23218,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         "onUpdate:modelValue": _cache[6] || (_cache[6] = function ($event) {
           return $data.form.equipment_quantity = $event;
         }),
-        "class": "form-control",
+        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["form-control", {
+          'is-invalid': $props.errors.equipment_quantity
+        }]),
         id: "equipment_quantity",
         placeholder: "Enter stock"
-      }, null, 512
-      /* NEED_PATCH */
+      }, null, 2
+      /* CLASS */
       ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.equipment_quantity]]), $props.errors.equipment_quantity ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("small", _hoisted_58, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.errors.equipment_quantity[0]), 1
       /* TEXT */
       )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_59, [_hoisted_60, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("textarea", {
@@ -23196,11 +23232,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         "onUpdate:modelValue": _cache[7] || (_cache[7] = function ($event) {
           return $data.form.equipment_condition = $event;
         }),
-        "class": "form-control",
+        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["form-control", {
+          'is-invalid': $props.errors.equipment_condition
+        }]),
         id: "equipment_condition",
         placeholder: "Equipment condition"
-      }, null, 512
-      /* NEED_PATCH */
+      }, null, 2
+      /* CLASS */
       ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.equipment_condition]]), $props.errors.equipment_condition ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("small", _hoisted_61, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.errors.equipment_condition[0]), 1
       /* TEXT */
       )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), _hoisted_62, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_63, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_64, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
@@ -23308,7 +23346,7 @@ var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 
 var _hoisted_10 = {
   key: 0,
-  "class": "text-danger"
+  "class": "invalid-feedback"
 };
 var _hoisted_11 = {
   "class": "form-group col-sm-3"
@@ -23322,7 +23360,7 @@ var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 
 var _hoisted_13 = {
   key: 0,
-  "class": "text-danger"
+  "class": "invalid-feedback"
 };
 var _hoisted_14 = {
   "class": "form-group col-sm-2"
@@ -23336,7 +23374,7 @@ var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 
 var _hoisted_16 = {
   key: 0,
-  "class": "text-danger"
+  "class": "invalid-feedback"
 };
 var _hoisted_17 = {
   "class": "form-group col-sm-2"
@@ -23350,7 +23388,7 @@ var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 
 var _hoisted_19 = {
   key: 0,
-  "class": "text-danger"
+  "class": "invalid-feedback"
 };
 var _hoisted_20 = {
   "class": "form-group col-sm-2"
@@ -23367,7 +23405,7 @@ var _hoisted_22 = {
 };
 var _hoisted_23 = {
   key: 0,
-  "class": "text-danger"
+  "class": "invalid-feedback"
 };
 
 var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
@@ -23407,7 +23445,7 @@ var _hoisted_26 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 var _hoisted_27 = ["onUpdate:modelValue"];
 var _hoisted_28 = {
   key: 0,
-  "class": "text-danger"
+  "class": "invalid-feedback"
 };
 var _hoisted_29 = ["onUpdate:modelValue"];
 
@@ -23439,17 +23477,17 @@ var _hoisted_34 = [_hoisted_30, _hoisted_31, _hoisted_32, _hoisted_33];
 var _hoisted_35 = ["onUpdate:modelValue"];
 var _hoisted_36 = {
   key: 0,
-  "class": "text-danger"
+  "class": "invalid-feedback"
 };
 var _hoisted_37 = ["onUpdate:modelValue"];
 var _hoisted_38 = {
   key: 0,
-  "class": "text-danger"
+  "class": "invalid-feedback"
 };
 var _hoisted_39 = ["onUpdate:modelValue"];
 var _hoisted_40 = {
   key: 0,
-  "class": "text-danger"
+  "class": "invalid-feedback"
 };
 var _hoisted_41 = ["onUpdate:modelValue"];
 var _hoisted_42 = {
@@ -23458,7 +23496,8 @@ var _hoisted_42 = {
 var _hoisted_43 = ["onClick"];
 var _hoisted_44 = {
   key: 0,
-  "class": "alert alert-danger my-2"
+  "class": "alert alert-danger my-2",
+  role: "alert"
 };
 var _hoisted_45 = {
   "class": "col-sm-12 col-md-2 mt-2 p-0"
@@ -23507,7 +23546,7 @@ var _hoisted_54 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 var _hoisted_55 = [_hoisted_52, _hoisted_53, _hoisted_54];
 var _hoisted_56 = {
   key: 0,
-  "class": "text-danger"
+  "class": "invalid-feedback"
 };
 var _hoisted_57 = {
   "class": "col-sm-12 col-md-6 pr-4"
@@ -23550,7 +23589,7 @@ var _hoisted_63 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 var _hoisted_64 = [_hoisted_60, _hoisted_61, _hoisted_62, _hoisted_63];
 var _hoisted_65 = {
   key: 0,
-  "class": "text-danger"
+  "class": "invalid-feedback"
 };
 var _hoisted_66 = {
   "class": "col-sm-12 col-md-12 pr-4"
@@ -23568,7 +23607,7 @@ var _hoisted_68 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 
 var _hoisted_69 = {
   key: 0,
-  "class": "text-danger"
+  "class": "invalid-feedback"
 };
 var _hoisted_70 = {
   "class": "col-md-4"
@@ -23600,7 +23639,7 @@ var _hoisted_77 = {
 };
 var _hoisted_78 = {
   key: 0,
-  "class": "text-danger"
+  "class": "invalid-feedback"
 };
 
 var _hoisted_79 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
@@ -23637,7 +23676,7 @@ var _hoisted_84 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 
 var _hoisted_85 = {
   key: 0,
-  "class": "text-danger"
+  "class": "invalid-feedback"
 };
 
 var _hoisted_86 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, "Sisa Bayar", -1
@@ -23645,7 +23684,7 @@ var _hoisted_86 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 );
 
 var _hoisted_87 = {
-  "class": "text-danger"
+  "class": "invalid-"
 };
 
 var _hoisted_88 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
@@ -23696,10 +23735,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
           return $data.form.customer_name = $event;
         }),
-        "class": "form-control",
+        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["form-control", {
+          'is-invalid': $props.errors.customer_name
+        }]),
         placeholder: "Enter name"
-      }, null, 512
-      /* NEED_PATCH */
+      }, null, 2
+      /* CLASS */
       ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.customer_name]]), $props.errors.customer_name ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("small", _hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.errors.customer_name[0]), 1
       /* TEXT */
       )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [_hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
@@ -23708,10 +23749,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
           return $data.form.customer_phone = $event;
         }),
-        "class": "form-control",
+        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["form-control", {
+          'is-invalid': $props.errors.customer_phone
+        }]),
         placeholder: "Enter phone number"
-      }, null, 512
-      /* NEED_PATCH */
+      }, null, 2
+      /* CLASS */
       ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.customer_phone]]), $props.errors.customer_phone ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("small", _hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.errors.customer_phone[0]), 1
       /* TEXT */
       )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [_hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
@@ -23720,12 +23763,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           return $data.form.date_in = $event;
         }),
         id: "date_in",
-        "class": "form-control",
+        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["form-control", {
+          'is-invalid': $props.errors.date_in
+        }]),
         placeholder: "Enter date in",
         onfocus: "(this.type='date')",
         onblur: "if(this.value==''){this.type='text'}"
-      }, null, 512
-      /* NEED_PATCH */
+      }, null, 2
+      /* CLASS */
       ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.date_in]]), $props.errors.date_in ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("small", _hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.errors.date_in[0]), 1
       /* TEXT */
       )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [_hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
@@ -23734,12 +23779,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           return $data.form.date_taken = $event;
         }),
         id: "date_taken",
-        "class": "form-control",
+        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["form-control", {
+          'is-invalid': $props.errors.date_taken
+        }]),
         placeholder: "Enter date taken",
         onfocus: "(this.type='date')",
         onblur: "if(this.value==''){this.type='text'}"
-      }, null, 512
-      /* NEED_PATCH */
+      }, null, 2
+      /* CLASS */
       ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.date_taken]]), $props.errors.date_taken ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("small", _hoisted_19, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.errors.date_taken[0]), 1
       /* TEXT */
       )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [_hoisted_21, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_22, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
@@ -23748,10 +23795,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
           return $data.form.guarantee = $event;
         }),
-        "class": "form-control",
+        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["form-control", {
+          'is-invalid': $props.errors.guarantee
+        }]),
         placeholder: "Long warranty"
-      }, null, 512
-      /* NEED_PATCH */
+      }, null, 2
+      /* CLASS */
       ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.guarantee]]), $props.errors.guarantee ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("small", _hoisted_23, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.errors.guarantee[0]), 1
       /* TEXT */
       )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _hoisted_24])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_25, [_hoisted_26, ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.form.units, function (unit, index) {
@@ -23762,26 +23811,32 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           "onUpdate:modelValue": function onUpdateModelValue($event) {
             return unit.unit_quantity = $event;
           },
-          "class": "form-control"
-        }, null, 8
-        /* PROPS */
+          "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["form-control", {
+            'is-invalid': $props.errors.unit_quantity
+          }])
+        }, null, 10
+        /* CLASS, PROPS */
         , _hoisted_27), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, unit.unit_quantity]]), $props.errors['units.' + index + '.unit_quantity'] ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("small", _hoisted_28, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.errors['units.' + index + '.unit_quantity'][0]), 1
         /* TEXT */
         )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
           "onUpdate:modelValue": function onUpdateModelValue($event) {
             return unit.unit_type = $event;
           },
-          "class": "text-white form-control"
-        }, _hoisted_34, 8
-        /* PROPS */
+          "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["text-white form-control", {
+            'is-invalid': $props.errors.unit_type
+          }])
+        }, _hoisted_34, 10
+        /* CLASS, PROPS */
         , _hoisted_29), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, unit.unit_type]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
           type: "text",
           "onUpdate:modelValue": function onUpdateModelValue($event) {
             return unit.unit_name = $event;
           },
-          "class": "form-control"
-        }, null, 8
-        /* PROPS */
+          "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["form-control", {
+            'is-invalid': $props.errors.unit_name
+          }])
+        }, null, 10
+        /* CLASS, PROPS */
         , _hoisted_35), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, unit.unit_name]]), $props.errors['units.' + index + '.unit_name'] ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("small", _hoisted_36, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.errors['units.' + index + '.unit_name'][0]), 1
         /* TEXT */
         )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
@@ -23789,9 +23844,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           "onUpdate:modelValue": function onUpdateModelValue($event) {
             return unit.unit_description = $event;
           },
-          "class": "form-control"
-        }, null, 8
-        /* PROPS */
+          "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["form-control", {
+            'is-invalid': $props.errors.unit_description
+          }])
+        }, null, 10
+        /* CLASS, PROPS */
         , _hoisted_37), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, unit.unit_description]]), $props.errors['units.' + index + '.unit_description'] ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("small", _hoisted_38, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.errors['units.' + index + '.unit_description'][0]), 1
         /* TEXT */
         )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
@@ -23799,9 +23856,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           "onUpdate:modelValue": function onUpdateModelValue($event) {
             return unit.unit_completeness = $event;
           },
-          "class": "form-control"
-        }, null, 8
-        /* PROPS */
+          "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["form-control", {
+            'is-invalid': $props.errors.unit_completeness
+          }])
+        }, null, 10
+        /* CLASS, PROPS */
         , _hoisted_39), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, unit.unit_completeness]]), $props.errors['units.' + index + '.unit_completeness'] ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("small", _hoisted_40, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.errors['units.' + index + '.unit_completeness'][0]), 1
         /* TEXT */
         )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
@@ -23809,9 +23868,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           "onUpdate:modelValue": function onUpdateModelValue($event) {
             return unit.unit_cost = $event;
           },
-          "class": "form-control"
-        }, null, 8
-        /* PROPS */
+          "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["form-control", {
+            'is-invalid': $props.errors.unit_cost
+          }])
+        }, null, 10
+        /* CLASS, PROPS */
         , _hoisted_41), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, unit.unit_cost]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_42, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("strong", null, "Rp. " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.total_cost[index]), 1
         /* TEXT */
         )])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
@@ -23837,30 +23898,36 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         "onUpdate:modelValue": _cache[6] || (_cache[6] = function ($event) {
           return $data.form.order_status = $event;
         }),
-        "class": "form-control text-white"
-      }, _hoisted_55, 512
-      /* NEED_PATCH */
+        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["form-control text-white", {
+          'is-invalid': $props.errors.order_status
+        }])
+      }, _hoisted_55, 2
+      /* CLASS */
       ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $data.form.order_status]]), $props.errors.order_status ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("small", _hoisted_56, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.errors.order_status[0]), 1
       /* TEXT */
       )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_57, [_hoisted_58, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_59, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
         "onUpdate:modelValue": _cache[7] || (_cache[7] = function ($event) {
           return $data.form.payment_status = $event;
         }),
-        "class": "form-control text-white"
-      }, _hoisted_64, 512
-      /* NEED_PATCH */
+        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["form-control text-white", {
+          'is-invalid': $props.errors.payment_status
+        }])
+      }, _hoisted_64, 2
+      /* CLASS */
       ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $data.form.payment_status]]), $props.errors.payment_status ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("small", _hoisted_65, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.errors.payment_status[0]), 1
       /* TEXT */
       )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_66, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_67, [_hoisted_68, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("textarea", {
-        "class": "form-control txt",
+        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["form-control txt", {
+          'is-invalid': $props.errors.notes
+        }]),
         rows: "6",
         "onUpdate:modelValue": _cache[8] || (_cache[8] = function ($event) {
           return $data.form.notes = $event;
         }),
         id: "notes",
         placeholder: "Catatan nota!"
-      }, null, 512
-      /* NEED_PATCH */
+      }, null, 2
+      /* CLASS */
       ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.notes]]), $props.errors.notes ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("small", _hoisted_69, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.errors.notes[0]), 1
       /* TEXT */
       )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_70, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_71, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_72, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_73, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [_hoisted_74, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_75, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("strong", null, "Rp. " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.subtotal), 1
@@ -23870,10 +23937,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         "onUpdate:modelValue": _cache[9] || (_cache[9] = function ($event) {
           return $data.form.discount = $event;
         }),
-        "class": "form-control",
+        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["form-control", {
+          'is-invalid': $props.errors.discount
+        }]),
         placeholder: "Discount"
-      }, null, 512
-      /* NEED_PATCH */
+      }, null, 2
+      /* CLASS */
       ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.discount]]), $props.errors.discount ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("small", _hoisted_78, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.errors.discount[0]), 1
       /* TEXT */
       )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _hoisted_79])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [_hoisted_80, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_81, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("strong", null, "Rp. " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.total_payment), 1
@@ -23883,10 +23952,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         "onUpdate:modelValue": _cache[10] || (_cache[10] = function ($event) {
           return $data.form.down_payment = $event;
         }),
-        "class": "form-control",
+        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["form-control", {
+          'is-invalid': $props.errors.down_payment
+        }]),
         placeholder: "Jumlah bayar"
-      }, null, 512
-      /* NEED_PATCH */
+      }, null, 2
+      /* CLASS */
       ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.down_payment]]), $props.errors.down_payment ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("small", _hoisted_85, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.errors.down_payment[0]), 1
       /* TEXT */
       )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [_hoisted_86, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_87, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("strong", null, "Rp. " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.dependents), 1
@@ -25266,7 +25337,7 @@ var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 
 var _hoisted_9 = {
   key: 0,
-  "class": "text-danger"
+  "class": "invalid-feedback"
 };
 var _hoisted_10 = {
   "class": "form-group col mb-4"
@@ -25280,7 +25351,7 @@ var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 
 var _hoisted_12 = {
   key: 0,
-  "class": "text-danger"
+  "class": "invalid-feedback"
 };
 var _hoisted_13 = {
   "class": "form-group col mb-4"
@@ -25294,7 +25365,7 @@ var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 
 var _hoisted_15 = {
   key: 0,
-  "class": "text-danger"
+  "class": "invalid-feedback"
 };
 var _hoisted_16 = {
   "class": "col-md-6"
@@ -25311,7 +25382,7 @@ var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 
 var _hoisted_19 = {
   key: 0,
-  "class": "text-danger"
+  "class": "invalid-feedback"
 };
 var _hoisted_20 = {
   "class": "form-group col mb-4"
@@ -25325,7 +25396,7 @@ var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 
 var _hoisted_22 = {
   key: 0,
-  "class": "text-danger"
+  "class": "invalid-feedback"
 };
 var _hoisted_23 = {
   "class": "form-group col mb-4"
@@ -25339,7 +25410,7 @@ var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 
 var _hoisted_25 = {
   key: 0,
-  "class": "text-danger"
+  "class": "invalid-feedback"
 };
 
 var _hoisted_26 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
@@ -25378,11 +25449,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           return $data.form.partner_name = $event;
         }),
         type: "name",
-        "class": "form-control",
+        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["form-control", {
+          'is-invalid': $props.errors.partner_name
+        }]),
         id: "partner_name",
         placeholder: "Enter name"
-      }, null, 512
-      /* NEED_PATCH */
+      }, null, 2
+      /* CLASS */
       ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.partner_name]]), $props.errors.partner_name ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("small", _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.errors.partner_name[0]), 1
       /* TEXT */
       )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [_hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
@@ -25390,11 +25463,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           return $data.form.phone_number = $event;
         }),
         type: "text",
-        "class": "form-control",
+        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["form-control", {
+          'is-invalid': $props.errors.phone_number
+        }]),
         id: "phone_number",
         placeholder: "Enter phone number"
-      }, null, 512
-      /* NEED_PATCH */
+      }, null, 2
+      /* CLASS */
       ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.phone_number]]), $props.errors.phone_number ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("small", _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.errors.phone_number[0]), 1
       /* TEXT */
       )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [_hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
@@ -25402,11 +25477,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           return $data.form.partner_email = $event;
         }),
         type: "email",
-        "class": "form-control",
-        id: "partnerEmail",
+        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["form-control", {
+          'is-invalid': $props.errors.partner_email
+        }]),
+        id: "partner_email",
         placeholder: "Enter email"
-      }, null, 512
-      /* NEED_PATCH */
+      }, null, 2
+      /* CLASS */
       ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.partner_email]]), $props.errors.partner_email ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("small", _hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.errors.partner_email[0]), 1
       /* TEXT */
       )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [_hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
@@ -25415,12 +25492,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           return $data.form.start_join = $event;
         }),
         id: "start_join",
-        "class": "form-control",
+        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["form-control", {
+          'is-invalid': $props.errors.start_join
+        }]),
         placeholder: "Enter date join",
         onfocus: "(this.type='date')",
         onblur: "if(this.value==''){this.type='text'}"
-      }, null, 512
-      /* NEED_PATCH */
+      }, null, 2
+      /* CLASS */
       ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.start_join]]), $props.errors.start_join ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("small", _hoisted_19, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.errors.start_join[0]), 1
       /* TEXT */
       )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [_hoisted_21, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
@@ -25428,11 +25507,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           return $data.form.partner_company = $event;
         }),
         type: "text",
-        "class": "form-control",
+        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["form-control", {
+          'is-invalid': $props.errors.partner_company
+        }]),
         id: "partner_company",
         placeholder: "Enter company"
-      }, null, 512
-      /* NEED_PATCH */
+      }, null, 2
+      /* CLASS */
       ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.partner_company]]), $props.errors.partner_company ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("small", _hoisted_22, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.errors.partner_company[0]), 1
       /* TEXT */
       )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_23, [_hoisted_24, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
@@ -25440,11 +25521,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           return $data.form.partner_address = $event;
         }),
         type: "address",
-        "class": "form-control",
+        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["form-control", {
+          'is-invalid': $props.errors.partner_address
+        }]),
         id: "partner_address",
         placeholder: "Enter address"
-      }, null, 512
-      /* NEED_PATCH */
+      }, null, 2
+      /* CLASS */
       ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.partner_address]]), $props.errors.partner_address ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("small", _hoisted_25, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.errors.partner_address[0]), 1
       /* TEXT */
       )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])]), _hoisted_26, _hoisted_27], 32
@@ -25502,42 +25585,42 @@ var _hoisted_7 = {
 };
 
 var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "for": "partnerName"
+  "for": "partner_name"
 }, "Partner Name", -1
 /* HOISTED */
 );
 
 var _hoisted_9 = {
   key: 0,
-  "class": "text-danger"
+  "class": "invalid-feedback"
 };
 var _hoisted_10 = {
   "class": "form-group col mb-4"
 };
 
 var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "for": "phoneNumber"
+  "for": "phone_number"
 }, "Phone", -1
 /* HOISTED */
 );
 
 var _hoisted_12 = {
   key: 0,
-  "class": "text-danger"
+  "class": "invalid-feedback"
 };
 var _hoisted_13 = {
   "class": "form-group col mb-4"
 };
 
 var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "for": "partnerEmail"
+  "for": "partner_email"
 }, "Partner Email", -1
 /* HOISTED */
 );
 
 var _hoisted_15 = {
   key: 0,
-  "class": "text-danger"
+  "class": "invalid-feedback"
 };
 var _hoisted_16 = {
   "class": "col-md-6"
@@ -25547,42 +25630,42 @@ var _hoisted_17 = {
 };
 
 var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "for": "startJoin"
+  "for": "start_join"
 }, "Start Date", -1
 /* HOISTED */
 );
 
 var _hoisted_19 = {
   key: 0,
-  "class": "text-danger"
+  "class": "invalid-feedback"
 };
 var _hoisted_20 = {
   "class": "form-group col mb-4"
 };
 
 var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "for": "partnerCompany"
+  "for": "partner_company"
 }, "Partner Company", -1
 /* HOISTED */
 );
 
 var _hoisted_22 = {
   key: 0,
-  "class": "text-danger"
+  "class": "invalid-feedback"
 };
 var _hoisted_23 = {
   "class": "form-group col mb-4"
 };
 
 var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "for": "partnerAddress"
+  "for": "partner_address"
 }, "Partner Address", -1
 /* HOISTED */
 );
 
 var _hoisted_25 = {
   key: 0,
-  "class": "text-danger"
+  "class": "invalid-feedback"
 };
 
 var _hoisted_26 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
@@ -25621,11 +25704,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           return $data.form.partner_name = $event;
         }),
         type: "name",
-        "class": "form-control",
-        id: "partnerName",
+        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["form-control", {
+          'is-invalid': $props.errors.partner_name
+        }]),
+        id: "partner_name",
         placeholder: "Enter name"
-      }, null, 512
-      /* NEED_PATCH */
+      }, null, 2
+      /* CLASS */
       ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.partner_name]]), $props.errors.partner_name ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("small", _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.errors.partner_name[0]), 1
       /* TEXT */
       )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [_hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
@@ -25633,11 +25718,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           return $data.form.phone_number = $event;
         }),
         type: "text",
-        "class": "form-control",
-        id: "phoneNumber",
+        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["form-control", {
+          'is-invalid': $props.errors.phone_number
+        }]),
+        id: "phone_number",
         placeholder: "Enter phone number"
-      }, null, 512
-      /* NEED_PATCH */
+      }, null, 2
+      /* CLASS */
       ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.phone_number]]), $props.errors.phone_number ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("small", _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.errors.phone_number[0]), 1
       /* TEXT */
       )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [_hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
@@ -25645,11 +25732,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           return $data.form.partner_email = $event;
         }),
         type: "email",
-        "class": "form-control",
-        id: "partnerEmail",
+        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["form-control", {
+          'is-invalid': $props.errors.partner_email
+        }]),
+        id: "partner_email",
         placeholder: "Enter email"
-      }, null, 512
-      /* NEED_PATCH */
+      }, null, 2
+      /* CLASS */
       ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.partner_email]]), $props.errors.partner_email ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("small", _hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.errors.partner_email[0]), 1
       /* TEXT */
       )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [_hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
@@ -25657,10 +25746,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           return $data.form.start_join = $event;
         }),
         type: "date",
-        "class": "form-control",
-        id: "startJoin"
-      }, null, 512
-      /* NEED_PATCH */
+        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["form-control", {
+          'is-invalid': $props.errors.start_join
+        }]),
+        id: "start_join"
+      }, null, 2
+      /* CLASS */
       ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.start_join]]), $props.errors.start_join ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("small", _hoisted_19, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.errors.start_join[0]), 1
       /* TEXT */
       )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [_hoisted_21, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
@@ -25668,11 +25759,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           return $data.form.partner_company = $event;
         }),
         type: "text",
-        "class": "form-control",
-        id: "partnerCompany",
+        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["form-control", {
+          'is-invalid': $props.errors.partner_company
+        }]),
+        id: "partner_company",
         placeholder: "Enter company"
-      }, null, 512
-      /* NEED_PATCH */
+      }, null, 2
+      /* CLASS */
       ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.partner_company]]), $props.errors.partner_company ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("small", _hoisted_22, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.errors.partner_company[0]), 1
       /* TEXT */
       )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_23, [_hoisted_24, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
@@ -25680,11 +25773,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           return $data.form.partner_address = $event;
         }),
         type: "address",
-        "class": "form-control",
-        id: "partnerAddress",
+        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["form-control", {
+          'is-invalid': $props.errors.partner_address
+        }]),
+        id: "partner_address",
         placeholder: "Enter address"
-      }, null, 512
-      /* NEED_PATCH */
+      }, null, 2
+      /* CLASS */
       ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.partner_address]]), $props.errors.partner_address ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("small", _hoisted_25, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.errors.partner_address[0]), 1
       /* TEXT */
       )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])]), _hoisted_26, _hoisted_27], 32
@@ -26607,7 +26702,7 @@ var _hoisted_37 = {
 };
 var _hoisted_38 = {
   key: 0,
-  "class": "text-danger"
+  "class": "invalid-feedback"
 };
 var _hoisted_39 = {
   "class": "row justify-content-between mt-3"
@@ -26681,7 +26776,7 @@ var _hoisted_52 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 var _hoisted_53 = [_hoisted_49, _hoisted_50, _hoisted_51, _hoisted_52];
 var _hoisted_54 = {
   key: 0,
-  "class": "text-danger"
+  "class": "invalid-feedback"
 };
 var _hoisted_55 = {
   "class": "form-group mb-4"
@@ -26695,7 +26790,7 @@ var _hoisted_56 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 
 var _hoisted_57 = {
   key: 0,
-  "class": "text-danger"
+  "class": "invalid-feedback"
 };
 var _hoisted_58 = {
   "class": "form-group mb-4"
@@ -26709,7 +26804,7 @@ var _hoisted_59 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 
 var _hoisted_60 = {
   key: 0,
-  "class": "text-danger"
+  "class": "invalid-feedback"
 };
 var _hoisted_61 = {
   "class": "form-group mb-4"
@@ -26723,7 +26818,7 @@ var _hoisted_62 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 
 var _hoisted_63 = {
   key: 0,
-  "class": "text-danger"
+  "class": "invalid-feedback"
 };
 
 var _hoisted_64 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
@@ -26815,12 +26910,15 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         type: "file",
         onInput: _cache[1] || (_cache[1] = function ($event) {
           return $data.formFile.file = $event.target.files[0];
-        })
-      }, null, 32
-      /* HYDRATE_EVENTS */
-      )]), $props.errors.file ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("small", _hoisted_38, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.errors.file[0]), 1
+        }),
+        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["form-control", {
+          'is-invalid': $props.errors.file
+        }])
+      }, null, 34
+      /* CLASS, HYDRATE_EVENTS */
+      ), $props.errors.file ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("small", _hoisted_38, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.errors.file[0]), 1
       /* TEXT */
-      )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_39, [_hoisted_40, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_41, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+      )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_39, [_hoisted_40, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_41, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
         onClick: _cache[2] || (_cache[2] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function ($event) {
           return $options.cancelImport();
         }, ["prevent"])),
@@ -26836,9 +26934,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           return $data.form.sparepart_type = $event;
         }),
         id: "sparepart_type",
-        "class": "form-control text-white"
-      }, _hoisted_53, 512
-      /* NEED_PATCH */
+        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["form-control text-white", {
+          'is-invalid': $props.errors.sparepart_type
+        }])
+      }, _hoisted_53, 2
+      /* CLASS */
       ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $data.form.sparepart_type]]), $props.errors.sparepart_type ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("small", _hoisted_54, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.errors.sparepart_type[0]), 1
       /* TEXT */
       )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_55, [_hoisted_56, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
@@ -26846,11 +26946,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         "onUpdate:modelValue": _cache[5] || (_cache[5] = function ($event) {
           return $data.form.sparepart_name = $event;
         }),
-        "class": "form-control",
+        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["form-control", {
+          'is-invalid': $props.errors.sparepart_name
+        }]),
         id: "sparepart_name",
         placeholder: "Enter name"
-      }, null, 512
-      /* NEED_PATCH */
+      }, null, 2
+      /* CLASS */
       ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.sparepart_name]]), $props.errors.sparepart_name ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("small", _hoisted_57, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.errors.sparepart_name[0]), 1
       /* TEXT */
       )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_58, [_hoisted_59, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
@@ -26858,11 +26960,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         "onUpdate:modelValue": _cache[6] || (_cache[6] = function ($event) {
           return $data.form.sparepart_quantity = $event;
         }),
-        "class": "form-control",
+        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["form-control", {
+          'is-invalid': $props.errors.sparepart_quantity
+        }]),
         id: "sparepart_quantity",
         placeholder: "Enter stock"
-      }, null, 512
-      /* NEED_PATCH */
+      }, null, 2
+      /* CLASS */
       ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.sparepart_quantity]]), $props.errors.sparepart_quantity ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("small", _hoisted_60, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.errors.sparepart_quantity[0]), 1
       /* TEXT */
       )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_61, [_hoisted_62, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
@@ -26870,11 +26974,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         "onUpdate:modelValue": _cache[7] || (_cache[7] = function ($event) {
           return $data.form.sparepart_price = $event;
         }),
-        "class": "form-control",
+        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["form-control", {
+          'is-invalid': $props.errors.sparepart_price
+        }]),
         id: "sparepart_price",
         placeholder: "Enter price"
-      }, null, 512
-      /* NEED_PATCH */
+      }, null, 2
+      /* CLASS */
       ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.sparepart_price]]), $props.errors.sparepart_price ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("small", _hoisted_63, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.errors.sparepart_price[0]), 1
       /* TEXT */
       )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), _hoisted_64, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_65, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_66, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
