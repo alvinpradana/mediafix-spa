@@ -220,6 +220,7 @@ export default {
     },
     data () {
         const form = reactive({
+            user_id: this.user,
             invoice_code: this.invoice_code,
             customer_name: null,
             customer_phone: null,
@@ -248,6 +249,7 @@ export default {
     props: {
         errors: Object,
         invoice_code: Object,
+        user: Object,
         units_empty: Object,
     },
     computed: {

@@ -36,26 +36,28 @@ class InvoicesExport implements FromCollection, WithHeadings
     }
     public function collection()
     {
-        $invoice = Invoice::join('units', 'units.invoice_id', '=', 'invoices.id')->select([
-            'invoice_code',
-            'customer_name',
-            'customer_phone',
-            'date_in',
-            'date_taken',
-            'guarantee',
-            'order_status',
-            'payment_status',
-            'discount',
-            'down_payment',
-            'total_payment',
-            'notes',
-            'unit_type',
-            'unit_name',
-            'unit_description',
-            'unit_completeness',
-            'unit_cost',
-            'total_cost',
-        ])->get();
+        $invoice = Invoice::join('units', 'units.invoice_id', '=', 'invoices.id')
+            ->where('invoices.user_id', '=', auth()->user()->id)
+            ->select([
+                'invoice_code',
+                'customer_name',
+                'customer_phone',
+                'date_in',
+                'date_taken',
+                'guarantee',
+                'order_status',
+                'payment_status',
+                'discount',
+                'down_payment',
+                'total_payment',
+                'notes',
+                'unit_type',
+                'unit_name',
+                'unit_description',
+                'unit_completeness',
+                'unit_cost',
+                'total_cost',
+            ])->get();
 
         return $invoice;
     }

@@ -20517,6 +20517,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     var form = (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_3__.reactive)({
+      user_id: this.user,
       invoice_code: this.invoice_code,
       customer_name: null,
       customer_phone: null,
@@ -20550,6 +20551,7 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     errors: Object,
     invoice_code: Object,
+    user: Object,
     units_empty: Object
   },
   computed: {

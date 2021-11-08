@@ -14,19 +14,20 @@ class InvoicesController extends Controller
 {
     public function index()
     {
-        $invoices = Invoice::with('units')->latest()->paginate(6);
+        $invoices = Invoice::with('units')->where('invoices.user_id', '=', auth()->user()->id)->latest()->paginate(6);
+
         return Inertia::render('Invoices/Index', compact('invoices'));
     }
 
     public function show($id)
     {
-        $invoice = Invoice::with('units')->findOrFail($id);
+        $invoice = Invoice::with('units')->where('invoices.user_id', '=', auth()->user()->id)->findOrFail($id);
         return Inertia::render('Invoices/ShowInvoice', compact('invoice'));
     }
 
     public function print($id)
     {
-        $invoices = Invoice::with('units')->findOrFail($id);
+        $invoices = Invoice::with('units')->where('invoices.user_id', '=', auth()->user()->id)->findOrFail($id);
         return view('print', compact('invoices'));
     }
 
@@ -40,12 +41,15 @@ class InvoicesController extends Controller
         }
         $invoice_code = 'INV/' . date('Ymd/') . 'MF/' . (str_pad($code, 3, '0', STR_PAD_LEFT));
 
-        return Inertia::render('Invoices/CreateInvoice', compact('invoice_code'));
+        $user = auth()->user()->id;
+
+        return Inertia::render('Invoices/CreateInvoice', compact('invoice_code', 'user'));
     }
 
     public function store(Request $request)
     {
         $request->validate([
+            'user_id' => ['required'],
             'invoice_code' => ['required'],
             'customer_name' => ['required'],
             'customer_phone' => ['required', 'max:20'],
@@ -99,7 +103,7 @@ class InvoicesController extends Controller
 
     public function edit($id)
     {
-        $invoice = Invoice::with('units')->findOrFail($id);
+        $invoice = Invoice::with('units')->where('invoices.user_id', '=', auth()->user()->id)->findOrFail($id);
         return Inertia::render('Invoices/EditInvoice', compact('invoice'));
     }
 
@@ -125,7 +129,7 @@ class InvoicesController extends Controller
             'units.*.unit_cost' => ['nullable', 'numeric'],
         ]);
 
-        $invoice = Invoice::findOrFail($id);
+        $invoice = Invoice::where('invoices.user_id', '=', auth()->user()->id)->findOrFail($id);
 
         $units = collect($request->units)->transform(function($unit) {
             $unit['total_cost'] = $unit['unit_quantity'] * $unit['unit_cost'];
@@ -154,8 +158,7 @@ class InvoicesController extends Controller
 
     public function destroy($id)
     {
-        $invoice = Invoice::findOrFail($id);
-        $invoice->delete();
+        Invoice::where('invoices.user_id', '=', auth()->user()->id)->findOrFail($id)->delete();
 
         return Redirect::route('invoice.index')->with('alert_success', 'Invoice deleted successfully');
     }

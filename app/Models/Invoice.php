@@ -17,4 +17,9 @@ class Invoice extends Model
         return $this->hasMany(Unit::class);
     }
 
+    public function users()
+    {
+        return $this->belongsTo(User::class);
+    }
+
 }
