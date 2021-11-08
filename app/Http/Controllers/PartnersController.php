@@ -24,7 +24,7 @@ class PartnersController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
+        $attr = $request->validate([
             'partner_name' => ['required'],
             'phone_number' => ['required'],
             'partner_email' => ['required', 'email'],
@@ -33,9 +33,7 @@ class PartnersController extends Controller
             'partner_address' => ['required'],
         ]);
 
-        $partner = $request->all();
-        Partner::create($partner);
-        
+        Partner::create($attr);
         return Redirect::route('partners.index')->with('alert_success', 'Partner added successfully');
     }
 

@@ -16,9 +16,10 @@ class UsersSeeder extends Seeder
     {
         collect([
             [
-                'name' => 'Alvin Novian',
-                'username' => 'alvin123',
-                'email' => 'alvin@email.com',
+                'name' => 'Admin Test',
+                'username' => 'admin2021',
+                'user_added' => 'admin2021',
+                'email' => 'test@email.com',
                 'password' => 'password',
                 'phone' => '081328944121',
                 'workshop' => 'Yogyakarta',

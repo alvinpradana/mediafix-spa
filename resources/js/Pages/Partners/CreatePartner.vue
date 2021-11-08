@@ -8,34 +8,34 @@
                 <form @submit.prevent="submit" autocomplete="off">
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="form-group col mb-4">
+                            <div class="form-group mb-4">
                                 <label for="partner_name">Partner Name</label>
                                 <input v-model="form.partner_name" type="name" class="form-control" id="partner_name" :class="{'is-invalid': errors.partner_name}" placeholder="Enter name">
                                 <small class="invalid-feedback" v-if="errors.partner_name">{{ errors.partner_name[0] }}</small>
                             </div>
-                            <div class="form-group col mb-4">
+                            <div class="form-group mb-4">
                                 <label for="phone_number">Phone</label>
                                 <input v-model="form.phone_number" type="text" class="form-control" id="phone_number" :class="{'is-invalid': errors.phone_number}" placeholder="Enter phone number">
                                 <small class="invalid-feedback" v-if="errors.phone_number">{{ errors.phone_number[0] }}</small>
                             </div>
-                            <div class="form-group col mb-4">
+                            <div class="form-group mb-4">
                                 <label for="partner_email">Partner Email</label>
                                 <input v-model="form.partner_email" type="email" class="form-control" id="partner_email" :class="{'is-invalid': errors.partner_email}" placeholder="Enter email">
                                 <small class="invalid-feedback" v-if="errors.partner_email">{{ errors.partner_email[0] }}</small>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="form-group col mb-4">
+                            <div class="form-group mb-4">
                                 <label for="start_join">Start Join</label>
                                 <input type="text" v-model="form.start_join" id="start_join" class="form-control" :class="{'is-invalid': errors.start_join}" placeholder="Enter date join" onfocus="(this.type='date')" onblur="if(this.value==''){this.type='text'}">
                                 <small class="invalid-feedback" v-if="errors.start_join">{{ errors.start_join[0] }}</small>
                             </div>
-                            <div class="form-group col mb-4">
+                            <div class="form-group mb-4">
                                 <label for="partner_company">Partner Company</label>
                                 <input v-model="form.partner_company" type="text" class="form-control" id="partner_company" :class="{'is-invalid': errors.partner_company}" placeholder="Enter company">
                                 <small class="invalid-feedback" v-if="errors.partner_company">{{ errors.partner_company[0] }}</small>
                             </div>
-                            <div class="form-group col mb-4">
+                            <div class="form-group mb-4">
                                 <label for="partner_address">Partner Address</label>
                                 <input v-model="form.partner_address" type="address" class="form-control" id="partner_address" :class="{'is-invalid': errors.partner_address}" placeholder="Enter address">
                                 <small class="invalid-feedback" v-if="errors.partner_address">{{ errors.partner_address[0] }}</small>

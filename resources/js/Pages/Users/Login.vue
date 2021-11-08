@@ -14,7 +14,7 @@
                                 <div class="dropdown-divider my-3"></div>
                                 <form @submit.prevent="store">
                                     <div class="form-group">
-                                        <label>Username or email *</label>
+                                        <label>Email *</label>
                                         <input v-model="form.email" type="text" class="form-control" :class="{'is-invalid': errors.email}" placeholder="Enter email">
                                         <small class="invalid-feedback" v-if="errors.email">{{ errors.email[0] }}</small>
                                     </div>

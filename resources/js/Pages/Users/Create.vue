@@ -68,10 +68,11 @@ import { reactive } from '@vue/reactivity';
 import { Inertia } from '@inertiajs/inertia';
 
 export default {
-    data() {
+    data(props) {
         const form = reactive({
             name: null,
             username: null,
+            user_added: props.user,
             email: null,
             password: null,
             phone: null,
@@ -89,6 +90,7 @@ export default {
     },
     props: {
         errors: Object,
+        user: Object
     }
 };
 </script>

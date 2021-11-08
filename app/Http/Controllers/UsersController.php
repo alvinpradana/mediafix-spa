@@ -21,12 +21,14 @@ class UsersController extends Controller
 
     public function create()
     {
-        return Inertia::render('Users/Create');
+        $user = auth()->user()->username;
+        return Inertia::render('Users/Create', compact('user'));
     }
 
     public function store(RegistrationRequest $request)
     {
         User::create($request->all());
+
         return Redirect::route('users.index');
     }
 
@@ -46,7 +48,6 @@ class UsersController extends Controller
     {
         $attributes = $request->validate([
             'name' => ['required', 'string', 'min:3'],
-            'username' => ['required', 'alpha_num', 'between:3,32', 'unique:users,username,' . auth()->id()],
             'email' => ['required', 'email', 'unique:users,email,' . auth()->id()],
             'phone' => ['required', 'string', 'min:11'],
             'workshop' => ['required', 'string', 'min:3'],

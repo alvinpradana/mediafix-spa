@@ -9,19 +9,19 @@
                         <thead>
                             <tr>
                                 <th>Name</th>
-                                <th>Email</th>
+                                <th>Username</th>
                                 <th>Phone</th>
                                 <th>Workshop</th>
-                                <th>Added</th>
+                                <th>Created at</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr v-for="user in users.data" :key="user.id">
                                 <td>{{ user.name }}</td>
-                                <td>{{ user.email }}</td>
+                                <td>{{ user.username }}</td>
                                 <td>+62{{ user.phone }}</td>
                                 <td>{{ user.workshop }}</td>
-                                <td>{{ moment(user.created_at).format("LL") }}</td>
+                                <td>{{ moment(user.created_at).format("LL") }} <i class="text-primary text-small">By {{ user.user_added }}</i></td>
                             </tr>
                         </tbody>
                     </table>
