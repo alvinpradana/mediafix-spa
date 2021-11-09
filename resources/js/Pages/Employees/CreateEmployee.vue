@@ -58,6 +58,7 @@ import { Inertia } from '@inertiajs/inertia'
 export default {
     data() {
         const form = reactive({
+            user_id: this.user,
             employee_name: null,
             phone_number: null,
             employee_email: null,
@@ -76,6 +77,7 @@ export default {
     },
     props: {
         errors: Object,
+        user: Object,
     },
 };
 </script>

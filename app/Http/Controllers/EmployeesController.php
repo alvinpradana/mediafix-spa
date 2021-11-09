@@ -13,18 +13,20 @@ class EmployeesController extends Controller
 {
     public function index()
     {
-        $employees = Employee::latest()->paginate(6);
+        $employees = Employee::latest()->where('employees.user_id', '=', auth()->user()->id)->paginate(6);
         return Inertia::render('Employees/Employees', compact('employees'));
     }
 
     public function create()
     {
-        return Inertia::render('Employees/CreateEmployee');
+        $user = auth()->user()->id;
+        return Inertia::render('Employees/CreateEmployee', compact('user'));
     }
 
     public function store(Request $request)
     {
-        $request->validate([
+        $attr = $request->validate([
+            'user_id' => ['required'],
             'employee_name' => ['required'],
             'phone_number' => ['required'],
             'employee_email' => ['required', 'email'],
@@ -32,21 +34,19 @@ class EmployeesController extends Controller
             'employee_address' => ['required'],
         ]);
 
-        $employee = $request->all();
-        Employee::create($employee);
-
+        Employee::create($attr);
         return Redirect::route('employees.index')->with('alert_success', 'Employee added successfully');
     }
 
     public function edit($id)
     {
-        $employee = Employee::find($id);
+        $employee = Employee::where('employees.user_id', '=', auth()->user()->id)->findOrFail($id);
         return Inertia::render('Employees/EditEmployee', compact('employee'));
     }
 
     public function update(Request $request, $id)
     {
-        $request->validate([
+        $attr = $request->validate([
             'employee_name' => ['required'],
             'phone_number' => ['required'],
             'employee_email' => ['required', 'email'],
@@ -54,17 +54,13 @@ class EmployeesController extends Controller
             'employee_address' => ['required'],
         ]);
 
-        $employee = $request->all();
-        Employee::where('id', $id)->update($employee);
-
+        Employee::where('id', $id)->update($attr);
         return Redirect::route('employees.index')->with('alert_success', 'Employee updated successfully');
     }
 
     public function destroy($id)
     {
-        $employee = Employee::findOrFail($id);
-        $employee->delete();
-
+        Employee::where('employees.user_id', '=', auth()->user()->id)->findOrFail($id)->delete();
         return Redirect::back()->with('alert_success', 'Employee deleted successfully');
     }
 

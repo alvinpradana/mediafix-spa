@@ -15,6 +15,7 @@ class CreateEmployeesTable extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->string('employee_name', 191)->nullable();
             $table->string('phone_number', 32)->nullable();
             $table->string('employee_email', 191)->nullable();

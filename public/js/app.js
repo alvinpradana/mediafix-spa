@@ -20240,6 +20240,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     var form = (0,vue__WEBPACK_IMPORTED_MODULE_2__.reactive)({
+      user_id: this.user,
       employee_name: null,
       phone_number: null,
       employee_email: null,
@@ -20262,7 +20263,8 @@ __webpack_require__.r(__webpack_exports__);
     Link: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__.Link
   },
   props: {
-    errors: Object
+    errors: Object,
+    user: Object
   }
 });
 

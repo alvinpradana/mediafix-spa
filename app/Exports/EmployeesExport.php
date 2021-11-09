@@ -23,12 +23,13 @@ class EmployeesExport implements FromCollection, WithHeadings
     }
     public function collection()
     {
-        return Employee::get([
-            'employee_name',
-            'phone_number',
-            'employee_email',
-            'employee_division',
-            'employee_address',
-        ]);
+        return Employee::where('employees.user_id', '=', auth()->user()->id)
+            ->get([
+                'employee_name',
+                'phone_number',
+                'employee_email',
+                'employee_division',
+                'employee_address',
+            ]);
     }
 }

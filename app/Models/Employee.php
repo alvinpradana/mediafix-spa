@@ -11,4 +11,9 @@ class Employee extends Model
 
     protected $table = 'employees';
     protected $guarded = ['id'];
+
+    public function users()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

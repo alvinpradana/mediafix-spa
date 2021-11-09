@@ -60,4 +60,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Partner::class);
     }
+
+    public function employees()
+    {
+        return $this->hasMany(Employee::class);
+    }
 }
