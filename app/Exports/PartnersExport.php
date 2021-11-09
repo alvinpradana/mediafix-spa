@@ -24,13 +24,14 @@ class PartnersExport implements FromCollection, WithHeadings
     }
     public function collection()
     {
-        return Partner::get([
-            'partner_name',
-            'phone_number',
-            'partner_email',
-            'start_join',
-            'partner_company',
-            'partner_address',
-        ]);
+        return Partner::where('partners.user_id', '=', auth()->user()->id)
+            ->get([
+                'partner_name',
+                'phone_number',
+                'partner_email',
+                'start_join',
+                'partner_company',
+                'partner_address',
+            ]);
     }
 }

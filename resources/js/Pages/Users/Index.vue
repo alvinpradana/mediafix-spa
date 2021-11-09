@@ -12,7 +12,7 @@
                                 <th>Username</th>
                                 <th>Phone</th>
                                 <th>Workshop</th>
-                                <th>Created at</th>
+                                <th>Added at</th>
                             </tr>
                         </thead>
                         <tbody>

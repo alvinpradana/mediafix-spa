@@ -15,6 +15,7 @@ class CreatePartnersTable extends Migration
     {
         Schema::create('partners', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->string('partner_name', 191)->nullable();
             $table->string('phone_number', 32)->nullable();
             $table->string('partner_email', 225)->nullable();

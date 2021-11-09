@@ -11,4 +11,9 @@ class Partner extends Model
 
     protected $table = 'partners';
     protected $guarded = ['id'];
+
+    public function users()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

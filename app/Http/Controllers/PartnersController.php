@@ -13,18 +13,20 @@ class PartnersController extends Controller
 {
     public function index()
     {
-        $partners = Partner::latest()->paginate(6);
+        $partners = Partner::latest()->where('partners.user_id', '=', auth()->user()->id)->paginate(6);
         return Inertia::render('Partners/Partners', compact('partners'));
     }
 
     public function create()
     {
-        return Inertia::render('Partners/CreatePartner');
+        $user = auth()->user()->id;
+        return Inertia::render('Partners/CreatePartner', compact('user'));
     }
 
     public function store(Request $request)
     {
         $attr = $request->validate([
+            'user_id' => ['required'],
             'partner_name' => ['required'],
             'phone_number' => ['required'],
             'partner_email' => ['required', 'email'],
@@ -39,13 +41,13 @@ class PartnersController extends Controller
 
     public function edit($id)
     {
-        $partner = Partner::find($id);
+        $partner = Partner::where('partners.user_id', '=', auth()->user()->id)->findOrFail($id);
         return Inertia::render('Partners/EditPartner', compact('partner'));
     }
 
     public function update(Request $request, $id)
     {
-        $request->validate([
+        $attr = $request->validate([
             'partner_name' => ['required'],
             'phone_number' => ['required'],
             'partner_email' => ['required', 'email'],
@@ -54,17 +56,13 @@ class PartnersController extends Controller
             'partner_address' => ['required'],
         ]);
 
-        $partner = $request->all();
-        Partner::where('id', $id)->update($partner);
-
+        Partner::where('id', $id)->update($attr);
         return Redirect::route('partners.index')->with('alert_success', 'Partner updated successfully');
     }
 
     public function destroy($id)
     {
-        $partner = Partner::findOrFail($id);
-        $partner->delete();
-        
+        Partner::where('partners.user_id', '=', auth()->user()->id)->findOrFail($id)->delete();        
         return Redirect::back()->with('alert_success', 'Partner deleted successfully');
     }
 
