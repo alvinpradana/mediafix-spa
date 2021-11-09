@@ -37,7 +37,7 @@ class EquipmentsController extends Controller
 
     public function edit($id)
     {
-        $equipment = Equipment::where('equipments.user_id', '=', auth()->user()->id)->findOrFail('id');
+        $equipment = Equipment::where('equipments.user_id', '=', auth()->user()->id)->findOrFail($id);
         return Inertia::render('Equipments/Index', compact('equipment'));
     }
 
