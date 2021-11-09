@@ -175,7 +175,7 @@
 
 <script>
 import Layout from "../Shared/Layout";
-import { Link, Head } from "@inertiajs/inertia-vue3";
+import { Head, Link } from "@inertiajs/inertia-vue3";
 import { Inertia } from '@inertiajs/inertia';
 import Pagination from "../Shared/Pagination"
 
@@ -191,6 +191,7 @@ export default {
             showImport: false,
             editMode: false,
             form: {
+                user_id: this.user,
                 sparepart_type: null,
                 sparepart_name: null,
                 sparepart_quantity: null,
@@ -243,6 +244,7 @@ export default {
         },
         reset () {
             this.form = {
+                user_id: this.user,
                 sparepart_type: null,
                 sparepart_name: null,
                 sparepart_quantity: null,
@@ -259,6 +261,7 @@ export default {
         spareparts: Object,
         count: Object,
         errors: Object,
+        user: Object
     },
 };
 </script>

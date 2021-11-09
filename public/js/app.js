@@ -20090,6 +20090,7 @@ __webpack_require__.r(__webpack_exports__);
       showImport: false,
       editMode: false,
       form: {
+        user_id: this.user,
         cash_description: null,
         cash_date: null,
         cash_amount: null
@@ -20165,6 +20166,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     reset: function reset() {
       this.form = {
+        user_id: this.user,
         cash_description: null,
         cash_date: null,
         cash_amount: null
@@ -20179,7 +20181,8 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     cash_out: Object,
     total_amount: Object,
-    errors: Object
+    errors: Object,
+    user: Object
   }
 });
 
@@ -20475,6 +20478,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     reset: function reset() {
       this.form = {
+        user_id: this.user,
         equipment_type: null,
         equipment_name: null,
         equipment_quantity: null,
@@ -21070,6 +21074,7 @@ __webpack_require__.r(__webpack_exports__);
       showImport: false,
       editMode: false,
       form: {
+        user_id: this.user,
         sparepart_type: null,
         sparepart_name: null,
         sparepart_quantity: null,
@@ -21143,6 +21148,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     reset: function reset() {
       this.form = {
+        user_id: this.user,
         sparepart_type: null,
         sparepart_name: null,
         sparepart_quantity: null,
@@ -21158,7 +21164,8 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     spareparts: Object,
     count: Object,
-    errors: Object
+    errors: Object,
+    user: Object
   }
 });
 

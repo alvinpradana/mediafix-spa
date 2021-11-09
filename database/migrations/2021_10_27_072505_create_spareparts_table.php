@@ -15,6 +15,7 @@ class CreateSparepartsTable extends Migration
     {
         Schema::create('spareparts', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->string('sparepart_type')->nullable();
             $table->string('sparepart_name')->nullable();
             $table->double('sparepart_quantity')->nullable();

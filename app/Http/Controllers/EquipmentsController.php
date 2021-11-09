@@ -43,18 +43,14 @@ class EquipmentsController extends Controller
 
     public function update(Request $request, $id)
     {
-        $request->validate([
+        $attr = $request->validate([
             'equipment_type' => ['required'],
             'equipment_name' => ['required'],
             'equipment_quantity' => ['required', 'numeric'],
             'equipment_condition' => ['required'],
         ]);
-        Equipment::where('id', $id)->update($request->only([
-            'equipment_type',
-            'equipment_name',
-            'equipment_quantity',
-            'equipment_condition',
-        ]));
+
+        Equipment::where('id', $id)->update($attr);
         return Redirect::back();
     }
 

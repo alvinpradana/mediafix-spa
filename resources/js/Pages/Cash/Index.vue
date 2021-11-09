@@ -147,6 +147,7 @@ export default {
             showImport: false,
             editMode: false,
             form: {
+                user_id: this.user,
                 cash_description: null,
                 cash_date: null,
                 cash_amount: null,
@@ -201,6 +202,7 @@ export default {
         },
         reset () {
             this.form = {
+                user_id: this.user,
                 cash_description: null,
                 cash_date: null,
                 cash_amount: null,
@@ -216,6 +218,7 @@ export default {
         cash_out: Object,
         total_amount: Object,
         errors: Object,
+        user: Object
     },
 };
 </script>

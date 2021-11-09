@@ -21,10 +21,11 @@ class CashOutExport implements FromCollection, WithHeadings
     }
     public function collection()
     {
-        return CashOut::get([
-            'cash_date',
-            'cash_description',
-            'cash_amount',
-        ]);
+        return CashOut::where('cash_outs.user_id', '=', auth()->user()->id)
+            ->get([
+                'cash_date',
+                'cash_description',
+                'cash_amount',
+            ]);
     }
 }

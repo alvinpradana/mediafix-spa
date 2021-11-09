@@ -11,9 +11,15 @@ class Sparepart extends Model
     
     protected $table = 'spareparts';
     protected $fillable = [
+        'user_id',
         'sparepart_type',
         'sparepart_name',
         'sparepart_quantity',
         'sparepart_price'
     ];
+
+    public function users()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

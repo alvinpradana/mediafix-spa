@@ -70,4 +70,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(Equipment::class);
     }
+
+    public function spareparts()
+    {
+        return $this->hasMany(Sparepart::class);
+    }
+
+    public function cashes()
+    {
+        return $this->hasMany(CashOut::class);
+    }
 }

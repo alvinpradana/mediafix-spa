@@ -14,54 +14,52 @@ class CashOutController extends Controller
 {
     public function index()
     {
-        $cash_out = CashOut::latest()->paginate(6);
+        $cash_out = CashOut::latest()->where('cash_outs.user_id', '=', auth()->user()->id)->paginate(6);
 
         $month = date('m');
         $year = date('Y');
+        $user = auth()->user()->id;
 
         $total_amount = CashOut::whereYear('cash_date', $year)
             ->whereMonth('cash_date', $month)
             ->sum('cash_amount');
 
-        return Inertia::render('Cash/Index', compact('cash_out', 'total_amount'));
+        return Inertia::render('Cash/Index', compact('cash_out', 'total_amount', 'user'));
     }
 
     public function store(Request $request)
     {
-        $request->validate([
+        $attr = $request->validate([
+            'user_id' => ['required'],
             'cash_description' => ['required'],
             'cash_date' => ['required', 'date'],
             'cash_amount' => ['required', 'numeric'],
         ]);
 
-        CashOut::create($request->all());
+        CashOut::create($attr);
         return Redirect::back();
     }
 
     public function edit($id)
     {
-        $cash_out = CashOut::find('id');
+        $cash_out = CashOut::where('cash_outs.user_id', '=', auth()->user()->id)->findOrFail($id);
         return Inertia::render('Cash/CashOut', compact('cash_out'));
     }
 
     public function update(Request $request, $id)
     {
-        $request->validate([
+        $attr = $request->validate([
             'cash_description' => ['required'],
             'cash_date' => ['required', 'date'],
             'cash_amount' => ['required', 'numeric'],
         ]);
-        CashOut::where('id', $id)->update($request->only([
-            'cash_description',
-            'cash_date',
-            'cash_amount',
-        ]));
+        CashOut::where('id', $id)->update($attr);
         return Redirect::back();
     }
 
     public function destroy($id)
     {
-        CashOut::findOrFail($id)->delete();
+        CashOut::where('cash_outs.user_id', '=', auth()->user()->id)->findOrFail($id)->delete();
         return Redirect::back();
     }
 

@@ -22,11 +22,12 @@ class SparepartsExport implements FromCollection, WithHeadings
     }
     public function collection()
     {
-        return Sparepart::get([
-            'sparepart_type',
-            'sparepart_name',
-            'sparepart_quantity',
-            'sparepart_price',
-        ]);
+        return Sparepart::where('spareparts.user_id', '=', auth()->user()->id)
+            ->get([
+                'sparepart_type',
+                'sparepart_name',
+                'sparepart_quantity',
+                'sparepart_price',
+            ]);
     }
 }

@@ -15,6 +15,7 @@ class SparepartsImport implements ToModel
     public function model(array $row)
     {
         return new Sparepart([
+            'user_id' => auth()->user()->id,
             'sparepart_type' => $row[0],
             'sparepart_name' => $row[1],
             'sparepart_quantity' => $row[2],

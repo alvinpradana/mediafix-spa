@@ -15,6 +15,7 @@ class CashOutImport implements ToModel
     public function model(array $row)
     {
         return new CashOut([
+            'user_id' => auth()->user()->id,
             'cash_date' => date('Y-m-d'),
             'cash_description' => $row[0],
             'cash_amount' => $row[1],

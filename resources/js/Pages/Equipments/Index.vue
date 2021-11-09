@@ -233,6 +233,7 @@ export default {
         },
         reset () {
             this.form = {
+                user_id: this.user,
                 equipment_type: null,
                 equipment_name: null,
                 equipment_quantity: null,

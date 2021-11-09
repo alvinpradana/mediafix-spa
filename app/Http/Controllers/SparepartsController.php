@@ -14,50 +14,49 @@ class SparepartsController extends Controller
 {
     public function index()
     {
+        $user = auth()->user()->id;
         $count = Sparepart::sum('sparepart_quantity');
-        $spareparts = Sparepart::latest()->paginate(6);
+        $spareparts = Sparepart::latest()->where('spareparts.user_id', '=', auth()->user()->id)->paginate(6);
         
-        return Inertia::render('Spareparts/Index', compact('spareparts', 'count'));
+        return Inertia::render('Spareparts/Index', compact('spareparts', 'count', 'user'));
     }
 
     public function store(Request $request)
     {
-        $request->validate([
+        $attr = $request->validate([
+            'user_id' => ['required'],
             'sparepart_type' => ['required'],
             'sparepart_name' => ['required'],
             'sparepart_quantity' => ['required', 'numeric'],
             'sparepart_price' => ['nullable', 'numeric'],
         ]);
-        Sparepart::create($request->all());
+
+        Sparepart::create($attr);
         return Redirect::back();
     }
 
     public function edit($id)
     {
-        $sparepart = Sparepart::find('id');
+        $sparepart = Sparepart::where('spareparts.user_id', '=', auth()->user()->id)->findOrFail($id);
         return Inertia::render('Spareparts/Index', compact('sparepart'));
     }
 
     public function update(Request $request, $id)
     {
-        $request->validate([
+        $attr = $request->validate([
             'sparepart_type' => ['required'],
             'sparepart_name' => ['required'],
             'sparepart_quantity' => ['required', 'numeric'],
             'sparepart_price' => ['nullable', 'numeric'],
         ]);
-        Sparepart::where('id', $id)->update($request->only([
-            'sparepart_type',
-            'sparepart_name',
-            'sparepart_quantity',
-            'sparepart_price',
-        ]));
+
+        Sparepart::where('id', $id)->update($attr);
         return Redirect::back();
     }
 
     public function destroy($id)
     {
-        Sparepart::findOrFail($id)->delete();
+        Sparepart::where('spareparts.user_id', '=', auth()->user()->id)->findOrFail($id)->delete();
         return Redirect::back();
     }
 

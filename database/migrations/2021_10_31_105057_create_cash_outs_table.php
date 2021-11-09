@@ -15,6 +15,7 @@ class CreateCashOutsTable extends Migration
     {
         Schema::create('cash_outs', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->text('cash_description')->nullable();
             $table->date('cash_date')->nullable();
             $table->double('cash_amount')->nullable();
