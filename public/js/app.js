@@ -22833,40 +22833,7 @@ var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   "class": "row mb-2"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "col-sm-5 col-md-9"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", null, "List Equipment")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "col-sm-5 col-md-3 text-lg-right"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "dropdown mx-auto"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-  "class": "btn btn-outline-primary dropdown-toggle",
-  type: "button",
-  id: "dropdownMenuOutlineButton1",
-  "data-toggle": "dropdown",
-  "aria-haspopup": "true",
-  "aria-expanded": "false"
-}, " Category "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "dropdown-menu"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "col"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "form-check form-check-primary"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "class": "form-check-label"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-  type: "checkbox",
-  "class": "form-check-input",
-  value: "Office"
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Office")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "dropdown-divider"
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "form-check form-check-primary"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "class": "form-check-label"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-  type: "checkbox",
-  "class": "form-check-input",
-  value: "Service"
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Service")])])])])])])], -1
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", null, "List Equipment")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"col-sm-5 col-md-3 text-lg-right\">\r\n                                <div class=\"dropdown mx-auto\">\r\n                                    <button class=\"btn btn-outline-primary dropdown-toggle\" type=\"button\" id=\"dropdownMenuOutlineButton1\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\"> Category </button>\r\n                                    <div class=\"dropdown-menu\">\r\n                                        <div class=\"col\">\r\n                                            <div class=\"form-check form-check-primary\">\r\n                                                <label class=\"form-check-label\">\r\n                                                <input type=\"checkbox\" class=\"form-check-input\" value=\"Office\">Office</label>\r\n                                            </div>\r\n                                            <div class=\"dropdown-divider\"></div>\r\n                                            <div class=\"form-check form-check-primary\">\r\n                                                <label class=\"form-check-label\">\r\n                                                <input type=\"checkbox\" class=\"form-check-input\" value=\"Service\">Service</label>\r\n                                            </div>\r\n                                        </div>\r\n                                    </div>\r\n                                </div>\r\n                            </div> ")], -1
 /* HOISTED */
 );
 
@@ -23700,7 +23667,7 @@ var _hoisted_86 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 );
 
 var _hoisted_87 = {
-  "class": "invalid-"
+  "class": "text-danger"
 };
 
 var _hoisted_88 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
@@ -26543,60 +26510,7 @@ var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   "class": "row mb-2"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "col-sm-5 col-md-9"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", null, "List Sparepart")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "col-sm-5 col-md-3 text-lg-right"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "dropdown mx-auto"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-  "class": "btn btn-outline-primary dropdown-toggle",
-  type: "button",
-  id: "dropdownMenuOutlineButton1",
-  "data-toggle": "dropdown",
-  "aria-haspopup": "true",
-  "aria-expanded": "false"
-}, " Category "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "dropdown-menu"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "col"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "form-check form-check-primary"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "class": "form-check-label"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-  type: "checkbox",
-  "class": "form-check-input",
-  value: "Camera"
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Camera")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "dropdown-divider"
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "form-check form-check-primary"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "class": "form-check-label"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-  type: "checkbox",
-  "class": "form-check-input",
-  value: "Phone"
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Phone")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "dropdown-divider"
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "form-check form-check-primary"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "class": "form-check-label"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-  type: "checkbox",
-  "class": "form-check-input",
-  value: "Laptop-PC"
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Laptop-PC")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "dropdown-divider"
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "form-check form-check-primary"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "class": "form-check-label"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-  type: "checkbox",
-  "class": "form-check-input",
-  value: "Other"
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Other")])])])])])])], -1
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", null, "List Sparepart")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"col-sm-5 col-md-3 text-lg-right\">\r\n                                <div class=\"dropdown mx-auto\">\r\n                                    <button class=\"btn btn-outline-primary dropdown-toggle\" type=\"button\" id=\"dropdownMenuOutlineButton1\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\"> Category </button>\r\n                                    <div class=\"dropdown-menu\">\r\n                                        <div class=\"col\">\r\n                                            <div class=\"form-check form-check-primary\">\r\n                                                <label class=\"form-check-label\">\r\n                                                <input type=\"checkbox\" class=\"form-check-input\" value=\"Camera\">Camera</label>\r\n                                            </div>\r\n                                            <div class=\"dropdown-divider\"></div>\r\n                                            <div class=\"form-check form-check-primary\">\r\n                                                <label class=\"form-check-label\">\r\n                                                <input type=\"checkbox\" class=\"form-check-input\" value=\"Phone\">Phone</label>\r\n                                            </div>\r\n                                            <div class=\"dropdown-divider\"></div>\r\n                                            <div class=\"form-check form-check-primary\">\r\n                                                <label class=\"form-check-label\">\r\n                                                <input type=\"checkbox\" class=\"form-check-input\" value=\"Laptop-PC\">Laptop-PC</label>\r\n                                            </div>\r\n                                            <div class=\"dropdown-divider\"></div>\r\n                                            <div class=\"form-check form-check-primary\">\r\n                                                <label class=\"form-check-label\">\r\n                                                <input type=\"checkbox\" class=\"form-check-input\" value=\"Other\">Other</label>\r\n                                            </div>\r\n                                        </div>\r\n                                    </div>\r\n                                </div>\r\n                            </div> ")], -1
 /* HOISTED */
 );
 

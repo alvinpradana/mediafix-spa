@@ -179,7 +179,7 @@
                                         </tr>
                                         <tr>
                                             <td>Sisa Bayar</td>
-                                            <td class="invalid-"><strong>Rp. {{ dependents }}</strong></td>
+                                            <td class="text-danger"><strong>Rp. {{ dependents }}</strong></td>
                                         </tr>
                                     </table>
                                 </div>
