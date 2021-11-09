@@ -22,11 +22,12 @@ class EquipmentsExport implements FromCollection, WithHeadings
     }
     public function collection()
     {
-        return Equipment::get([
-            'equipment_type',
-            'equipment_name',
-            'equipment_quantity',
-            'equipment_condition',
-        ]);
+        return Equipment::where('equipments.user_id', '=', auth()->user()->id)
+            ->get([
+                'equipment_type',
+                'equipment_name',
+                'equipment_quantity',
+                'equipment_condition',
+            ]);
     }
 }

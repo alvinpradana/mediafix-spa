@@ -20400,6 +20400,7 @@ __webpack_require__.r(__webpack_exports__);
       showImport: false,
       editMode: false,
       form: {
+        user_id: this.user,
         equipment_type: null,
         equipment_name: null,
         equipment_quantity: null,
@@ -20487,7 +20488,8 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     equipments: Object,
     count: Object,
-    errors: Object
+    errors: Object,
+    user: Object
   }
 });
 

@@ -15,26 +15,29 @@ class EquipmentsController extends Controller
     public function index()
     {
         $count = Equipment::sum('equipment_quantity');
-        $equipments = Equipment::latest()->paginate(6);
+        $equipments = Equipment::latest()->where('equipments.user_id', '=', auth()->user()->id)->paginate(6);
+        $user = auth()->user()->id;
 
-        return Inertia::render('Equipments/Index', compact('equipments', 'count'));
+        return Inertia::render('Equipments/Index', compact('equipments', 'count', 'user'));
     }
 
     public function store(Request $request)
     {
-        $request->validate([
+        $attr = $request->validate([
+            'user_id' => ['required'],
             'equipment_type' => ['required'],
             'equipment_name' => ['required'],
             'equipment_quantity' => ['required', 'numeric'],
             'equipment_condition' => ['required'],
         ]);
-        Equipment::create($request->all());
+
+        Equipment::create($attr);
         return Redirect::back();
     }
 
     public function edit($id)
     {
-        $equipment = Equipment::find('id');
+        $equipment = Equipment::where('equipments.user_id', '=', auth()->user()->id)->findOrFail('id');
         return Inertia::render('Equipments/Index', compact('equipment'));
     }
 
@@ -57,7 +60,7 @@ class EquipmentsController extends Controller
 
     public function destroy($id)
     {
-        Equipment::findOrFail($id)->delete();
+        Equipment::where('equipments.user_id', '=', auth()->user()->id)->findOrFail($id)->delete();
         return Redirect::back();
     }
 

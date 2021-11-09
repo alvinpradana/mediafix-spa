@@ -15,6 +15,7 @@ class EquipmentsImport implements ToModel
     public function model(array $row)
     {
         return new Equipment([
+            'user_id' => auth()->user()->id,
             'equipment_type' => $row[0],
             'equipment_name' => $row[1],
             'equipment_quantity' => $row[2],
