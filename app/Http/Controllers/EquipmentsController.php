@@ -32,7 +32,7 @@ class EquipmentsController extends Controller
         ]);
 
         Equipment::create($attr);
-        return Redirect::back();
+        return Redirect::back()->with('alert_success', 'Equipment has been added successfully.');
     }
 
     public function edit($id)
@@ -51,13 +51,13 @@ class EquipmentsController extends Controller
         ]);
 
         Equipment::where('id', $id)->update($attr);
-        return Redirect::back();
+        return Redirect::back()->with('alert_success', 'Equipment updated successfully.');
     }
 
     public function destroy($id)
     {
         Equipment::where('equipments.user_id', '=', auth()->user()->id)->findOrFail($id)->delete();
-        return Redirect::back();
+        return Redirect::back()->with('alert_success', 'Equipment deleted successfully.');
     }
 
     public function import(Request $request)
@@ -67,7 +67,7 @@ class EquipmentsController extends Controller
         ]);
 
         Excel::import(new EquipmentsImport, request()->file('file'));
-        return Redirect::back();
+        return Redirect::back()->with('alert_success', 'Equipment imported successfully.');
     }
 
     public function export()

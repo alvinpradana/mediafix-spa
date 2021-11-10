@@ -36,7 +36,7 @@ class PartnersController extends Controller
         ]);
 
         Partner::create($attr);
-        return Redirect::route('partners.index')->with('alert_success', 'Partner added successfully');
+        return Redirect::route('partners.index')->with('alert_success', 'Partner has been added successfully.');
     }
 
     public function edit($id)
@@ -57,13 +57,13 @@ class PartnersController extends Controller
         ]);
 
         Partner::where('id', $id)->update($attr);
-        return Redirect::route('partners.index')->with('alert_success', 'Partner updated successfully');
+        return Redirect::route('partners.index')->with('alert_success', 'Partner updated successfully.');
     }
 
     public function destroy($id)
     {
         Partner::where('partners.user_id', '=', auth()->user()->id)->findOrFail($id)->delete();        
-        return Redirect::back()->with('alert_success', 'Partner deleted successfully');
+        return Redirect::back()->with('alert_success', 'Partner deleted successfully.');
     }
 
     public function export()

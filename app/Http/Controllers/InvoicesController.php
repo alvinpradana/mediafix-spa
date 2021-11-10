@@ -98,7 +98,7 @@ class InvoicesController extends Controller
         $invoice = Invoice::create($data);
 
         $invoice->units()->saveMany($units);
-        return Redirect::route('invoice.index')->with('alert_success', 'Invoice created successfully');
+        return Redirect::route('invoice.index')->with('alert_success', 'Invoice created successfully.');
     }
 
     public function edit($id)
@@ -153,14 +153,14 @@ class InvoicesController extends Controller
 
         $invoice->units()->saveMany($units);
 
-        return Redirect::route('invoice.index')->with('alert_success', 'Invoice updated successfully');
+        return Redirect::route('invoice.index')->with('alert_success', 'Invoice updated successfully.');
     }
 
     public function destroy($id)
     {
         Invoice::where('invoices.user_id', '=', auth()->user()->id)->findOrFail($id)->delete();
 
-        return Redirect::route('invoice.index')->with('alert_success', 'Invoice deleted successfully');
+        return Redirect::route('invoice.index')->with('alert_success', 'Invoice deleted successfully.');
     }
 
     public function mark(Request $request, $id)
@@ -170,7 +170,7 @@ class InvoicesController extends Controller
         ]);
 
         Invoice::where('id', $id)->update($request->only('mark'));
-        return Redirect::route('invoice.index');
+        return Redirect::route('invoice.index')->with('alert_success', 'The order has been taken successfully.');
     }
 
     public function export()

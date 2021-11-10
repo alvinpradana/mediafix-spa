@@ -37,7 +37,7 @@ class CashOutController extends Controller
         ]);
 
         CashOut::create($attr);
-        return Redirect::back();
+        return Redirect::back()->with('alert_success', 'Cashes has been created.');
     }
 
     public function edit($id)
@@ -54,13 +54,13 @@ class CashOutController extends Controller
             'cash_amount' => ['required', 'numeric'],
         ]);
         CashOut::where('id', $id)->update($attr);
-        return Redirect::back();
+        return Redirect::back()->with('Cashes has been updated.');
     }
 
     public function destroy($id)
     {
         CashOut::where('cash_outs.user_id', '=', auth()->user()->id)->findOrFail($id)->delete();
-        return Redirect::back();
+        return Redirect::back()->with('alert_success', 'Cashes has been deleted.');
     }
 
     public function import(Request $request)
@@ -70,7 +70,7 @@ class CashOutController extends Controller
         ]);
 
         Excel::import(new CashOutImport, request()->file('file'));
-        return Redirect::back();
+        return Redirect::back()->with('alert_success', 'Cashes has been imported.');
     }
 
     public function export()

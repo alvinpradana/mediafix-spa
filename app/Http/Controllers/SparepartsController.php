@@ -32,7 +32,7 @@ class SparepartsController extends Controller
         ]);
 
         Sparepart::create($attr);
-        return Redirect::back();
+        return Redirect::back()->with('alert_success', 'Sparepart has been added successfully.');
     }
 
     public function edit($id)
@@ -51,13 +51,13 @@ class SparepartsController extends Controller
         ]);
 
         Sparepart::where('id', $id)->update($attr);
-        return Redirect::back();
+        return Redirect::back()->with('alert_success', 'Sparepart updated successfully.');
     }
 
     public function destroy($id)
     {
         Sparepart::where('spareparts.user_id', '=', auth()->user()->id)->findOrFail($id)->delete();
-        return Redirect::back();
+        return Redirect::back()->with('alert_success', 'Sparepart deleted successfully.');
     }
 
     public function import(Request $request)
@@ -67,7 +67,7 @@ class SparepartsController extends Controller
         ]);
 
         Excel::import(new SparepartsImport, request()->file('file'));
-        return Redirect::back();
+        return Redirect::back()->with('alert_success', 'Sparepart imported successfully.');
     }
 
     public function export()

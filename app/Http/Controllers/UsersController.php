@@ -6,7 +6,6 @@ use App\Models\User;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
 use App\Http\Requests\ImageRequest;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\RegistrationRequest;
@@ -30,7 +29,7 @@ class UsersController extends Controller
     {
         User::create($request->all());
 
-        return Redirect::route('users.index');
+        return Redirect::route('users.index')->with('alert_success', 'User created successfully.');
     }
 
     public function profile(Request $request)
@@ -61,7 +60,7 @@ class UsersController extends Controller
     public function destroy()
     {
         auth()->user()->delete();
-        return Redirect::route('login')->with('alert_success', 'Your account was deleted');
+        return Redirect::route('login')->with('alert_success', 'Your account has been deleted.');
     }
 
     public function password(Request $request)
@@ -75,7 +74,7 @@ class UsersController extends Controller
         if (Hash::check($request->current_password, auth()->user()->password)) {
             auth()->user()->update($request->only('password'));
 
-            return back()->with('alert_success', 'Your password has been updated');
+            return back()->with('alert_success', 'Your password has been updated.');
         }
         throw ValidationException::withMessages([
             'current_password' => 'Your current password does not match.'

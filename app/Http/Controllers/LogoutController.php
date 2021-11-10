@@ -20,6 +20,6 @@ class LogoutController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return Redirect::route('login');
+        return Redirect::route('login')->with('alert_success', 'You was logged out.');
     }
 }

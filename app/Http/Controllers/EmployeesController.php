@@ -35,7 +35,7 @@ class EmployeesController extends Controller
         ]);
 
         Employee::create($attr);
-        return Redirect::route('employees.index')->with('alert_success', 'Employee added successfully');
+        return Redirect::route('employees.index')->with('alert_success', 'Employee has been added successfully.');
     }
 
     public function edit($id)
@@ -55,13 +55,13 @@ class EmployeesController extends Controller
         ]);
 
         Employee::where('id', $id)->update($attr);
-        return Redirect::route('employees.index')->with('alert_success', 'Employee updated successfully');
+        return Redirect::route('employees.index')->with('alert_success', 'Employee updated successfully.');
     }
 
     public function destroy($id)
     {
         Employee::where('employees.user_id', '=', auth()->user()->id)->findOrFail($id)->delete();
-        return Redirect::back()->with('alert_success', 'Employee deleted successfully');
+        return Redirect::back()->with('alert_success', 'Employee deleted successfully.');
     }
 
     public function export()
