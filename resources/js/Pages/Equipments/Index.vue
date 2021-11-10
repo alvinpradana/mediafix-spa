@@ -9,24 +9,6 @@
                             <div class="col-sm-5 col-md-9">
                                 <h4>List Equipment</h4>
                             </div>
-                            <!-- <div class="col-sm-5 col-md-3 text-lg-right">
-                                <div class="dropdown mx-auto">
-                                    <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuOutlineButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Category </button>
-                                    <div class="dropdown-menu">
-                                        <div class="col">
-                                            <div class="form-check form-check-primary">
-                                                <label class="form-check-label">
-                                                <input type="checkbox" class="form-check-input" value="Office">Office</label>
-                                            </div>
-                                            <div class="dropdown-divider"></div>
-                                            <div class="form-check form-check-primary">
-                                                <label class="form-check-label">
-                                                <input type="checkbox" class="form-check-input" value="Service">Service</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> -->
                         </div>
                         <div class="table-responsive">
                             <table class="table">

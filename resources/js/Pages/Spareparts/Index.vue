@@ -9,34 +9,6 @@
                             <div class="col-sm-5 col-md-9">
                                 <h4>List Sparepart</h4>
                             </div>
-                            <!-- <div class="col-sm-5 col-md-3 text-lg-right">
-                                <div class="dropdown mx-auto">
-                                    <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuOutlineButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Category </button>
-                                    <div class="dropdown-menu">
-                                        <div class="col">
-                                            <div class="form-check form-check-primary">
-                                                <label class="form-check-label">
-                                                <input type="checkbox" class="form-check-input" value="Camera">Camera</label>
-                                            </div>
-                                            <div class="dropdown-divider"></div>
-                                            <div class="form-check form-check-primary">
-                                                <label class="form-check-label">
-                                                <input type="checkbox" class="form-check-input" value="Phone">Phone</label>
-                                            </div>
-                                            <div class="dropdown-divider"></div>
-                                            <div class="form-check form-check-primary">
-                                                <label class="form-check-label">
-                                                <input type="checkbox" class="form-check-input" value="Laptop-PC">Laptop-PC</label>
-                                            </div>
-                                            <div class="dropdown-divider"></div>
-                                            <div class="form-check form-check-primary">
-                                                <label class="form-check-label">
-                                                <input type="checkbox" class="form-check-input" value="Other">Other</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> -->
                         </div>
                         <div class="table-responsive">
                             <table class="table">

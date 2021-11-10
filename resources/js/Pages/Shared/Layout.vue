@@ -6,9 +6,12 @@
         </header>
         <article class="main-panel">
             <div class="content-wrapper">
-                <div v-if="$page.props.flash.alert_success" class="alert alert-success" role="alert">
-                    {{ $page.props.flash.alert_success }}
-                </div>
+                    <div v-if="$page.props.flash.alert_success" class="alert alert-success" role="alert">
+                        {{ $page.props.flash.alert_success }}
+                        <button @click="close()" type="button" class="close" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
                 <slot />
             </div>
         </article>
@@ -26,5 +29,10 @@ export default {
         Sidebar,
         Navbar
     },
-};
+    methods: {
+        close () {
+            this.$page.props.flash.alert_success = false
+        }
+    }
+}
 </script>

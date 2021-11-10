@@ -11,28 +11,28 @@
                             <div class="col">
                                 <div class="form-group mb-4">
                                     <label class="text-muted">Name</label>
-                                    <div class="mr-1 mb-1 px-3 py-2 border rounded" v-html="user.name"/>
+                                    <div class="mr-1 mb-1 px-3 py-2 text-secondary border rounded" v-html="user.name"/>
                                 </div>
                                 <div class="form-group mb-4">
                                     <label class="text-muted">Username</label>
-                                    <div class="mr-1 mb-1 px-3 py-2 border rounded" v-html="user.username"/>
+                                    <div class="mr-1 mb-1 px-3 py-2 text-secondary border rounded" v-html="user.username"/>
                                 </div>
                                 <div class="form-group mb-4">
                                     <label class="text-muted">Phone</label>
-                                    <div class="mr-1 mb-1 px-3 py-2 border rounded" v-html="user.phone"/>
+                                    <div class="mr-1 mb-1 px-3 py-2 text-secondary border rounded" v-html="user.phone"/>
                                 </div>
                                 <div class="form-group mb-4">
                                     <label class="text-muted">Email</label>
-                                    <div class="mr-1 mb-1 px-3 py-2 border rounded" v-html="user.email"/>
+                                    <div class="mr-1 mb-1 px-3 py-2 text-secondary border rounded" v-html="user.email"/>
                                 </div>
                                 <div class="form-group mb-4">
                                     <label class="text-muted">Workshop</label>
-                                    <div class="mr-1 mb-1 px-3 py-2 border rounded" v-html="user.workshop"/>
+                                    <div class="mr-1 mb-1 px-3 py-2 text-secondary border rounded" v-html="user.workshop"/>
                                 </div>
                             </div>
                         </div>
                         <div class="dropdown-divider"></div>
-                        <div class="row justify-content-between align-items-center mt-4">
+                        <div class="row justify-content-between mt-4">
                             <div class="col-md-6">
                                 <div class="row">
                                     <div class="col-md-6 mb-2">
@@ -82,27 +82,22 @@
                     </div>
                 </div>
             </div>
-            <div v-show="!showPassword" class="col-md-4">
+            <div v-if="!showPassword" class="col-md-4">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">User Activity</h4>
+                        <h4 class="card-title">Your Profile Image</h4>
                         <div class="dropdown-divider"></div>
-                        <div class="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
-                            <div class="text-md-center text-xl-left">
-                                <h6 class="mb-1">Transfer to Paypal</h6>
-                                <p class="text-muted mb-0">07 Jan 2019, 09:12AM</p>
+
+                        <UserImage v-if="chooseImage" />
+
+                        <div v-if="!chooseImage" class="bg-gray-dark p-3 rounded mt-3">
+                            <div class="row">
+                                <div style="width:200px; height:200px" class="border rounded-circle mx-auto d-block mb-2">
+                                    <img v-if="this.user.image" :src="showImage() + user.image" alt="Images" class="rounded-circle mx-auto d-block w-100 h-100"/>
+                                </div>
                             </div>
-                            <div class="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
-                                <h6 class="font-weight-bold mb-0">$236</h6>
-                            </div>
-                        </div>
-                        <div class="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
-                            <div class="text-md-center text-xl-left">
-                                <h6 class="mb-1">Tranfer to Stripe</h6>
-                                <p class="text-muted mb-0">07 Jan 2019, 09:12AM</p>
-                            </div>
-                            <div class="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
-                                <h6 class="font-weight-bold mb-0">$593</h6>
+                            <div class="row justify-content-center py-2">
+                                <a type="button" @click="edit()" class="text-primary mx-3"><u>Change my photo</u></a>
                             </div>
                         </div>
                     </div>
@@ -116,11 +111,14 @@
 import Layout from "../Shared/Layout";
 import { Link, Head } from "@inertiajs/inertia-vue3";
 import { Inertia } from '@inertiajs/inertia';
+import UserImage from './UserImage.vue';
 
 export default {
     data () {
         return {
             showPassword: false,
+            chooseImage: false,
+            preview: null,
             form: {
                 current_password: null,
                 password: null,
@@ -146,12 +144,19 @@ export default {
         },
         cancelPassword () {
             this.showPassword = false
+        },
+        edit () {
+            this.chooseImage = true
+        },
+        showImage () {
+            return '/storage/'
         }
     },
     components: {
         Layout,
         Head,
         Link,
+        UserImage
     },
     props: {
         user: Object,

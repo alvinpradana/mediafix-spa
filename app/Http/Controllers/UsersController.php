@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\RegistrationRequest;
 use App\Models\User;
+use Inertia\Inertia;
 use Illuminate\Http\Request;
+use App\Http\Requests\ImageRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
+use App\Http\Requests\RegistrationRequest;
 use Illuminate\Validation\ValidationException;
-use Inertia\Inertia;
 
 class UsersController extends Controller
 {
@@ -44,16 +45,16 @@ class UsersController extends Controller
         return Inertia::render('Users/Edit', compact('user'));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        $attributes = $request->validate([
+        $attr = $request->validate([
             'name' => ['required', 'string', 'min:3'],
             'email' => ['required', 'email', 'unique:users,email,' . auth()->id()],
             'phone' => ['required', 'string', 'min:11'],
             'workshop' => ['required', 'string', 'min:3'],
         ]);
 
-        auth()->user()->update($attributes);
+        auth()->user()->update($attr);
         return Redirect::route('user.profile')->with('alert_success', 'Your profile has been updated');
     }
 
@@ -79,5 +80,15 @@ class UsersController extends Controller
         throw ValidationException::withMessages([
             'current_password' => 'Your current password does not match.'
         ]);
+    }
+
+    public function storeImage(ImageRequest $request)
+    {
+        if ($request->hasFile('image')) {
+            $image_path = $request->file('image')->store('image', 'public');
+            auth()->user()->update(['image' => $image_path]);
+        }
+
+        return redirect()->back()->with('alert_success', 'Your profile image has been updated.');
     }
 }

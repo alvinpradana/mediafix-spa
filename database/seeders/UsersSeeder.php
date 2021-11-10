@@ -23,6 +23,7 @@ class UsersSeeder extends Seeder
                 'password' => 'password',
                 'phone' => '081234567890',
                 'workshop' => 'Yogyakarta',
+                'image' => null,
                 'email_verified_at' => now(),
             ],
             [
@@ -33,6 +34,7 @@ class UsersSeeder extends Seeder
                 'password' => 'password',
                 'phone' => '081328944121',
                 'workshop' => 'Yogyakarta',
+                'image' => null,
                 'email_verified_at' => now(),
             ]
         ])->each(function ($user) {
