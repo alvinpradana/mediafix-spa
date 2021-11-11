@@ -9,6 +9,9 @@
                             <div class="card-body px-4 py-5">
                                 <div v-if="$page.props.flash.alert_success" class="alert alert-success" role="alert">
                                     {{ $page.props.flash.alert_success }}
+                                    <button @click="close()" type="button" class="close" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
                                 </div>
                                 <h3 class="card-title text-left">Login</h3>
                                 <div class="dropdown-divider my-3"></div>
@@ -66,6 +69,11 @@ export default {
     },
     props: {
         errors: Object,
+    },
+    methods: {
+        close () {
+            this.$page.props.flash.alert_success = false
+        }
     }
 };
 </script>
