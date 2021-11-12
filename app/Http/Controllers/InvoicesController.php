@@ -34,7 +34,7 @@ class InvoicesController extends Controller
             $description[] = $unit->unit_type . ' : ' . $unit->unit_description;
             $completeness[] = $unit->unit_type . ' : ' . $unit->unit_completeness;
             $qty_name[] = strtoupper($unit->unit_quantity). ' x ' . strtoupper($unit->unit_type) . ' ' . strtoupper($unit->unit_name);
-            $qty_cost[] = $unit->unit_type . ' : ' . $unit->unit_quantity. ' x Rp. ' . $unit->unit_cost;
+            $qty_cost[] = strtoupper($unit->unit_type) . ' : ' . $unit->unit_quantity. ' x Rp. ' . $unit->unit_cost;
         }
 
         $unit_info = implode('*%0a*', $qty_name);
@@ -47,10 +47,10 @@ class InvoicesController extends Controller
             . '*' . strtoupper($user->workshop) .'*%0a'
             . 'Menginformasikan kepada pelanggan kami dengan keterangan sebagai berikut :%0a%0a'
 
-            . 'No Nota : '
+            . 'No. Nota : '
             . '*'.$invoice->invoice_code.'*' . '%0a'
 
-            . 'Atas Nama : '
+            . 'Nama Customer : '
             . '*'.strtoupper($invoice->customer_name).'*' . '%0a%0a'
 
             . 'Tanggal Masuk : ' . '*'.$date.'*' . '%0a'
@@ -94,10 +94,10 @@ class InvoicesController extends Controller
             . '_Harap bisa menunjukkan pesan ini untuk pengambilan unit servis, dan atau dengan nota cetak yang diberikan oleh kasir._%0a%0a'
             . '_Terima Kasih._%0a%0a'
 
-            . '_Contact Us :_%0a'
-            . '_WA / Phone : ' . auth()->user()->phone . '_%0a'
-            . '_Instagram : @mediafix.id | @mediafix.cirebon_%0a'
-            . '_Website : www.mediafix.id_%0a'
+            . 'Contact Us :%0a'
+            . 'WA / Phone : ' . auth()->user()->phone . '%0a'
+            . 'Instagram : @mediafix.id | @mediafix.cirebon%0a'
+            . 'Website : www.mediafix.id%0a'
         ;
 
         return Inertia::render('Invoices/ShowInvoice', compact('invoice', 'link'));

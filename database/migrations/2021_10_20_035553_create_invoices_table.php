@@ -18,7 +18,7 @@ class CreateInvoicesTable extends Migration
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->string('invoice_code')->unique();
             $table->string('customer_name', 191)->nullable();
-            $table->string('customer_phone', 50)->nullable();
+            $table->bigInteger('customer_phone')->nullable();
             $table->date('date_in')->nullable();
             $table->date('date_taken')->nullable();
             $table->integer('guarantee')->nullable();
