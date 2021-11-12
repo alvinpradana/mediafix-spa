@@ -14,7 +14,7 @@
             <li class="nav-item nav-category">
                 <span class="nav-link">Navigations</span>
             </li>
-            <li class="nav-item menu-items" :class="{ 'active': $page.url === '/dashboard' }">
+            <li class="nav-item menu-items" :class="{ 'active' : $page.url.startsWith('/dashboard') }">
                 <Link :href="route('dashboard')" class="nav-link">
                     <span class="menu-icon">
                         <i class="mdi mdi-speedometer"></i>
@@ -22,7 +22,7 @@
                     <span class="menu-title">Dashboard</span>
                 </Link>
             </li>
-            <li class="nav-item menu-items" :class="{ 'active': $page.url === '/sparepart' }">
+            <li class="nav-item menu-items" :class="{ 'active': $page.url.startsWith('/sparepart') }">
                 <Link :href="route('sparepart.index')" class="nav-link">
                     <span class="menu-icon">
                         <i class="mdi mdi-monitor-multiple"></i>
@@ -30,7 +30,7 @@
                     <span class="menu-title">Sparepart</span>
                 </Link>
             </li>
-            <li class="nav-item menu-items" :class="{ 'active': $page.url === '/equipment' }">
+            <li class="nav-item menu-items" :class="{ 'active': $page.url.startsWith('/equipment') }">
                 <Link :href="route('equipment.index')" class="nav-link">
                     <span class="menu-icon">
                         <i class="mdi mdi-wallet-travel"></i>
@@ -38,7 +38,7 @@
                     <span class="menu-title">Equipment</span>
                 </Link>
             </li>
-            <li class="nav-item menu-items" :class="{ 'active': $page.url === '/partners' }">
+            <li class="nav-item menu-items" :class="{ 'active': $page.url.startsWith('/partners') }">
                 <Link :href="route('partners.index')" class="nav-link">
                     <span class="menu-icon">
                         <i class="mdi mdi-account-star"></i>
@@ -46,7 +46,7 @@
                     <span class="menu-title">Partners</span>
                 </Link>
             </li>
-            <li class="nav-item menu-items" :class="{ 'active': $page.url === '/employees' }">
+            <li class="nav-item menu-items" :class="{ 'active': $page.url.startsWith('/employees') }">
                 <Link :href="route('employees.index')" class="nav-link">
                     <span class="menu-icon">
                         <i class="mdi mdi-worker"></i>

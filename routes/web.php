@@ -23,49 +23,49 @@ Route::middleware('auth')->group( function () {
     Route::get('dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 
     // Users
-    Route::resource('users', UsersController::class);
-    Route::put('users', [UsersController::class, 'password'])->name('password.update');
+    Route::resource('dashboard/users', UsersController::class);
+    Route::put('dashboard/users', [UsersController::class, 'password'])->name('password.update');
 
     // User Image
     Route::post('user/image', [UsersController::class, 'storeImage'])->name('user.image');
 
     // Auth
-    Route::get('profile', [UsersController::class, 'profile'])->name('user.profile');
+    Route::get('dashboard/profile', [UsersController::class, 'profile'])->name('user.profile');
 
     // Logout
     Route::delete('logout', LogoutController::class)->name('logout');
 
     // Invoices
-    Route::resource('invoice', InvoicesController::class);
+    Route::resource('dashboard/invoice', InvoicesController::class);
 
-    Route::put('invoice-taken/{id}', [InvoicesController::class, 'mark'])->name('invoice.taken');
-    Route::get('invoice-print/{id}', [InvoicesController::class, 'print'])->name('invoice.print');
-    Route::get('invoices-export', [InvoicesController::class, 'export'])->name('invoices.export');
+    Route::put('dashboard/invoice-taken/{id}', [InvoicesController::class, 'mark'])->name('invoice.taken');
+    Route::get('dashboard/invoice-print/{id}', [InvoicesController::class, 'print'])->name('invoice.print');
+    Route::get('dashboard/invoices-export', [InvoicesController::class, 'export'])->name('invoices.export');
 
     // Partners
     Route::resource('partners', PartnersController::class);
-    Route::get('partners-export', [PartnersController::class, 'export'])->name('partners.export');
+    Route::get('partners/partners-export', [PartnersController::class, 'export'])->name('partners.export');
 
     // Employees
     Route::resource('employees', EmployeesController::class);
 
-    Route::get('employees-export', [EmployeesController::class, 'export'])->name('employee.export');
+    Route::get('employees/employees-export', [EmployeesController::class, 'export'])->name('employee.export');
 
     // Sparepart
     Route::resource('sparepart', SparepartsController::class);
 
-    Route::post('sparepart-import', [SparepartsController::class, 'import'])->name('sparepart.import');
-    Route::get('sparepart-export', [SparepartsController::class, 'export'])->name('sparepart.export');
+    Route::post('sparepart/sparepart-import', [SparepartsController::class, 'import'])->name('sparepart.import');
+    Route::get('sparepart/sparepart-export', [SparepartsController::class, 'export'])->name('sparepart.export');
 
     // Equipment
     Route::resource('equipment', EquipmentsController::class);
 
-    Route::post('equipment-import', [EquipmentsController::class, 'import'])->name('equipment.import');
-    Route::get('equipment-export', [EquipmentsController::class, 'export'])->name('equipment.export');
+    Route::post('equipment/equipment-import', [EquipmentsController::class, 'import'])->name('equipment.import');
+    Route::get('equipment/equipment-export', [EquipmentsController::class, 'export'])->name('equipment.export');
 
     // Cash
-    Route::resource('cash', CashOutController::class);
+    Route::resource('dashboard/cash', CashOutController::class);
 
-    Route::post('cash-out-import', [CashOutController::class, 'import'])->name('cash.import');
-    Route::get('cash-out-export', [CashOutController::class, 'export'])->name('cash.export');
+    Route::post('dashboard/cash-out-import', [CashOutController::class, 'import'])->name('cash.import');
+    Route::get('dashboard/cash-out-export', [CashOutController::class, 'export'])->name('cash.export');
 });

@@ -17,23 +17,38 @@
                 <div class="row">
                     <div class="form-group col-sm-3">
                         <label class="text-muted"><strong>Nama Customer</strong></label>
-                        <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded" v-html="invoice.customer_name" />
+                        <!-- <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded" v-html="invoice.customer_name" /> -->
+                        <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded">
+                            {{ invoice.customer_name }}
+                        </div>
                     </div>
                     <div class="form-group col-sm-3">
                         <label class="text-muted"><strong>Telepon / WA</strong></label>
-                        <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded" v-html="invoice.customer_phone" />
+                        <!-- <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded" v-html="invoice.customer_phone" /> -->
+                        <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded">
+                            {{ invoice.customer_phone }}
+                        </div>
                     </div>
                     <div class="form-group col-sm-2">
                         <label class="text-muted"><strong>Tanggal Masuk</strong></label>
-                        <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded" v-html="invoice.date_in" />
+                        <!-- <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded" v-html="invoice.date_in" /> -->
+                        <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded">
+                            {{ invoice.date_in }}
+                        </div>
                     </div>
                     <div class="form-group col-sm-2">
                         <label class="text-muted"><strong>Pengambilan</strong></label>
-                        <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded" v-html="invoice.date_taken" />
+                        <!-- <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded" v-html="invoice.date_taken" /> -->
+                        <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded">
+                            {{ invoice.date_taken }}
+                        </div>
                     </div>
                     <div class="form-group col-sm-2">
                         <label class="text-muted"><strong>Garansi</strong></label>
-                        <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded" v-html="invoice.guarantee" />
+                        <!-- <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded" v-html="invoice.guarantee" /> -->
+                        <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded">
+                            {{ invoice.guarantee }}
+                        </div>
                     </div>
                 </div>
                 <table class="table table-responsive table-bordered rounded text-center my-2">
@@ -63,11 +78,17 @@
                         <div class="row">
                             <div class="form-group col-md-6 px-1">
                                 <label class="text-muted"><strong>Status Order</strong></label>
-                                <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded" v-html="invoice.order_status" />
+                                <!-- <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded" v-html="invoice.order_status" /> -->
+                                <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded">
+                                    {{ invoice.order_status }}
+                                </div>
                             </div>
                             <div class="form-group col-md-6 px-1">
                                 <label class="text-muted"><strong>Status Pembayaran</strong></label>
-                                <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded" v-html="invoice.payment_status" />
+                                <!-- <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded" v-html="invoice.payment_status" /> -->
+                                <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded">
+                                    {{ invoice.payment_status }}
+                                </div>
                             </div>
                             <div class="form-group col-md-12 px-1">
                                 <label class="text-muted"><strong>Catatan</strong></label>
@@ -81,31 +102,46 @@
                         <div class="form-group row">
                             <label class="col-sm-4 col-form-label text-muted"><strong>Subtotal</strong></label>
                             <div class="col-sm-8">
-                                <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded" v-html="invoice.subtotal" />
+                                <!-- <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded" v-html="invoice.subtotal" /> -->
+                                <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded">
+                                    {{ invoice.subtotal }}
+                                </div>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-sm-4 col-form-label text-muted"><strong>Discount</strong></label>
                             <div class="col-sm-8">
-                                <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded" v-html="invoice.discount" />
+                                <!-- <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded" v-html="invoice.discount" /> -->
+                                <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded">
+                                    {{ invoice.discount }}
+                                </div>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-sm-4 col-form-label text-muted"><strong>Total</strong></label>
                             <div class="col-sm-8">
-                                <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded" v-html="invoice.total_payment" />
+                                <!-- <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded" v-html="invoice.total_payment" /> -->
+                                <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded">
+                                    {{ invoice.total_payment }}
+                                </div>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-sm-4 col-form-label text-muted"><strong>Uang Muka</strong></label>
                             <div class="col-sm-8">
-                                <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded" v-html="invoice.down_payment" />
+                                <!-- <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded" v-html="invoice.down_payment" /> -->
+                                <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded">
+                                    {{ invoice.down_payment }}
+                                </div>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-sm-4 col-form-label text-muted"><strong>Sisa Bayar</strong></label>
                             <div class="col-sm-8">
-                                <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded" v-html="invoice.dependents" />
+                                <!-- <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded" v-html="invoice.dependents" /> -->
+                                <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded">
+                                    {{ invoice.dependents }}
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -150,8 +186,8 @@ import { Inertia } from '@inertiajs/inertia';
 
 export default {
     components: {
-        Head,
         Layout,
+        Head,
         Link
     },
     data () {
