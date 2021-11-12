@@ -198,10 +198,14 @@
                             </button>
                         </div>
                         <div class="col-md-3">
-                            <button type="submit" class="btn btn-lg btn-block btn-outline-warning mb-2">
+                            <!-- <Link as="button" type="button" @click="sendInvoice(invoice.id)" class="btn btn-lg btn-block btn-outline-warning mb-2">
                                 <i class="mdi mdi-print"></i>
                                 Save & Send
-                            </button>
+                            </Link> -->
+                            <!-- <a href="https://wa.me/send?phone=6281328944121&attachment=c://users/document/test.pdf" target="_blank" as="button" type="button" class="btn btn-lg btn-block btn-outline-warning mb-2">
+                                <i class="mdi mdi-print"></i>
+                                Save & Send
+                            </a> -->
                         </div>
                     </div>
                 </form>
@@ -280,6 +284,9 @@ export default {
         },
         deleteRow (index) {
             this.form.units.splice(index, 1);
+        },
+        sendInvoice (id) {
+            window.open(route('invoice.send', {id: id}, '_blank'))
         }
     }
 };

@@ -2,7 +2,7 @@
     <div class="container-fluid page-body-wrapper">
         <nav class="navbar p-0 fixed-top d-flex flex-row">
             <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
-                <button class="navbar-toggler align-self-center collapsed" type="button" data-toggle="minimize" data-target="#navbar-collapse">
+                <button ref="toggledNav" class="navbar-toggler align-self-center collapsed" type="button" data-toggle="minimize" data-target="#navbar-collapse">
                     <span class="mdi mdi-menu"></span>
                 </button>
                 <ul class="navbar-nav w-100">

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Exports\InvoicesExport;
 use App\Models\Invoice;
 use App\Models\Unit;
+use Barryvdh\DomPDF\Facade as PDF;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
@@ -22,7 +24,83 @@ class InvoicesController extends Controller
     public function show($id)
     {
         $invoice = Invoice::with('units')->where('invoices.user_id', '=', auth()->user()->id)->findOrFail($id);
-        return Inertia::render('Invoices/ShowInvoice', compact('invoice'));
+
+        $user = auth()->user();
+
+        $date = Carbon::parse($invoice->date_in)->format('d M Y');
+        $date_taken = Carbon::parse($invoice->date_taken)->format('d M Y');
+
+        foreach ($invoice->units as $unit) {
+            $description[] = $unit->unit_type . ' : ' . $unit->unit_description;
+            $completeness[] = $unit->unit_type . ' : ' . $unit->unit_completeness;
+            $qty_name[] = strtoupper($unit->unit_quantity). ' x ' . strtoupper($unit->unit_type) . ' ' . strtoupper($unit->unit_name);
+            $qty_cost[] = $unit->unit_type . ' : ' . $unit->unit_quantity. ' x Rp. ' . $unit->unit_cost;
+        }
+
+        $unit_info = implode('*%0a*', $qty_name);
+        $cost_info = implode('*%0a*', $qty_cost);
+        $unit_desc = implode('*%0a*', $description);
+        $unit_comp = implode('*%0a*', $completeness);
+
+        $link = '62' . $invoice->customer_phone 
+            . '?text=_*Invoice Information_%0a%0aKami dari *MEDIA FIX* ' 
+            . '*' . strtoupper($user->workshop) .'*%0a'
+            . 'Menginformasikan kepada pelanggan kami dengan keterangan sebagai berikut :%0a%0a'
+
+            . 'No Nota : '
+            . '*'.$invoice->invoice_code.'*' . '%0a'
+
+            . 'Atas Nama : '
+            . '*'.strtoupper($invoice->customer_name).'*' . '%0a%0a'
+
+            . 'Tanggal Masuk : ' . '*'.$date.'*' . '%0a'
+            . 'Pengambilan : ' . '*'.$date_taken.'*' . '%0a%0a'
+            
+            . 'Unit Servis :%0a'
+            . '*' . $unit_info . '*' . '%0a%0a'
+
+            . 'Keterangan :%0a'
+            . '*'.strtoupper($unit_desc).'*' . '%0a%0a'
+
+            . 'Kelengkapan :%0a'
+            . '*'.strtoupper($unit_comp).'*' . '%0a%0a'
+
+            . 'Biaya :%0a'
+            . '*'.$cost_info. '*' . '%0a%0a'
+
+            . 'Subtotal : '
+            . '*Rp. '.$invoice->subtotal.'*' . '%0a%0a'
+
+            . 'Discount : '
+            . '*'.$invoice->discount.' %*' . '%0a%0a'
+
+            . 'Total Biaya : '
+            . '*Rp. '.$invoice->total_payment.'*' . '%0a%0a'
+
+            . 'DP / Jumlah Bayar : '
+            . '*Rp. '.$invoice->down_payment.'*' . '%0a%0a'
+
+            . 'Keterangan :%0a'
+            . 'Status order : ' . '*'.strtoupper($invoice->order_status).'*' . '%0a'
+            . 'Status Pembayaran : ' . '*'.strtoupper($invoice->payment_status).'*%0a%0a' 
+
+            . 'Tunggakan : '
+            . '*Rp. '.$invoice->dependents.'*' . '%0a%0a'
+
+            . 'Garansi : '
+            . '*'.$invoice->guarantee.' Hari*' . '%0a%0a'
+            
+            . '_Notes :_%0a'
+            . '_Harap bisa menunjukkan pesan ini untuk pengambilan unit servis, dan atau dengan nota cetak yang diberikan oleh kasir._%0a%0a'
+            . '_Terima Kasih._%0a%0a'
+
+            . '_Contact Us :_%0a'
+            . '_WA / Phone : ' . auth()->user()->phone . '_%0a'
+            . '_Instagram : @mediafix.id | @mediafix.cirebon_%0a'
+            . '_Website : www.mediafix.id_%0a'
+        ;
+
+        return Inertia::render('Invoices/ShowInvoice', compact('invoice', 'link'));
     }
 
     public function print($id)

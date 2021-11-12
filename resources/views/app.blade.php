@@ -15,13 +15,13 @@
         @routes
         @inertia
     </body>
-    {{-- <script src="{{ asset('admin/assets/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('admin/assets/js/bootstrap.min.js') }}"></script> --}}
-    <script src="{{ asset('admin/assets/vendors/js/vendor.bundle.base.js') }}"></script>
-    <script src="{{ asset('admin/assets/js/misc.js') }}"></script>
-    <script src="{{ asset('admin/assets/js/file-upload.js') }}"></script>
-    <script src="{{ asset('admin/assets/js/dashboard.js') }}"></script>
-    <script src="{{ asset('admin/assets/js/hoverable-collapse.js') }}"></script>
-    <script src="{{ asset('admin/assets/vendors/chart.js/Chart.min.js') }}"></script>
-    <script src="{{ asset('admin/assets/js/off-canvas.js') }}"></script>
+    <script src="{{ asset('admin/assets/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('admin/assets/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('admin/assets/vendors/js/vendor.bundle.base.js') }}" defer></script>
+    <script src="{{ asset('admin/assets/js/misc.js') }}" defer></script>
+    <script src="{{ asset('admin/assets/js/file-upload.js') }}" defer></script>
+    <script src="{{ asset('admin/assets/js/dashboard.js') }}" defer></script>
+    <script src="{{ asset('admin/assets/js/hoverable-collapse.js') }}" defer></script>
+    <script src="{{ asset('admin/assets/vendors/chart.js/Chart.min.js') }}" defer></script>
+    <script src="{{ asset('admin/assets/js/off-canvas.js') }}" defer></script>   
 </html>

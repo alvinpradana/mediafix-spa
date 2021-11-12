@@ -195,10 +195,10 @@
                             </button>
                         </div>
                         <div class="col-md-3">
-                            <button type="submit" class="btn btn-lg btn-block btn-outline-warning mb-2">
+                            <!-- <button type="submit" class="btn btn-lg btn-block btn-outline-warning mb-2">
                                 <i class="mdi mdi-print"></i>
                                 Save & Send
-                            </button>
+                            </button> -->
                         </div>
                     </div>
                 </form>

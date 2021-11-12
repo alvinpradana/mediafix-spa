@@ -15,7 +15,7 @@ class SparepartsController extends Controller
     public function index()
     {
         $user = auth()->user()->id;
-        $count = Sparepart::sum('sparepart_quantity');
+        $count = Sparepart::where('spareparts.user_id', '=', auth()->user()->id)->sum('sparepart_quantity');
         $spareparts = Sparepart::latest()->where('spareparts.user_id', '=', auth()->user()->id)->paginate(6);
         
         return Inertia::render('Spareparts/Index', compact('spareparts', 'count', 'user'));

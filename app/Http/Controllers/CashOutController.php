@@ -22,6 +22,7 @@ class CashOutController extends Controller
 
         $total_amount = CashOut::whereYear('cash_date', $year)
             ->whereMonth('cash_date', $month)
+            ->where('cash_outs.user_id', '=', auth()->user()->id)
             ->sum('cash_amount');
 
         return Inertia::render('Cash/Index', compact('cash_out', 'total_amount', 'user'));

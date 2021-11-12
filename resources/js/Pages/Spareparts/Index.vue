@@ -79,7 +79,7 @@
                             <div class="form-group row">
                                 <div class="col-sm-12">
                                     <div class="mb-1 px-2 py-2 text-sm border rounded">
-                                        <input type="file" @input="formFile.file = $event.target.files[0]" class="form-control" :class="{'is-invalid': errors.file}">
+                                        <input type="file" ref="fileUpload" @input="formFile.file = $event.target.files[0]" class="form-control" :class="{'is-invalid': errors.file}">
                                         <small class="invalid-feedback" v-if="errors.file">{{ errors.file[0] }}</small>
                                     </div>
                                 </div>
@@ -227,6 +227,7 @@ export default {
             }
             this.showImport = false
             this.editMode = false
+            this.$refs.fileUpload.value = null
         }
     },
     props: {

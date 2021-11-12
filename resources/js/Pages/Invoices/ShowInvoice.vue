@@ -7,8 +7,8 @@
                     <div class="col-sm-6">
                         <div class="row">
                             <h4 class="card-title text-secondary mr-2">Invoice</h4>
-                            <small v-show="invoice.mark === 1" class="text-success mdi mdi-record"></small>
-                            <small v-show="invoice.mark === 1" class="text-success"><strong>taken</strong></small>
+                            <!-- <small v-show="invoice.mark === 1" class="text-success mdi mdi-record"></small> -->
+                            <small v-show="invoice.mark === 1" class="text-success"><strong>* taken by customer</strong></small>
                         </div>
                     </div>
                     <h4>{{ invoice.invoice_code }}</h4>
@@ -112,22 +112,28 @@
                 </div>
                 <div class="dropdown-divider mt-3"></div>
                 <div class="row justify-content-between mt-3">
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <div class="row">
-                            <div class="col-md-6">
-                                <Link :href="route('invoice.edit', {invoice: invoice.id}, 'edit')" type="button" class="btn btn-lg btn-block btn-outline-primary mb-2">
-                                    Edit
-                                </Link>
-                            </div>
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <button type="button" @click.prevent="destroy(invoice.id)" class="btn btn-lg btn-block btn-outline-danger mb-2">
                                     Delete
                                 </button>
                             </div>
+                            <div class="col-md-4">
+                                <Link :href="route('invoice.edit', {invoice: invoice.id}, 'edit')" type="button" class="btn btn-lg btn-block btn-outline-primary mb-2">
+                                    Edit
+                                </Link>
+                            </div>
+                            <div class="col-md-4">
+                                <a :href="linkWhatsapp()" target="_blank" as="button" type="button" class="btn btn-lg btn-block btn-outline-warning mb-2">
+                                    <i class="mdi mdi-print"></i>
+                                    Send
+                                </a>
+                            </div>
                         </div>
                     </div>
                     <div v-show="invoice.mark === 0" class="col-md-3">
-                        <button type="button" @click.prevent="mark(form)" class="btn btn-lg btn-block btn-outline-warning mb-2">
+                        <button type="button" @click.prevent="mark(form)" class="btn btn-lg btn-block btn-outline-success mb-2">
                             Mark as taken
                         </button>
                     </div>
@@ -157,6 +163,7 @@ export default {
     },
     props: {
         invoice: Object,
+        link: Array,
         errors: Object,
     },
     setup() {
@@ -174,6 +181,9 @@ export default {
             if (confirm('Anda yakin unit servis telah diambil?')) {
                 Inertia.put(route('invoice.taken', {id: this.invoice.id}), data)
             }
+        },
+        linkWhatsapp () {
+            return 'https://wa.me/' + this.link
         }
     }
 };

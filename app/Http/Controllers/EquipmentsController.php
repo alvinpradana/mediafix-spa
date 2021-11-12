@@ -14,7 +14,7 @@ class EquipmentsController extends Controller
 {
     public function index()
     {
-        $count = Equipment::sum('equipment_quantity');
+        $count = Equipment::where('equipments.user_id', '=', auth()->user()->id)->sum('equipment_quantity');
         $equipments = Equipment::latest()->where('equipments.user_id', '=', auth()->user()->id)->paginate(6);
         $user = auth()->user()->id;
 
