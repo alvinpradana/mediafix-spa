@@ -43,7 +43,7 @@
             </div>
             <div class="form-group col-md-2">
                 <strong>Telepon / WA</strong>
-                <div class="mr-1 mb-1 px-3 py-2 border border-success rounded">{{ $invoices->customer_phone }}</div>
+                <div class="mr-1 mb-1 px-3 py-2 border border-success rounded">0{{ $invoices->customer_phone }}</div>
             </div>
             <div class="form-group col-md-2">
                 <strong>Tanggal</strong>

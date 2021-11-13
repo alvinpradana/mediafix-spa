@@ -23,7 +23,7 @@
                     <div class="form-group col-sm-3">
                         <label class="text-muted"><strong>Telepon / WA</strong></label>
                         <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded">
-                            {{ invoice.customer_phone }}
+                            0{{ invoice.customer_phone }}
                         </div>
                     </div>
                     <div class="form-group col-sm-2">

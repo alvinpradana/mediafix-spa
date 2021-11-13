@@ -10,7 +10,10 @@ use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\PartnersController;
 use App\Http\Controllers\SparepartsController;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\WebController;
 use Illuminate\Support\Facades\Route;
+
+Route::get('/', [WebController::class, 'index']);
 
 Route::middleware('guest')->group( function () {
     // Login

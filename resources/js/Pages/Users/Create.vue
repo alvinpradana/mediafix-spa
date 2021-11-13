@@ -1,7 +1,7 @@
 <template>
     <Layout>
     <Head title="Add User" />
-        <div class="card">
+        <div v-if="$page.props.auth.user.is_admin == 1" class="card">
             <div class="card-body">
                 <h4 class="card-title">Add User Admin</h4>
                 <div class="dropdown-divider my-4"></div>
@@ -56,6 +56,21 @@
                         </div>
                     </div>
                 </form>
+            </div>
+        </div>
+        <div v-else>
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <div class="card outline-primary my-auto">
+                        <div class="card-body text-center">
+                            Sorry, You must be log in as Admin.
+                        <div class="dropdown-divider px-3 my-3"></div>
+                        <Link :href="route('dashboard')" class="text-primary px-2"><u>Go back</u></Link>
+                            or
+                        <Link :href="route('logout')" method="delete" class="text-primary px-2"><u>Login as admin</u></Link>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </Layout>
