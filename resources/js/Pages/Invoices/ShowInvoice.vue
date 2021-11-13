@@ -7,8 +7,7 @@
                     <div class="col-sm-6">
                         <div class="row">
                             <h4 class="card-title text-secondary mr-2">Invoice</h4>
-                            <!-- <small v-show="invoice.mark === 1" class="text-success mdi mdi-record"></small> -->
-                            <small v-show="invoice.mark === 1" class="text-success"><strong>* taken by customer</strong></small>
+                            <small v-show="invoice.mark === 1" class="text-success"><strong>* <u>taken by customer</u></strong></small>
                         </div>
                     </div>
                     <h4>{{ invoice.invoice_code }}</h4>
@@ -17,37 +16,32 @@
                 <div class="row">
                     <div class="form-group col-sm-3">
                         <label class="text-muted"><strong>Nama Customer</strong></label>
-                        <!-- <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded" v-html="invoice.customer_name" /> -->
                         <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded">
-                            {{ invoice.customer_name }}
+                            {{ invoice.customer_name.toUpperCase() }}
                         </div>
                     </div>
                     <div class="form-group col-sm-3">
                         <label class="text-muted"><strong>Telepon / WA</strong></label>
-                        <!-- <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded" v-html="invoice.customer_phone" /> -->
                         <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded">
                             {{ invoice.customer_phone }}
                         </div>
                     </div>
                     <div class="form-group col-sm-2">
                         <label class="text-muted"><strong>Tanggal Masuk</strong></label>
-                        <!-- <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded" v-html="invoice.date_in" /> -->
                         <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded">
                             {{ invoice.date_in }}
                         </div>
                     </div>
                     <div class="form-group col-sm-2">
                         <label class="text-muted"><strong>Pengambilan</strong></label>
-                        <!-- <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded" v-html="invoice.date_taken" /> -->
                         <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded">
                             {{ invoice.date_taken }}
                         </div>
                     </div>
                     <div class="form-group col-sm-2">
                         <label class="text-muted"><strong>Garansi</strong></label>
-                        <!-- <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded" v-html="invoice.guarantee" /> -->
                         <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded">
-                            {{ invoice.guarantee }}
+                            {{ invoice.guarantee }} Hari
                         </div>
                     </div>
                 </div>
@@ -63,10 +57,10 @@
                     </tr>
                     <tr v-for="unit in invoice.units" :key="unit.id" class="text-secondary">
                         <td class="text-center">{{ unit.unit_quantity }}</td>
-                        <td>{{ unit.unit_type }}</td>
-                        <td>{{ unit.unit_name }}</td>
-                        <td>{{ unit.unit_description }}</td>
-                        <td>{{ unit.unit_completeness }}</td>
+                        <td>{{ unit.unit_type.toUpperCase() }}</td>
+                        <td>{{ unit.unit_name.toUpperCase() }}</td>
+                        <td>{{ unit.unit_description.toUpperCase() }}</td>
+                        <td>{{ unit.unit_completeness.toUpperCase() }}</td>
                         <td>Rp. {{ unit.unit_cost }}</td>
                         <td class="text-center">
                             <div>Rp. {{ unit.total_cost }}</div>
@@ -78,16 +72,14 @@
                         <div class="row">
                             <div class="form-group col-md-6 px-1">
                                 <label class="text-muted"><strong>Status Order</strong></label>
-                                <!-- <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded" v-html="invoice.order_status" /> -->
                                 <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded">
-                                    {{ invoice.order_status }}
+                                    {{ invoice.order_status.toUpperCase() }}
                                 </div>
                             </div>
                             <div class="form-group col-md-6 px-1">
                                 <label class="text-muted"><strong>Status Pembayaran</strong></label>
-                                <!-- <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded" v-html="invoice.payment_status" /> -->
                                 <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded">
-                                    {{ invoice.payment_status }}
+                                    {{ invoice.payment_status.toUpperCase() }}
                                 </div>
                             </div>
                             <div class="form-group col-md-12 px-1">
@@ -102,7 +94,6 @@
                         <div class="form-group row">
                             <label class="col-sm-4 col-form-label text-muted"><strong>Subtotal</strong></label>
                             <div class="col-sm-8">
-                                <!-- <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded" v-html="invoice.subtotal" /> -->
                                 <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded">
                                     {{ invoice.subtotal }}
                                 </div>
@@ -111,7 +102,6 @@
                         <div class="form-group row">
                             <label class="col-sm-4 col-form-label text-muted"><strong>Discount</strong></label>
                             <div class="col-sm-8">
-                                <!-- <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded" v-html="invoice.discount" /> -->
                                 <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded">
                                     {{ invoice.discount }}
                                 </div>
@@ -120,7 +110,6 @@
                         <div class="form-group row">
                             <label class="col-sm-4 col-form-label text-muted"><strong>Total</strong></label>
                             <div class="col-sm-8">
-                                <!-- <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded" v-html="invoice.total_payment" /> -->
                                 <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded">
                                     {{ invoice.total_payment }}
                                 </div>
@@ -129,7 +118,6 @@
                         <div class="form-group row">
                             <label class="col-sm-4 col-form-label text-muted"><strong>Uang Muka</strong></label>
                             <div class="col-sm-8">
-                                <!-- <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded" v-html="invoice.down_payment" /> -->
                                 <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded">
                                     {{ invoice.down_payment }}
                                 </div>
@@ -138,7 +126,6 @@
                         <div class="form-group row">
                             <label class="col-sm-4 col-form-label text-muted"><strong>Sisa Bayar</strong></label>
                             <div class="col-sm-8">
-                                <!-- <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded" v-html="invoice.dependents" /> -->
                                 <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded">
                                     {{ invoice.dependents }}
                                 </div>
@@ -199,7 +186,7 @@ export default {
     },
     props: {
         invoice: Object,
-        link: Array,
+        link: Object,
         errors: Object,
     },
     setup() {

@@ -19,7 +19,7 @@
                             <tr v-for="user in users.data" :key="user.id">
                                 <td>{{ user.name }}</td>
                                 <td>{{ user.username }}</td>
-                                <td>+62{{ user.phone }}</td>
+                                <td>{{ user.phone }}</td>
                                 <td>{{ user.workshop }}</td>
                                 <td>{{ moment(user.created_at).format("LL") }} <i class="text-primary text-small">By {{ user.user_added }}</i></td>
                             </tr>
@@ -28,8 +28,8 @@
                     <div class="dropdown-divider"></div>
                 </div>
                 <div class="row mt-2">
-                    <div class="col-md-3">
-                        <Link as="button" :href="route('users.create')" type="button" class="btn btn-lg btn-block btn-outline-success mb-2" data-bs-toggle="modal" data-bs-target="#AddEmployee">
+                    <div v-if="$page.props.auth.user.is_admin == 1" class="col-md-3">
+                        <Link as="button" :href="route('users.create')" type="button" class="btn btn-lg btn-block btn-outline-success mb-2">
                             Add User
                         </Link>
                     </div>

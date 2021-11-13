@@ -20,9 +20,10 @@
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
-                            <div v-if="$page.props.auth.user" class="navbar-profile">
-                                <img class="img-xs rounded-circle" :src="'/storage/' + $page.props.auth.user.image" :alt="$page.props.auth.user.name">
-                                <p class="mb-0 d-none d-sm-block navbar-profile-name">
+                            <div class="navbar-profile">
+                                <span v-if="!$page.props.auth.user.image" class="mdi mdi-account mr-1"></span>
+                                <img v-if="$page.props.auth.user.image" class="img-xs rounded-circle" :src="'/storage/' + $page.props.auth.user.image" :alt="$page.props.auth.user.name">
+                                <p v-if="$page.props.auth.user" class="mb-0 d-none d-sm-block navbar-profile-name">
                                     {{ $page.props.auth.user.name }}
                                 </p>
                                 <i class="mdi mdi-menu-down d-none d-sm-block ml-2"></i>

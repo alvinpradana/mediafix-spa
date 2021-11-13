@@ -39,7 +39,7 @@
             </div>
             <div class="form-group col-md-2">
                 <strong>Nama Customer</strong>
-                <div class="mr-1 mb-1 px-3 py-2 border border-success rounded">{{ $invoices->customer_name }}</div>
+                <div class="mr-1 mb-1 px-3 py-2 border border-success rounded">{{ strtoupper($invoices->customer_name) }}</div>
             </div>
             <div class="form-group col-md-2">
                 <strong>Telepon / WA</strong>
@@ -71,10 +71,10 @@
             @foreach($invoices->units as $unit)
                 <tr>
                     <td class="text-center">{{ $unit->unit_quantity }}</td>
-                    <td>{{ $unit->unit_type }}</td>
-                    <td>{{ $unit->unit_name }}</td>
-                    <td>{{ $unit->unit_description }}</td>
-                    <td>{{ $unit->unit_completeness }}</td>
+                    <td>{{ strtoupper($unit->unit_type) }}</td>
+                    <td>{{ strtoupper($unit->unit_name) }}</td>
+                    <td>{{ strtoupper($unit->unit_description) }}</td>
+                    <td>{{ strtoupper($unit->unit_completeness) }}</td>
                     <td>Rp. {{ $unit->unit_cost }}</td>
                     <td>Rp. {{ $unit->total_cost }}</td>
                 </tr>
@@ -85,11 +85,11 @@
                 <div class="row">
                     <div class="form-group col-md-6">
                         <strong>Status Order</strong>
-                        <div class="mr-1 mb-1 px-4 py-2 text-sm border border-success rounded">{{ $invoices->order_status }}</div>
+                        <div class="mr-1 mb-1 px-4 py-2 text-sm border border-success rounded">{{ strtoupper($invoices->order_status) }}</div>
                     </div>
                     <div class="form-group col-md-6">
                         <strong>Status Pembayaran</strong>
-                        <div class="mr-1 mb-1 px-4 py-2 text-sm border border-success rounded">{{ $invoices->payment_status }}</div>
+                        <div class="mr-1 mb-1 px-4 py-2 text-sm border border-success rounded">{{ strtoupper($invoices->payment_status) }}</div>
                     </div>
                     <div class="form-group col-md-12 mt-2">
                         <div class="mr-1 mb-1 px-2 pt-3 pb-1 text-sm border border-success rounded">
@@ -110,31 +110,31 @@
                 <div class="form-group row mb-1">
                     <strong class="col-sm-5 col-form-label">Subtotal</strong>
                     <div class="col-sm-7">
-                        <div class="mr-1 mb-1 px-4 py-2 text-sm border border-success rounded">Rp. {{ $invoices->subtotal }}</div>
+                        <div class="mr-1 mb-1 px-3 py-2 text-sm border border-success rounded">Rp. {{ $invoices->subtotal }}</div>
                     </div>
                 </div>
                 <div class="form-group row mb-1">
                     <strong class="col-sm-5 col-form-label">Discount</strong>
                     <div class="col-sm-7">
-                        <div class="mr-1 mb-1 px-4 py-2 text-sm border border-success rounded">{{ $invoices->discount }} %</div>
+                        <div class="mr-1 mb-1 px-3 py-2 text-sm border border-success rounded">{{ $invoices->discount }} %</div>
                     </div>
                 </div>
                 <div class="form-group row mb-1">
                     <strong class="col-sm-5 col-form-label">Total</strong>
                     <div class="col-sm-7">
-                        <div class="mr-1 mb-1 px-4 py-2 text-sm border border-success rounded">Rp. {{ $invoices->total_payment }}</div>
+                        <div class="mr-1 mb-1 px-3 py-2 text-sm border border-success rounded">Rp. {{ $invoices->total_payment }}</div>
                     </div>
                 </div>
                 <div class="form-group row mb-1">
                     <strong class="col-sm-5 col-form-label">DP / Bayar</strong>
                     <div class="col-sm-7">
-                        <div class="mr-1 mb-1 px-4 py-2 text-sm border border-success rounded">Rp. {{ $invoices->down_payment }}</div>
+                        <div class="mr-1 mb-1 px-3 py-2 text-sm border border-success rounded">Rp. {{ $invoices->down_payment }}</div>
                     </div>
                 </div>
                 <div class="form-group row">
                     <strong class="col-sm-5 col-form-label">Sisa Bayar</strong>
                     <div class="col-sm-7">
-                        <div class="mr-1 mb-1 px-4 py-2 text-sm border border-success rounded">Rp. {{ $invoices->dependents }}</div>
+                        <div class="mr-1 mb-1 px-3 py-2 text-sm border border-success rounded">Rp. {{ $invoices->dependents }}</div>
                     </div>
                 </div>
             </div>

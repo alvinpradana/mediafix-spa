@@ -43,9 +43,8 @@ class InvoicesController extends Controller
         $unit_comp = implode('*%0a*', $completeness);
 
         $link = '62' . $invoice->customer_phone 
-            . '?text=_*Invoice Information_%0a%0aKami dari *MEDIA FIX* ' 
-            . '*' . strtoupper($user->workshop) .'*%0a'
-            . 'Menginformasikan kepada pelanggan kami dengan keterangan sebagai berikut :%0a%0a'
+            . '?text=*INVOICE INFORMATION*%0a%0aKami dari *MEDIA FIX* '
+            . 'menginformasikan kepada pelanggan kami dengan keterangan sebagai berikut :%0a%0a'
 
             . 'No. Nota : '
             . '*'.$invoice->invoice_code.'*' . '%0a'
@@ -56,7 +55,7 @@ class InvoicesController extends Controller
             . 'Tanggal Masuk : ' . '*'.$date.'*' . '%0a'
             . 'Pengambilan : ' . '*'.$date_taken.'*' . '%0a%0a'
             
-            . 'Unit Servis :%0a'
+            . 'Unit Repair :%0a'
             . '*' . $unit_info . '*' . '%0a%0a'
 
             . 'Keterangan :%0a'
@@ -94,9 +93,9 @@ class InvoicesController extends Controller
             . '_Harap bisa menunjukkan pesan ini untuk pengambilan unit servis, dan atau dengan nota cetak yang diberikan oleh kasir._%0a%0a'
             . '_Terima Kasih._%0a%0a'
 
-            . 'Contact Us :%0a'
+            . '_Contact Us :_%0a'
             . 'WA / Phone : ' . auth()->user()->phone . '%0a'
-            . 'Instagram : @mediafix.id | @mediafix.cirebon%0a'
+            . 'Instagram : @mediafix.id | @mediafix.jogja%0a'
             . 'Website : www.mediafix.id%0a'
         ;
 

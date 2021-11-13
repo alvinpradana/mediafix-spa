@@ -10,7 +10,7 @@
                         <tr>
                             <th> Nomor Nota </th>
                             <th> Nama Customer </th>
-                            <th> Biaya </th>
+                            <th> Total Biaya </th>
                             <th class="text-center"> Unit </th>
                             <th class="text-center"> Keterangan </th>
                             <th> Status Order </th>
@@ -28,26 +28,29 @@
                                     {{ invoice.invoice_code }}
                                     <span v-show="invoice.mark === 1" class="text-success mdi mdi-checkbox-marked-circle-outline ml-1"></span>
                                 </td>
-                                <td> {{ invoice.customer_name }} </td>
+                                <td> {{ invoice.customer_name.toUpperCase() }} </td>
                                 <td> Rp. {{ invoice.total_payment }} </td>
                                 <td>
-                                    <ul v-for="unit in invoice.units" :key="unit.id">
-                                        <li> {{ unit.unit_type }} {{ unit.unit_name }} </li>
+                                    <ul v-for="unit in invoice.units" :key="unit.id" class="my-auto">
+                                        <li class="py-1"> {{ unit.unit_type.toUpperCase() }} {{ unit.unit_name.toUpperCase() }} </li>
                                     </ul>
                                 </td>
                                 <td>
-                                    <ul v-for="unit in invoice.units" :key="unit.id">
-                                        <li> {{ unit.unit_description }} </li>
+                                    <ul v-for="unit in invoice.units" :key="unit.id" class="my-auto">
+                                        <li class="py-1"> {{ unit.unit_description.toUpperCase() }} </li>
                                     </ul>    
                                 </td> 
                                 <td>
-                                    <div v-if="invoice.order_status == 'Proses'" class="badge badge-outline-warning mr-1">{{ invoice.order_status }}</div>
-                                    <div v-else-if="invoice.order_status == 'Selesai'" class="badge badge-outline-success mr-1">{{ invoice.order_status }}</div>
-                                    <div v-else class="badge badge-outline-danger mr-1">{{ invoice.order_status }}</div>
-                                    <div v-if="invoice.payment_status == 'Lunas'" class="badge badge-outline-success">{{ invoice.payment_status }}</div>
-                                    <div v-else-if="invoice.payment_status == 'Uang Muka'" class="badge badge-outline-primary">{{ invoice.payment_status }}</div>
-                                    <div v-else-if="invoice.payment_status == 'Belum Bayar'" class="badge badge-outline-warning">{{ invoice.payment_status }}</div>
-                                    <div v-else class="badge badge-outline-danger">{{ invoice.payment_status }}</div>
+                                    <div v-if="invoice.order_status == 'Diagnosa'" class="badge badge-pill badge-outline-warning mr-1">{{ invoice.order_status }}</div>
+                                    <div v-else-if="invoice.order_status == 'Process Repair'" class="badge badge-pill badge-outline-warning mr-1">{{ invoice.order_status }}</div>
+                                    <div v-else-if="invoice.order_status == 'Testing Unit'" class="badge badge-pill badge-outline-primary mr-1">{{ invoice.order_status }}</div>
+                                    <div v-else-if="invoice.order_status == 'Selesai'" class="badge badge-pill badge-outline-success mr-1">{{ invoice.order_status }}</div>
+                                    <div v-else class="badge badge-pill badge-outline-danger mr-1">{{ invoice.order_status }}</div>
+
+                                    <div v-if="invoice.payment_status == 'Lunas'" class="badge badge-pill badge-outline-success">{{ invoice.payment_status }}</div>
+                                    <div v-else-if="invoice.payment_status == 'Uang Muka'" class="badge badge-pill badge-outline-primary">{{ invoice.payment_status }}</div>
+                                    <div v-else-if="invoice.payment_status == 'Belum Bayar'" class="badge badge-pill badge-outline-warning">{{ invoice.payment_status }}</div>
+                                    <div v-else class="badge badge-pill badge-outline-danger">{{ invoice.payment_status }}</div>
                                 </td>
                                 <td class="text-center">
                                     <Link :href="route('invoice.show', {invoice: invoice.id})" type="button" class="btn btn-outline-primary showInvoice mr-1">

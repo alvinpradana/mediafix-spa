@@ -46,7 +46,7 @@
                 </div>
                 <div class="row mt-2">
                     <div class="col-md-3">
-                        <Link as="button" :href="route('employees.create')" type="button" class="btn btn-lg btn-block btn-outline-success mb-2" data-bs-toggle="modal" data-bs-target="#AddEmployee">
+                        <Link as="button" :href="route('employees.create')" type="button" class="btn btn-lg btn-block btn-outline-success mb-2">
                             Add Employee
                         </Link>
                     </div>

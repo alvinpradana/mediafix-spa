@@ -62,7 +62,7 @@
                             <td>
                                 <select v-model="unit.unit_type" class="text-white form-control" :class="{'is-invalid': errors.unit_type}">
                                     <option value="Camera">Camera</option>
-                                    <option value="Phone">Phone</option>
+                                    <option value="Handphone">Handphone</option>
                                     <option value="Laptop/PC">Laptop/PC</option>
                                     <option value="Device">Lainnya</option>
                                 </select>
@@ -106,12 +106,12 @@
                         <div class="col-md-8">
                             <div class="row mt-4">
                                 <div class="col-sm-12 col-md-6 pr-4">
-                                    <div class="row">
-                                        <p>Status Order</p>
-                                    </div>
-                                    <div class="row mb-4">
-                                        <select v-model="form.order_status" class="form-control text-white" :class="{'is-invalid': errors.order_status}">
-                                            <option value="Proses">Proses</option>
+                                    <div class="form-group row">
+                                        <label for="order_status">Status Order</label>
+                                        <select v-model="form.order_status" id="order_status" class="form-control text-white" :class="{'is-invalid': errors.order_status}">
+                                            <option value="Diagnosa">Diagnosa</option>
+                                            <option value="Process Repair">Process Repair</option>
+                                            <option value="Testing Unit">Testing Unit</option>
                                             <option value="Selesai">Selesai</option>
                                             <option value="Batal">Batal</option>
                                         </select>
@@ -119,11 +119,9 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-6 pr-4">
-                                    <div class="row">
-                                        <p>Status Pembayaran</p>
-                                    </div>
-                                    <div class="row mb-4">
-                                        <select v-model="form.payment_status" class="form-control text-white" :class="{'is-invalid': errors.payment_status}">
+                                    <div class="form-group row">
+                                        <label for="payment_status">Status Pembayaran</label>
+                                        <select v-model="form.payment_status" id="payment_status" class="form-control text-white" :class="{'is-invalid': errors.payment_status}">
                                             <option value="Lunas">Lunas</option>
                                             <option value="Uang Muka">Uang Muka</option>
                                             <option value="Belum Bayar">Belum Bayar</option>

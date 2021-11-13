@@ -16,9 +16,10 @@ class UsersSeeder extends Seeder
     {
         collect([
             [
+                'is_admin' => null,
                 'name' => 'Test',
                 'username' => 'test123',
-                'user_added' => 'test123',
+                'user_added' => 'admin2021',
                 'email' => 'test@email.com',
                 'password' => 'password',
                 'phone' => '081234567890',
@@ -27,6 +28,7 @@ class UsersSeeder extends Seeder
                 'email_verified_at' => now(),
             ],
             [
+                'is_admin' => 1,
                 'name' => 'Admin',
                 'username' => 'admin2021',
                 'user_added' => 'admin2021',
