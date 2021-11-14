@@ -9,7 +9,7 @@
         <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault" >
             <ul class="navbar-nav ms-auto navbar-nav-scroll">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#about">Home</a>
+                    <a class="nav-link active" aria-current="page" href="/">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#services">Services</a>
@@ -20,7 +20,7 @@
             </ul>
             <span class="nav-item social-icons">
                 <span class="fa-stack">
-                    <a href="#your-link">
+                    <a href="https://wa.me/6282299317878" target="_blank">
                         <i class="fas fa-circle fa-stack-2x"></i>
                         <i class="fab fa-whatsapp fa-stack-1x"></i>
                     </a>

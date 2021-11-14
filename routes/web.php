@@ -13,7 +13,9 @@ use App\Http\Controllers\UsersController;
 use App\Http\Controllers\WebController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [WebController::class, 'index']);
+// Invoice
+Route::get('/', [WebController::class, 'index'])->name('home');
+Route::get('invoice', [WebController::class, 'invoice'])->name('invoice');
 
 Route::middleware('guest')->group( function () {
     // Login
