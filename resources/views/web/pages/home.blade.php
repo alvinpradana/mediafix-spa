@@ -12,7 +12,7 @@
             </div>
         </div>
         <div class="col-lg-5 text-center py-4 py-sm-0" data-aos="fade-down"> 
-            <img class="img-fluid" src="{{ asset('assets/assets/images/about.jpg') }}" alt="about" >
+            <img class="img-fluid" src="{{ asset('assets/assets/images/about.png') }}" alt="about" >
         </div>
     </div>
 </div>

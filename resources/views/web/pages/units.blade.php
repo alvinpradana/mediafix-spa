@@ -8,7 +8,7 @@
             </p>
         </div>
         <div class="col-lg-6 d-flex align-items-center" data-aos="fade-down">
-            <form action="/invoice" method="get" class="input-group my-3">
+            <form action="{{ route('invoice') }}" method="get" class="input-group my-3">
                 <input type="text" class="form-control p-2" name="invoice_code" value="{{ old('invoice_code') }}" placeholder="Enter your invoice code">
                 <button class="btn-secondary text-light" type="submit">Submit</button>
             </form>

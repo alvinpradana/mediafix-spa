@@ -15,8 +15,8 @@
         @routes
         @inertia
     </body>
-    <script src="{{ asset('admin/assets/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('admin/assets/js/bootstrap.min.js') }}"></script>
+    {{-- <script src="{{ asset('admin/assets/js/bootstrap.bundle.min.js') }}"></script> --}}
+    {{-- <script src="{{ asset('admin/assets/js/bootstrap.min.js') }}"></script> --}}
     <script src="{{ asset('admin/assets/vendors/js/vendor.bundle.base.js') }}" defer></script>
     <script src="{{ asset('admin/assets/js/misc.js') }}" defer></script>
     <script src="{{ asset('admin/assets/js/file-upload.js') }}" defer></script>

@@ -15,8 +15,15 @@ class UsersController extends Controller
 {
     public function index()
     {
-        $users = User::latest()->paginate(8);
-        return Inertia::render('Users/Index', compact('users'));
+        return Inertia::render('Users/Index', [
+            'users' => User::latest()->paginate(8)->through(fn($user) => [
+                'name' => $user->name,
+                'username' => $user->username,
+                'phone' => $user->phone,
+                'workshop' => $user->workshop,
+                'user_added' => $user->user_added,
+            ])
+        ]);
     }
 
     public function create()

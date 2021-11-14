@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Exports\InvoicesExport;
 use App\Models\Invoice;
 use App\Models\Unit;
-use Barryvdh\DomPDF\Facade as PDF;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -17,7 +16,6 @@ class InvoicesController extends Controller
     public function index()
     {
         $invoices = Invoice::with('units')->where('invoices.user_id', '=', auth()->user()->id)->latest()->paginate(6);
-
         return Inertia::render('Invoices/Index', compact('invoices'));
     }
 
