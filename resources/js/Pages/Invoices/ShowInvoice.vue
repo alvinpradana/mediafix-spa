@@ -6,7 +6,7 @@
                 <div class="d-flex justify-content-between">
                     <div class="col-sm-6">
                         <div class="row">
-                            <h4 class="card-title text-secondary mr-2">Invoice</h4>
+                            <h4 class="card-title text-secondary mr-2">Invoice Information</h4>
                             <small v-show="invoice.mark === 1" class="text-success"><strong>* <u>taken by customer</u></strong></small>
                         </div>
                     </div>
@@ -38,7 +38,13 @@
                             {{ date_taken }}
                         </div>
                     </div>
-                    <div class="form-group col-sm-2">
+                    <div v-if="invoice.guarantee == null" class="form-group col-sm-2">
+                        <label class="text-muted"><strong>Garansi</strong></label>
+                        <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded">
+                            -
+                        </div>
+                    </div>
+                    <div v-else class="form-group col-sm-2">
                         <label class="text-muted"><strong>Garansi</strong></label>
                         <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded">
                             {{ invoice.guarantee }} Hari
@@ -82,7 +88,7 @@
                                     {{ invoice.payment_status.toUpperCase() }}
                                 </div>
                             </div>
-                            <div class="form-group col-md-12 px-1">
+                            <div v-if="invoice.notes != null" class="form-group col-md-12 px-1">
                                 <label class="text-muted"><strong>Catatan</strong></label>
                                 <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded">
                                     {{ invoice.notes }}
@@ -133,6 +139,7 @@
                         </div>
                     </div>
                 </div>
+                <div>Token : <u>{{ invoice.stripe_token }}</u></div>
                 <div class="dropdown-divider mt-3"></div>
                 <div class="row justify-content-between mt-3">
                     <div class="col-md-6">
@@ -189,7 +196,6 @@ export default {
         link: Object,
         date_taken: Object,
         date_in: Object,
-        errors: Object,
     },
     setup() {
         function destroy (id) {

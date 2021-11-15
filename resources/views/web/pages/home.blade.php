@@ -4,7 +4,7 @@
             <h1 class="headline"><strong>MEDIA </strong><span class="home_text"><strong>FIX</strong></span><br>Repair Service Center</h1>
             <p class="para-light py-3">
                 Kami adalah perusahaan yang bergerak dibidang jasa perbaikan khususnya perangkat elektronik.
-                Kami datang untuk memberikan solusi dengan pelayanan yang terbaik.
+                Kami hadir untuk memberikan solusi dengan pelayanan yang terbaik.
                 Kami memiliki cabang di <strong><a href="https://bit.ly/3nciLC6" class="home_text">Yogyakarta</a></strong> dan <strong><a href="https://bit.ly/3nciLC6" class="home_text">Cirebon</a></strong>.
             </p>
             <div class="my-3">

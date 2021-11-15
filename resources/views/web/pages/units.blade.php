@@ -3,13 +3,13 @@
         <div class="col-lg-6 text-center text-lg-start" data-aos="fade-right">
             <h4 class="py-1">Temukan unit repair anda disini</h4>
             <p class="para-light">
-                Untuk mengetahui kondisi unit repair, anda bisa memasukkan kode / nomor nota pada form disamping. 
+                Untuk mengetahui kondisi unit repair, anda bisa memasukkan Token Nota Anda pada form disamping. 
                 Atau anda bisa menghubungi Admin kami melalui kontak yang tersedia.
             </p>
         </div>
         <div class="col-lg-6 d-flex align-items-center" data-aos="fade-down">
             <form action="{{ route('invoice') }}" method="get" class="input-group my-3">
-                <input type="text" class="form-control p-2" name="invoice_code" value="{{ old('invoice_code') }}" placeholder="Enter your invoice code">
+                <input type="text" class="form-control p-2" name="stripe_token" value="{{ old('stripe_token') }}" placeholder="Enter your stripe token">
                 <button class="btn-secondary text-light" type="submit">Submit</button>
             </form>
         </div>

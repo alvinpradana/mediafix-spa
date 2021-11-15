@@ -14,7 +14,7 @@ class WebController extends Controller
 
     public function invoice(Request $request)
     {
-        $invoices = Invoice::with('units')->where('invoice_code', '=', $request->invoice_code)->get();
+        $invoices = Invoice::with('units')->where('stripe_token', '=', $request->stripe_token)->get();
         return view('web.invoice', compact('invoices'));
     }
 }

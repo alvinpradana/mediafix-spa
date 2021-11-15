@@ -12,7 +12,7 @@
                     <div class="row">
                         <div class="form-group col-sm-3">
                             <label for="customer_name">Nama Customer</label>
-                            <input type="name" id="customer_name" v-model="form.customer_name" class="form-control" :class="{'is-invalid': errors.customer_name}" placeholder="Enter name">
+                            <input type="name" id="customer_name" v-model="form.customer_name" class="form-control text-capitalize" :class="{'is-invalid': errors.customer_name}" placeholder="Enter name">
                             <small class="invalid-feedback" v-if="errors.customer_name">{{ errors.customer_name[0] }}</small>
                         </div>
                         <div class="form-group col-sm-3">
@@ -68,19 +68,19 @@
                                 </select>
                             </td>
                             <td>
-                                <input type="text" v-model="unit.unit_name" class="form-control" :class="{'is-invalid': errors.unit_name}">
+                                <input type="text" v-model="unit.unit_name" class="form-control text-capitalize" :class="{'is-invalid': errors.unit_name}">
                                 <small class="invalid-feedback" v-if="errors['units.'+ index +'.unit_name']">
                                     {{ errors['units.'+ index +'.unit_name'][0] }}
                                 </small>
                             </td>			
                             <td>
-                                <input type="text" v-model="unit.unit_description" class="form-control" :class="{'is-invalid': errors.unit_description}">
+                                <input type="text" v-model="unit.unit_description" class="form-control text-capitalize" :class="{'is-invalid': errors.unit_description}">
                                 <small class="invalid-feedback" v-if="errors['units.'+ index +'.unit_description']">
                                     {{ errors['units.'+ index +'.unit_description'][0] }}
                                 </small>
                             </td>
                             <td>
-                                <input type="text" v-model="unit.unit_completeness" class="form-control" :class="{'is-invalid': errors.unit_completeness}">
+                                <input type="text" v-model="unit.unit_completeness" class="form-control text-capitalize" :class="{'is-invalid': errors.unit_completeness}">
                                 <small class="invalid-feedback" v-if="errors['units.'+ index +'.unit_completeness']">
                                     {{ errors['units.'+ index +'.unit_completeness'][0] }}
                                 </small>
@@ -214,6 +214,7 @@ export default {
         const form = reactive({
             user_id: this.user,
             invoice_code: this.invoice_code,
+            stripe_token: this.stripe_token,
             customer_name: null,
             customer_phone: null,
             date_in: null,
@@ -230,7 +231,7 @@ export default {
                 unit_name: null,
                 unit_description: null,
                 unit_completeness: null,
-                unit_cost: null,
+                unit_cost: 0,
             }],
         })
         function submit () {
@@ -242,6 +243,7 @@ export default {
         errors: Object,
         invoice_code: Object,
         user: Object,
+        stripe_token: Object,
         units_empty: Object,
     },
     computed: {

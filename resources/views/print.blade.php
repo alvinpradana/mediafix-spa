@@ -151,6 +151,7 @@
                 <span class="badge rounded-pill bg-success"><i>"Gadget Spesialist"</i></span>
             </div>
         </div>
+        <div class="text-success mt-5">TOKEN : <u class="fw-bolder">{{ $invoices->stripe_token }}</u></div>
     </div>
 </body>
 </html>

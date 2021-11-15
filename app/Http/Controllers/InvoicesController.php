@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Exports\InvoicesExport;
-use App\Models\Invoice;
-use App\Models\Unit;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
+use App\Models\Unit;
 use Inertia\Inertia;
+use App\Models\Invoice;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
+use App\Exports\InvoicesExport;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\Redirect;
 
 class InvoicesController extends Controller
 {
@@ -24,7 +25,6 @@ class InvoicesController extends Controller
         $invoice = Invoice::with('units')->where('invoices.user_id', '=', auth()->user()->id)->findOrFail($id);
         $user = auth()->user();
         $date_in = Carbon::parse($invoice->date_in)->format('d M Y');
-
         $date_taken = $invoice->date_taken;
 
         if ($date_taken == null) {
@@ -37,13 +37,53 @@ class InvoicesController extends Controller
             $description[] = $unit->unit_type . ' : ' . $unit->unit_description;
             $completeness[] = $unit->unit_type . ' : ' . $unit->unit_completeness;
             $qty_name[] = strtoupper($unit->unit_quantity). ' x ' . strtoupper($unit->unit_type) . ' ' . strtoupper($unit->unit_name);
-            $qty_cost[] = strtoupper($unit->unit_type) . ' : ' . $unit->unit_quantity. ' x Rp. ' . $unit->unit_cost;
+            
+            if ($unit->unit_cost == 0) {
+                $qty_cost[] = strtoupper($unit->unit_type) . ' : ' . '-';
+            } else {
+                $qty_cost[] = strtoupper($unit->unit_type) . ' : ' . $unit->unit_quantity. ' x Rp. ' . $unit->unit_cost;
+            }
         }
 
         $unit_info = implode('*%0a*', $qty_name);
         $cost_info = implode('*%0a*', $qty_cost);
         $unit_desc = implode('*%0a*', $description);
         $unit_comp = implode('*%0a*', $completeness);
+
+        $subtotal = $invoice->subtotal;
+        if ($subtotal == 0) {
+            $subtotal = '-';
+        } else {
+            $subtotal = $invoice->subtotal;
+        }
+
+        $total_payment = $invoice->total_payment;
+        if($total_payment == 0) {
+            $total_payment = '-';
+        } else {
+            $total_payment = $invoice->total_payment;
+        }
+
+        $down_payment = $invoice->down_payment;
+        if($down_payment == 0) {
+            $down_payment = '-';
+        } else {
+            $down_payment = $invoice->down_payment;
+        }
+
+        $guarantee = $invoice->guarantee;
+        if($guarantee == 0) {
+            $guarantee = '-';
+        } else {
+            $guarantee = '*' . $invoice->guarantee . ' Hari*';
+        }
+
+        $discount = $invoice->discount;
+        if($discount == 0) {
+            $discount = '';
+        } else {
+            $discount = 'Discount : ' . '*'.$invoice->discount.' %*' . '%0a%0a';
+        }
 
         $link = '62' . $invoice->customer_phone 
             . '?text=*INVOICE INFORMATION*%0a%0aKami dari *MEDIA FIX* '
@@ -71,16 +111,15 @@ class InvoicesController extends Controller
             . '*'.$cost_info. '*' . '%0a%0a'
 
             . 'Subtotal : '
-            . '*Rp. '.$invoice->subtotal.'*' . '%0a%0a'
+            . '*Rp. '. $subtotal .'*' . '%0a%0a'
 
-            . 'Discount : '
-            . '*'.$invoice->discount.' %*' . '%0a%0a'
+            . $discount
 
             . 'Total Biaya : '
-            . '*Rp. '.$invoice->total_payment.'*' . '%0a%0a'
+            . '*Rp. '.$total_payment.'*' . '%0a%0a'
 
             . 'DP / Jumlah Bayar : '
-            . '*Rp. '.$invoice->down_payment.'*' . '%0a%0a'
+            . '*Rp. '.$down_payment.'*' . '%0a%0a'
 
             . 'Keterangan :%0a'
             . 'Status order : ' . '*'.strtoupper($invoice->order_status).'*' . '%0a'
@@ -90,7 +129,10 @@ class InvoicesController extends Controller
             . '*Rp. '.$invoice->dependents.'*' . '%0a%0a'
 
             . 'Garansi : '
-            . '*'.$invoice->guarantee.' Hari*' . '%0a%0a'
+            . $guarantee . '%0a%0a'
+
+            . 'Token : '
+            . '*'.$invoice->stripe_token.'*' . '%0a%0a'
             
             . '_Notes :_%0a'
             . '_Harap bisa menunjukkan pesan ini untuk pengambilan unit servis, dan atau dengan nota cetak yang diberikan oleh kasir._%0a%0a'
@@ -129,15 +171,18 @@ class InvoicesController extends Controller
         }
         $invoice_code = 'INV/' . date('Ymd/') . 'MF/' . (str_pad($code, 3, '0', STR_PAD_LEFT));
 
+        $stripe_token = strtoupper(Str::random(8));
+
         $user = auth()->user()->id;
 
-        return Inertia::render('Invoices/CreateInvoice', compact('invoice_code', 'user'));
+        return Inertia::render('Invoices/CreateInvoice', compact('invoice_code', 'user', 'stripe_token'));
     }
 
     public function store(Request $request)
     {
         $request->validate([
             'user_id' => ['required'],
+            'stripe_token' => ['required'],
             'invoice_code' => ['required'],
             'customer_name' => ['required'],
             'customer_phone' => ['required', 'max:20'],

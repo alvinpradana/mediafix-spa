@@ -16,6 +16,7 @@ class CreateInvoicesTable extends Migration
         Schema::create('invoices', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->string('stripe_token')->unique();
             $table->string('invoice_code')->unique();
             $table->string('customer_name', 191)->nullable();
             $table->bigInteger('customer_phone')->nullable();
