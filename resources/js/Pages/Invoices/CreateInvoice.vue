@@ -17,7 +17,7 @@
                         </div>
                         <div class="form-group col-sm-3">
                             <label for="customer_phone">Telepon / WA</label>
-                            <input type="text" id="customer_phone" v-model="form.customer_phone" class="form-control" :class="{'is-invalid': errors.customer_phone}" placeholder="Enter phone number">
+                            <input type="number" id="customer_phone" v-model="form.customer_phone" class="form-control" :class="{'is-invalid': errors.customer_phone}" placeholder="Enter phone number">
                             <small class="invalid-feedback" v-if="errors.customer_phone">{{ errors.customer_phone[0] }}</small>
                         </div>
                         <div class="form-group col-sm-2">
@@ -113,7 +113,7 @@
                                             <option value="Process Repair">Process Repair</option>
                                             <option value="Testing Unit">Testing Unit</option>
                                             <option value="Selesai">Selesai</option>
-                                            <option value="Batal">Batal</option>
+                                            <option value="Cancel">Cancel</option>
                                         </select>
                                         <small class="invalid-feedback" v-if="errors.order_status">{{ errors.order_status[0] }}</small>
                                     </div>
@@ -125,7 +125,7 @@
                                             <option value="Lunas">Lunas</option>
                                             <option value="Uang Muka">Uang Muka</option>
                                             <option value="Belum Bayar">Belum Bayar</option>
-                                            <option value="Batal">Batal</option>
+                                            <option value="Cancel">Cancel</option>
                                         </select>
                                         <small class="invalid-feedback" v-if="errors.payment_status">{{ errors.payment_status[0] }}</small>
                                     </div>
@@ -191,12 +191,6 @@
                                 <i class="mdi mdi-print"></i>
                                 Save Invoice
                             </button>
-                        </div>
-                        <div class="col-md-3">
-                            <!-- <button type="submit" class="btn btn-lg btn-block btn-outline-warning mb-2">
-                                <i class="mdi mdi-print"></i>
-                                Save & Send
-                            </button> -->
                         </div>
                     </div>
                 </form>

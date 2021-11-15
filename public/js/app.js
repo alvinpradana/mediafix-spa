@@ -23638,8 +23638,8 @@ var _hoisted_55 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 );
 
 var _hoisted_56 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
-  value: "Batal"
-}, "Batal", -1
+  value: "Cancel"
+}, "Cancel", -1
 /* HOISTED */
 );
 
@@ -23680,8 +23680,8 @@ var _hoisted_64 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 );
 
 var _hoisted_65 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
-  value: "Batal"
-}, "Batal", -1
+  value: "Cancel"
+}, "Cancel", -1
 /* HOISTED */
 );
 
@@ -23801,9 +23801,7 @@ var _hoisted_91 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
   "class": "btn btn-lg btn-block btn-outline-success mb-2"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
   "class": "mdi mdi-print"
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Save Invoice ")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "col-md-3"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <button type=\"submit\" class=\"btn btn-lg btn-block btn-outline-warning mb-2\">\r\n                                <i class=\"mdi mdi-print\"></i>\r\n                                Save & Send\r\n                            </button> ")])], -1
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Save Invoice ")])])], -1
 /* HOISTED */
 );
 
@@ -23838,7 +23836,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.customer_name]]), $props.errors.customer_name ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("small", _hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.errors.customer_name[0]), 1
       /* TEXT */
       )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [_hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-        type: "text",
+        type: "number",
         id: "customer_phone",
         "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
           return $data.form.customer_phone = $event;
@@ -24330,8 +24328,8 @@ var _hoisted_56 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 );
 
 var _hoisted_57 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
-  value: "Order Cancel"
-}, "Order Cancel", -1
+  value: "Cancel"
+}, "Cancel", -1
 /* HOISTED */
 );
 
@@ -24372,8 +24370,8 @@ var _hoisted_65 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 );
 
 var _hoisted_66 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
-  value: "Order Cancel"
-}, "Order Cancel", -1
+  value: "Cancel"
+}, "Cancel", -1
 /* HOISTED */
 );
 
@@ -24493,9 +24491,7 @@ var _hoisted_92 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
   "class": "btn btn-lg btn-block btn-outline-success mb-2"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
   "class": "mdi mdi-print"
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Save Invoice ")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "col-md-3"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <Link as=\"button\" type=\"button\" @click=\"sendInvoice(invoice.id)\" class=\"btn btn-lg btn-block btn-outline-warning mb-2\">\r\n                                <i class=\"mdi mdi-print\"></i>\r\n                                Save & Send\r\n                            </Link> "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <a href=\"https://wa.me/send?phone=6281328944121&attachment=c://users/document/test.pdf\" target=\"_blank\" as=\"button\" type=\"button\" class=\"btn btn-lg btn-block btn-outline-warning mb-2\">\r\n                                <i class=\"mdi mdi-print\"></i>\r\n                                Save & Send\r\n                            </a> ")])], -1
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Save Invoice ")])])], -1
 /* HOISTED */
 );
 

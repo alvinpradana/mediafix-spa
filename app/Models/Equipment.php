@@ -18,7 +18,7 @@ class Equipment extends Model
         'equipment_condition',
     ];
 
-    public function users()
+    public function user()
     {
         return $this->belongsTo(User::class);
     }

@@ -12,7 +12,7 @@ class Employee extends Model
     protected $table = 'employees';
     protected $guarded = ['id'];
 
-    public function users()
+    public function user()
     {
         return $this->belongsTo(User::class);
     }

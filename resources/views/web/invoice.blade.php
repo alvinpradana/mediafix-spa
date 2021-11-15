@@ -44,7 +44,7 @@
                                     <h4 class="py-2">{{ $invoice->invoice_code }}</h4>
                                 </div>
                                 <div class="dropdown-divider border-success"></div>
-                                <div class="row pt-3">
+                                <div class="row pt-2">
                                     <div class="form-group col-md-3">
                                         <strong>Telepon / WA</strong>
                                         <div class="mr-1 mb-1 px-3 py-2 border border-success rounded">0{{ $invoice->customer_phone }}</div>
@@ -57,7 +57,7 @@
                                     @if ($invoice->date_taken == null)
                                         <div class="form-group col-md-3">
                                             <strong>Pengambilan</strong>
-                                            <div class="mr-1 mb-1 px-3 py-2 border border-success rounded"> BELUM DIAMBIL </div>
+                                            <div class="mr-1 mb-1 px-3 py-2 border border-success rounded"> - </div>
                                         </div>
                                     @else
                                         <div class="form-group col-md-3">
@@ -65,7 +65,7 @@
                                             <div class="mr-1 mb-1 px-3 py-2 border border-success rounded">{{ \Carbon\Carbon::parse($invoice->date_taken)->format('d M Y') }}</div>
                                         </div>
                                     @endif
-                                    
+
                                     <div class="form-group col-md-3">
                                         <strong>Garansi</strong>
                                         <div class="mr-1 mb-1 px-3 py-2 border border-success rounded">{{ $invoice->guarantee }} Hari</div>

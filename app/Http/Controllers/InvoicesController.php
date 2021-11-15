@@ -28,7 +28,7 @@ class InvoicesController extends Controller
         $date_taken = $invoice->date_taken;
 
         if ($date_taken == null) {
-            $date_taken = 'BELUM DIAMBIL';
+            $date_taken = '-';
         } else {
             $date_taken = Carbon::parse($invoice->date_taken)->format('d M Y');
         }
@@ -111,11 +111,11 @@ class InvoicesController extends Controller
         $date_taken = $invoices->date_taken;
 
         if ($date_taken == null) {
-            $date_taken = 'BELUM DIAMBIL';
+            $date_taken = '-';
         } else {
             $date_taken = Carbon::parse($invoices->date_taken)->format('d M Y');
         }
-        
+
         return view('print', compact('invoices', 'date_in', 'date_taken'));
     }
 

@@ -116,7 +116,7 @@
                                             <option value="Process Repair">Process Repair</option>
                                             <option value="Testing Unit">Testing Unit</option>
                                             <option value="Selesai">Selesai</option>
-                                            <option value="Order Cancel">Order Cancel</option>
+                                            <option value="Cancel">Cancel</option>
                                         </select>
                                         <small class="text-danger" v-if="errors.order_status">{{ errors.order_status[0] }}</small>
                                     </div>
@@ -128,7 +128,7 @@
                                             <option value="Lunas">Lunas</option>
                                             <option value="Uang Muka">Uang Muka</option>
                                             <option value="Belum Bayar">Belum Bayar</option>
-                                            <option value="Order Cancel">Order Cancel</option>
+                                            <option value="Cancel">Cancel</option>
                                         </select>
                                         <small class="text-danger" v-if="errors.payment_status">{{ errors.payment_status[0] }}</small>
                                     </div>
@@ -194,16 +194,6 @@
                                 <i class="mdi mdi-print"></i>
                                 Save Invoice
                             </button>
-                        </div>
-                        <div class="col-md-3">
-                            <!-- <Link as="button" type="button" @click="sendInvoice(invoice.id)" class="btn btn-lg btn-block btn-outline-warning mb-2">
-                                <i class="mdi mdi-print"></i>
-                                Save & Send
-                            </Link> -->
-                            <!-- <a href="https://wa.me/send?phone=6281328944121&attachment=c://users/document/test.pdf" target="_blank" as="button" type="button" class="btn btn-lg btn-block btn-outline-warning mb-2">
-                                <i class="mdi mdi-print"></i>
-                                Save & Send
-                            </a> -->
                         </div>
                     </div>
                 </form>

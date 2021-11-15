@@ -12,7 +12,7 @@ class Unit extends Model
     protected $table = 'units';
     protected $guarded = ['id'];
 
-    public function invoices()
+    public function invoice()
     {
         return $this->belongsTo(Invoice::class);
     }

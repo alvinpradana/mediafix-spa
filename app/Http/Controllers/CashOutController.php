@@ -55,7 +55,7 @@ class CashOutController extends Controller
             'cash_amount' => ['required', 'numeric'],
         ]);
         CashOut::where('id', $id)->update($attr);
-        return Redirect::back()->with('Cashes has been updated.');
+        return Redirect::back()->with('alert_success', 'Cashes has been updated.');
     }
 
     public function destroy($id)
