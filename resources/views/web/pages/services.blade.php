@@ -5,7 +5,7 @@
         <p class="para-light">
             Kami memberikan pelayanan untuk menangani semua jenis perangkat elektronik. 
             Diagnosa kerusakan secara gratis.<br>
-            Selalu memberikan <strong>garansi</strong> unit repair kepada pelanggan kami.
+            Selalu memberikan <strong class="home_text">garansi</strong> unit repair kepada pelanggan kami.
         </p>
     </div>
     <div class="row gy-4 py-2" data-aos="zoom-in">

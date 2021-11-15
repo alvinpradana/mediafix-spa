@@ -29,13 +29,13 @@
                     <div class="form-group col-sm-2">
                         <label class="text-muted"><strong>Tanggal Masuk</strong></label>
                         <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded">
-                            {{ invoice.date_in }}
+                            {{ date_in }}
                         </div>
                     </div>
                     <div class="form-group col-sm-2">
                         <label class="text-muted"><strong>Pengambilan</strong></label>
                         <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded">
-                            {{ invoice.date_taken }}
+                            {{ date_taken }}
                         </div>
                     </div>
                     <div class="form-group col-sm-2">
@@ -187,6 +187,8 @@ export default {
     props: {
         invoice: Object,
         link: Object,
+        date_taken: Object,
+        date_in: Object,
         errors: Object,
     },
     setup() {

@@ -53,10 +53,19 @@
                                         <strong>Tanggal Masuk</strong>
                                         <div class="mr-1 mb-1 px-3 py-2 border border-success rounded">{{ \Carbon\Carbon::parse($invoice->date_in)->format('d M Y') }}</div>
                                     </div>
-                                    <div class="form-group col-md-3">
-                                        <strong>Pengambilan</strong>
-                                        <div class="mr-1 mb-1 px-3 py-2 border border-success rounded">{{ \Carbon\Carbon::parse($invoice->date_taken)->format('d M Y') }}</div>
-                                    </div>
+
+                                    @if ($invoice->date_taken == null)
+                                        <div class="form-group col-md-3">
+                                            <strong>Pengambilan</strong>
+                                            <div class="mr-1 mb-1 px-3 py-2 border border-success rounded"> BELUM DIAMBIL </div>
+                                        </div>
+                                    @else
+                                        <div class="form-group col-md-3">
+                                            <strong>Pengambilan</strong>
+                                            <div class="mr-1 mb-1 px-3 py-2 border border-success rounded">{{ \Carbon\Carbon::parse($invoice->date_taken)->format('d M Y') }}</div>
+                                        </div>
+                                    @endif
+                                    
                                     <div class="form-group col-md-3">
                                         <strong>Garansi</strong>
                                         <div class="mr-1 mb-1 px-3 py-2 border border-success rounded">{{ $invoice->guarantee }} Hari</div>

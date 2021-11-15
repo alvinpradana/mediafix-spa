@@ -19,8 +19,8 @@ class CreateInvoicesTable extends Migration
             $table->string('invoice_code')->unique();
             $table->string('customer_name', 191)->nullable();
             $table->bigInteger('customer_phone')->nullable();
-            $table->date('date_in')->nullable();
-            $table->date('date_taken')->nullable();
+            $table->date('date_in')->nullable()->default(null);
+            $table->date('date_taken')->nullable()->default(null);
             $table->integer('guarantee')->nullable();
             $table->string('order_status')->nullable();
             $table->string('payment_status')->nullable();

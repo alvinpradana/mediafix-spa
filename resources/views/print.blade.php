@@ -7,7 +7,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <title>{{ $invoices->invoice_code }}</title>
 </head>
-{{-- <body> --}}
 <body onload="window.print()">
     <div class="container text-success fs-6 py-4 px-4">
         <div class="row mt-4">
@@ -47,11 +46,11 @@
             </div>
             <div class="form-group col-md-2">
                 <strong>Tanggal</strong>
-                <div class="mr-1 mb-1 px-3 py-2 border border-success rounded">{{ $invoices->date_in }}</div>
+                <div class="mr-1 mb-1 px-3 py-2 border border-success rounded">{{ $date_in }}</div>
             </div>
             <div class="form-group col-md-2">
                 <strong>Pengambilan</strong>
-                <div class="mr-1 mb-1 px-3 py-2 border border-success rounded">{{ $invoices->date_taken }}</div>
+                <div class="mr-1 mb-1 px-3 py-2 border border-success rounded">{{ $date_taken }}</div>
             </div>
             <div class="form-group col-md-2">
                 <strong>Garansi</strong>

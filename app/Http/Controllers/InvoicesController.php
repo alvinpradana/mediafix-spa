@@ -22,11 +22,16 @@ class InvoicesController extends Controller
     public function show($id)
     {
         $invoice = Invoice::with('units')->where('invoices.user_id', '=', auth()->user()->id)->findOrFail($id);
-
         $user = auth()->user();
+        $date_in = Carbon::parse($invoice->date_in)->format('d M Y');
 
-        $date = Carbon::parse($invoice->date_in)->format('d M Y');
-        $date_taken = Carbon::parse($invoice->date_taken)->format('d M Y');
+        $date_taken = $invoice->date_taken;
+
+        if ($date_taken == null) {
+            $date_taken = 'BELUM DIAMBIL';
+        } else {
+            $date_taken = Carbon::parse($invoice->date_taken)->format('d M Y');
+        }
 
         foreach ($invoice->units as $unit) {
             $description[] = $unit->unit_type . ' : ' . $unit->unit_description;
@@ -50,7 +55,7 @@ class InvoicesController extends Controller
             . 'Nama Customer : '
             . '*'.strtoupper($invoice->customer_name).'*' . '%0a%0a'
 
-            . 'Tanggal Masuk : ' . '*'.$date.'*' . '%0a'
+            . 'Tanggal Masuk : ' . '*'.$date_in.'*' . '%0a'
             . 'Pengambilan : ' . '*'.$date_taken.'*' . '%0a%0a'
             
             . 'Unit Repair :%0a'
@@ -96,14 +101,22 @@ class InvoicesController extends Controller
             . 'Instagram : @mediafix.id | @mediafix.jogja%0a'
             . 'Website : www.mediafix.id%0a'
         ;
-
-        return Inertia::render('Invoices/ShowInvoice', compact('invoice', 'link'));
+        return Inertia::render('Invoices/ShowInvoice', compact('invoice', 'link', 'date_in', 'date_taken'));
     }
 
     public function print($id)
     {
         $invoices = Invoice::with('units')->where('invoices.user_id', '=', auth()->user()->id)->findOrFail($id);
-        return view('print', compact('invoices'));
+        $date_in = Carbon::parse($invoices->date_in)->format('d M Y');
+        $date_taken = $invoices->date_taken;
+
+        if ($date_taken == null) {
+            $date_taken = 'BELUM DIAMBIL';
+        } else {
+            $date_taken = Carbon::parse($invoices->date_taken)->format('d M Y');
+        }
+        
+        return view('print', compact('invoices', 'date_in', 'date_taken'));
     }
 
     public function create()
