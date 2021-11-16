@@ -22316,7 +22316,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
             invoice: invoice.id
           }),
           type: "button",
-          "class": "btn btn-outline-primary"
+          "class": "btn btn-primary"
         }, {
           "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
             return [_hoisted_30];
@@ -24840,9 +24840,7 @@ var _hoisted_1 = {
 
 var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "col-md-4"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", {
-  "class": "card-title"
-}, "Invoice Order")], -1
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", null, "Invoice Order")], -1
 /* HOISTED */
 );
 
@@ -24893,39 +24891,39 @@ var _hoisted_14 = {
 };
 var _hoisted_15 = {
   key: 0,
-  "class": "badge badge-pill badge-warning mr-1"
+  "class": "badge badge-pill badge-outline-warning mr-1"
 };
 var _hoisted_16 = {
   key: 1,
-  "class": "badge badge-pill badge-warning mr-1"
+  "class": "badge badge-pill badge-outline-warning mr-1"
 };
 var _hoisted_17 = {
   key: 2,
-  "class": "badge badge-pill badge-primary mr-1"
+  "class": "badge badge-pill badge-outline-primary mr-1"
 };
 var _hoisted_18 = {
   key: 3,
-  "class": "badge badge-pill badge-success mr-1"
+  "class": "badge badge-pill badge-outline-success mr-1"
 };
 var _hoisted_19 = {
   key: 4,
-  "class": "badge badge-pill badge-danger mr-1"
+  "class": "badge badge-pill badge-outline-danger mr-1"
 };
 var _hoisted_20 = {
   key: 5,
-  "class": "badge badge-pill badge-success"
+  "class": "badge badge-pill badge-outline-success"
 };
 var _hoisted_21 = {
   key: 6,
-  "class": "badge badge-pill badge-primary"
+  "class": "badge badge-pill badge-outline-primary"
 };
 var _hoisted_22 = {
   key: 7,
-  "class": "badge badge-pill badge-warning"
+  "class": "badge badge-pill badge-outline-warning"
 };
 var _hoisted_23 = {
   key: 8,
-  "class": "badge badge-pill badge-danger"
+  "class": "badge badge-pill badge-outline-danger"
 };
 var _hoisted_24 = {
   "class": "text-center"
@@ -24960,7 +24958,7 @@ var _hoisted_31 = {
   "class": "col-md-9 px-4"
 };
 var _hoisted_32 = {
-  "class": "row float-right px-2"
+  "class": "row float-right"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Head = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Head");
@@ -25056,20 +25054,20 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         , ["onClick"])])]);
       }), 128
       /* KEYED_FRAGMENT */
-      ))])]), _hoisted_27])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_28, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_29, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+      ))])]), _hoisted_27]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_28, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_29, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
         href: _ctx.route('invoices.export'),
         type: "button",
         "class": "btn btn-lg btn-block btn-primary mb-2"
       }, " Download Excel ", 8
       /* PROPS */
       , _hoisted_30)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_31, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_32, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_pagination, {
-        "class": "",
+        "class": "px-2",
         links: $props.invoices.links
       }, null, 8
       /* PROPS */
       , ["links"])])])], 512
       /* NEED_PATCH */
-      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $props.invoices.data.length > 0]])];
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $props.invoices.data.length > 0]])])])];
     }),
     _: 1
     /* STABLE */

@@ -18,7 +18,10 @@ class InvoicesController extends Controller
     {
         $invoices = Invoice::query()
             ->when($request['search'], function ($query, $search) {
-                $query->where('customer_name', 'like', '%' . $search . '%');
+                $query->where('customer_name', 'like', '%' . $search . '%')
+                    ->orWhere('invoice_code', 'like', '%' . $search . '%')
+                    ->orWhere('payment_status', 'like', '%' . $search . '%')
+                    ->orWhere('order_status', 'like', '%' . $search . '%');
             })
             ->with('units')
             ->where('invoices.user_id', '=', auth()->user()->id)
