@@ -12,13 +12,26 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class SparepartsController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $user = auth()->user()->id;
         $count = Sparepart::where('spareparts.user_id', '=', auth()->user()->id)->sum('sparepart_quantity');
-        $spareparts = Sparepart::latest()->where('spareparts.user_id', '=', auth()->user()->id)->paginate(6);
+        $spareparts = Sparepart::query()
+            ->when($request['search'], function ($query, $search) {
+                $query->where('sparepart_type', 'like', '%' . $search . '%')
+                    ->orWhere('sparepart_name', 'like', '%' . $search . '%');
+            })
+            ->latest()
+            ->where('spareparts.user_id', '=', auth()->user()->id)
+            ->paginate(6)
+            ->withQueryString();
         
-        return Inertia::render('Spareparts/Index', compact('spareparts', 'count', 'user'));
+        return Inertia::render('Spareparts/Index', [
+            'spareparts' => $spareparts,
+            'count' => $count,
+            'user' => $user,
+            'filters' => $request->only(['search'])
+        ]);
     }
 
     public function store(Request $request)

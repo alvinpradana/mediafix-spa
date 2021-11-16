@@ -3,7 +3,7 @@
         <Head title="Users Admin" />
         <div class="row justify-content-between align-items-center mb-4">
             <div class="col-md-4">
-                <h3>List users</h3>
+                <h3>List Users</h3>
             </div>
             <div v-if="$page.props.auth.user.is_admin == 1" class="col-md-5">
                 <div class="row align-items-center">
@@ -11,7 +11,7 @@
                         <input v-model="search" type="text" class="form-control rounded-lg text-secondary" placeholder="Search"/>
                     </div>
                     <div class="col-md-4">
-                        <Link as="button" :href="route('users.create')" type="button" class="btn btn-lg btn-block btn-outline-success">
+                        <Link as="button" :href="route('users.create')" type="button" class="btn btn-lg btn-block btn-success">
                             Add User
                         </Link>
                     </div>
@@ -51,17 +51,8 @@
                     </table>
                     <div class="dropdown-divider"></div>
                 </div>
-                <div class="row mt-2">
-                    <!-- <div v-if="$page.props.auth.user.is_admin == 1" class="col-md-3">
-                        <Link as="button" :href="route('users.create')" type="button" class="btn btn-lg btn-block btn-outline-success mb-2">
-                            Add User
-                        </Link>
-                    </div> -->
-                    <div class="col-md-9 px-4">
-                        <div class="row float-right px-2">
-                            <pagination class="" :links="users.links" />
-                        </div>
-                    </div>
+                <div class="row justify-content-center">
+                    <pagination class="mt-2" :links="users.links" />
                 </div>
             </div>
         </div>
