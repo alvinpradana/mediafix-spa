@@ -3,13 +3,16 @@
         <Head title="Equipment" />
         <div class="row">
             <div class="col-md-8 mb-4">
+                <div class="row justify-content-between align-items-center mb-4">
+                    <div class="col-md-4">
+                        <h3>List Equipment</h3>
+                    </div>
+                    <div class="col-md-4">
+                        <input v-model="search" type="text" class="form-control rounded-lg text-secondary" placeholder="Search"/>
+                    </div>
+                </div>
                 <div class="card">
                     <div class="card-body">
-                        <div class="row mb-2">
-                            <div class="col-sm-5 col-md-9">
-                                <h4>List Equipment</h4>
-                            </div>
-                        </div>
                         <div class="table-responsive">
                             <table class="table">
                                 <thead>
@@ -33,10 +36,10 @@
                                         <td>{{ equipment.equipment_quantity }}</td>
                                         <td>{{ equipment.equipment_condition }}</td>
                                         <td class="text-center">
-                                            <button type="button" @click.prevent="edit(equipment)" class="btn btn-outline-primary mr-1">
+                                            <button type="button" @click.prevent="edit(equipment)" class="btn btn-primary mr-1">
                                                 <span class="icon-sm mdi mdi-pencil"></span>
                                             </button>
-                                            <button type="button" @click.prevent="destroy(equipment.id)" class="btn btn-outline-danger">
+                                            <button type="button" @click.prevent="destroy(equipment.id)" class="btn btn-danger">
                                                 <span class="icon-sm mdi mdi-delete"></span>
                                             </button>
                                         </td>
@@ -61,12 +64,12 @@
                         <div class="dropdown-divider"></div>
                         <div class="row">
                             <div class="col-md-6 col-sm-12 mt-3">
-                                <a :href="route('equipment.export')" type="button" class="btn btn-lg btn-block btn-outline-primary">
+                                <a :href="route('equipment.export')" type="button" class="btn btn-lg btn-block btn-primary">
                                     Export
                                 </a>
                             </div>
                             <div class="col-md-6 col-sm-12 mt-3">
-                                <button @click.prevent="showImportFile()" type="button" class="btn btn-lg btn-block btn-outline-warning">
+                                <button @click.prevent="showImportFile()" type="button" class="btn btn-lg btn-block btn-warning">
                                     Import
                                 </button>
                             </div>
@@ -86,10 +89,10 @@
                             </div>
                             <div class="row justify-content-between mt-3">
                                 <div class="col-md-6">
-                                    <button type="submit" class="btn btn-lg btn-block btn-outline-success mb-2">Submit</button>
+                                    <button type="submit" class="btn btn-lg btn-block btn-success mb-2">Submit</button>
                                 </div>
                                 <div class="col-md-6">
-                                    <button @click.prevent="cancelImport()" class="btn btn-lg btn-block btn-outline-danger">Cancel</button>
+                                    <button @click.prevent="cancelImport()" class="btn btn-lg btn-block btn-danger">Cancel</button>
                                 </div>
                             </div>
                         </form>
@@ -126,13 +129,13 @@
                             <div class="dropdown-divider"></div>
                             <div class="row">
                                 <div v-show="!editMode" class="col-md-8 mx-auto mt-2">
-                                    <button @click.prevent="store(form)" type="button" class="btn btn-lg btn-block btn-outline-success mx-auto">Save</button>
+                                    <button @click.prevent="store(form)" type="button" class="btn btn-lg btn-block btn-success mx-auto">Save</button>
                                 </div>
                                 <div v-show="editMode" class="col-md-6 mx-auto mt-2">
-                                    <button @click="update(form)" type="button" class="btn btn-lg btn-block btn-outline-success mx-auto">Update</button>
+                                    <button @click="update(form)" type="button" class="btn btn-lg btn-block btn-success mx-auto">Update</button>
                                 </div>
                                 <div v-show="editMode" class="col-md-6 mx-auto mt-2">
-                                    <button @click.prevent="reset()" type="button" class="btn btn-lg btn-block btn-outline-danger mx-auto">Cancel</button>
+                                    <button @click.prevent="reset()" type="button" class="btn btn-lg btn-block btn-danger mx-auto">Cancel</button>
                                 </div>
                             </div>
                         </form>
@@ -148,6 +151,8 @@ import Layout from "../Shared/Layout";
 import { Link, Head } from "@inertiajs/inertia-vue3";
 import { Inertia } from '@inertiajs/inertia';
 import Pagination from "../Shared/Pagination"
+import { ref } from '@vue/reactivity';
+import { watch } from '@vue/runtime-core';
 
 export default {
     components: {
@@ -156,8 +161,18 @@ export default {
         Layout,
         Pagination,
     },
-    data () {
+    data (props) {
+        let search = ref(props.filters.search)
+
+        watch (search, value => {
+            Inertia.get('/equipment', { search: value }, {
+                preserveState: true,
+                replace: true
+            })
+        })
+
         return {
+            search,
             showImport: false,
             editMode: false,
             form: {
@@ -230,7 +245,8 @@ export default {
         equipments: Object,
         count: Object,
         errors: Object,
-        user: Object
+        user: Object,
+        filters: Object
     }
 };
 </script>

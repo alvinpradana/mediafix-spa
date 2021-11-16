@@ -12,13 +12,26 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class EquipmentsController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $count = Equipment::where('equipments.user_id', '=', auth()->user()->id)->sum('equipment_quantity');
-        $equipments = Equipment::latest()->where('equipments.user_id', '=', auth()->user()->id)->paginate(6);
         $user = auth()->user()->id;
+        $count = Equipment::where('equipments.user_id', '=', auth()->user()->id)->sum('equipment_quantity');
+        $equipments = Equipment::query()
+            ->when($request['search'], function ($query, $search) {
+                $query->where('equipment_type', 'like', '%' . $search . '%')
+                    ->orWhere('equipment_name', 'like', '%' . $search . '%');
+            })
+            ->latest()
+            ->where('equipments.user_id', '=', auth()->user()->id)
+            ->paginate(6)
+            ->withQueryString();
 
-        return Inertia::render('Equipments/Index', compact('equipments', 'count', 'user'));
+        return Inertia::render('Equipments/Index', [
+            'equipments' => $equipments,
+            'count' => $count,
+            'user' => $user,
+            'filters' => $request->only(['search'])
+        ]);
     }
 
     public function store(Request $request)
