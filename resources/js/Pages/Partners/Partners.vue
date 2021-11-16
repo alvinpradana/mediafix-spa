@@ -1,9 +1,16 @@
 <template>
     <Layout>
         <Head title="Partners" />
+        <div class="row justify-content-between align-items-center mb-4">
+            <div class="col-md-4">
+                <h3>List Partners</h3>
+            </div>
+            <div class="col-md-4">
+                <input v-model="search" type="text" class="form-control rounded-lg text-secondary" placeholder="Search"/>
+            </div>
+        </div>
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">List Partners</h4>
                 <div class="table-responsive">
                     <table class="table">
                         <thead>
@@ -34,10 +41,10 @@
                                 <td>{{ partner.partner_company }}</td>
                                 <td>{{ partner.partner_address }}</td>
                                 <td>
-                                    <Link :href="route('partners.edit', {partner: partner.id})" type="button" class="btn btn-outline-primary mr-1">
+                                    <Link :href="route('partners.edit', {partner: partner.id})" type="button" class="btn btn-primary mr-1">
                                         <span class="icon-sm mdi mdi-pencil"></span>
                                     </Link>
-                                    <button type="button" @click.prevent="destroy(partner.id)" class="btn btn-outline-danger">
+                                    <button type="button" @click.prevent="destroy(partner.id)" class="btn btn-danger">
                                         <span class="icon-sm mdi mdi-delete"></span>
                                     </button>
                                 </td>
@@ -47,14 +54,14 @@
                     <div class="dropdown-divider"></div>
                 </div>
                 <div class="row mt-2">
-                    <div class="col-md-3">
-                        <Link as="button" :href="route('partners.create')" type="button" class="btn btn-lg btn-block btn-outline-success mb-2">
-                             Add Partner
+                    <div class="col-md-2">
+                        <Link as="button" :href="route('partners.create')" type="button" class="btn btn-lg btn-block btn-success mb-2">
+                             Create
                         </Link>
                     </div>
-                    <div v-show="partners.data.length > 0" class="col-md-3">
-                        <a :href="route('partners.export')" type="button" class="btn btn-lg btn-block btn-outline-primary mb-2">
-                             Download Excel
+                    <div v-show="partners.data.length > 0" class="col-md-2">
+                        <a :href="route('partners.export')" type="button" class="btn btn-lg btn-block btn-primary mb-2">
+                             Download
                         </a>
                     </div>
                     <div class="col-md-6 px-4">
@@ -73,6 +80,8 @@ import Layout from "../Shared/Layout";
 import { Link, Head } from "@inertiajs/inertia-vue3";
 import { Inertia } from '@inertiajs/inertia';
 import Pagination from "../Shared/Pagination"
+import { ref } from '@vue/reactivity';
+import { watch } from '@vue/runtime-core';
 
 export default {
     components: {
@@ -83,6 +92,21 @@ export default {
     },
     props: {
         partners: Object,
+        filters: Object
+    },
+    data (props) {
+        let search = ref(props.filters.search)
+
+        watch (search, value => {
+            Inertia.get('/partners', { search: value }, {
+                preserveState: true,
+                replace: true
+            })
+        })
+
+        return {
+            search
+        }
     },
     setup() {
         function destroy(id) {

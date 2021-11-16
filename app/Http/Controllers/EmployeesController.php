@@ -11,10 +11,25 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class EmployeesController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $employees = Employee::latest()->where('employees.user_id', '=', auth()->user()->id)->paginate(6);
-        return Inertia::render('Employees/Employees', compact('employees'));
+        $employees = Employee::query()
+            ->when($request['search'], function ($query, $search) {
+                $query->where('employee_name', 'like', '%' . $search . '%')
+                    ->orWhere('phone_number', 'like', '%' . $search . '%')
+                    ->orWhere('employee_email', 'like', '%' . $search . '%')
+                    ->orWhere('employee_division', 'like', '%' . $search . '%')
+                    ->orWhere('employee_address', 'like', '%' . $search . '%');
+            })
+            ->latest()
+            ->where('employees.user_id', '=', auth()->user()->id)
+            ->paginate(6)
+            ->withQueryString();
+
+        return Inertia::render('Employees/Employees', [
+            'employees' => $employees,
+            'filters' => $request->only(['search'])
+        ]);
     }
 
     public function create()

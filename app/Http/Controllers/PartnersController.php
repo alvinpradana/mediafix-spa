@@ -11,10 +11,26 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class PartnersController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $partners = Partner::latest()->where('partners.user_id', '=', auth()->user()->id)->paginate(6);
-        return Inertia::render('Partners/Partners', compact('partners'));
+        $partners = Partner::query()
+            ->when($request['search'], function ($query, $search) {
+                $query->where('partner_name', 'like', '%' . $search . '%')
+                    ->orWhere('phone_number', 'like', '%' . $search . '%')
+                    ->orWhere('partner_email', 'like', '%' . $search . '%')
+                    ->orWhere('partner_company', 'like', '%' . $search . '%')
+                    ->orWhere('start_join', 'like', '%' . $search . '%')
+                    ->orWhere('partner_address', 'like', '%' . $search . '%');
+            })
+            ->latest()
+            ->where('partners.user_id', '=', auth()->user()->id)
+            ->paginate(6)
+            ->withQueryString();
+
+        return Inertia::render('Partners/Partners', [
+            'partners' => $partners,
+            'filters' => $request->only(['search'])
+        ]);
     }
 
     public function create()
