@@ -12,9 +12,17 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class CashOutController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $cash_out = CashOut::latest()->where('cash_outs.user_id', '=', auth()->user()->id)->paginate(6);
+        $cash_out = CashOut::query()
+            ->when($request['search'], function ($query, $search) {
+                $query->where('cash_description', 'like', '%' . $search . '%')
+                    ->orWhere('cash_date', 'like', '%' . $search . '%');
+            })
+            ->latest()
+            ->where('cash_outs.user_id', '=', auth()->user()->id)
+            ->paginate(6)
+            ->withQueryString();
 
         $month = date('m');
         $year = date('Y');
@@ -25,7 +33,12 @@ class CashOutController extends Controller
             ->where('cash_outs.user_id', '=', auth()->user()->id)
             ->sum('cash_amount');
 
-        return Inertia::render('Cash/Index', compact('cash_out', 'total_amount', 'user'));
+        return Inertia::render('Cash/Index', [
+            'cash_out' => $cash_out,
+            'total_amount' => $total_amount,
+            'user' => $user,
+            'filters' => $request->only(['search'])
+        ]);
     }
 
     public function store(Request $request)
