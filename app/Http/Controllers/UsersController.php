@@ -13,16 +13,26 @@ use Illuminate\Validation\ValidationException;
 
 class UsersController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         return Inertia::render('Users/Index', [
-            'users' => User::latest()->paginate(8)->through(fn($user) => [
-                'name' => $user->name,
-                'username' => $user->username,
-                'phone' => $user->phone,
-                'workshop' => $user->workshop,
-                'user_added' => $user->user_added,
-            ])
+            'users' => User::query()
+                ->when($request['search'], function ($query, $search) {
+                    $query->where('name', 'like', '%' . $search . '%')
+                        ->orWhere('username', 'like', '%' . $search . '%')
+                        ->orWhere('phone', 'like', '%' . $search . '%')
+                        ->orWhere('workshop', 'like', '%' . $search . '%');
+                })
+                ->latest()
+                ->paginate(8)
+                ->through(fn($user) => [
+                    'name' => $user->name,
+                    'username' => $user->username,
+                    'phone' => $user->phone,
+                    'workshop' => $user->workshop,
+                    'user_added' => $user->user_added,
+                ]),
+                'filters' => $request->only(['search'])
         ]);
     }
 
