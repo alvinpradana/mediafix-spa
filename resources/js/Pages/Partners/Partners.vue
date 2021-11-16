@@ -24,7 +24,7 @@
                                 </td>
                             </tr>
                             <tr v-for="partner in partners.data" :key="partner.id">
-                                <td>
+                                <td class="align-items-center">
                                     <i class="icon-sm mdi mdi-account-circle text-success"></i>
                                     <span class="pl-2">{{ partner.partner_name }}</span>
                                 </td>

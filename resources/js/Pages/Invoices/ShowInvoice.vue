@@ -209,7 +209,7 @@ export default {
     },
     methods: {
         mark (data) {
-            if (confirm('Anda yakin unit servis telah diambil?')) {
+            if (confirm('Are you sure this unit repair has been taken by customer?')) {
                 Inertia.put(route('invoice.taken', {id: this.invoice.id}), data)
             }
         },

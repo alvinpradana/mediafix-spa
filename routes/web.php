@@ -42,6 +42,7 @@ Route::middleware('auth')->group( function () {
 
     // Invoices
     Route::resource('dashboard/invoice', InvoicesController::class);
+    Route::get('dashboard/invoice/{invoice}/show', [InvoicesController::class, 'show'])->name('invoice.show');
 
     Route::put('dashboard/invoice-taken/{id}', [InvoicesController::class, 'mark'])->name('invoice.taken');
     Route::get('dashboard/invoice-print/{id}', [InvoicesController::class, 'print'])->name('invoice.print');

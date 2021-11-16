@@ -14,10 +14,22 @@ use Illuminate\Support\Facades\Redirect;
 
 class InvoicesController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $invoices = Invoice::with('units')->where('invoices.user_id', '=', auth()->user()->id)->latest()->paginate(6);
-        return Inertia::render('Invoices/Index', compact('invoices'));
+        $invoices = Invoice::query()
+            ->when($request['search'], function ($query, $search) {
+                $query->where('customer_name', 'like', '%' . $search . '%');
+            })
+            ->with('units')
+            ->where('invoices.user_id', '=', auth()->user()->id)
+            ->latest()
+            ->paginate(6)
+            ->withQueryString();
+
+        return Inertia::render('Invoices/Index', [
+            'invoices' => $invoices,
+            'filters' => $request->only(['search'])
+        ]);
     }
 
     public function show($id)
