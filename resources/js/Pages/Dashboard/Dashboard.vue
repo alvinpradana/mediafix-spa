@@ -71,7 +71,6 @@
                             <th> Nama Customer  </th>
                             <th> Biaya </th>
                             <th class="text-center"> Unit </th>
-                            <th class="text-center"> Keterangan </th>
                             <th> Status Order </th>
                             <th class="text-center"> Action </th>
                         </tr>
@@ -87,18 +86,13 @@
                                     {{ invoice.invoice_code }}
                                     <span v-show="invoice.mark === 1" class="text-success mdi mdi-checkbox-marked-circle-outline ml-1"></span>
                                 </td>
-                                <td> {{ invoice.customer_name }} </td>
+                                <td class="text-capitalize"> {{ invoice.customer_name }} </td>
                                 <td> Rp. {{ invoice.total_payment }} </td>
                                 <td>
                                     <ul v-for="unit in invoice.units" :key="unit.id">
-                                        <li> {{ unit.unit_type }} {{ unit.unit_name }} </li>
+                                        <li class="text-capitalize"> {{ unit.unit_type }} {{ unit.unit_name }} </li>
                                     </ul>
                                 </td>
-                                <td>
-                                    <ul v-for="unit in invoice.units" :key="unit.id">
-                                        <li> {{ unit.unit_description }} </li>
-                                    </ul>    
-                                </td> 
                                 <td>
                                     <div v-if="invoice.order_status == 'Diagnosa'" class="badge badge-pill badge-outline-warning mr-1">{{ invoice.order_status }}</div>
                                     <div v-else-if="invoice.order_status == 'Process Repair'" class="badge badge-pill badge-outline-warning mr-1">{{ invoice.order_status }}</div>

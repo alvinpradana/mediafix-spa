@@ -17,7 +17,7 @@ class CreatePartnersTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->string('partner_name', 191)->nullable();
-            $table->string('phone_number', 32)->nullable();
+            $table->unsignedBigInteger('phone_number')->nullable();
             $table->string('partner_email', 225)->nullable();
             $table->date('start_join')->nullable();
             $table->string('partner_company', 225)->nullable();

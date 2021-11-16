@@ -17,7 +17,7 @@ class CreateEmployeesTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->string('employee_name', 191)->nullable();
-            $table->string('phone_number', 32)->nullable();
+            $table->unsignedBigInteger('phone_number')->nullable();
             $table->string('employee_email', 191)->nullable();
             $table->string('employee_division', 191)->nullable();
             $table->text('employee_address')->nullable();

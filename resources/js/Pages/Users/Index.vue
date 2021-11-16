@@ -19,7 +19,7 @@
                             <tr v-for="user in users.data" :key="user.id">
                                 <td>{{ user.name }}</td>
                                 <td>{{ user.username }}</td>
-                                <td>{{ user.phone }}</td>
+                                <td><a :href="`https://wa.me/62`+ user.phone + `?text=Halo%20`+ user.name" target="_blank">0{{ user.phone }}</a></td>
                                 <td>{{ user.workshop }}</td>
                                 <td>{{ moment(user.created_at).format("LL") }} <i class="text-primary text-small">By {{ user.user_added }}</i></td>
                             </tr>

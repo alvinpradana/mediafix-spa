@@ -30,7 +30,7 @@ class RegistrationRequest extends FormRequest
             'email' => ['required', 'email', 'unique:users'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
             'password_confirmation' => ['required', 'same:password', 'min:6'],
-            'phone' => ['required', 'string', 'min:11'],
+            'phone' => ['required', 'min:11'],
             'workshop' => ['required', 'string', 'min:3'],
         ];
     }

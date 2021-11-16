@@ -28,7 +28,7 @@
                                     <i class="icon-sm mdi mdi-account-circle text-success"></i>
                                     <span class="pl-2">{{ partner.partner_name }}</span>
                                 </td>
-                                <td>{{ partner.phone_number }}</td>
+                                <td><a :href="`https://wa.me/62`+ partner.phone_number +`?text=Hallo%20`+ partner.partner_name" target="_blank">0{{ partner.phone_number }}</a></td>
                                 <td>{{ partner.partner_email }}</td>
                                 <td>{{ partner.start_join }}</td>
                                 <td>{{ partner.partner_company }}</td>

@@ -15,7 +15,7 @@
                             </div>
                             <div class="form-group mb-4">
                                 <label for="phone_number">Phone</label>
-                                <input v-model="form.phone_number" type="text" id="phone_number" class="form-control" :class="{'is-invalid': errors.phone_number}" placeholder="Enter phone number">
+                                <input v-model="form.phone_number" type="number" id="phone_number" class="form-control" :class="{'is-invalid': errors.phone_number}" placeholder="Enter phone number">
                                 <small class="invalid-feedback" v-if="errors.phone_number">{{ errors.phone_number[0] }}</small>
                             </div>
                             <div class="form-group mb-4">

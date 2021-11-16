@@ -27,7 +27,7 @@
                                     <i class="icon-sm mdi mdi-account-circle text-success"></i>
                                     <span class="pl-2">{{ employee.employee_name }}</span>
                                 </td>
-                                <td>{{ employee.phone_number }}</td>
+                                <td><a :href="`https://wa.me/62`+ employee.phone_number +`?text=Halo%20`+ employee.employee_name" target="_blank">0{{ employee.phone_number }}</a></td>
                                 <td>{{ employee.employee_email }}</td>
                                 <td>{{ employee.employee_division }}</td>
                                 <td>{{ employee.employee_address }}</td>

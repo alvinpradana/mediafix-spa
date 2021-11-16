@@ -12,7 +12,6 @@
                             <th> Nama Customer </th>
                             <th> Total Biaya </th>
                             <th class="text-center"> Unit </th>
-                            <th class="text-center"> Keterangan </th>
                             <th> Status Order </th>
                             <th class="text-center"> Action </th>
                         </tr>
@@ -28,18 +27,13 @@
                                     {{ invoice.invoice_code }}
                                     <span v-show="invoice.mark === 1" class="text-success mdi mdi-checkbox-marked-circle-outline ml-1"></span>
                                 </td>
-                                <td> {{ invoice.customer_name.toUpperCase() }} </td>
+                                <td class="text-capitalize"> {{ invoice.customer_name }} </td>
                                 <td> Rp. {{ invoice.total_payment }} </td>
                                 <td>
                                     <ul v-for="unit in invoice.units" :key="unit.id" class="my-auto">
-                                        <li class="py-1"> {{ unit.unit_type.toUpperCase() }} {{ unit.unit_name.toUpperCase() }} </li>
+                                        <li class="py-1 text-capitalize"> {{ unit.unit_type }} {{ unit.unit_name }} </li>
                                     </ul>
                                 </td>
-                                <td>
-                                    <ul v-for="unit in invoice.units" :key="unit.id" class="my-auto">
-                                        <li class="py-1"> {{ unit.unit_description.toUpperCase() }} </li>
-                                    </ul>    
-                                </td> 
                                 <td>
                                     <div v-if="invoice.order_status == 'Diagnosa'" class="badge badge-pill badge-outline-warning mr-1">{{ invoice.order_status }}</div>
                                     <div v-else-if="invoice.order_status == 'Process Repair'" class="badge badge-pill badge-outline-warning mr-1">{{ invoice.order_status }}</div>

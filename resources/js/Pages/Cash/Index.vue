@@ -24,7 +24,7 @@
                                     </tr>
                                     <tr v-for="cash in cash_out.data" :key="cash.id">
                                         <td>{{ cash.cash_date }}</td>
-                                        <td>{{ cash.cash_description }}</td>
+                                        <td class="text-capitalize">{{ cash.cash_description }}</td>
                                         <td>Rp. {{ cash.cash_amount }}</td>
                                         <td class="text-center">
                                             <button type="button" @click.prevent="edit(cash)" class="btn btn-outline-primary mr-1">

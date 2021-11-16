@@ -36,11 +36,133 @@
                         <small class="pb-2 d-md-none d-lg-none">Recomended use PC or landscape mode.</small>
                         <h3 class="pb-2">Detail Unit Repair</h3>
                     </div>
+
+                    @foreach ($invoices as $invoice)                    
+                        <div class="row pb-5">
+                            @if ($invoice->order_status == 'Diagnosa')
+                                <div class="col-sm-2 px-0">
+                                    <div class="dropdown-divider border border-success"></div>
+                                    <div class="row">
+                                        <small class="text-center"><i><strong>Diagnosis</strong></i></small>
+                                    </div>
+                                </div>
+                                <div class="col-sm-1 text-center px-0 fas fa-circle text-success"></div>
+                            @elseif($invoice->order_status == 'Process Repair')
+                                <div class="col-sm-2 px-0">
+                                    <div class="dropdown-divider border border-success"></div>
+                                    <div class="row">
+                                        <small class="text-center"><i><strong>Diagnosis</strong></i></small>
+                                    </div>
+                                </div>
+                                <div class="col-sm-1 text-center px-0 fas fa-circle text-success"></div>
+                            @elseif($invoice->order_status == 'Testing Unit')
+                                <div class="col-sm-2 px-0">
+                                    <div class="dropdown-divider border border-success"></div>
+                                    <div class="row">
+                                        <small class="text-center"><i><strong>Diagnosis</strong></i></small>
+                                    </div>
+                                </div>
+                                <div class="col-sm-1 text-center px-0 fas fa-circle text-success"></div>
+                            @elseif($invoice->order_status == 'Selesai')
+                                <div class="col-sm-2 px-0">
+                                    <div class="dropdown-divider border border-success"></div>
+                                    <div class="row">
+                                        <small class="text-center"><i><strong>Diagnosis</strong></i></small>
+                                    </div>
+                                </div>
+                                <div class="col-sm-1 text-center px-0 fas fa-circle text-success"></div>
+                            @else
+                                <div class="col-sm-2 px-0">
+                                    <div class="dropdown-divider border"></div>
+                                    <div class="row">
+                                        <small class="text-center">Diagnosis</small>
+                                    </div>
+                                </div>
+                                <div class="col-sm-1 text-center px-0 fas fa-circle"></div>
+                            @endif
+                            @if ($invoice->order_status == 'Process Repair')
+                                <div class="col-sm-2 px-0">
+                                    <div class="dropdown-divider border border-success"></div>
+                                    <div class="row">
+                                        <small class="text-center"><i><strong>Process</strong></i></small>
+                                    </div>
+                                </div>
+                                <div class="col-sm-1 text-center px-0 fas fa-circle text-success"></div>
+                            @elseif ($invoice->order_status == 'Testing Unit')
+                                <div class="col-sm-2 px-0">
+                                    <div class="dropdown-divider border border-success"></div>
+                                    <div class="row">
+                                        <small class="text-center"><i><strong>Process</strong></i></small>
+                                    </div>
+                                </div>
+                                <div class="col-sm-1 text-center px-0 fas fa-circle text-success"></div>
+                            @elseif ($invoice->order_status == 'Selesai')
+                                <div class="col-sm-2 px-0">
+                                    <div class="dropdown-divider border border-success"></div>
+                                    <div class="row">
+                                        <small class="text-center"><i><strong>Process</strong></i></small>
+                                    </div>
+                                </div>
+                                <div class="col-sm-1 text-center px-0 fas fa-circle text-success"></div>
+                            @else
+                                <div class="col-sm-2 px-0">
+                                    <div class="dropdown-divider border"></div>
+                                    <div class="row">
+                                        <small class="text-center">Process</small>
+                                    </div>
+                                </div>
+                                <div class="col-sm-1 text-center px-0 fas fa-circle"></div>
+                            @endif
+                            @if ($invoice->order_status == 'Testing Unit')
+                                <div class="col-sm-2 px-0">
+                                    <div class="dropdown-divider border border-success"></div>
+                                    <div class="row">
+                                        <small class="text-center"><i><strong>Testing</strong></i></small>
+                                    </div>
+                                </div>
+                                <div class="col-sm-1 text-center px-0 fas fa-circle text-success"></div>
+                            @elseif ($invoice->order_status == 'Selesai')
+                                <div class="col-sm-2 px-0">
+                                    <div class="dropdown-divider border border-success"></div>
+                                    <div class="row">
+                                        <small class="text-center"><i><strong>Testing</strong></i></small>
+                                    </div>
+                                </div>
+                                <div class="col-sm-1 text-center px-0 fas fa-circle text-success"></div>
+                            @else
+                                <div class="col-sm-2 px-0">
+                                    <div class="dropdown-divider border"></div>
+                                    <div class="row">
+                                        <small class="text-center">Testing</small>
+                                    </div>
+                                </div>
+                                <div class="col-sm-1 text-center px-0 fas fa-circle"></div>
+                            @endif
+                            @if ($invoice->order_status == 'Selesai')
+                                <div class="col-sm-2 px-0">
+                                    <div class="dropdown-divider border border-success"></div>
+                                    <div class="row">
+                                        <small class="text-center"><i><strong>Done</strong></i></small>
+                                    </div>
+                                </div>
+                                <div class="col-sm-1 text-center px-0 fas fa-circle text-success"></div>
+                            @else
+                                <div class="col-sm-2 px-0">
+                                    <div class="dropdown-divider border"></div>
+                                    <div class="row">
+                                        <small class="text-center">Done</small>
+                                    </div>
+                                </div>
+                                <div class="col-sm-1 text-center px-0 fas fa-circle"></div>
+                            @endif
+                        </div>
+                    @endforeach
+
                     @foreach($invoices as $invoice)
                         <div class="row gy-4" data-aos="zoom-in">
                             <div class="card bg-transparent px-4">
                                 <div class="d-flex justify-content-between">
-                                    <h4 class="py-2">{{ $invoice->customer_name }}</h4>
+                                    <h4 class="py-2 text-capitalize">{{ $invoice->customer_name }}</h4>
                                     <h4 class="py-2">{{ $invoice->invoice_code }}</h4>
                                 </div>
                                 <div class="dropdown-divider border-success"></div>

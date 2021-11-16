@@ -19,7 +19,7 @@
                                 </div>
                                 <div class="form-group mb-4">
                                     <label class="text-muted">Phone</label>
-                                    <div class="mr-1 mb-1 px-3 py-2 text-secondary border rounded" v-html="user.phone"/>
+                                    <div class="mr-1 mb-1 px-3 py-2 text-secondary border rounded" v-html="'0'+ user.phone"/>
                                 </div>
                                 <div class="form-group mb-4">
                                     <label class="text-muted">Email</label>

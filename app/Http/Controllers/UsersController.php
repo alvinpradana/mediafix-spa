@@ -56,7 +56,7 @@ class UsersController extends Controller
         $attr = $request->validate([
             'name' => ['required', 'string', 'min:3'],
             'email' => ['required', 'email', 'unique:users,email,' . auth()->id()],
-            'phone' => ['required', 'string', 'min:11'],
+            'phone' => ['required', 'min:11'],
             'workshop' => ['required', 'string', 'min:3'],
         ]);
 

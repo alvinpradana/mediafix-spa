@@ -29,7 +29,7 @@
                                     </tr>
                                     <tr v-for="equipment in equipments.data" :key="equipment.id">
                                         <td>{{ equipment.equipment_type }}</td>
-                                        <td>{{ equipment.equipment_name }}</td>
+                                        <td class="text-capitalize">{{ equipment.equipment_name }}</td>
                                         <td>{{ equipment.equipment_quantity }}</td>
                                         <td>{{ equipment.equipment_condition }}</td>
                                         <td class="text-center">

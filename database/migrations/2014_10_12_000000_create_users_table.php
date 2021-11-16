@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('username')->unique();
             $table->string('password');
             $table->string('email')->unique();
-            $table->string('phone');
+            $table->unsignedBigInteger('phone');
             $table->string('workshop');
             $table->text('image')->nullable();
             $table->string('user_added')->nullable();

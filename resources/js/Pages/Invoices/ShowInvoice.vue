@@ -16,14 +16,14 @@
                 <div class="row">
                     <div class="form-group col-sm-3">
                         <label class="text-muted"><strong>Nama Customer</strong></label>
-                        <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded">
-                            {{ invoice.customer_name.toUpperCase() }}
+                        <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded text-capitalize">
+                            {{ invoice.customer_name }}
                         </div>
                     </div>
                     <div class="form-group col-sm-3">
                         <label class="text-muted"><strong>Telepon / WA</strong></label>
                         <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded">
-                            0{{ invoice.customer_phone }}
+                            <a :href="linkCustomer()">0{{ invoice.customer_phone }}</a>
                         </div>
                     </div>
                     <div class="form-group col-sm-2">
@@ -63,10 +63,10 @@
                     </tr>
                     <tr v-for="unit in invoice.units" :key="unit.id" class="text-secondary">
                         <td class="text-center">{{ unit.unit_quantity }}</td>
-                        <td>{{ unit.unit_type.toUpperCase() }}</td>
-                        <td>{{ unit.unit_name.toUpperCase() }}</td>
-                        <td>{{ unit.unit_description.toUpperCase() }}</td>
-                        <td>{{ unit.unit_completeness.toUpperCase() }}</td>
+                        <td class="text-capitalize">{{ unit.unit_type }}</td>
+                        <td class="text-capitalize">{{ unit.unit_name }}</td>
+                        <td class="text-capitalize">{{ unit.unit_description }}</td>
+                        <td class="text-capitalize">{{ unit.unit_completeness }}</td>
                         <td>Rp. {{ unit.unit_cost }}</td>
                         <td class="text-center">
                             <div>Rp. {{ unit.total_cost }}</div>
@@ -78,14 +78,14 @@
                         <div class="row">
                             <div class="form-group col-md-6 px-1">
                                 <label class="text-muted"><strong>Status Order</strong></label>
-                                <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded">
-                                    {{ invoice.order_status.toUpperCase() }}
+                                <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded text-capitalize">
+                                    {{ invoice.order_status }}
                                 </div>
                             </div>
                             <div class="form-group col-md-6 px-1">
                                 <label class="text-muted"><strong>Status Pembayaran</strong></label>
-                                <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded">
-                                    {{ invoice.payment_status.toUpperCase() }}
+                                <div class="mr-1 mb-1 px-3 py-2 text-sm border rounded text-capitalize">
+                                    {{ invoice.payment_status }}
                                 </div>
                             </div>
                             <div v-if="invoice.notes != null" class="form-group col-md-12 px-1">
@@ -215,6 +215,9 @@ export default {
         },
         linkWhatsapp () {
             return 'https://wa.me/' + this.link
+        },
+        linkCustomer () {
+            return 'https://wa.me/62' + this.invoice.customer_phone + '?text=Halo%20' + this.invoice.customer_name
         }
     }
 };
