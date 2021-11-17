@@ -62,7 +62,7 @@
                             Download
                         </a>
                     </div>
-                    <div class="col-md-6 px-4">
+                    <div class="col-md-8 px-4">
                         <div class="row float-right px-2">
                             <pagination class="" :links="employees.links" />
                         </div>

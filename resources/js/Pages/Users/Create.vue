@@ -52,7 +52,7 @@
                     <div class="dropdown-divider"></div>
                     <div class="row mt-4">
                         <div class="col-md-6 mx-auto">
-                            <button type="submit" class="btn btn-lg btn-block btn-outline-success mx-auto">Save</button>
+                            <button type="submit" class="btn btn-lg btn-block btn-success mx-auto">Save</button>
                         </div>
                     </div>
                 </form>

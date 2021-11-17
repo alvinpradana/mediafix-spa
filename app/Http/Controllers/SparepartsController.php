@@ -17,13 +17,15 @@ class SparepartsController extends Controller
         $user = auth()->user()->id;
         $count = Sparepart::where('spareparts.user_id', '=', auth()->user()->id)->sum('sparepart_quantity');
         $spareparts = Sparepart::query()
+            ->where('spareparts.user_id', '=', auth()->user()->id)
             ->when($request['search'], function ($query, $search) {
                 $query->where('sparepart_type', 'like', '%' . $search . '%')
-                    ->orWhere('sparepart_name', 'like', '%' . $search . '%');
+                ->orWhere('sparepart_name', 'like', '%' . $search . '%');
             })
             ->latest()
             ->where('spareparts.user_id', '=', auth()->user()->id)
             ->paginate(6)
+            ->onEachSide(1)
             ->withQueryString();
         
         return Inertia::render('Spareparts/Index', [

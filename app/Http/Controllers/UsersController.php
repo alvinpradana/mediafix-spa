@@ -25,6 +25,7 @@ class UsersController extends Controller
                 })
                 ->latest()
                 ->paginate(8)
+                ->onEachSide(1)
                 ->through(fn($user) => [
                     'name' => $user->name,
                     'username' => $user->username,

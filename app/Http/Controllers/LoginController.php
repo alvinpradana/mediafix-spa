@@ -23,7 +23,7 @@ class LoginController extends Controller
         ]);
 
         if (Auth::attempt($attributes)) {
-            return Redirect::route('dashboard')->with('alert_success', 'You are logged in.');
+            return Redirect::route('dashboard')->with('alert_success', 'Hello ' . auth()->user()->name . '! You are logged in.');
         }
         
         throw ValidationException::withMessages([

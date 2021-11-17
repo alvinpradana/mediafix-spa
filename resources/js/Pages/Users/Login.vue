@@ -16,26 +16,26 @@
                                 <h3 class="card-title text-left">Login</h3>
                                 <div class="dropdown-divider my-3"></div>
                                 <form @submit.prevent="store">
-                                    <div class="form-group">
+                                    <div class="form-group py-2">
                                         <label>Email *</label>
                                         <input v-model="form.email" type="text" class="form-control" :class="{'is-invalid': errors.email}" placeholder="Enter email">
                                         <small class="invalid-feedback" v-if="errors.email">{{ errors.email[0] }}</small>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group py-2">
                                         <label>Password *</label>
                                         <input v-model="form.password" type="text" class="form-control" :class="{'is-invalid': errors.password}" placeholder="Enter password">
                                         <small class="invalid-feedback" v-if="errors.password">{{ errors.password[0] }}</small>
                                     </div>
-                                    <div class="form-group d-flex align-items-center justify-content-between mt-4">
+                                    <!-- <div class="form-group d-flex align-items-center justify-content-between mt-4">
                                         <div class="form-check">
                                         <label class="form-check-label">
                                             <input v-model="form.remember" type="checkbox" class="form-check-input"> Remember me </label>
                                         </div>
                                         <a href="#" class="text-small text-primary"><u>Forgot password</u></a>
-                                    </div>
+                                    </div> -->
                                     <div class="dropdown-divider my-3"></div>
                                     <div class="text-center">
-                                        <button type="submit" class="btn btn-lg btn-block btn-outline-success">Login</button>
+                                        <button type="submit" class="btn btn-lg btn-block btn-success">Login</button>
                                     </div>
                                 </form>
                             </div>

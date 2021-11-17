@@ -1,14 +1,14 @@
 <template>
     <div class="container-fluid page-body-wrapper">
         <nav class="navbar p-0 fixed-top d-flex flex-row">
-            <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
+            <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch w-100 h-100">
                 <button class="navbar-toggler align-self-center collapsed" type="button" data-toggle="minimize" data-target="#navbar-collapse">
                     <span class="mdi mdi-menu"></span>
                 </button>
                 <ul class="navbar-nav">
-                    <li class="nav-item dropdown">
+                    <li class="nav-item">
                         <Link :href="route('invoice.create')" class="nav-link btn btn-success create-new-button" aria-expanded="false" >
-                            + Add New Invoice
+                            + Create New Invoice
                         </Link>
                     </li>
                 </ul>
@@ -68,6 +68,6 @@ import { Link } from "@inertiajs/inertia-vue3";
 export default {
     components: {
         Link,
-    }
+    },
 };
 </script>

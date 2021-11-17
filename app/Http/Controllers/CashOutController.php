@@ -15,13 +15,14 @@ class CashOutController extends Controller
     public function index(Request $request)
     {
         $cash_out = CashOut::query()
+            ->where('cash_outs.user_id', '=', auth()->user()->id)
             ->when($request['search'], function ($query, $search) {
                 $query->where('cash_description', 'like', '%' . $search . '%')
-                    ->orWhere('cash_date', 'like', '%' . $search . '%');
+                ->orWhere('cash_date', 'like', '%' . $search . '%');
             })
             ->latest()
-            ->where('cash_outs.user_id', '=', auth()->user()->id)
             ->paginate(6)
+            ->onEachSide(1)
             ->withQueryString();
 
         $month = date('m');

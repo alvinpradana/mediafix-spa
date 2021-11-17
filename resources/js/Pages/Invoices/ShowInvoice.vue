@@ -145,17 +145,17 @@
                     <div class="col-md-6">
                         <div class="row">
                             <div class="col-md-4">
-                                <button type="button" @click.prevent="destroy(invoice.id)" class="btn btn-lg btn-block btn-outline-danger mb-2">
+                                <button type="button" @click.prevent="destroy(invoice.id)" class="btn btn-lg btn-block btn-danger mb-2">
                                     Delete
                                 </button>
                             </div>
                             <div class="col-md-4">
-                                <Link :href="route('invoice.edit', {invoice: invoice.id}, 'edit')" type="button" class="btn btn-lg btn-block btn-outline-primary mb-2">
+                                <Link :href="route('invoice.edit', {invoice: invoice.id}, 'edit')" type="button" class="btn btn-lg btn-block btn-primary mb-2">
                                     Edit
                                 </Link>
                             </div>
                             <div class="col-md-4">
-                                <a :href="linkWhatsapp()" target="_blank" as="button" type="button" class="btn btn-lg btn-block btn-outline-warning mb-2">
+                                <a :href="linkWhatsapp()" target="_blank" as="button" type="button" class="btn btn-lg btn-block btn-warning mb-2">
                                     <i class="mdi mdi-print"></i>
                                     Send
                                 </a>
@@ -163,7 +163,7 @@
                         </div>
                     </div>
                     <div v-show="invoice.mark === 0" class="col-md-3">
-                        <button type="button" @click.prevent="mark(form)" class="btn btn-lg btn-block btn-outline-success mb-2">
+                        <button type="button" @click.prevent="mark(form)" class="btn btn-lg btn-block btn-success mb-2">
                             Mark as taken
                         </button>
                     </div>

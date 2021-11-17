@@ -14,17 +14,13 @@ class PartnersController extends Controller
     public function index(Request $request)
     {
         $partners = Partner::query()
-            ->when($request['search'], function ($query, $search) {
-                $query->where('partner_name', 'like', '%' . $search . '%')
-                    ->orWhere('phone_number', 'like', '%' . $search . '%')
-                    ->orWhere('partner_email', 'like', '%' . $search . '%')
-                    ->orWhere('partner_company', 'like', '%' . $search . '%')
-                    ->orWhere('start_join', 'like', '%' . $search . '%')
-                    ->orWhere('partner_address', 'like', '%' . $search . '%');
-            })
-            ->latest()
             ->where('partners.user_id', '=', auth()->user()->id)
+            ->when($request['search'], function ($query, $search) {
+                $query->where('partner_name', 'like', '%' . $search . '%');
+                })
+            ->latest()
             ->paginate(6)
+            ->onEachSide(1)
             ->withQueryString();
 
         return Inertia::render('Partners/Partners', [

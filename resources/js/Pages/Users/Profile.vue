@@ -36,10 +36,10 @@
                             <div class="col-md-6">
                                 <div class="row">
                                     <div class="col-md-6 mb-2">
-                                        <Link :href="route('users.edit', {user: user.id})" as="button" class="btn btn-lg btn-block btn-outline-primary">Edit</Link>
+                                        <Link :href="route('users.edit', {user: user.id})" as="button" class="btn btn-lg btn-block btn-primary">Edit</Link>
                                     </div>
                                     <div class="col-md-6 mb-2">
-                                        <button type="button" @click.prevent="destroy(user.id)" class="btn btn-lg btn-block btn-outline-danger">Delete</button>
+                                        <button type="button" @click.prevent="destroy(user.id)" class="btn btn-lg btn-block btn-danger">Delete</button>
                                     </div>
                                 </div>
                             </div>
@@ -72,10 +72,10 @@
                             <div class="dropdown-divider my-4"></div>
                             <div class="row">
                                 <div class="col-md-6 mb-2">
-                                    <button type="submit" class="btn btn-lg btn-block btn-outline-success">Save</button>
+                                    <button type="submit" class="btn btn-lg btn-block btn-success">Save</button>
                                 </div>
                                 <div class="col-md-6 mb-2">
-                                    <button @click.prevent="cancelPassword()" type="button" class="btn btn-lg btn-block btn-outline-danger">Cancel</button>
+                                    <button @click.prevent="cancelPassword()" type="button" class="btn btn-lg btn-block btn-danger">Cancel</button>
                                 </div>
                             </div>
                         </form>

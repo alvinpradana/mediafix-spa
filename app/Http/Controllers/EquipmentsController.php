@@ -17,13 +17,15 @@ class EquipmentsController extends Controller
         $user = auth()->user()->id;
         $count = Equipment::where('equipments.user_id', '=', auth()->user()->id)->sum('equipment_quantity');
         $equipments = Equipment::query()
+            ->where('equipments.user_id', '=', auth()->user()->id)
             ->when($request['search'], function ($query, $search) {
                 $query->where('equipment_type', 'like', '%' . $search . '%')
-                    ->orWhere('equipment_name', 'like', '%' . $search . '%');
+                ->orWhere('equipment_name', 'like', '%' . $search . '%');
             })
             ->latest()
             ->where('equipments.user_id', '=', auth()->user()->id)
             ->paginate(6)
+            ->onEachSide(1)
             ->withQueryString();
 
         return Inertia::render('Equipments/Index', [

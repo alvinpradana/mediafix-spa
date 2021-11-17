@@ -17,16 +17,20 @@ class InvoicesController extends Controller
     public function index(Request $request)
     {
         $invoices = Invoice::query()
+            ->where('invoices.user_id', '=', auth()->user()->id)
             ->when($request['search'], function ($query, $search) {
                 $query->where('customer_name', 'like', '%' . $search . '%')
                     ->orWhere('invoice_code', 'like', '%' . $search . '%')
+                    ->where('invoices.user_id', '=', auth()->user()->id)
                     ->orWhere('payment_status', 'like', '%' . $search . '%')
+                    ->where('invoices.user_id', '=', auth()->user()->id)
                     ->orWhere('order_status', 'like', '%' . $search . '%');
-            })
+                })
             ->with('units')
-            ->where('invoices.user_id', '=', auth()->user()->id)
             ->latest()
+            ->where('invoices.user_id', '=', auth()->user()->id)
             ->paginate(6)
+            ->onEachSide(1)
             ->withQueryString();
 
         return Inertia::render('Invoices/Index', [

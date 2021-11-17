@@ -14,12 +14,12 @@
         </div>
         <div v-if="chooseImage" class="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 rounded mt-3">
             <div class="col-md-6">
-                <button type="submit" class="btn btn-lg btn-block btn-outline-success">
+                <button type="submit" class="btn btn-lg btn-block btn-success">
                     Save
                 </button>
             </div>
             <div class="col-md-6">
-                <button @click="cancel()" type="button" class="btn btn-lg btn-block btn-outline-danger">
+                <button @click="cancel()" type="button" class="btn btn-lg btn-block btn-danger">
                     Cancel
                 </button>
             </div>

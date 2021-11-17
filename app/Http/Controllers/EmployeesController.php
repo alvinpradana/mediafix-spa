@@ -15,15 +15,12 @@ class EmployeesController extends Controller
     {
         $employees = Employee::query()
             ->when($request['search'], function ($query, $search) {
-                $query->where('employee_name', 'like', '%' . $search . '%')
-                    ->orWhere('phone_number', 'like', '%' . $search . '%')
-                    ->orWhere('employee_email', 'like', '%' . $search . '%')
-                    ->orWhere('employee_division', 'like', '%' . $search . '%')
-                    ->orWhere('employee_address', 'like', '%' . $search . '%');
+                $query->where('employee_name', 'like', '%' . $search . '%');
             })
             ->latest()
             ->where('employees.user_id', '=', auth()->user()->id)
             ->paginate(6)
+            ->onEachSide(1)
             ->withQueryString();
 
         return Inertia::render('Employees/Employees', [

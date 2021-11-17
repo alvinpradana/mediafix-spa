@@ -95,7 +95,7 @@
                                 <div><strong>Rp. {{ total_cost[index] }}</strong></div>
                             </td>
                             <td>
-                                <button type="button" @click="deleteRow(index)" class="btn btn-social-icon btn-outline-danger">&times;</button>
+                                <button type="button" @click="deleteRow(index)" class="btn btn-social-icon btn-danger">&times;</button>
                             </td>
                         </tr>
                     </table>
@@ -103,7 +103,7 @@
                         {{ $page.props.flash.alert_error }}
                     </div>
                     <div class="col-sm-12 col-md-2 mt-2 p-0">
-                        <button type="button" @click="addRow()" class="btn btn-lg btn-block btn-outline-success"> Add Item </button>
+                        <button type="button" @click="addRow()" class="btn btn-lg btn-block btn-success"> Add Unit </button>
                     </div>
                     <div class="row justify-content-between pl-2">
                         <div class="col-md-8">
@@ -190,7 +190,7 @@
                     <div class="dropdown-divider mt-4"></div>
                     <div class="row mt-3">
                         <div class="col-md-3">
-                            <button type="submit" class="btn btn-lg btn-block btn-outline-success mb-2">
+                            <button type="submit" class="btn btn-lg btn-block btn-success mb-2">
                                 <i class="mdi mdi-print"></i>
                                 Save Invoice
                             </button>
