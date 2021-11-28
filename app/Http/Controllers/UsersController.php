@@ -9,6 +9,7 @@ use App\Http\Requests\ImageRequest;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\RegistrationRequest;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 
 class UsersController extends Controller
@@ -24,14 +25,13 @@ class UsersController extends Controller
                         ->orWhere('workshop', 'like', '%' . $search . '%');
                 })
                 ->latest()
-                ->paginate(8)
+                ->paginate(6)
                 ->onEachSide(1)
                 ->through(fn($user) => [
                     'name' => $user->name,
                     'username' => $user->username,
                     'phone' => $user->phone,
                     'workshop' => $user->workshop,
-                    'user_added' => $user->user_added,
                 ]),
                 'filters' => $request->only(['search'])
         ]);
@@ -39,8 +39,7 @@ class UsersController extends Controller
 
     public function create()
     {
-        $user = auth()->user()->username;
-        return Inertia::render('Users/Create', compact('user'));
+        return Inertia::render('Users/Create');
     }
 
     public function store(RegistrationRequest $request)
@@ -66,6 +65,7 @@ class UsersController extends Controller
     {
         $attr = $request->validate([
             'name' => ['required', 'string', 'min:3'],
+            'username' => ['required', 'alpha_num', 'unique:users', 'between:3,32'],
             'email' => ['required', 'email', 'unique:users,email,' . auth()->id()],
             'phone' => ['required', 'min:11'],
             'workshop' => ['required', 'string', 'min:3'],
@@ -107,5 +107,16 @@ class UsersController extends Controller
         }
 
         return redirect()->back()->with('alert_success', 'Your profile image has been updated.');
+    }
+
+    public function destroyByAdmin($username)
+    {
+        if (auth()->user()->is_admin == 1) {
+            User::where('users.username', '=', $username)->delete();
+
+            return redirect()->back()->with('alert_success', 'User has been deleted successfully');
+        }
+
+        return redirect()->back()->with('alert_error', 'You cannot delete this user!');
     }
 }

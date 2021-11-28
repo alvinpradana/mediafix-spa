@@ -141,7 +141,7 @@ class InvoicesController extends Controller
             . '*Rp. '.$down_payment.'*' . '%0a%0a'
 
             . 'Keterangan :%0a'
-            . 'Status order : ' . '*'.strtoupper($invoice->order_status).'*' . '%0a'
+            . 'Status Order : ' . '*'.strtoupper($invoice->order_status).'*' . '%0a'
             . 'Status Pembayaran : ' . '*'.strtoupper($invoice->payment_status).'*%0a%0a' 
 
             . 'Tunggakan : '
@@ -151,14 +151,15 @@ class InvoicesController extends Controller
             . $guarantee . '%0a%0a'
 
             . 'Token : '
-            . '*'.$invoice->stripe_token.'*' . '%0a%0a'
+            . '*'.$invoice->stripe_token.'*' . '%0a'
+            . 'Token bisa dipakai untuk tracking progress repair melalui website www.mediafix.id' . '%0a%0a'
             
             . '_Notes :_%0a'
             . '_Harap bisa menunjukkan pesan ini untuk pengambilan unit servis, dan atau dengan nota cetak yang diberikan oleh kasir._%0a%0a'
             . '_Terima Kasih._%0a%0a'
 
             . '_Contact Us :_%0a'
-            . 'WA / Phone : ' . auth()->user()->phone . '%0a'
+            . 'WA / Phone : 0' . auth()->user()->phone . '%0a'
             . 'Instagram : @mediafix.id | @mediafix.jogja%0a'
             . 'Website : www.mediafix.id%0a'
         ;

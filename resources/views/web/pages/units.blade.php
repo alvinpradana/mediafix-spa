@@ -30,7 +30,7 @@
         <div class="col-lg-4 d-flex align-items-center">
             <div class="p-2"><i class="fab fa-instagram fa-2x"></i></div>
             <div class="ms-2">
-                <h6><a href="https://www.instagram.com/mediafix.id/" target="_blank">@medifix.id</a> | <a href="https://www.instagram.com/mediafix.jogja/" target="_blank">@mediafix.jogja</a></h6>
+                <h6><a href="https://www.instagram.com/mediafix.id/" target="_blank">@mediafix.id</a> | <a href="https://www.instagram.com/mediafix.jogja/" target="_blank">@mediafix.jogja</a></h6>
             </div>
         </div>
     </div>

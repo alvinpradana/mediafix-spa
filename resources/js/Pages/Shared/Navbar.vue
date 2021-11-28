@@ -7,19 +7,19 @@
                 </button>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <Link :href="route('invoice.create')" class="nav-link btn btn-success create-new-button" aria-expanded="false" >
+                        <Link :href="route('invoice.create')" class="nav-link btn btn-success create-new-button" aria-expanded="false">
                             + Create New Invoice
                         </Link>
                     </li>
                 </ul>
-                <ul class="navbar-nav navbar-nav-right">
+                <ul class="navbar-nav navbar-nav-right ml-auto">
                     <li class="nav-item dropdown">
                         <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
                             <div class="navbar-profile">
                                 <span v-if="!$page.props.auth.user.image" class="mdi mdi-account mr-1"></span>
                                 <img v-if="$page.props.auth.user.image" class="img-xs rounded-circle" :src="'/storage/' + $page.props.auth.user.image" :alt="$page.props.auth.user.name">
                                 <p v-if="$page.props.auth.user" class="mb-0 d-none d-sm-block navbar-profile-name">
-                                    {{ $page.props.auth.user.name }}
+                                    {{ $page.props.auth.user.username }}
                                 </p>
                                 <i class="mdi mdi-menu-down d-none d-sm-block ml-2"></i>
                             </div>
@@ -68,6 +68,6 @@ import { Link } from "@inertiajs/inertia-vue3";
 export default {
     components: {
         Link,
-    },
+    }
 };
 </script>

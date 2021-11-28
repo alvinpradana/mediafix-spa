@@ -31,6 +31,9 @@ Route::middleware('auth')->group( function () {
     Route::resource('dashboard/users', UsersController::class);
     Route::put('dashboard/users', [UsersController::class, 'password'])->name('password.update');
 
+    // User delete by admin
+    Route::delete('user/{user}', [UsersController::class, 'destroyByAdmin'])->name('user.delete');
+
     // User Image
     Route::post('user/image', [UsersController::class, 'storeImage'])->name('user.image');
 

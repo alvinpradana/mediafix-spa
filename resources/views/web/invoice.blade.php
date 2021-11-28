@@ -43,7 +43,7 @@
                                 <div class="col-sm-2 px-0">
                                     <div class="dropdown-divider border border-success"></div>
                                     <div class="row">
-                                        <small class="text-center"><i><strong>Diagnosis</strong></i></small>
+                                        <small class="text-center"><i><strong>Diagnosa</strong></i></small>
                                     </div>
                                 </div>
                                 <div class="col-sm-1 text-center px-0 fas fa-circle text-success"></div>
@@ -51,7 +51,7 @@
                                 <div class="col-sm-2 px-0">
                                     <div class="dropdown-divider border border-success"></div>
                                     <div class="row">
-                                        <small class="text-center"><i><strong>Diagnosis</strong></i></small>
+                                        <small class="text-center"><i><strong>Diagnosa</strong></i></small>
                                     </div>
                                 </div>
                                 <div class="col-sm-1 text-center px-0 fas fa-circle text-success"></div>
@@ -59,7 +59,7 @@
                                 <div class="col-sm-2 px-0">
                                     <div class="dropdown-divider border border-success"></div>
                                     <div class="row">
-                                        <small class="text-center"><i><strong>Diagnosis</strong></i></small>
+                                        <small class="text-center"><i><strong>Diagnosa</strong></i></small>
                                     </div>
                                 </div>
                                 <div class="col-sm-1 text-center px-0 fas fa-circle text-success"></div>
@@ -67,7 +67,7 @@
                                 <div class="col-sm-2 px-0">
                                     <div class="dropdown-divider border border-success"></div>
                                     <div class="row">
-                                        <small class="text-center"><i><strong>Diagnosis</strong></i></small>
+                                        <small class="text-center"><i><strong>Diagnosa</strong></i></small>
                                     </div>
                                 </div>
                                 <div class="col-sm-1 text-center px-0 fas fa-circle text-success"></div>
@@ -75,7 +75,7 @@
                                 <div class="col-sm-2 px-0">
                                     <div class="dropdown-divider border"></div>
                                     <div class="row">
-                                        <small class="text-center">Diagnosis</small>
+                                        <small class="text-center">Diagnosa</small>
                                     </div>
                                 </div>
                                 <div class="col-sm-1 text-center px-0 fas fa-circle"></div>
@@ -194,7 +194,7 @@
                                     </div>
                                 </div>
                                 <table class="table table-bordered border-success table-responsive text-white my-4">
-                                    <tr>
+                                    <tr class="text-center">
                                         <th class="text-center" width="5%">Qty</th>
                                         <th width="15%">Unit</th>
                                         <th width="15%">Tipe</th>
@@ -206,10 +206,10 @@
                                     @foreach($invoice->units as $unit)
                                         <tr>
                                             <td class="text-center">{{ $unit->unit_quantity }}</td>
-                                            <td>{{ strtoupper($unit->unit_type) }}</td>
-                                            <td>{{ strtoupper($unit->unit_name) }}</td>
-                                            <td>{{ strtoupper($unit->unit_description) }}</td>
-                                            <td>{{ strtoupper($unit->unit_completeness) }}</td>
+                                            <td class="text-capitalize">{{ $unit->unit_type }}</td>
+                                            <td class="text-capitalize">{{ $unit->unit_name }}</td>
+                                            <td class="text-capitalize">{{ $unit->unit_description }}</td>
+                                            <td class="text-capitalize">{{ $unit->unit_completeness }}</td>
                                             <td>Rp. {{ $unit->unit_cost }}</td>
                                             <td>Rp. {{ $unit->total_cost }}</td>
                                         </tr>
@@ -220,11 +220,11 @@
                                         <div class="row">
                                             <div class="form-group col-md-6">
                                                 <strong>Status Order</strong>
-                                                <div class="mr-1 mb-1 px-4 py-2 text-sm border border-success rounded">{{ strtoupper($invoice->order_status) }}</div>
+                                                <div class="mr-1 mb-1 px-4 py-2 text-sm border border-success rounded text-capitalize">{{ $invoice->order_status }}</div>
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <strong>Status Pembayaran</strong>
-                                                <div class="mr-1 mb-1 px-4 py-2 text-sm border border-success rounded">{{ strtoupper($invoice->payment_status) }}</div>
+                                                <div class="mr-1 mb-1 px-4 py-2 text-sm border border-success rounded text-capitalize">{{ $invoice->payment_status }}</div>
                                             </div>
                                             <div class="form-group col-md-12 mt-3">
                                                 <div class="mr-1 mb-1 px-4 py-3 mb-1 text-sm border border-success rounded">

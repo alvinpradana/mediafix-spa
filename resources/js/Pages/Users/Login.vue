@@ -18,12 +18,12 @@
                                 <form @submit.prevent="store">
                                     <div class="form-group py-2">
                                         <label>Email *</label>
-                                        <input v-model="form.email" type="text" class="form-control" :class="{'is-invalid': errors.email}" placeholder="Enter email">
+                                        <input v-model="form.email" type="email" class="form-control" :class="{'is-invalid': errors.email}" placeholder="Enter email">
                                         <small class="invalid-feedback" v-if="errors.email">{{ errors.email[0] }}</small>
                                     </div>
                                     <div class="form-group py-2">
                                         <label>Password *</label>
-                                        <input v-model="form.password" type="text" class="form-control" :class="{'is-invalid': errors.password}" placeholder="Enter password">
+                                        <input v-model="form.password" type="password" class="form-control" :class="{'is-invalid': errors.password}" placeholder="Enter password">
                                         <small class="invalid-feedback" v-if="errors.password">{{ errors.password[0] }}</small>
                                     </div>
                                     <!-- <div class="form-group d-flex align-items-center justify-content-between mt-4">
