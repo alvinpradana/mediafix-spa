@@ -53,33 +53,36 @@
                     </tr>
                     <tr v-for="(unit, index) in form.units" :key="unit.id">
                         <td>
-                            <input type="number" v-model="unit.unit_quantity" class="form-control" :class="{'is-invalid': errors.unit_quantity}">
+                            <input type="number" v-model="unit.unit_quantity" class="form-control" :class="{'is-invalid': errors['units.'+ index +'.unit_quantity']}">
                             <small class="invalid-feedback" v-if="errors['units.'+ index +'.unit_quantity']">
                                 {{ errors['units.'+ index +'.unit_quantity'][0] }}
                             </small>
                         </td>
                         <td>
-                            <select v-model="unit.unit_type" class="text-white form-control" :class="{'is-invalid': errors.unit_type}">
+                            <select v-model="unit.unit_type" class="text-white form-control" :class="{'is-invalid': errors['units.'+ index +'.unit_type']}">
                                 <option value="Camera">Camera</option>
                                 <option value="Handphone">Handphone</option>
                                 <option value="Laptop/PC">Laptop/PC</option>
                                 <option value="Device">Lainnya</option>
                             </select>
+                            <small class="invalid-feedback" v-if="errors['units.'+ index +'.unit_type']">
+                                {{ errors['units.'+ index +'.unit_type'][0] }}
+                            </small>
                         </td>
                         <td>
-                            <input type="text" v-model="unit.unit_name" class="form-control text-capitalize" :class="{'is-invalid': errors.unit_name}">
+                            <input type="text" v-model="unit.unit_name" class="form-control text-capitalize" :class="{'is-invalid': errors['units.'+ index +'.unit_name']}">
                             <small class="invalid-feedback" v-if="errors['units.'+ index +'.unit_name']">
                                 {{ errors['units.'+ index +'.unit_name'][0] }}
                             </small>
                         </td>			
                         <td>
-                            <input type="text" v-model="unit.unit_description" class="form-control text-capitalize" :class="{'is-invalid': errors.unit_description}">
+                            <input type="text" v-model="unit.unit_description" class="form-control text-capitalize" :class="{'is-invalid': errors['units.'+ index +'.unit_description']}">
                             <small class="invalid-feedback" v-if="errors['units.'+ index +'.unit_description']">
                                 {{ errors['units.'+ index +'.unit_description'][0] }}
                             </small>
                         </td>
                         <td>
-                            <input type="text" v-model="unit.unit_completeness" class="form-control text-capitalize" :class="{'is-invalid': errors.unit_completeness}">
+                            <input type="text" v-model="unit.unit_completeness" class="form-control text-capitalize" :class="{'is-invalid': errors['units.'+ index +'.unit_completeness']}">
                             <small class="invalid-feedback" v-if="errors['units.'+ index +'.unit_completeness']">
                                 {{ errors['units.'+ index +'.unit_completeness'][0] }}
                             </small>
@@ -95,8 +98,13 @@
                         </td>
                     </tr>
                 </table>
-                <div v-if="$page.props.flash.alert_error" class="alert alert-danger my-2" role="alert">
-                    {{ $page.props.flash.alert_error }}
+                <div v-if="$page.props.flash.alert_error" class="mx-auto my-2">
+                    <div class="alert alert-danger" role="alert">
+                        {{ $page.props.flash.alert_error }}
+                        <button @click="close()" type="button" class="close" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
                 </div>
                 <div class="col-sm-12 col-md-2 mt-2 p-0">
                     <button type="button" @click="addRow()" class="btn btn-lg btn-block btn-success"> Add Unit </button>
@@ -280,6 +288,9 @@ export default {
         },
         deleteRow (index) {
             this.form.units.splice(index, 1);
+        },
+        close () {
+            this.$page.props.flash.alert_error = false
         }
     }
 };

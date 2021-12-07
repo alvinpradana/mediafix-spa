@@ -9,7 +9,6 @@ use App\Http\Requests\ImageRequest;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\RegistrationRequest;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 
 class UsersController extends Controller
@@ -28,6 +27,7 @@ class UsersController extends Controller
                 ->paginate(6)
                 ->onEachSide(1)
                 ->through(fn($user) => [
+                    'id' => $user->id,
                     'name' => $user->name,
                     'username' => $user->username,
                     'phone' => $user->phone,
@@ -65,19 +65,19 @@ class UsersController extends Controller
     {
         $attr = $request->validate([
             'name' => ['required', 'string', 'min:3'],
-            'username' => ['required', 'alpha_num', 'unique:users', 'between:3,32'],
+            'username' => ['required', 'alpha_num','between:3,32,', 'unique:users,username,' . auth()->id()],
             'email' => ['required', 'email', 'unique:users,email,' . auth()->id()],
             'phone' => ['required', 'min:11'],
             'workshop' => ['required', 'string', 'min:3'],
         ]);
 
-        auth()->user()->update($attr);
+        $request->user()->update($attr);
         return Redirect::route('user.profile')->with('alert_success', 'Your profile has been updated');
     }
 
-    public function destroy()
+    public function destroy($id)
     {
-        auth()->user()->delete();
+        User::findOrFail($id)->delete();
         return Redirect::route('login')->with('alert_success', 'Your account has been deleted.');
     }
 
@@ -90,7 +90,7 @@ class UsersController extends Controller
         ]);
 
         if (Hash::check($request->current_password, auth()->user()->password)) {
-            auth()->user()->update($request->only('password'));
+            $request->user()->update($request->only('password'));
 
             return back()->with('alert_success', 'Your password has been updated.');
         }
@@ -103,7 +103,7 @@ class UsersController extends Controller
     {
         if ($request->hasFile('image')) {
             $image_path = $request->file('image')->store('image', 'public');
-            auth()->user()->update(['image' => $image_path]);
+            $request->user()->update(['image' => $image_path]);
         }
 
         return redirect()->back()->with('alert_success', 'Your profile image has been updated.');
@@ -118,5 +118,31 @@ class UsersController extends Controller
         }
 
         return redirect()->back()->with('alert_error', 'You cannot delete this user!');
+    }
+
+    public function showByAdmin($username)
+    {
+        $user = User::where('username', $username)->first();
+
+        if (auth()->user()->is_admin == 1) {
+            return Inertia::render('Users/Show', compact('user'));
+        }
+        return back();
+    }
+
+    public function editUserPasswordByAdmin(Request $request)
+    {
+        $request->validate([
+            'password' => ['required', 'string', 'min:6', 'confirmed'],
+            'password_confirmation' => ['required', 'same:password', 'min:6'],
+        ]);
+
+        $password = bcrypt($request->password);
+
+        if (auth()->user()->is_admin == 1) {
+            User::where('username', $request->username)->update(['password' => $password]);
+            return back()->with('alert_success', 'Password has been updated successfully.');
+        }
+        return back();
     }
 }

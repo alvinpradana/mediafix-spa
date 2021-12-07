@@ -83,7 +83,7 @@ import { Inertia } from '@inertiajs/inertia';
 export default {
     layout: Layout,
 
-    data(props) {
+    data() {
         const form = reactive({
             name: null,
             username: null,

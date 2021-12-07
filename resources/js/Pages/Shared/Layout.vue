@@ -2,7 +2,7 @@
     <main class="container-scroller">
         <header>
             <Sidebar />
-            <Navbar />
+            <Navbar :key="navbarKey" />
         </header>
         <article class="main-panel">
             <div class="content-wrapper">
@@ -33,6 +33,9 @@ export default {
         close () {
             this.$page.props.flash.alert_success = false
         }
+    },
+    mounted () {
+        this.$forceUpdate ()
     }
 }
 </script>

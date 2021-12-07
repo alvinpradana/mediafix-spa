@@ -37,7 +37,10 @@
                             <td><a :href="`https://wa.me/62`+ user.phone + `?text=Halo%20`+ user.name" target="_blank">0{{ user.phone }}</a></td>
                             <td>{{ user.workshop }}</td>
                             <td>{{ moment(user.created_at).format("LL") }}</td>
-                            <td v-if="$page.props.auth.user.is_admin == 1" class="text-center">
+                            <td v-if="$page.props.auth.user.is_admin === 1" class="text-center">
+                                <Link :href="route('user.show', {user: user.username})" as="button" class="btn btn-primary mr-1">
+                                    <span class="icon-sm mdi mdi-eye"></span>
+                                </Link>
                                 <button type="button" @click.prevent="destroy(user.username)" class="btn btn-danger">
                                     <span class="icon-sm mdi mdi-delete"></span>
                                 </button>

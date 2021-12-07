@@ -10,7 +10,7 @@
                                 <h2 class="mb-0">Invoices</h2>
                             </div>
                             <h6 class="text-muted font-weight-normal">
-                                Manage invoices and transactions
+                                Manage units and transactions
                             </h6>
                         </div>
                         <div class="col-4 col-sm-4 col-xl-4 text-center text-xl-right">
@@ -139,8 +139,6 @@ export default {
     },
     props: {
         invoices: Object,
-        sparepart: Object,
-        equipment: Object,
     },
     methods: {
         setTarget (id) {

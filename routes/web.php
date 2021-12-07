@@ -8,6 +8,7 @@ use App\Http\Controllers\InvoicesController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\PartnersController;
+use App\Http\Controllers\PasswordResetController;
 use App\Http\Controllers\SparepartsController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\WebController;
@@ -33,6 +34,10 @@ Route::middleware('auth')->group( function () {
 
     // User delete by admin
     Route::delete('user/{user}', [UsersController::class, 'destroyByAdmin'])->name('user.delete');
+
+    // User show by admin
+    Route::get('dashboard/user/{user}', [UsersController::class, 'showByAdmin'])->name('user.show');
+    Route::put('password-update', [UsersController::class, 'editUserPasswordByAdmin'])->name('password.reset');
 
     // User Image
     Route::post('user/image', [UsersController::class, 'storeImage'])->name('user.image');

@@ -5,39 +5,36 @@
                 <div class="row w-100 m-0">
                     <!-- <div class="content-wrapper full-page-wrapper d-flex align-items-center auth login-bg"> -->
                     <div class="content-wrapper full-page-wrapper d-flex align-items-center">
-                        <div class="card col-md-4 mx-auto">
-                            <div class="card-body px-4 py-5">
-                                <div v-if="$page.props.flash.alert_success" class="alert alert-success" role="alert">
+                        <div class="col-md-4 mx-auto">
+                            <div v-if="$page.props.flash.alert_success" class="mx-auto">
+                                <div class="alert alert-success" role="alert">
                                     {{ $page.props.flash.alert_success }}
                                     <button @click="close()" type="button" class="close" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
-                                <h3 class="card-title text-left">Login</h3>
-                                <div class="dropdown-divider my-3"></div>
-                                <form @submit.prevent="store">
-                                    <div class="form-group py-2">
-                                        <label>Email *</label>
-                                        <input v-model="form.email" type="email" class="form-control" :class="{'is-invalid': errors.email}" placeholder="Enter email">
-                                        <small class="invalid-feedback" v-if="errors.email">{{ errors.email[0] }}</small>
-                                    </div>
-                                    <div class="form-group py-2">
-                                        <label>Password *</label>
-                                        <input v-model="form.password" type="password" class="form-control" :class="{'is-invalid': errors.password}" placeholder="Enter password">
-                                        <small class="invalid-feedback" v-if="errors.password">{{ errors.password[0] }}</small>
-                                    </div>
-                                    <!-- <div class="form-group d-flex align-items-center justify-content-between mt-4">
-                                        <div class="form-check">
-                                        <label class="form-check-label">
-                                            <input v-model="form.remember" type="checkbox" class="form-check-input"> Remember me </label>
-                                        </div>
-                                        <a href="#" class="text-small text-primary"><u>Forgot password</u></a>
-                                    </div> -->
+                            </div>
+                            <div class="card">
+                                <div class="card-body px-4 py-4">
+                                    <h3 class="card-title text-left">Login</h3>
                                     <div class="dropdown-divider my-3"></div>
-                                    <div class="text-center">
-                                        <button type="submit" class="btn btn-lg btn-block btn-success">Login</button>
-                                    </div>
-                                </form>
+                                    <form @submit.prevent="store" autocomplete="off">
+                                        <div class="form-group py-2">
+                                            <label>Email *</label>
+                                            <input v-model="form.email" type="email" class="form-control" :class="{'is-invalid': errors.email}" placeholder="Enter email">
+                                            <small class="invalid-feedback" v-if="errors.email">{{ errors.email[0] }}</small>
+                                        </div>
+                                        <div class="form-group py-2">
+                                            <label>Password *</label>
+                                            <input v-model="form.password" type="password" class="form-control" :class="{'is-invalid': errors.password}" placeholder="Enter password">
+                                            <small class="invalid-feedback" v-if="errors.password">{{ errors.password[0] }}</small>
+                                        </div>
+                                        <div class="dropdown-divider my-3"></div>
+                                        <div class="text-center">
+                                            <button type="submit" class="btn btn-lg btn-block btn-success">Login</button>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>

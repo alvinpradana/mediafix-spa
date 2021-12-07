@@ -9,7 +9,7 @@
         </div>
         <div class="col-lg-6 d-flex align-items-center" data-aos="fade-down">
             <form action="{{ route('invoice') }}" method="get" class="input-group my-3">
-                <input type="text" class="form-control p-2" name="stripe_token" value="{{ old('stripe_token') }}" placeholder="Enter your stripe token">
+                <input type="text" class="form-control p-2" name="stripe_token" value="{{ old('stripe_token') }}" placeholder="Enter your token here">
                 <button class="btn-secondary text-light" type="submit">Submit</button>
             </form>
         </div>

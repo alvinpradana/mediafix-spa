@@ -14,13 +14,22 @@ class DashboardTest extends TestCase
     /** @test */
     public function dashboard_berhasil_diakses_jika_user_sudah_login()
     {
-        $user = User::factory()->create();
+        $this->withExceptionHandling();
+
+        $user = User::factory()->create(); 
 
         $this->actingAs($user);
 
-        $this->withExceptionHandling();
         $response = $this->get('dashboard');
 
         $response->assertStatus(200);
+    }
+
+    /** @test */
+    public function user_redirect_ke_halaman_login_jika_login_gagal()
+    {
+        $response = $this->get('dashboard');
+
+        $response->assertRedirect(route('login'));
     }
 }

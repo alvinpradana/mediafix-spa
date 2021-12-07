@@ -193,7 +193,7 @@
                                         <div class="mr-1 mb-1 px-3 py-2 border border-success rounded">{{ $invoice->guarantee }} Hari</div>
                                     </div>
                                 </div>
-                                <table class="table table-bordered border-success table-responsive text-white my-4">
+                                <table class="table table-responsive table-bordered border-success text-white my-4">
                                     <tr class="text-center">
                                         <th class="text-center" width="5%">Qty</th>
                                         <th width="15%">Unit</th>

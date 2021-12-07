@@ -37,7 +37,7 @@
                                 <div class="col-md-6 mb-2">
                                     <Link :href="route('users.edit', {user: user.id})" as="button" class="btn btn-lg btn-block btn-primary">Edit</Link>
                                 </div>
-                                <div class="col-md-6 mb-2">
+                                <div v-if="user.is_admin == null" class="col-md-6 mb-2">
                                     <button type="button" @click.prevent="destroy(user.id)" class="btn btn-lg btn-block btn-danger">Delete</button>
                                 </div>
                             </div>
