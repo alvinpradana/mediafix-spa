@@ -78,6 +78,7 @@ import moment from "moment";
 import { ref } from '@vue/reactivity';
 import { watch } from '@vue/runtime-core';
 import { Inertia } from '@inertiajs/inertia';
+import debounce from "lodash/debounce";
 
 export default {
     layout: Layout,
@@ -95,12 +96,12 @@ export default {
     data (props) {
         let search = ref(props.filters.search)
 
-        watch (search, value => {
+        watch (search, debounce (function (value) {
             Inertia.get('/dashboard/users', { search: value }, {
                 preserveState: true,
                 replace: true
             })
-        })
+        }, 300))
 
         return {
             search,

@@ -78,6 +78,7 @@ import { Inertia } from '@inertiajs/inertia';
 import Pagination from "../Shared/Pagination"
 import { ref } from '@vue/reactivity';
 import { watch } from '@vue/runtime-core';
+import debounce from "lodash/debounce";
 
 export default {
     layout: Layout,
@@ -94,12 +95,12 @@ export default {
     data (props) {
         let search = ref(props.filters.search)
 
-        watch (search, value => {
+        watch (search, debounce (function (value) {
             Inertia.get('/employees', { search: value }, {
                 preserveState: true,
                 replace: true
             })
-        })
+        }, 300))
 
         return {
             search
